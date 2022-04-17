@@ -1,0 +1,17 @@
+{
+  "name": "Increase Uber Key Droprate",
+  "description": "Multiply the probability for the uber keys to drop.",
+  "author": "Jobus",
+  "version": "1.0",
+  "config": [
+    {
+      "id": "multiplier",
+      "type": "number",
+      "name": "Probability Multiplier",
+      "description": "Increase the probability that uber keys drop from the Countess, Summoner, and Nihlathak in Hell by this multiplier.",
+      "defaultValue": 5,
+      "minValue": 1,
+      "maxValue": 100
+    }
+  ]
+}

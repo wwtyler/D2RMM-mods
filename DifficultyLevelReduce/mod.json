@@ -1,0 +1,41 @@
+{
+  "name": "Difficulty Level Reduce",
+  "description": "Difficulty Level Reduce",
+  "author": "wwtyler",
+  "website": "",
+  "version": "1.0",
+  "config": [
+    {
+      "id": "DeathExpPenalty",
+      "type": "checkbox",
+      "name": "Adjust DeathExpPenalty",
+      "description": "Disable to not modify the DeathExpPenalty.",
+      "defaultValue": true
+    },
+    {
+      "id": "DeathExpMultiplier",
+      "type": "number",
+      "name": "DeathExp Multiplier",
+      "description": "",
+      "defaultValue": 100,
+      "minValue": 10,
+      "maxValue": 300
+    },
+    {
+      "id": "ResistPenalty",
+      "type": "checkbox",
+      "name": "Adjust ResistPenalty",
+      "description": "Disable to not modify the ResistPenalty.",
+      "defaultValue": true
+    },
+    {
+      "id": "ResistPenaltyMultiplier",
+      "type": "number",
+      "name": "ResistPenalty Multiplier",
+      "description": "",
+      "defaultValue": 100,
+      "minValue": 10,
+      "maxValue": 300
+    }
+  ]
+}
