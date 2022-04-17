@@ -1,1 +1,6 @@
-{"DeathExpPenalty":true,"DeathExpMultiplier":150,"ResistPenalty":true,"ResistPenaltyMultiplier":150}
+{
+    "DeathExpPenalty": true,
+    "DeathExpMultiplier": 100,
+    "ResistPenalty": true,
+    "ResistPenaltyMultiplier": 100
+}
