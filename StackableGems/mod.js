@@ -85,7 +85,7 @@ misc.rows.forEach((item) => {
       code: converItemTypeToStackItemType(item.code),
       stackable: 1,
       minstack: 1,
-      maxstack: 500,
+      maxstack: 99,
       spawnstack: 1,
       spelldesc: 2,
       spelldescstr: 'StackableGem',
@@ -154,7 +154,7 @@ if (config.convertWhenDestacking) {
   for (let i = 0; i < ITEM_TYPES.length; i = i + 1) {
     const itemtype = ITEM_TYPES[i];
     const stacktype = converItemTypeToStackItemType(itemtype);
-    for (let j = 2; j <= 500; j = j + 1) {
+    for (let j = 2; j <= 99; j = j + 1) {
       cubemain.rows.push({
         description: `Stack of ${j} ${itemtype} -> Stack of ${
           j - 1
@@ -179,7 +179,7 @@ else if (
     (row) => row.description === 'Stack of 2 -> Stack of 1 and Stack of 1'
   ) == null
 ) {
-  for (let i = 2; i <= 500; i = i + 1) {
+  for (let i = 2; i <= 99; i = i + 1) {
     cubemain.rows.push({
       description: `Stack of ${i} -> Stack of ${i - 1} and Stack of 1`,
       enabled: 1,

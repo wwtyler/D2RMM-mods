@@ -5,12 +5,17 @@ if (config.items) {
     if (
       row.code === 'tbk' || // Tome of Town Portal
       row.code === 'ibk' || // Tome of Identify
-      row.code === 'aqv' || // Arrows
-      row.code === 'cqb' || // Bolts
       row.code === 'key' // Key
+    ) {
+      row.maxstack = 200;
+    }
+    else if (
+      row.code === 'aqv' || // Arrows
+      row.code === 'cqb' // Bolts
     ) {
       row.maxstack = 500;
     }
+
   });
   D2RMM.writeTsv(miscFilename, misc);
 }
