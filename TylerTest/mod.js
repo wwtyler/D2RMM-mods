@@ -115,7 +115,6 @@ itemModifiers.forEach((item) => {
         item.zhTW = 'ÿc3ÿcA%d%% 更佳的機會取得魔法裝備(MF)ÿc3';
     }
 
-    ModitemdamPoissk
 
 });
 D2RMM.writeJson(itemModifiersFilename, itemModifiers);
