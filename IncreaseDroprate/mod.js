@@ -1,3 +1,4 @@
+
 if (config.runes) {
   const treasureclassexFilename = 'global\\excel\\treasureclassex.txt';
   const treasureclassex = D2RMM.readTsv(treasureclassexFilename);
@@ -18,14 +19,74 @@ if (config.runes) {
     }
   });
   D2RMM.writeTsv(treasureclassexFilename, treasureclassex);
+}
+
+/////////////////////////////////////////////////////////
+
+
+if (config.equipment) {
+  const treasureclassexFilename = 'global\\excel\\treasureclassex.txt';
+  const treasureclassex = D2RMM.readTsv(treasureclassexFilename);
+
+  const DIFFICULTY_AFFIXES = ['', ' (N)', ' (H)'];
+  const DIFFICULTY_QUEST_AFFIXES = ['q', 'q (N)', 'q (H)'];
+
+  const BOSS_NAMES = ['Andariel', 'Duriel', 'Mephisto', 'Diablo', 'Baal'];
+
+  treasureclassex.rows.forEach((row) => {
+    const treasureClass = row['Treasure Class'];
+
+    // 高级别装备掉落概率
+    const prob9 = 'Prob9';
+    if (row[prob9] > 200) {
+      row[prob9] = 200;
+    }
+
+    const uniqueRate = 'Unique';
+    const setRate = 'Set';
+    const rareRate = 'Rare';
+    const magicRate = 'Magic';
+
+    var questRow = null;
+
+    // 难度与关卡Boss掉落调整
+    DIFFICULTY_QUEST_AFFIXES.forEach((difficultyQuestAffix) => {
+      BOSS_NAMES.forEach((bossName) => {
+        const bossQuestCell = `${bossName}${difficultyQuestAffix}`;
+
+        if (treasureClass === bossQuestCell) {
+          if (row['Prob2'] > 0)
+            row['Prob2'] = Math.floor(row['Prob2'] * 2);
+        }
+      })
+    });
+
+    DIFFICULTY_AFFIXES.forEach((difficultyAffix) => {
+      BOSS_NAMES.forEach((bossName) => {
+        const bossCell = `${bossName}${difficultyAffix}`;
+        if (treasureClass === bossCell) {
+          row[uniqueRate] = 996;
+          row[setRate] = 996
+          row[rareRate] = 1024;
+          row[magicRate] = 1024;
+          row = questRow;
+        }
+      })
+    });
+
+
+  });
+  D2RMM.writeTsv(treasureclassexFilename, treasureclassex);
 
 }
 
+/////////////////////////////////////////////////////////
+
 if (config.equipment) {
   const { equipmentChance, equipmentMin } = config;
-  const treasureclassexFilename = 'global\\excel\\itemratio.txt';
-  const treasureclassex = D2RMM.readTsv(treasureclassexFilename);
-  treasureclassex.rows.forEach((row) => {
+  const itemratioFilename = 'global\\excel\\itemratio.txt';
+  const itemratio = D2RMM.readTsv(itemratioFilename);
+  itemratio.rows.forEach((row) => {
     row.Unique = Math.max(
       Math.min(4, row.Unique),
       Math.floor(row.Unique / equipmentChance)
@@ -55,5 +116,5 @@ if (config.equipment) {
       Math.floor(row.HiQuality / equipmentChance)
     );
   });
-  D2RMM.writeTsv(treasureclassexFilename, treasureclassex);
+  D2RMM.writeTsv(itemratioFilename, itemratio);
 }
