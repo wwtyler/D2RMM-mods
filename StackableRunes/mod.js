@@ -31,9 +31,8 @@ D2RMM.writeJson(itemsFilename, newItems);
 const miscDirFilename = `hd\\items\\misc\\${SINGLE_ITEM_CODE}\\`;
 for (const index in miscFilenames) {
   const miscFilename = `${miscDirFilename + miscFilenames[index]}.json`;
-  const miscStackFilename = `${
-    miscDirFilename + miscFilenames[index]
-  }_stack.json`;
+  const miscStackFilename = `${miscDirFilename + miscFilenames[index]
+    }_stack.json`;
   const miscStack = D2RMM.readJson(miscFilename);
   D2RMM.writeJson(miscStackFilename, miscStack);
 }
@@ -142,9 +141,8 @@ if (config.convertWhenDestacking) {
     const stacktype = converItemTypeToStackItemType(itemtype);
     for (let j = 2; j <= 99; j = j + 1) {
       cubemain.rows.push({
-        description: `Stack of ${j} ${itemtype} -> Stack of ${
-          j - 1
-        } and Stack of 1`,
+        description: `Stack of ${j} ${itemtype} -> Stack of ${j - 1
+          } and Stack of 1`,
         enabled: 1,
         version: 0,
         op: 18, // skip recipe if item's Stat.Accr(param) != value
@@ -183,24 +181,6 @@ else if (
 }
 D2RMM.writeTsv(cubemainFilename, cubemain);
 
-// D2R colors runes as orange by default, but it seems to be based on item type
-// rather than localization strings so it does not apply to the stacked versions
-// we update the localization file to manually color the names of runes here
-// so that it will also apply to the stacked versions of the runes
-const itemRunesFilename = 'local\\lng\\strings\\item-runes.json';
-const itemRunes = D2RMM.readJson(itemRunesFilename);
-itemRunes.forEach((item) => {
-  const itemtype = item.Key;
-  if (itemtype.match(/^r[0-9]{2}$/) != null) {
-    // update all localizations
-    for (const key in item) {
-      if (key !== 'id' && key !== 'Key') {
-        item[key] = `ÿc8${item[key]}`;
-      }
-    }
-  }
-});
-D2RMM.writeJson(itemRunesFilename, itemRunes);
 
 if (config.usenewsprites) {
   D2RMM.copyFile(

@@ -18,6 +18,24 @@
       "name": "Increase Weapon Stack Size",
       "description": "Enable to increase the stack size of all throwing weapons to 500.",
       "defaultValue": true
+    },
+    {
+      "id": "MaxMiscStack",
+      "type": "number",
+      "name": "MaxMiscStack Config",
+      "description": "",
+      "defaultValue": 80,
+      "minValue": 20,
+      "maxValue": 500
+    },
+    {
+      "id": "MaxAmmoStack",
+      "type": "number",
+      "name": "MaxAmmoStack Config",
+      "description": "",
+      "defaultValue": 200,
+      "minValue": 100,
+      "maxValue": 500
     }
   ]
 }

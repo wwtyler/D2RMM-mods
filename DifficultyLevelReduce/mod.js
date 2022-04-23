@@ -11,5 +11,11 @@ difficultylevels.rows.forEach((row) => {
    
   }
 
+  row.GambleRare =  row.GambleRare * 3;
+  row.GambleSet =  row.GambleSet * 5 ;
+  row.GambleUnique = row.GambleUnique * 10
+  row.GambleUltra= row.GambleUltra * 10;
+  row.GambleUber =  row.GambleUber * 5;
+
 });
 D2RMM.writeTsv(difficultylevelsFilename, difficultylevels);

@@ -7,13 +7,13 @@ if (config.items) {
       row.code === 'ibk' || // Tome of Identify
       row.code === 'key' // Key
     ) {
-      row.maxstack = 200;
+      row.maxstack = config.MaxMiscStack;
     }
     else if (
       row.code === 'aqv' || // Arrows
       row.code === 'cqb' // Bolts
     ) {
-      row.maxstack = 500;
+      row.maxstack = config.MaxAmmoStack;
     }
 
   });
@@ -30,9 +30,9 @@ if (config.weapons) {
       // only modify throwing weapons
       row.stackable === '1'
     ) {
-      row.minstack = 500;
-      row.maxstack = 500;
-      row.spawnstack = 500;
+      row.minstack =  config.MaxAmmoStack;
+      row.maxstack =  config.MaxAmmoStack;
+      row.spawnstack =  config.MaxAmmoStack;
     }
   });
   D2RMM.writeTsv(weaponsFilename, weapons);

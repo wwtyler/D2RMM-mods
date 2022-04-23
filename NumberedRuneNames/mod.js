@@ -7,7 +7,17 @@ itemRunes.forEach((item) => {
     // update all localizations
     for (const key in item) {
       if (key !== 'id' && key !== 'Key') {
-        item[key] = `${item[key]} (${runeNumber})`;
+        item[key] = `${item[key]} #${runeNumber}`;
+      }
+    }
+  }
+
+  if (itemtype.match(/^r[0-9]{2}L$/) != null) {
+    const runeNumber = itemtype.substring(1, 3);;
+    // update all localizations
+    for (const key in item) {
+      if (key !== 'id' && key !== 'Key') {
+        item[key] = `${item[key]} #${runeNumber}`;
       }
     }
   }
