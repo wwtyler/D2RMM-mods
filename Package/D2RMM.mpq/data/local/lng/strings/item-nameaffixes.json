@@ -54,7 +54,7 @@
     "id": 1727,
     "Key": "Hiquality",
     "enUS": "Superior",
-    "zhTW": "特等的",
+    "zhTW": "★特等★的",
     "deDE": "[fs]gute[ms]guter[ns]gutes[pl]gute",
     "esES": "[fs]superior[ms]superior[fp]superiores[mp]superiores",
     "frFR": "[ms]supérieur[fs]supérieure[mp]supérieurs[fp]supérieures",
@@ -65,7 +65,7 @@
     "jaJP": "上質な",
     "ptBR": "[ms]Superior[mp]Superiores[fs]Superior[fp]Superiores",
     "ruRU": "[ms]превосходный[fs]превосходная[ns]превосходное[pl]превосходные",
-    "zhCN": "精良"
+    "zhCN": "★精良★"
   },
   {
     "id": 1728,
@@ -3454,7 +3454,7 @@
     "id": 2215,
     "Key": "gld",
     "enUS": "Gold",
-    "zhTW": "金幣",
+    "zhTW": "金",
     "deDE": "Gold",
     "esES": "de oro",
     "frFR": "or",
@@ -3465,13 +3465,13 @@
     "jaJP": "ゴールド",
     "ptBR": "Ouro",
     "ruRU": "золотых",
-    "zhCN": "金币"
+    "zhCN": "金"
   },
   {
     "id": 2248,
     "Key": "gsb",
     "enUS": "Sapphire",
-    "zhTW": "藍寶石",
+    "zhTW": "ÿc1藍寶石ÿc0",
     "deDE": "Saphir",
     "esES": "Zafiro",
     "frFR": "Saphir",
@@ -3482,13 +3482,13 @@
     "jaJP": "サファイア",
     "ptBR": "Safira",
     "ruRU": "[ms]Сапфир",
-    "zhCN": "蓝宝石"
+    "zhCN": "ÿc1蓝宝石ÿc0"
   },
   {
     "id": 2254,
     "Key": "gsg",
     "enUS": "Emerald",
-    "zhTW": "綠寶石",
+    "zhTW": "ÿc1綠寶石ÿc0",
     "deDE": "Smaragd",
     "esES": "Esmeralda",
     "frFR": "Émeraude",
@@ -3499,13 +3499,13 @@
     "jaJP": "エメラルド",
     "ptBR": "Esmeralda",
     "ruRU": "[ms]Изумруд",
-    "zhCN": "绿宝石"
+    "zhCN": "ÿc1绿宝石ÿc0"
   },
   {
     "id": 2258,
     "Key": "gsr",
     "enUS": "Ruby",
-    "zhTW": "紅寶石",
+    "zhTW": "ÿc1紅寶石ÿc0",
     "deDE": "Rubin",
     "esES": "Rubí",
     "frFR": "Rubis",
@@ -3516,13 +3516,13 @@
     "jaJP": "ルビー",
     "ptBR": "Rubi",
     "ruRU": "[ms]Рубин",
-    "zhCN": "红宝石"
+    "zhCN": "ÿc1红宝石ÿc0"
   },
   {
     "id": 2263,
     "Key": "gsw",
     "enUS": "Diamond",
-    "zhTW": "鑽石",
+    "zhTW": "ÿc1鑽石ÿc0",
     "deDE": "Diamant",
     "esES": "Diamante",
     "frFR": "Diamant",
@@ -3533,7 +3533,7 @@
     "jaJP": "ダイアモンド",
     "ptBR": "Diamante",
     "ruRU": "[ms]Алмаз",
-    "zhCN": "钻石"
+    "zhCN": "ÿc1钻石ÿc0"
   },
   {
     "id": 2282,
@@ -3900,7 +3900,7 @@
     "deDE": "Abscheu -",
     "esES": "[fs]de reticencia[ms]de reticencia[fp]de reticencia[mp]de reticencia",
     "frFR": "de répugnance",
-    "itIT": "dell'Avversione",
+    "itIT": "Abominevole",
     "koKR": "지긋지긋한",
     "plPL": "[fs]Niechętna[ms]Niechętny[nl]Niechętne",
     "esMX": "[ms]despreciado[fs]despreciada[mp]despreciados[fp]despreciadas",
@@ -6361,7 +6361,7 @@
     "id": 2759,
     "Key": "grin",
     "enUS": "Grin",
-    "zhTW": "獰笑者",
+    "zhTW": "獰笑",
     "deDE": "[ms]Grinser",
     "esES": "[fs]Mueca",
     "frFR": "[ms]Rictus",
@@ -7279,7 +7279,7 @@
     "id": 2813,
     "Key": "SlimeUM",
     "enUS": "Slime",
-    "zhTW": "黏毒",
+    "zhTW": "黏液",
     "deDE": "[ms]Schleim",
     "esES": "[fs]Babosa",
     "frFR": "[fs]Gelée",
@@ -7500,7 +7500,7 @@
     "id": 2826,
     "Key": "the Axe",
     "enUS": "the Axe",
-    "zhTW": "「銳斧使徒」",
+    "zhTW": "「銳斧」",
     "deDE": "die Axt",
     "esES": "\"el Hacha\"",
     "frFR": "La Hache",
@@ -7619,7 +7619,7 @@
     "id": 2833,
     "Key": "the Slayer",
     "enUS": "the Slayer",
-    "zhTW": "「屠殺使徒」",
+    "zhTW": "「屠殺者」",
     "deDE": "der Schlitzer",
     "esES": "\"el Exterminador\"",
     "frFR": "Le Boucher",
@@ -11580,7 +11580,7 @@
     "id": 20896,
     "Key": "Impecable",
     "enUS": "Impeccable",
-    "zhTW": "無瑕",
+    "zhTW": "無暇",
     "deDE": "[ms]unfehlbarer[fs]unfehlbare[ns]unfehlbares[pl]unfehlbare",
     "esES": "[fs]impecable[ms]impecable[fp]impecables[mp]impecables",
     "frFR": "[ms]immaculé[mp]immaculés[fs]immaculée[fp]immaculées",
@@ -12382,7 +12382,7 @@
     "zhTW": "碎冰甲之",
     "deDE": "der Zitterrüstung",
     "esES": "de Armadura gélida",
-    "frFR": "d’armure du frisson",
+    "frFR": "d’armure de la crainte",
     "itIT": "della Corazza dei Brividi",
     "koKR": "오한 갑옷의",
     "plPL": "Lodowatej Zbroi",
