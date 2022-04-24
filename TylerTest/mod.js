@@ -39,19 +39,19 @@ const CLASS_NAMES = ['Amazon', 'Sorceress', 'Necromancer', 'Paladin', 'Barbarian
 
 
 ////////////////////////////npc sell max/////////////////////////////
-// const npcFilename = 'global\\excel\\npc.txt';
-// const npcs = D2RMM.readTsv(npcFilename);
+const npcFilename = 'global\\excel\\npc.txt';
+const npcs = D2RMM.readTsv(npcFilename);
 
-// npcs.rows.forEach((npc) => {
-//     const maxBuy = 'max buy';
-//     const maxBuyNm = 'max buy (N)'
-//     const maxBuyHell = 'max buy (H)'
-//     npc[maxBuy] = Math.floor(npc[maxBuy] * 2);
-//     npc[maxBuyHell] = npc[maxBuyNm] * 3;
-//     npc[maxBuyNm] = npc[maxBuyNm] * 2 + 5;
+npcs.rows.forEach((npc) => {
+    const maxBuy = 'max buy';
+    const maxBuyNm = 'max buy (N)'
+    const maxBuyHell = 'max buy (H)'
+    npc[maxBuy] = Math.floor(npc[maxBuy] * 2);
+    npc[maxBuyHell] = npc[maxBuyNm] * 3;
+    npc[maxBuyNm] = npc[maxBuyNm] * 2 + 5;
 
-// });
-// D2RMM.writeTsv(npcFilename, npcs);
+});
+D2RMM.writeTsv(npcFilename, npcs);
 
 //   ShrineDurations X 3
 const shrinesFilename = 'global\\excel\\shrines.txt';
@@ -64,6 +64,8 @@ shrines.rows.forEach((row) => {
     }
 
 });
+
+
 D2RMM.writeTsv(shrinesFilename, shrines);
 
 // 词缀颜色
@@ -290,5 +292,11 @@ D2RMM.copyFile(
 D2RMM.copyFile(
     'Local', // <mod folder>\Local
     'local', // <diablo 2 folder>\mods\<modname>\<modname>.mpq\data\local
+    true // overwrite any conflicts
+);
+
+D2RMM.copyFile(
+    '../../../mods/D2RMM/D2RMM.mpq/', // <mod folder>\Local
+    '../../../../D2RMM 1.3/mods/Package/D2RMM.mpq/', // <diablo 2 folder>\mods\<modname>\<modname>.mpq\data\local
     true // overwrite any conflicts
 );
