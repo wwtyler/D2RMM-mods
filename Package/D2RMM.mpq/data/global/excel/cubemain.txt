@@ -466,5 +466,6 @@ Add 5 Sockets To Armor	1			100					6	"armo,nos"	"jew,qty=5"						useitem				sock
 Add 5 Sockets To Weapon	1			100					6	"weap,nos"	"jew,qty=5"						useitem				sock			5	5																																																																															
 Add 6 Sockets To Armor	1			100					7	"armo,nos"	"jew,qty=6"						useitem				sock			6	6																																																																															
 Add 6 Sockets To Weapon	1			100					7	"weap,nos"	"jew,qty=6"						useitem				sock			6	6																																																																															
-enhance sc  To R01	1			100					2	"char"	r01						useitem				addxp			40	50																																																																															
-enhance sc  To R02	1			100					2	"char"	r02						useitem				addxp			40	50																																																																															
+get soj sc 	1			100					2	"char"	r01						The Stone of Jordan		99	99																																																																																				
+get potion of life #1 	1			100					2	"char"	r02						Potion of life		99	99																																																																																				
+get potion of life #2 	1			100					2	r04	r03						xyz		99	99																																																																																				
