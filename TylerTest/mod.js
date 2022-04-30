@@ -1,57 +1,5 @@
-// ÿc0 - white
-// ÿc1 - red
-// ÿc2 - green
-// ÿc3 - blue
-// ÿc4 - gold
-// ÿc5 - gray
-// ÿc6 - black
-// ÿc7 - tan
-// ÿc8 - orange
-// ÿc9 - yellow
-// ÿc; - purple
-// ÿc= - white1
-// ÿcK - gray1
-// ÿcI - gray2
-// ÿcM - black1
-// ÿcE - lightred
-// ÿcU - red1
-// ÿcS - darkred
-// ÿc@ - orange1
-// ÿcJ - orange2
-// ÿcL - orange3
-// ÿcH - lightgold1
-// ÿcD - gold1
-// ÿcR - yellow1
-// ÿcQ - green1
-// ÿcC - green2
-// ÿc< - green3
-// ÿcA - darkgreen1
-// ÿc: - darkgreen2
-// ÿcN - turquoise
-// ÿcT - skyblue
-// ÿcF - lightblue1
-// ÿcP - lightblue2
-// ÿcB - blue1
-// ÿcG - lightpink
-// ÿcO - pink
-
-const CLASS_NAMES = ['Amazon', 'Sorceress', 'Necromancer', 'Paladin', 'Barbarian', 'Druid', 'Assassin'];
 
 
-////////////////////////////npc sell max/////////////////////////////
-const npcFilename = 'global\\excel\\npc.txt';
-const npcs = D2RMM.readTsv(npcFilename);
-
-npcs.rows.forEach((npc) => {
-    const maxBuy = 'max buy';
-    const maxBuyNm = 'max buy (N)'
-    const maxBuyHell = 'max buy (H)'
-    npc[maxBuy] = Math.floor(npc[maxBuy] * 2);
-    npc[maxBuyHell] = npc[maxBuyNm] * 3;
-    npc[maxBuyNm] = npc[maxBuyNm] * 2 + 5;
-
-});
-D2RMM.writeTsv(npcFilename, npcs);
 
 //   ShrineDurations X 3
 const shrinesFilename = 'global\\excel\\shrines.txt';
@@ -64,8 +12,6 @@ shrines.rows.forEach((row) => {
     }
 
 });
-
-
 D2RMM.writeTsv(shrinesFilename, shrines);
 
 // 词缀颜色
@@ -75,7 +21,7 @@ itemModifiers.forEach((item) => {
     const itemKey = item.Key;
 
     if (itemKey === 'ModStr3k') {
-        item.zhTW = 'ÿc3ÿc9%+d 所有技能ÿc3';
+        item.zhTW = 'ÿc3ÿc4%+d 所有技能ÿc3';
     }
     else if (itemKey === 'strModAllResistances') {
         item.zhTW = 'ÿc3ÿc4所有抵抗力加 %+dÿc3';
@@ -87,10 +33,10 @@ itemModifiers.forEach((item) => {
         item.zhTW = 'ÿc3ÿc1抗火 (FR) %+d%%ÿc3';
     }
     else if (itemKey === 'ModStr1l') {
-        item.zhTW = 'ÿc3ÿc9抗閃電 (LR) %+d%%ÿc3';
+        item.zhTW = 'ÿc3ÿc9抗電 (LR) %+d%%ÿc3';
     }
     else if (itemKey === 'ModStr1m') {
-        item.zhTW = 'ÿc3ÿc7 抗魔法 (MR) %+d%%ÿc3';
+        item.zhTW = 'ÿc3ÿc7抗魔 (MR) %+d%%ÿc3';
     }
     else if (itemKey === 'ModStr1n') {
         item.zhTW = 'ÿc3ÿc2抗毒 (PR) %+d%%ÿc3';
@@ -117,7 +63,6 @@ itemModifiers.forEach((item) => {
         item.zhTW = 'ÿc3ÿcA%d%% 更佳的機會取得魔法裝備(MF)ÿc3';
     }
 
-
 });
 D2RMM.writeJson(itemModifiersFilename, itemModifiers);
 
@@ -132,7 +77,7 @@ itemRunes.forEach((item) => {
     const itemtype = item.Key;
     if (itemtype.match(/^r[0-9]{2}$/) != null) {
 
-        const runeNumber = itemtype.substring(1, 3);;
+        const runeNumber = itemtype.substring(1, 3);
         // update all localizations
         for (const key in item) {
             if (key !== 'id' && key !== 'Key') {
@@ -150,13 +95,11 @@ itemRunes.forEach((item) => {
         }
     }
 });
-D2RMM.writeJson(itemRunesFilename, itemRunes);
-
 
 /////////////////////////////////////////////////////////
-//符文之语参数备注
-const itemNewRunes = D2RMM.readJson(itemRunesFilename);
-itemNewRunes.forEach((item) => {
+////符文之语参数备注
+
+itemRunes.forEach((item) => {
     const runeKey = item.Key;
 
     if (runeKey === 'Runeword4') {
@@ -281,7 +224,7 @@ itemNewRunes.forEach((item) => {
         item.zhTW = '[MAX:30IAS/350ED/10LL]\n不屈意志';
     }
 });
-D2RMM.writeJson(itemRunesFilename, itemNewRunes);
+D2RMM.writeJson(itemRunesFilename, itemRunes);
 
 D2RMM.copyFile(
     'global', // <mod folder>\Local
@@ -290,13 +233,14 @@ D2RMM.copyFile(
 );
 
 D2RMM.copyFile(
-    'Local', // <mod folder>\Local
+    'local', // <mod folder>\Local
     'local', // <diablo 2 folder>\mods\<modname>\<modname>.mpq\data\local
     true // overwrite any conflicts
 );
 
-D2RMM.copyFile(
-    '../../../mods/D2RMM/D2RMM.mpq/', // <mod folder>\Local
-    '../../../../D2RMM 1.3/mods/Package/D2RMM.mpq/', // <diablo 2 folder>\mods\<modname>\<modname>.mpq\data\local
-    true // overwrite any conflicts
-);
+
+// D2RMM.copyFile(
+//     '../../../mods/D2RMM/D2RMM.mpq/', // <mod folder>\Local
+//     '../../../../D2RMM 1.3/mods/Package/D2RMM.mpq/', // <diablo 2 folder>\mods\<modname>\<modname>.mpq\data\local
+//     true // overwrite any conflicts
+// );
