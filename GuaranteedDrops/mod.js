@@ -4,7 +4,9 @@ treasureclassex.rows.forEach((row) => {
   const treasureClass = row['Treasure Class'];
   // not all rows are valid entries
   if (treasureClass !== '') {
-    row.NoDrop = Math.floor(row.NoDrop / 3);
+
+    if (row.NoDrop != null && row.NoDrop > 0)
+      row.NoDrop = Math.floor(row.NoDrop / 3);
     // fix Countess items if necessary
     if (config.fixcountess) {
       if (

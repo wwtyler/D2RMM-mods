@@ -12,12 +12,8 @@ charstats.rows.forEach((row) => {
     //角色出生初始耐力x3
     row.stamina = Math.floor(row.stamina * 3);
 
-    //角色出生自带乔丹之石
-    row.item7 = 'The Stone of Jordan';
-    row.item7count = 1;
-
     //角色升级每级的技能点数
-    row.SkillsPerLevel = 2;
+    // row.SkillsPerLevel = 2;
   }
 
 });

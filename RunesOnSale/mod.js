@@ -33,18 +33,51 @@ const scRecipe = {
   '*eol': 0,
 };
 
+// cubemain.rows.push({
+//   ...scRecipe,
+//   description: `${scRecipe.description} To R01`,
+//   'input 1': '"char"',
+//   'input 2': 'r33',
+// });
+
 cubemain.rows.push({
-  ...scRecipe,
-  description: `${scRecipe.description} To R01`,
+  description: `get soj sc `,
+  enabled: 1,
+  version: 100,
+  numinputs: 2,
   'input 1': '"char"',
-  'input 2': 'r01',
+  'input 2': `r01`,
+  plvl : 99,
+  ilvl : 99,
+  output: 'The Stone of Jordan',
+  '*eol': 0,
 });
 
 cubemain.rows.push({
-  ...scRecipe,
-  description: `${scRecipe.description} To R02`,
+  description: `get potion of life #1 `,
+  enabled: 1,
+  version: 100,
+  numinputs: 2,
   'input 1': '"char"',
-  'input 2': 'r02',
+  'input 2': `r02`,
+  plvl : 99,
+  ilvl : 99,
+  output: 'Potion of life',
+  '*eol': 0,
 });
+
+cubemain.rows.push({
+  description: `get potion of life #2 `,
+  enabled: 1,
+  version: 100,
+  numinputs: 2,
+  'input 1': 'r04',
+  'input 2': `r03`,
+  plvl : 99,
+  ilvl : 99,
+  output: 'xyz',
+  '*eol': 0,
+});
+
 
 D2RMM.writeTsv(cubemainFilename, cubemain);
