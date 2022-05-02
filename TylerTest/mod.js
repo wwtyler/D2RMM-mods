@@ -64,6 +64,14 @@ itemModifiers.forEach((item) => {
     }
 
 });
+
+itemModifiers.push({
+    id: 33301,
+    Key: 'innernumdesc',
+    enUS: '%+d innernum',
+    zhTW: '%+d innernum',
+});
+
 D2RMM.writeJson(itemModifiersFilename, itemModifiers);
 
 
@@ -233,7 +241,7 @@ D2RMM.copyFile(
 );
 
 D2RMM.copyFile(
-    'local', // <mod folder>\Local
+    'Local', // <mod folder>\Local
     'local', // <diablo 2 folder>\mods\<modname>\<modname>.mpq\data\local
     true // overwrite any conflicts
 );

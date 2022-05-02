@@ -41,43 +41,96 @@ const scRecipe = {
 // });
 
 cubemain.rows.push({
-  description: `get soj sc `,
+  description: `test AAA`,
   enabled: 1,
   version: 100,
   numinputs: 2,
   'input 1': '"char"',
   'input 2': `r01`,
-  plvl : 99,
-  ilvl : 99,
+  plvl: 99,
+  ilvl: 99,
   output: 'The Stone of Jordan',
   '*eol': 0,
 });
 
 cubemain.rows.push({
-  description: `get potion of life #1 `,
+  description: `test BBB`,
   enabled: 1,
   version: 100,
   numinputs: 2,
-  'input 1': '"char"',
+  op: 16, // less than or no more than
+  param: 127, // item_allskills (itemstatcost.txt)
+  value: 1, // start from 0. ALLSKILLs +1=0， +2=1
+  'input 1': '"scha"',
   'input 2': `r02`,
-  plvl : 99,
-  ilvl : 99,
-  output: 'Potion of life',
+  plvl: 99,
+  ilvl: 99,
+  output: 'useitem',
+  'mod 1': 'allskills',
+  'mod 1 min': 1,
+  'mod 1 max': 1,
   '*eol': 0,
 });
 
 cubemain.rows.push({
-  description: `get potion of life #2 `,
+  description: `test CCC`,
   enabled: 1,
   version: 100,
   numinputs: 2,
-  'input 1': 'r04',
+  op: 16, // less than or no more than
+  param: 183, // item_allskills (itemstatcost.txt)
+  value: 2, // start from 0. ALLSKILLs +1=0， +2=1
+  'input 1': '"scha"',
   'input 2': `r03`,
-  plvl : 99,
-  ilvl : 99,
-  output: 'xyz',
+  plvl: 99,
+  ilvl: 99,
+  output: 'useitem',
+  'mod 1': 'addxp',
+  'mod 1 min': 10,
+  'mod 1 max': 10,
+  'mod 2': 'innernum',
+  'mod 2 min': 1,
+  'mod 2 max': 1,
   '*eol': 0,
 });
 
 
+
 D2RMM.writeTsv(cubemainFilename, cubemain);
+
+
+const itemstatcostFilename = 'global\\excel\\itemstatcost.txt';
+const itemstatcost = D2RMM.readTsv(itemstatcostFilename);
+itemstatcost.rows.forEach((row) => {
+  if (row.Stat === "unused183") {
+    row['Stat'] = 'innernum';
+    row['Signed'] = 1;
+    row['Send Bits'] = 8;
+    row['1.09-Save Bits'] = 3;
+    row['1.09-Save Add'] = 0;
+    row['Save Bits'] = 3;
+    row['Save Add'] = 0;
+    row['descstrpos'] = 'innernumdesc';
+    row['descstrneg'] = 'innernumdesc';
+    row['descpriority'] = 159;
+    row['descfunc'] = 19;
+
+    row['*eol'] = 0;
+
+  }
+});
+
+const propertiesFilename = 'global\\excel\\Properties.txt';
+const properties = D2RMM.readTsv(propertiesFilename);
+
+properties.rows.push({
+  code: `innernum`,
+  '*Enabled': 1,
+  func1: 1,
+  stat1: 'innernum',
+  '*Tooltip': '+# item inner number for cubemain use.',
+  '*eol': 0,
+});
+
+D2RMM.writeTsv(itemstatcostFilename, itemstatcost);
+D2RMM.writeTsv(propertiesFilename, properties);
