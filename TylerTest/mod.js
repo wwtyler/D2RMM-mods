@@ -1,16 +1,11 @@
-
-
-
 //   ShrineDurations X 3
 const shrinesFilename = 'global\\excel\\shrines.txt';
 const shrines = D2RMM.readTsv(shrinesFilename);
 
 shrines.rows.forEach((row) => {
-
     if (row['Duration in frames'] > 0 && row['*Shrine Type'] === 'Booster') {
         row['Duration in frames'] = Math.floor(row['Duration in frames'] * 3);
     }
-
 });
 D2RMM.writeTsv(shrinesFilename, shrines);
 
@@ -19,7 +14,6 @@ const itemModifiersFilename = 'local\\lng\\strings\\item-modifiers.json';
 const itemModifiers = D2RMM.readJson(itemModifiersFilename);
 itemModifiers.forEach((item) => {
     const itemKey = item.Key;
-
     if (itemKey === 'ModStr3k') {
         item.zhTW = 'ÿc3ÿc4%+d 所有技能ÿc3';
     }
@@ -62,7 +56,6 @@ itemModifiers.forEach((item) => {
     else if (itemKey === 'ModStr1x') {
         item.zhTW = 'ÿc3ÿcA%d%% 更佳的機會取得魔法裝備(MF)ÿc3';
     }
-
 });
 
 itemModifiers.push({
@@ -75,38 +68,11 @@ itemModifiers.push({
 D2RMM.writeJson(itemModifiersFilename, itemModifiers);
 
 
-// D2R colors runes as orange by default, but it seems to be based on item type
-// rather than localization strings so it does not apply to the stacked versions
-// we update the localization file to manually color the names of runes here
-// so that it will also apply to the stacked versions of the runes
-const itemRunesFilename = 'local\\lng\\strings\\item-runes.json';
-const itemRunes = D2RMM.readJson(itemRunesFilename);
-itemRunes.forEach((item) => {
-    const itemtype = item.Key;
-    if (itemtype.match(/^r[0-9]{2}$/) != null) {
-
-        const runeNumber = itemtype.substring(1, 3);
-        // update all localizations
-        for (const key in item) {
-            if (key !== 'id' && key !== 'Key') {
-                if (runeNumber <= 8)
-                    item[key] = `ÿc0${item[key]}`;
-                if (runeNumber >= 9 && runeNumber <= 16)
-                    item[key] = `ÿc3${item[key]}`;
-                if (runeNumber >= 16 && runeNumber <= 24)
-                    item[key] = `ÿc8${item[key]}`;
-                if (runeNumber >= 25 && runeNumber <= 30)
-                    item[key] = `ÿcQ${item[key]}`;
-                if (runeNumber >= 30)
-                    item[key] = `ÿc;${item[key]}`;
-            }
-        }
-    }
-});
 
 /////////////////////////////////////////////////////////
 ////符文之语参数备注
-
+const itemRunesFilename = 'local\\lng\\strings\\item-runes.json';
+const itemRunes = D2RMM.readJson(itemRunesFilename);
 itemRunes.forEach((item) => {
     const runeKey = item.Key;
 
@@ -245,7 +211,6 @@ D2RMM.copyFile(
     'local', // <diablo 2 folder>\mods\<modname>\<modname>.mpq\data\local
     true // overwrite any conflicts
 );
-
 
 // D2RMM.copyFile(
 //     '../../../mods/D2RMM/D2RMM.mpq/', // <mod folder>\Local
