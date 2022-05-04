@@ -6,7 +6,7 @@ treasureclassex.rows.forEach((row) => {
   if (treasureClass !== '') {
 
     if (row.NoDrop != null && row.NoDrop > 0)
-      row.NoDrop = Math.floor(row.NoDrop / 3);
+      row.NoDrop = Math.floor(row.NoDrop / 2);
     // fix Countess items if necessary
     if (config.fixcountess) {
       if (

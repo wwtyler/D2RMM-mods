@@ -1,26 +1,3 @@
-//增加符文掉落的概率
-if (config.runes) {
-  const treasureclassexFilename = 'global\\excel\\treasureclassex.txt';
-  const treasureclassex = D2RMM.readTsv(treasureclassexFilename);
-  treasureclassex.rows.forEach((row) => {
-    const treasureClass = row['Treasure Class'];
-    if (treasureClass.match(/^Runes [1-9][0-9]?$/) != null) {
-      const groupNumber = +treasureClass.replace(/^Runes ([1-9][0-9]?)$/, '$1');
-      if (groupNumber > 1) {
-        const restGroupColumn = groupNumber < 17 ? 'Prob3' : 'Prob2';
-
-        row[restGroupColumn] = Math.floor(
-          Math.max(
-            row[restGroupColumn] / config.runesScaling,
-            2 * Math.sqrt(config.runesScaling)
-          )
-        );
-      }
-    }
-  });
-  D2RMM.writeTsv(treasureclassexFilename, treasureclassex);
-}
-
 
 //降低部分物品的稀有度（rarity）
 //暗金物品设置nolimit值
@@ -58,72 +35,7 @@ magicSuffixs.rows.forEach((magicSuffix) => {
 });
 D2RMM.writeTsv(MagicSuffixFilename, magicSuffixs);
 
-///增加关卡boss掉落，增加高级别装备掉落
-
-const treasureclassexFilename = 'global\\excel\\treasureclassex.txt';
-const treasureclassex = D2RMM.readTsv(treasureclassexFilename);
-
-const DIFFICULTY_AFFIXES = ['', ' (N)', ' (H)'];
-const DIFFICULTY_QUEST_AFFIXES = ['q', 'q (N)', 'q (H)'];
-
-const BOSS_NAMES = ['Andariel', 'Duriel', 'Mephisto', 'Diablo', 'Baal', 'Radament', 'Summoner', 'Council', 'Haphesto', 'Nihlathak', 'Blood Raven', 'Izual', 'Cow King', 'Countess'];
-
-treasureclassex.rows.forEach((row) => {
-  const treasureClass = row['Treasure Class'];
-
-  // 高级别装备掉落概率
-  const prob9 = 'Prob9';
-  const unique = 'Unique';
-  const set = 'Set';
-
-  if (row[prob9] > 0) {
-    row[prob9] = Math.floor(350 * row[prob9] / 1800);
-  }
-
-  if (row[unique] >= 512 && row[unique] < 800) {
-    row[unique] = 750;
-  }
-  if (row[unique] >= 800 && row[unique] < 900) {
-    row[unique] = 850;
-  }
-  if (row[set] >= 512 && row[set] < 800) {
-    row[set] = 750;
-  }
-  if (row[set] >= 800 && row[set] < 900) {
-    row[set] = 800;
-  }
-
-  // 难度与关卡Boss掉落调整
-  BOSS_NAMES.forEach((bossName) => {
-    DIFFICULTY_AFFIXES.forEach((difficultyAffix) => {
-      const bossCell = `${bossName}${difficultyAffix}`;
-      if (treasureClass === bossCell) {
-        row['Unique'] = 996;
-        row['Set'] = 996
-        row['Rare'] = 1012;
-        row['Magic'] = 1024;
-      }
-    })
-  });
-
-  // 增加任務掉落
-  BOSS_NAMES.forEach((bossName) => {
-    DIFFICULTY_QUEST_AFFIXES.forEach((difficultyQuestAffix) => {
-
-      const bossQuestCell = `${bossName}${difficultyQuestAffix}`;
-
-      if (treasureClass === bossQuestCell) {
-        if (row['Prob2'] > 0)
-          row['Prob2'] = Math.floor(row['Prob2'] * 3);
-      }
-    })
-  });
-});
-D2RMM.writeTsv(treasureclassexFilename, treasureclassex);
-
-
 /////////提高魔法物品的染色率/////////////////////////////
-
 const { equipmentChance, equipmentMin } = config;
 const itemratioFilename = 'global\\excel\\itemratio.txt';
 const itemratio = D2RMM.readTsv(itemratioFilename);
