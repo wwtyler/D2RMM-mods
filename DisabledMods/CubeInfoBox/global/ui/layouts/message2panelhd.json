@@ -1,0 +1,484 @@
+{
+    "type": "SettingsPanel", "name": "message2Panel",
+    "fields": {
+        "priority": 9003,
+        "rect": { "x": 1510, "y": -377, "width": 650, "height": 1130 },
+        "anchor": "$LeftPanelAnchor",
+        "applySettingsImmediately": false,
+    },
+    "children": [
+         {
+            "type": "ImageWidget", "name": "ScrollBarBackground",
+            "fields": {
+                "rect": { "x": 10, "y": -128 },
+                "anchor": { "x": 1.0 },
+                "filename": "PauseMenu\\VerticalScroll",
+            },
+            "children": [
+                {
+                    "type": "ScrollControllerWidget", "name": "ScrollController",
+                    "fields": {
+                        "rect": { "x": -31, "y": 29, "width": 26, "height": 1208 },
+                        "anchor": { "x": 1.0 },
+                        "upArrowFilepath": "FrontEnd\\HD\\Final\\FrontEnd_ScrollUpBtn",
+                        "downArrowFilepath": "FrontEnd\\HD\\Final\\FrontEnd_ScrollDownBtn",
+                        "barFilepath": "PauseMenu\\VerticalIndicator",
+                        "viewName": "ScrollView",
+                        "wheelScrollSound": "cursor_scroll_hd",
+                        "buttonScrollSound": "cursor_scroll_hd",
+                    }
+                },
+            ]
+        },
+        {
+            "type": "ScrollViewWidget", "name": "ScrollView",
+            "fields": {
+                "fitToParent": true,
+                "scrollControllerName": "ScrollController",
+            },
+            "children": [
+                {
+                    "type": "TableWidget", "name": "OptionsTable",
+                    "fields": {
+                        "columns": [ "$OptionsTableColumn1", "$OptionsTableColumn2" ],
+                        "rowHeight": "$ModTableRowHeight",
+                    },
+                    "children": [
+                        {
+                            "type": "TableRowWidget", "name": "RowModQoL",
+                            "children": [
+                                {
+                                    "type": "TextBoxWidget", "name": "ModQolTitle",
+                                    "fields": {
+                                        "text": "",
+           	      	        "rect": { "x": 0, "y": 1940,  },
+                                        "style": {
+    			    "fontColor": "$FontColorGold",
+    			    "pointSize": "$MediumFontSize",
+    			    "spacing" : "$ReducedSpacing",
+    			    "alignment": { "h": "left", "v": "center" },
+      			    "options": { "lineWrap": true },
+                                                  },
+                                    },
+                                },
+                            ]
+                        },
+
+
+
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 143, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordEdge",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 183, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordHarmony",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 223, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordFaith",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 263, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordLeaf",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 303, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordWhite",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 341, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordHeartoftheOak",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 381, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordInsight",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 421, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordObedience",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 461, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordInfinity",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 500, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordDestruction",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 539, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordPride", 
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 579, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordSteel",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 619, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordSplitSword",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 657, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordCrescentMoon",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 697, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordOath",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 737, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordKingslayer",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 777, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordDeath",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 815, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordCalltoArms",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 855, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordGrief",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 895, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordLastWish",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 934, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordDoom",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 972, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordBreathoftheDying",
+                "sound": "",
+            }
+        },
+
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 1170, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordStealth",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 1209, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordSmoke",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 1248, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordTreachery",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 1287, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordDuress",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 1326, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordStone",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 1365, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordGloom",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 1404, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordPrudence",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 1444, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordFortitude",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 1484, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordChainsofHonor",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 1524, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordEnigma",
+                "sound": "",
+            }
+        },
+
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 1722, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordAncientsPledge",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 1762, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordSpiritShield",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 1801, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordRhyme",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 1840, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordSanctuaty",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 1879, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordExile",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 1918, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordPhoenixShield",
+                "sound": "",
+            }
+        },
+
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 2118, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordLore",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ButtonWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 5, "y": 2157, "scale": 0.87  },
+                "filename": "PANEL\\message\\tab1",
+	 "hoveredFrame": 2,
+                "tooltipString": "@helpRunewordDreamHelm",
+                "sound": "",
+            }
+        },
+        {
+            "type": "ImageWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": -10, "y": -20, "scale": 0.87 },
+                "filename": "PANEL\\message\\s1",
+            }
+        },
+                    ]
+                }
+            ]
+        },
+    ]
+}

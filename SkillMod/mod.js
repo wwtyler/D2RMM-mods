@@ -17,6 +17,16 @@ skills.rows.forEach((row) => {
     row.EDmgSymPerCalc = "skill('Warmth'.blvl)*par8+skill('Fire Ball'.blvl)*par7+skill('Fire Bolt'.blvl)*par7";//" skill('Warmth'.blvl)*par8"
   }
 
+  if (row.skill === 'Holy Bolt') {
+    row.Param8 = 65;// 原始值 50
+    row.Param7 = 30;// 原始值 20
+    // row.EDmgSymPerCalc = "skill('Fist of the Heavens'.blvl)*par8";
+  }
+  if (row.skill === 'Fist of the Heavens') {
+    row.Param8 = 12;// 原始值 7
+    // row.EDmgSymPerCalc = "skill('Holy Shock'.blvl)*par8";
+  }
+  
 });
 D2RMM.writeTsv(skillsFilename, skills);
 
@@ -25,8 +35,6 @@ const skilldescFilename = 'global\\excel\\skilldesc.txt';
 const skilldescs = D2RMM.readTsv(skilldescFilename);
 
 skilldescs.rows.forEach((row) => {
-
-
 
   if (row.skilldesc === 'fire wall') {
     // //warmth 缺省已经配置了温暖的加成  37
