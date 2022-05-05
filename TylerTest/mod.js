@@ -56,6 +56,12 @@ itemModifiers.forEach((item) => {
     else if (itemKey === 'ModStr1x') {
         item.zhTW = 'ÿc3ÿcA%d%% 更佳的機會取得魔法裝備(MF)ÿc3';
     }
+    else if (itemKey === 'strethereal') {
+        item.zhTW = 'ÿc3ÿc2無形（無法修復）ÿc3';
+    }
+    else if (itemKey === 'strItemModEtherealSocketed') {
+        item.zhTW = 'ÿc3ÿc2無形（無法修復），鑲孔ÿc4（%i）ÿc3';
+    }
 });
 
 itemModifiers.push({
