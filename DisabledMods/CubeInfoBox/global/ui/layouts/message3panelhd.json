@@ -1,0 +1,431 @@
+{
+    "type": "SettingsPanel", "name": "message3Panel",
+    "fields": {
+        "priority": 9003,
+        "rect": { "x": 1510, "y": -377, "width": 650, "height": 1130 },
+        "anchor": "$LeftPanelAnchor",
+        "applySettingsImmediately": false,
+    },
+    "children": [
+         {
+            "type": "ImageWidget", "name": "ScrollBarBackground",
+            "fields": {
+                "rect": { "x": 10, "y": -128 },
+                "anchor": { "x": 1.0 },
+                "filename": "PauseMenu\\VerticalScroll",
+            },
+            "children": [
+                {
+                    "type": "ScrollControllerWidget", "name": "ScrollController",
+                    "fields": {
+                        "rect": { "x": -31, "y": 29, "width": 26, "height": 1208 },
+                        "anchor": { "x": 1.0 },
+                        "upArrowFilepath": "FrontEnd\\HD\\Final\\FrontEnd_ScrollUpBtn",
+                        "downArrowFilepath": "FrontEnd\\HD\\Final\\FrontEnd_ScrollDownBtn",
+                        "barFilepath": "PauseMenu\\VerticalIndicator",
+                        "viewName": "ScrollView",
+                        "wheelScrollSound": "cursor_scroll_hd",
+                        "buttonScrollSound": "cursor_scroll_hd",
+                    }
+                },
+            ]
+        },
+        {
+            "type": "ScrollViewWidget", "name": "ScrollView",
+            "fields": {
+                "fitToParent": true,
+                "scrollControllerName": "ScrollController",
+            },
+            "children": [
+                {
+                    "type": "TableWidget", "name": "OptionsTable",
+                    "fields": {
+                        "columns": [ "$OptionsTableColumn1", "$OptionsTableColumn2" ],
+                        "rowHeight": "$ModTableRowHeight",
+                    },
+                    "children": [
+                        {
+                            "type": "TableRowWidget", "name": "RowModQoL",
+                            "children": [
+                                {
+                                    "type": "TextBoxWidget", "name": "ModQolTitle",
+                                    "fields": {
+                                        "text": "",
+           	      	        "rect": { "x": 0, "y": 2000,  },
+                                        "style": {
+    			    "fontColor": "$FontColorGold",
+		        "pointSize": "$MediumFontSize",
+		        "spacing" : "$ReducedSpacing",
+		        "alignment": { "h": "left", "v": "center" },
+		        "options": { "lineWrap": true },
+			    },
+                                    },
+                                },
+                            ]
+                        },
+        {
+            "type": "ImageWidget", "name": "Rune",
+            "fields": {
+                "rect": { "x": 0, "y": 20, "scale": 0.62 },
+                "filename": "PANEL\\message\\rune",
+                "sound": "",
+            }
+        },
+                        {
+                            "type": "TableRowWidget", "name": "Row Spacer",
+                        },
+                        {
+                            "type": "TableRowWidget", "name": "Row Spacer",
+                        },
+                        {
+                            "type": "TableRowWidget", "name": "Row Spacer",
+                        },
+                        {
+                            "type": "TableRowWidget", "name": "Row Spacer",
+                        },
+                        {
+                            "type": "TableRowWidget", "name": "Row Spacer",
+                        },
+                        {
+                            "type": "TableRowWidget", "name": "Row Spacer",
+                        },
+                        {
+                            "type": "TableRowWidget", "name": "RowModInfo343",
+                            "children": [
+                                {
+                                    "type": "TextBoxWidget", "name": "ModInfoText343",
+                                    "fields": {
+                                        "text": "盔甲打孔   7#+10#+5级黄宝石",
+                                        "style": {
+		        "fontColor": { "r": 3, "g": 165, "b": 252, "a": 255 }, 
+		        "pointSize": "$MediumFontSize",
+		        "spacing" : "$ReducedSpacing",
+		        "alignment": { "h": "left", "v": "center" },
+		        "options": { "lineWrap": true },
+			    },
+                                    }
+                                },
+                            ]
+                        },
+                        {
+                            "type": "TableRowWidget", "name": "RowModInfo343",
+                            "children": [
+                                {
+                                    "type": "TextBoxWidget", "name": "ModInfoText343",
+                                    "fields": {
+                                        "text": "武器打孔   8#+11#+5级紫宝石",
+                                        "style": {
+		        "fontColor": { "r": 3, "g": 165, "b": 252, "a": 255 }, 
+		        "pointSize": "$MediumFontSize",
+		        "spacing" : "$ReducedSpacing",
+		        "alignment": { "h": "left", "v": "center" },
+		        "options": { "lineWrap": true },
+			    },
+                                    }
+                                },
+                            ]
+                        },
+
+                        {
+                            "type": "TableRowWidget", "name": "RowModInfo343",
+                            "children": [
+                                {
+                                    "type": "TextBoxWidget", "name": "ModInfoText343",
+                                    "fields": {
+                                        "text": "头盔打孔   8#+10#+5级蓝宝石",
+                                        "style": {
+		        "fontColor": { "r": 3, "g": 165, "b": 252, "a": 255 }, 
+		        "pointSize": "$MediumFontSize",
+		        "spacing" : "$ReducedSpacing",
+		        "alignment": { "h": "left", "v": "center" },
+		        "options": { "lineWrap": true },
+			    },
+                                    }
+                                },
+                            ]
+                        },
+
+                        {
+                            "type": "TableRowWidget", "name": "RowModInfo343",
+                            "children": [
+                                {
+                                    "type": "TextBoxWidget", "name": "ModInfoText343",
+                                    "fields": {
+                                        "text": "盾牌打孔   7#+11#+5级红宝石",
+                                        "style": {
+		        "fontColor": { "r": 3, "g": 165, "b": 252, "a": 255 }, 
+		        "pointSize": "$MediumFontSize",
+		        "spacing" : "$ReducedSpacing",
+		        "alignment": { "h": "left", "v": "center" },
+		        "options": { "lineWrap": true },
+			    },
+                                    }
+                                },
+                            ]
+                        },
+
+                        {
+                            "type": "TableRowWidget", "name": "RowModInfo343",
+                            "children": [
+                                {
+                                    "type": "TextBoxWidget", "name": "ModInfoText343",
+                                    "fields": {
+                                        "text": "移除镶嵌   15# + 回城卷轴",
+                                        "style": {
+		        "fontColor": { "r": 223, "g": 85, "b": 32, "a": 255 }, 
+		        "pointSize": "$MediumFontSize",
+		        "spacing" : "$ReducedSpacing",
+		        "alignment": { "h": "left", "v": "center" },
+		        "options": { "lineWrap": true },
+			    },
+                                    }
+                                },
+                            ]
+                        },
+
+                        {
+                            "type": "TableRowWidget", "name": "RowModInfo343",
+                            "children": [
+                                {
+                                    "type": "TextBoxWidget", "name": "ModInfoText343",
+                                    "fields": {
+                                        "text": "防具修复   8# + 防具",
+                                        "style": {
+		        "fontColor": { "r": 244, "g": 221, "b": 11, "a": 255 }, 
+		        "pointSize": "$MediumFontSize",
+		        "spacing" : "$ReducedSpacing",
+		        "alignment": { "h": "left", "v": "center" },
+		        "options": { "lineWrap": true },
+			    },
+                                    }
+                                },
+                            ]
+                        },
+
+                        {
+                            "type": "TableRowWidget", "name": "RowModInfo343",
+                            "children": [
+                                {
+                                    "type": "TextBoxWidget", "name": "ModInfoText343",
+                                    "fields": {
+                                        "text": "武器修复   9# + 武器",
+                                        "style": {
+		        "fontColor": { "r": 244, "g": 221, "b": 11, "a": 255 }, 
+		        "pointSize": "$MediumFontSize",
+		        "spacing" : "$ReducedSpacing",
+		        "alignment": { "h": "left", "v": "center" },
+		        "options": { "lineWrap": true },
+			    },
+                                    }
+                                },
+                            ]
+                        },
+                        {
+                            "type": "TableRowWidget", "name": "RowModInfo343",
+                            "children": [
+                                {
+                                    "type": "TextBoxWidget", "name": "ModInfoText343",
+                                    "fields": {
+                                        "text": "防具修复(充能)   8# + 任意2级宝石",
+                                        "style": {
+		        "fontColor": { "r": 244, "g": 221, "b": 11, "a": 255 }, 
+		        "pointSize": "$MediumFontSize",
+		        "spacing" : "$ReducedSpacing",
+		        "alignment": { "h": "left", "v": "center" },
+		        "options": { "lineWrap": true },
+			    },
+                                    }
+                                },
+                            ]
+                        },
+                        {
+                            "type": "TableRowWidget", "name": "RowModInfo343",
+                            "children": [
+                                {
+                                    "type": "TextBoxWidget", "name": "ModInfoText343",
+                                    "fields": {
+                                        "text": "武器修复(充能)   9# + 任意1级宝石",
+                                        "style": {
+		        "fontColor": { "r": 244, "g": 221, "b": 11, "a": 255 }, 
+		        "pointSize": "$MediumFontSize",
+		        "spacing" : "$ReducedSpacing",
+		        "alignment": { "h": "left", "v": "center" },
+		        "options": { "lineWrap": true },
+			    },
+                                    }
+                                },
+                            ]
+                        },
+                        {
+                            "type": "TableRowWidget", "name": "RowModInfo343",
+                            "children": [
+                                {
+                                    "type": "TextBoxWidget", "name": "ModInfoText343",
+                                    "fields": {
+                                        "text": "提高防具品质  1#+任意1级宝石",
+                                        "style": {
+		        "fontColor": { "r": 146, "g": 248, "b": 7, "a": 255 }, 
+		        "pointSize": "$MediumFontSize",
+		        "spacing" : "$ReducedSpacing",
+		        "alignment": { "h": "left", "v": "center" },
+		        "options": { "lineWrap": true },
+			    },
+                                    }
+                                },
+                            ]
+                        },
+
+                        {
+                            "type": "TableRowWidget", "name": "RowModInfo343",
+                            "children": [
+                                {
+                                    "type": "TextBoxWidget", "name": "ModInfoText343",
+                                    "fields": {
+                                        "text": "提高武器品质  2#+任意1级宝石",
+                                        "style": {
+		        "fontColor": { "r": 146, "g": 248, "b": 7, "a": 255 }, 
+		        "pointSize": "$MediumFontSize",
+		        "spacing" : "$ReducedSpacing",
+		        "alignment": { "h": "left", "v": "center" },
+		        "options": { "lineWrap": true },
+			    },
+                                    }
+                                },
+                            ]
+                        },
+                        {
+                            "type": "TableRowWidget", "name": "RowModInfo343",
+                            "children": [
+                                {
+                                    "type": "TextBoxWidget", "name": "ModInfoText343",
+                                    "fields": {
+                                        "text": "护身符刷新属性  任意三颗5级宝石",
+                                        "style": {
+		        "fontColor": { "r": 194, "g": 56, "b": 184, "a": 255 }, 
+		        "pointSize": "$MediumFontSize",
+		        "spacing" : "$ReducedSpacing",
+		        "alignment": { "h": "left", "v": "center" },
+		        "options": { "lineWrap": true },
+			    },
+                                    }
+                                },
+                            ]
+                        },
+                        {
+                            "type": "TableRowWidget", "name": "RowModInfo343",
+                            "children": [
+                                {
+                                    "type": "TextBoxWidget", "name": "ModInfoText343",
+                                    "fields": {
+                                        "text": "2箭袋 = 1十字弓弹",
+                                        "style": {
+		        "fontColor": { "r": 58, "g": 85, "b": 233, "a": 255 }, 
+		        "pointSize": "$MediumFontSize",
+		        "spacing" : "$ReducedSpacing",
+		        "alignment": { "h": "left", "v": "center" },
+		        "options": { "lineWrap": true },
+			    },
+                                    }
+                                },
+                            ]
+                        },
+                        {
+                            "type": "TableRowWidget", "name": "RowModInfo343",
+                            "children": [
+                                {
+                                    "type": "TextBoxWidget", "name": "ModInfoText343",
+                                    "fields": {
+                                        "text": "2十字弓弹 = 1箭袋",
+                                        "style": {
+		        "fontColor": { "r": 58, "g": 85, "b": 233, "a": 255 }, 
+		        "pointSize": "$MediumFontSize",
+		        "spacing" : "$ReducedSpacing",
+		        "alignment": { "h": "left", "v": "center" },
+		        "options": { "lineWrap": true },
+			    },
+                                    }
+                                },
+                            ]
+                        },
+                        {
+                            "type": "TableRowWidget", "name": "RowModInfo343",
+                            "children": [
+                                {
+                                    "type": "TextBoxWidget", "name": "ModInfoText343",
+                                    "fields": {
+                                        "text": "3颗相同宝石 = 1颗下一级宝石",
+                                        "style": {
+		        "fontColor": { "r": 58, "g": 85, "b": 233, "a": 255 }, 
+		        "pointSize": "$MediumFontSize",
+		        "spacing" : "$ReducedSpacing",
+		        "alignment": { "h": "left", "v": "center" },
+		        "options": { "lineWrap": true },
+			    },
+                                    }
+                                },
+                            ]
+                        },
+
+
+
+                        {
+                            "type": "TableRowWidget", "name": "RowModInfo343",
+                            "children": [
+                                {
+                                    "type": "TextBoxWidget", "name": "ModInfoText343",
+                                    "fields": {
+                                        "text": "待添加......",
+                                        "style": {
+		        "fontColor": "$FontColorLightGold",
+		        "pointSize": "$MediumFontSize",
+		        "spacing" : "$ReducedSpacing",
+		        "alignment": { "h": "left", "v": "center" },
+		        "options": { "lineWrap": true },
+			    },
+                                    }
+                                },
+                            ]
+                        },
+                        {
+                            "type": "TableRowWidget", "name": "RowModInfo343",
+                            "children": [
+                                {
+                                    "type": "TextBoxWidget", "name": "ModInfoText343",
+                                    "fields": {
+                                        "text": "待添加......",
+                                        "style": {
+		        "fontColor": "$FontColorLightGold",
+		        "pointSize": "$MediumFontSize",
+		        "spacing" : "$ReducedSpacing",
+		        "alignment": { "h": "left", "v": "center" },
+		        "options": { "lineWrap": true },
+			    },
+                                    }
+                                },
+                            ]
+                        },
+                        {
+                            "type": "TableRowWidget", "name": "RowModInfo343",
+                            "children": [
+                                {
+                                    "type": "TextBoxWidget", "name": "ModInfoText343",
+                                    "fields": {
+                                        "text": "待添加......",
+                                        "style": {
+		        "fontColor": "$FontColorLightGold",
+		        "pointSize": "$MediumFontSize",
+		        "spacing" : "$ReducedSpacing",
+		        "alignment": { "h": "left", "v": "center" },
+		        "options": { "lineWrap": true },
+			    },
+                                    }
+                                },
+                            ]
+                        },
+
+                    ]
+                }
+            ]
+        },
+    ]
+}

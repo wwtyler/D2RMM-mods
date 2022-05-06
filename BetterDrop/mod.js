@@ -3,10 +3,8 @@ const treasureclassex = D2RMM.readTsv(treasureclassexFilename);
 
 const DIFFICULTY_AFFIXES = ['', ' (N)', ' (H)'];
 const DIFFICULTY_QUEST_AFFIXES = ['q', 'q (N)', 'q (H)'];
-
 // 特别注意：都瑞尔的treasure class =  Duriel (H) - Base。
 const BOSS_NAMES = ['Andariel', 'Duriel', 'Mephisto', 'Diablo', 'Baal', 'Radament', 'Summoner', 'Council', 'Haphesto', 'Nihlathak', 'Blood Raven', 'Izual', 'Cow King', 'Countess'];
-
 const ACT_GOODS = [
   'Act 5 (H) Good', 'Act 4 (H) Good', 'Act 3 (H) Good', 'Act 2 (H) Good', 'Act 1 (H) Good',
   'Act 5 (N) Good', 'Act 4 (N) Good', 'Act 3 (N) Good', 'Act 2 (N) Good', 'Act 1 (N) Good',
@@ -17,20 +15,14 @@ const ACT_JUNKS = [
   'Act 5 (N) Junk', 'Act 4 (N) Junk', 'Act 3 (N) Junk', 'Act 2 (N) Junk', 'Act 1 (N) Junk',
   'Act 5 Junk', 'Act 4 Junk', 'Act 3 Junk', 'Act 2 Junk', 'Act 1 Junk'
 ];
-
-const JUNK_ITEMS = [
-  'tsc', 'isc', 'key', 'hp1', 'hp2', 'hp3', 'hp4', 'mp1', 'mp2', 'mp3', 'mp4', 'Chipped Gem', 'Flawed Gem', 'Ammo'
-];
-
-const RECIPE_ITEMS = [
-  'fed', 'bet', 'ceh', 'tes', 'pk1', 'pk2', 'pk3'
-];
-
-const GOOD_ITEMS = [
-  'jew', 'vps'
-];
+const JUNK_ITEMS = ['tsc', 'isc', 'key', 'hp1', 'hp2', 'hp3', 'hp4', 'mp1', 'mp2', 'mp3', 'mp4', 'Chipped Gem', 'Flawed Gem', 'Ammo'];
+const RECIPE_ITEMS = ['fed', 'bet', 'ceh', 'tes'];
+const UBER_KEYS = ['pk1', 'pk2', 'pk3'];
+const GOOD_ITEMS = ['jew', 'rvs'];
 
 treasureclassex.rows.forEach((row) => {
+  const treasureClass = row['Treasure Class'];
+
   for (let i = 1; i <= 6; i = i + 1) {
     const itemValue = row[`Item${i}`];
     const probValue = row[`Prob${i}`];
@@ -57,7 +49,15 @@ treasureclassex.rows.forEach((row) => {
 
     RECIPE_ITEMS.forEach((recipeItem) => {
       if (itemValue != null && itemValue == recipeItem) {
-        row[`Prob${i}`] = Math.floor(probValue * 5);
+        row[`Prob${i}`] = Math.floor(probValue * 3);
+      }
+    });
+
+    UBER_KEYS.forEach((uberKey) => {
+      if (treasureClass != 'Pandemonium Key A' && treasureClass != 'Pandemonium Key B' && treasureClass != 'Pandemonium Key C') {
+        if (itemValue != null && itemValue == uberKey) {
+          row[`Prob${i}`] = Math.floor(probValue * 10);
+        }
       }
     });
 
@@ -70,16 +70,17 @@ treasureclassex.rows.forEach((row) => {
 });
 
 
-// 高级别装备掉落概率
 treasureclassex.rows.forEach((row) => {
   const treasureClass = row['Treasure Class'];
 
   const prob9 = 'Prob9';
-  const unique = 'Unique';
-  const set = 'Set';
+  // const unique = 'Unique';
+  // const set = 'Set';
+
+  // 高级别装备掉落概率
 
   if (row[prob9] > 0) {
-    row[prob9] = Math.floor(550 * row[prob9] / 1800);
+    row[prob9] = Math.floor(500 * row[prob9] / 2000);
   }
 
   // if (row[unique] >= 512 && row[unique] < 800) {
@@ -95,7 +96,7 @@ treasureclassex.rows.forEach((row) => {
   //   row[set] = 800;
   // }
 
-  // 难度与关卡Boss掉落调整
+  // 关卡Boss掉落调整
   BOSS_NAMES.forEach((bossName) => {
     DIFFICULTY_AFFIXES.forEach((difficultyAffix) => {
       const bossCell = `${bossName}${difficultyAffix}`;
@@ -108,7 +109,7 @@ treasureclassex.rows.forEach((row) => {
     });
   });
 
-  // 增加BOSS任務掉落
+  // 增加任務BOSS掉落
   BOSS_NAMES.forEach((bossName) => {
     DIFFICULTY_QUEST_AFFIXES.forEach((difficultyQuestAffix) => {
       const bossQuestCell = `${bossName}${difficultyQuestAffix}`;
@@ -135,6 +136,33 @@ treasureclassex.rows.forEach((row) => {
           2 * Math.sqrt(8)
         )
       );
+    }
+  }
+});
+
+// NODROP减半
+treasureclassex.rows.forEach((row) => {
+  const treasureClass = row['Treasure Class'];
+  // not all rows are valid entries
+  if (treasureClass !== '') {
+
+    if (row.NoDrop != null && row.NoDrop > 0)
+      row.NoDrop = Math.floor(row.NoDrop / 2);
+
+    // fix Countess items if necessary
+    if (config.fixcountess) {
+      if (
+        treasureClass === 'Countess' ||
+        treasureClass === 'Countess (N)' ||
+        treasureClass === 'Countess (H)'
+      ) {
+        // swap the order of 'Countess Rune' and 'Countess Item' to make
+        // the countess prefer to drop runes over items
+        const item1 = row.Item1;
+        const item2 = row.Item2;
+        row.Item1 = item2;
+        row.Item2 = item1;
+      }
     }
   }
 });

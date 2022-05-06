@@ -71,17 +71,45 @@ function gambleCostDiscount(row) {
       // row['gamble cost'] = Math.floor(row['gamble cost'] * 0.7);
       row['gamble cost'] = 30001;
     };
-    // if (row['gamble cost'] > 60000) {
-    //   row['gamble cost'] = Math.floor(row['gamble cost'] * 0.6);
-    // };
-    // if (row['gamble cost'] > 100000) {
-    //   row['gamble cost'] = Math.floor(row['gamble cost'] * 0.5);
-    // };
-    // if (row['gamble cost'] > 150000) {
-    //   row['gamble cost'] = 50000;
-    // }
+    if (row['gamble cost'] > 60000) {
+      row['gamble cost'] = Math.floor(row['gamble cost'] * 0.6 + 2);
+    };
+    if (row['gamble cost'] > 100000) {
+      row['gamble cost'] = Math.floor(row['gamble cost'] * 0.5 + 3);
+    };
+    if (row['gamble cost'] > 150000) {
+      row['gamble cost'] = 50004;
+    }
   }
 }
 
 D2RMM.writeTsv(armorFilename, armors);
 D2RMM.writeTsv(weaponsFilename, weapons);
+
+// const gambleFilename = 'global\\excel\\gamble.txt';
+// const gambles = D2RMM.readTsv(gambleFilename);
+
+// gambles.rows.push({
+//   name: `Jewel`,
+//   code: 'jew',
+// });
+
+// gambles.rows.push({
+//   name: `Diadem`,
+//   code: 'ci3'
+// });
+
+// gambles.rows.push({
+//   name: `Charm Small`,
+//   'code': 'char'
+// });
+// gambles.rows.push({
+//   name: `Charm Medium`,
+//   'code': 'cm2'
+// });
+// gambles.rows.push({
+//   name: `Charm Large`,
+//   'code': 'cm3'
+// });
+
+// D2RMM.writeTsv(gambleFilename, gambles);
