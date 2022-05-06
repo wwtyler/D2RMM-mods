@@ -17066,5 +17066,82 @@
     "ptBR": "Berserker",
     "ruRU": "[ms]лютый[fs]лютая[ns]лютое[pl]лютые",
     "zhCN": "狂战士"
+  },
+  {
+    "id": 50301,
+    "Key": "manaPercent",
+    "enUS": "manaPercent",
+    "zhTW": "manaPercent",
+    "zhCN": "manaPercent"
+  },
+  {
+    "id": 50302,
+    "Key": "hpPercent",
+    "enUS": "hpPercent",
+    "zhTW": "hpPercent",
+    "zhCN": "hpPercent"
+  },
+  {
+    "id": 50303,
+    "Key": "sorDualTabA",
+    "enUS": "sorDualTabA",
+    "zhTW": "sorDualTabA",
+    "zhCN": "sorDualTabA"
+  },
+  {
+    "id": 50304,
+    "Key": "sorDualTabB",
+    "enUS": "sorDualTabB",
+    "zhTW": "sorDualTabB",
+    "zhCN": "sorDualTabB"
+  },
+  {
+    "id": 50305,
+    "Key": "sorDualTabC",
+    "enUS": "sorDualTabC",
+    "zhTW": "sorDualTabC",
+    "zhCN": "sorDualTabC"
+  },
+  {
+    "id": 50306,
+    "Key": "dualResFL",
+    "enUS": "dualResFL",
+    "zhTW": "dualResFL",
+    "zhCN": "dualResFL"
+  },
+  {
+    "id": 50307,
+    "Key": "dualResFC",
+    "enUS": "dualResFC",
+    "zhTW": "dualResFC",
+    "zhCN": "dualResFC"
+  },
+  {
+    "id": 50308,
+    "Key": "dualResFP",
+    "enUS": "dualResFP",
+    "zhTW": "dualResFP",
+    "zhCN": "dualResFP"
+  },
+  {
+    "id": 50309,
+    "Key": "dualResCL",
+    "enUS": "dualResCL",
+    "zhTW": "dualResCL",
+    "zhCN": "dualResCL"
+  },
+  {
+    "id": 50310,
+    "Key": "dualResCP",
+    "enUS": "dualResCP",
+    "zhTW": "dualResCP",
+    "zhCN": "dualResCP"
+  },
+  {
+    "id": 50311,
+    "Key": "dualResLP",
+    "enUS": "dualResLP",
+    "zhTW": "dualResLP",
+    "zhCN": "dualResLP"
   }
 ]

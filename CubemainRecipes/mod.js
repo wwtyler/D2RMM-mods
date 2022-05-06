@@ -64,7 +64,7 @@ cubemain.rows.push({
   op: 16, // less than or no more than
   param: 183, // item_allskills (itemstatcost.txt)
   value: 2, // start from 0. ALLSKILLs +1=0， +2=1
-  'input 1': '"scha"',
+  'input 1': '"armo"',
   'input 2': `r03`,
   plvl: 99,
   ilvl: 99,
@@ -78,8 +78,56 @@ cubemain.rows.push({
   '*eol': 0,
 });
 
+cubemain.rows.push({
+  description: `test DDD`,
+  enabled: 1,
+  version: 100,
+  numinputs: 2,
+  'input 1': '"armo"',
+  'input 2': `r04`,
+  plvl: 99,
+  ilvl: 99,
+  output: 'useitem,suf=754',
+  '*eol': 0,
+});
 
+cubemain.rows.push({
+  description: `test EEE`,
+  enabled: 1,
+  version: 100,
+  numinputs: 2,
+  'input 1': '"armo"',
+  'input 2': `r05`,
+  plvl: 99,
+  ilvl: 99,
+  output: 'useitem,suf=756',
+  '*eol': 0,
+});
+cubemain.rows.push({
+  description: `test FFF`,
+  enabled: 1,
+  version: 100,
+  numinputs: 2,
+  'input 1': '"weap"',
+  'input 2': `r06`,
+  plvl: 99,
+  ilvl: 99,
+  output: 'usetype,mag,suf=748',
+  '*eol': 0,
+});
 
+cubemain.rows.push({
+  description: `test GGG`,
+  enabled: 1,
+  version: 100,
+  numinputs: 2,
+  'input 1': '"weap"',
+  'input 2': `r07`,
+  plvl: 99,
+  ilvl: 99,
+  output: 'usetype,mag,suf=750',
+  '*eol': 0,
+});
 // 三蓝色戒指合成蓝色项链	1			100					3	"rin,mag,qty=3"							"amu,mag"	99	0
 // 三蓝色项链合成蓝色戒指	1			100					3	"amu,mag,qty=3"							"rin,mag"	99	0
 

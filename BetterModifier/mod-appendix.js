@@ -43,27 +43,7 @@ const manaPercentMod = { mod1code: 'mana%', mod1param, mod1min: 5, mod1max: 8 };
 const hpPercentMod = { mod1code: 'hp%', mod1param, mod1min: 5, mod1max: 8 };
 
 class MagicModifier {
-  // constructor(a,b,c,d){
-  //           this.a = a
-  //           this.b = b
-  //           this.c = c
-  //           this.d = d
-  //       }
-  //       static BAndCInstance(b,c){
-  //           return new MyClass(null,b,c)
-  //       }
-  //       static BAndDInstance(b,d){
-  //           return new MyClass(null,b, null,d)
-  //       }
-  constructor(Name, mod1) {
-    this.Name = Name;
-    this.mod1 = mod1;
-  }
-  constructor(Name, mod1, mod2) {
-    this.Name = Name;
-    this.mod1 = mod1;
-    this.mod2 = mod2;
-  }
+
 }
 class ModX {
   constructor(code, param, min, max) {
