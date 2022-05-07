@@ -24,30 +24,43 @@ D2RMM.writeTsv(automagicFilename, automagics);
 //itype1
 const CHARM_ITYPES = ['scha', 'mcha', 'lcha'];
 const JEW_ITYPES = ['jewl', 'amul', 'ring'];
-const SOR_ITYPES = ['orb', 'staf', 'circ'];
-const PAL_ITYPES = ['scep', 'circ'];
+
+const AMA_ITYPES = ['spea', 'glov', 'amul', 'circ'];
+const SOR_ITYPES = ['orb', 'staff', 'circ', 'amul'];
+const NEC_ITYPES = ['wand', 'head', 'amul', 'circ', 'knif'];
+const PAL_ITYPES = ['scep', 'swor', 'mace', `shld`, `ashd`, `amul`, `circ`];
+const BAR_ITYPES = ['phlm', 'weap', 'helm', 'amul'];
+const DRU_ITYPES = ['club', 'pelt', 'amul', 'circ'];
+const ASS_ITYPES = ['h2h', 'helm', 'amul', 'circ'];
+
 const NORMAL_ITYPES = ['weap', `armo`];
 const ARMO_ITYPES = ['tors', `helm`, `shld`, `belt`, `boot`];
 
 //mod1code
 const GOOD_PREFIX_CODES = ['dmg%', 'mana', 'res-all', 'res-fire', 'res-ltng', 'mag%',
   'sock',
-  'skilltab',
-  'ama', 'sor', 'pal', 'nec', 'bar', 'dru', 'ass'];
+];
+const GOOD_PRE_SKILL_CODES = ['skilltab', 'ama', 'sor', 'pal', 'nec', 'bar', 'dru', 'ass'];
 const GOOD_SUFFIX_CODES = ['hp', 'mana', 'move3', 'noheal', 'mag%',
   'red-dmg',
   'str',
-  'cast1', 'cast2', 'cast3'];
+  'block', 'balance3', 'cast3'];
+
 const CLASS_SPECIFIC = ['ama', 'sor', 'pal', 'nec', 'bar', 'dru', 'ass'];
+
 const GOOD_PREFIX_NAMES = [
-  "Arch-Angel's", "Priest's", "Berserker's", "Necromancer's", "Valkyrie's", "Hierophant's", "Witch-hunter's",//all class skills
+  "Arch-Angel's", "Priest's", "Berserker's", "Necromancer's",
+  "Valkyrie's", "Hierophant's", "Witch-hunter's",//all class skills
   "Volcanic", "Powered", "Glacial",//SOR skilltab
   "Lancer's", "Athlete's", "Archer's",//AMA skilltab
   "Accursed", "Venomous", "Golemlord's",//nec skilltab
   "Rose Branded", "Marshal's", "Guardian's",//pal skilltab
   "Master's", "Furious", "Echoing",//bar skilltab
   "Keeper's", "Communal", "Gaea's",//dru skilltab
-  "Cunning", 'Shadow', "Kenshi's"//ass skilltab
+  "Cunning", 'Shadow', "Kenshi's",//ass skilltab
+  "Jeweler's",//珠宝匠sock 4
+  "Ruby",//dmg% jewl
+  "of the Lamprey",//八目鳗 lifesteal
 ];
 
 const GOOD_SUFFIX_NAMES = [
@@ -60,7 +73,9 @@ const GOOD_SUFFIX_NAMES = [
   "of Wizardry", "of Sorcery",
   "of the Whale", "of the Colosuss", "of the Mammoth", "of Vita",
   "of Hope", 'of Atlus', "of the Titan",
-  "of the Giant", "of Acceleration", "of Piercing"
+  "of the Giant", "of Acceleration", "of Piercing",
+  "Deflecting",//偏向 block 20 block 30 
+  "of the Magus",//cast3 20
 ];
 
 const magicPrefixFilename = 'global\\excel\\MagicPrefix.txt';
@@ -70,20 +85,30 @@ const magicSuffixs = D2RMM.readTsv(magicSuffixFilename);
 
 magicPrefixs.rows.forEach((row) => {
   const prefixName = row['Name'];
-  const frequency = row['frequency']
-  const mod1code = row['mod1code']
+  const frequency = row['frequency'];
+  const mod1code = row['mod1code'];
+  const itype1 = row['itype1'];
+  const itype2 = row['itype2'];
 
   //frequency不等于0和null
   if (frequency != null && frequency != 0) {
     row['frequency'] = 1;
     GOOD_PREFIX_CODES.forEach((goodCode) => {
       if (mod1code != null && mod1code == goodCode) {
-        row['frequency'] = 2;
+        row['frequency'] = 3;
       }
     });
     GOOD_PREFIX_NAMES.forEach((goodName) => {
       if (prefixName != null && prefixName == goodName) {
-        row['frequency'] = 3;
+        row['frequency'] = 4;
+      }
+    });
+    GOOD_PRE_SKILL_CODES.forEach((skillCode) => {
+      if (mod1code != null && mod1code == skillCode) {
+        if (CHARM_ITYPES.includes(itype1) | ASS_ITYPES.includes(itype1) |
+          SOR_ITYPES.includes(itype1) | NEC_ITYPES.includes(itype1) | PAL_ITYPES.includes(itype1) |
+          AMA_ITYPES.includes(itype1) | DRU_ITYPES.includes(itype1) | BAR_ITYPES.includes(itype1))
+          row['frequency'] = 5;
       }
     });
   }
@@ -93,18 +118,17 @@ magicSuffixs.rows.forEach((row) => {
   const suffixName = row['Name'];
   const frequency = row['frequency']
   const mod1code = row['mod1code']
-
   //frequency不等于0和null
   if (frequency != null && frequency != 0) {
     row['frequency'] = 1;
     GOOD_SUFFIX_CODES.forEach((goodCode) => {
       if (mod1code != null && mod1code == goodCode) {
-        row['frequency'] = 2;
+        row['frequency'] = 3;
       }
     });
     GOOD_SUFFIX_NAMES.forEach((goodName) => {
       if (suffixName != null && suffixName == goodName) {
-        row['frequency'] = 3;
+        row['frequency'] = 4;
       }
     });
   }
@@ -163,7 +187,6 @@ class MagicModifier {
 
 const manaPercent = new ModX('mana%', '', 5, 8);
 const hpPercent = new ModX('hp%', '', 5, 8);
-
 const skilltab3 = new ModX('skilltab', '3', 1, 3);
 const skilltab4 = new ModX('skilltab', '4', 1, 3);
 const skilltab5 = new ModX('skilltab', '5', 1, 3);
@@ -197,51 +220,37 @@ pushSuffix(magicSuffixs, dualResCP);
 pushSuffix(magicSuffixs, dualResLP);
 
 function pushSuffix(magicModifiers, input) {
-  if (input.mod2 != null) {
-    magicModifiers.rows.push({
-      Name: input.base.Name,
-      version: input.base.version,
-      spawnable: input.base.spawnable,
-      rare: input.base.rare,
-      frequency: input.base.frequency,
-      group: input.base.group,
-      classspecific: input.base.classspecific,
-      level: input.base.level,
-      levelreq: input.base.levelreq,
-      multiply: input.base.multiply,
-      add: input.base.add,
-      mod1code: input.mod1.code,
-      mod1param: input.mod1.param,
-      mod1min: input.mod1.min,
-      mod1max: input.mod1.max,
+  const inputItem1 = {
+    Name: input.base.Name,
+    version: input.base.version,
+    spawnable: input.base.spawnable,
+    rare: input.base.rare,
+    frequency: input.base.frequency,
+    group: input.base.group,
+    classspecific: input.base.classspecific,
+    level: input.base.level,
+    levelreq: input.base.levelreq,
+    multiply: input.base.multiply,
+    add: input.base.add,
+    mod1code: input.mod1.code,
+    mod1param: input.mod1.param,
+    mod1min: input.mod1.min,
+    mod1max: input.mod1.max,
+    itype1: 'weap',
+    itype2: 'armo',
+  }
+  if (input.mod2 !== null) {
+    const inputItem2 = {
+      ...inputItem1,
       mod2code: input.mod2.code,
       mod2param: input.mod2.param,
       mod2min: input.mod2.min,
       mod2max: input.mod2.max,
-      itype1: 'weap',
-      itype2: 'armo',
-    });
+    }
+    magicModifiers.rows.push(inputItem2);
   }
   else {
-    magicModifiers.rows.push({
-      Name: input.base.Name,
-      version: input.base.version,
-      spawnable: input.base.spawnable,
-      rare: input.base.rare,
-      frequency: input.base.frequency,
-      group: input.base.group,
-      classspecific: input.base.classspecific,
-      level: input.base.level,
-      levelreq: input.base.levelreq,
-      multiply: input.base.multiply,
-      add: input.base.add,
-      mod1code: input.mod1.code,
-      mod1param: input.mod1.param,
-      mod1min: input.mod1.min,
-      mod1max: input.mod1.max,
-      itype1: 'weap',
-      itype2: 'armo',
-    });
+    magicModifiers.rows.push(inputItem1);
   }
 }
 
