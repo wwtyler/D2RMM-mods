@@ -7,8 +7,9 @@ for (let tier = 2; tier <= 33; tier++) {
     description: 'Rune ' + tier + ' -> Rune ' + previousTier,
     enabled: 1,
     version: 100,
-    numinputs: 1,
+    numinputs: 2,
     'input 1': 'r' + tier.toString().padStart(2, '0'),
+    'input 2': 'wms',
     output: 'r' + previousTier.toString().padStart(2, '0'),
     '*eol': 0,
   });

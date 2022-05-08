@@ -150,27 +150,56 @@ cubemain.rows.forEach((row) => {
 });
 
 cubemain.rows.push({
-  description: `三戒指合成亮金戒指`,
+  description: `三mag戒指合成亮金戒指`,
   enabled: 1,
   version: 100,
   numinputs: 3,
-  'input 1': 'rin,qty=3',
+  'input 1': 'rin,mag,qty=3',
   plvl: 99,
   output: 'rin,rar',
   '*eol': '0',
 });
 
 cubemain.rows.push({
-  description: `三项链合成亮金项链`,
+  description: `三mag项链合成亮金项链`,
   enabled: 1,
   version: 100,
   numinputs: 3,
-  'input 1': 'amu,qty=3',
+  'input 1': 'amu,mag,qty=3',
   plvl: 99,
   output: 'amu,rar',
   '*eol': '0',
 });
-
+cubemain.rows.push({
+  description: `三亮金项链合成亮金项链`,
+  enabled: 1,
+  version: 100,
+  numinputs: 3,
+  'input 1': 'amu,rar,qty=3',
+  plvl: 99,
+  output: 'amu,rar',
+  '*eol': '0',
+});
+cubemain.rows.push({
+  description: `三暗金戒指合成暗金戒指`,
+  enabled: 1,
+  version: 100,
+  numinputs: 3,
+  'input 1': 'rin,uni,qty=3',
+  plvl: 99,
+  output: 'rin,uni',
+  '*eol': '0',
+});
+cubemain.rows.push({
+  description: `三暗金项链合成暗金项链`,
+  enabled: 1,
+  version: 100,
+  numinputs: 3,
+  'input 1': 'amu,uni,qty=3',
+  plvl: 99,
+  output: 'amu,uni',
+  '*eol': '0',
+});
 cubemain.rows.push({
   description: `亮金项链戒指合成亮金珠宝`,
   enabled: 1,
@@ -221,7 +250,7 @@ cubemain.rows.push({
 // 制作无形防具-暗金	1	100		3	armo,uni	isc	run1					useitem	99			ethereal
 
 const EQUIP_TYPES = ['weap', 'armo'];
-const MAGIC_TYPES = ['nor', 'mag', 'rar', 'uni']
+const MAGIC_TYPES = ['nor', 'hiq', 'mag', 'rar', 'set', 'uni']
 EQUIP_TYPES.forEach((equipType) => {
   MAGIC_TYPES.forEach((magicType) => {
     const description = "制作无形" + `${equipType}-${magicType}`;
@@ -254,7 +283,7 @@ EQUIP_TYPES.forEach((equipType) => {
       'input 2': "tsc",
       'input 3': "rune",
       plvl: 99,
-      output: 'usetype,nor',
+      output: 'usetype,hiq',
       '*eol': '0',
     });
   });
