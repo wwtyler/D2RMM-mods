@@ -87,14 +87,14 @@ const GOOD_SUFFIX_NAMES = [
   "of the Sirocco",//abs-cold		6	8
 ];
 
-const magicPrefixFilename = 'global\\excel\\MagicPrefix.txt';
-const magicPrefixs = D2RMM.readTsv(magicPrefixFilename);
-const magicSuffixFilename = 'global\\excel\\MagicSuffix.txt';
-const magicSuffixs = D2RMM.readTsv(magicSuffixFilename);
+const mpFileName = 'global\\excel\\MagicPrefix.txt';
+const mps = D2RMM.readTsv(mpFileName);
+const msFileName = 'global\\excel\\MagicSuffix.txt';
+const mss = D2RMM.readTsv(msFileName);
 
 
 
-magicPrefixs.rows.forEach((row) => {
+mps.rows.forEach((row) => {
   const prefixName = row['Name'];
   const frequency = row['frequency'];
   const mod1code = row['mod1code'];
@@ -122,7 +122,7 @@ magicPrefixs.rows.forEach((row) => {
   }
 });
 
-magicSuffixs.rows.forEach((row) => {
+mss.rows.forEach((row) => {
   const suffixName = row['Name'];
   const frequency = row['frequency']
   const mod1code = row['mod1code']
@@ -140,10 +140,10 @@ magicSuffixs.rows.forEach((row) => {
 
 
 function displayModX(mod) { return `code:${mod.code}|param:${mod.param}|min:${mod.min}|max:${mod.max}`; }
-function displayModifierBase(base) { return `Name:${base.Name}|version:${base.version}|spawnable:${base.spawnable}|group:${base.group}|frequency:${base.frequency}|classspecific:${base.classspecific}`; }
+function displayModBase(base) { return `Name:${base.Name}|version:${base.version}|spawnable:${base.spawnable}|group:${base.group}|frequency:${base.frequency}|classspecific:${base.classspecific}`; }
 function displayModifier(magicModifier) {
   let result = '';
-  result += "Base=" + displayModifierBase(magicModifier.base) + "\n";
+  result += "Base=" + displayModBase(magicModifier.base) + "\n";
   if (magicModifier.mod1 != null)
     result += "Mod1=" + displayModX(magicModifier.mod1) + "\n";
   if (magicModifier.mod2 != null)
@@ -153,7 +153,7 @@ function displayModifier(magicModifier) {
   return result;
 }
 
-class ModifierBase {
+class ModBase {
   constructor(name, group, classspecific) {
     this.Name = name;
     this.version = 100;
@@ -170,7 +170,7 @@ class ModifierBase {
 }
 class ModX { constructor(code, param, min, max) { this.code = code; this.param = param; this.min = min; this.max = max; } }
 
-class MagicModifier {
+class Modifier {
   constructor(base, mod1, mod2, mod3) {
     this.base = base;
     this.mod1 = mod1;
@@ -178,11 +178,12 @@ class MagicModifier {
     this.mod3 = mod3;
   }
   static twoMods(base, mod1, mod2) {
-    return new MagicModifier(base, mod1, mod2)
+    return new Modifier(base, mod1, mod2)
   }
   static oneMod(base, mod1) {
-    return new MagicModifier(base, mod1, null)
+    return new Modifier(base, mod1, null)
   }
+
 }
 
 //group:1-45,MagicSuffix.txt
@@ -191,39 +192,87 @@ class MagicModifier {
 
 const manaPercent = new ModX('mana%', '', 6, 10);
 const hpPercent = new ModX('hp%', '', 6, 10);
-const skilltab3 = new ModX('skilltab', '3', 1, 3);
-const skilltab4 = new ModX('skilltab', '4', 1, 3);
-const skilltab5 = new ModX('skilltab', '5', 1, 3);
+
+const skilltab0m = new ModX('skilltab', '0', 1, 3);//ama
+const skilltab1m = new ModX('skilltab', '1', 1, 3);//ama
+const skilltab2m = new ModX('skilltab', '2', 1, 3);//ama
+const skilltab3m = new ModX('skilltab', '3', 1, 3);//sor
+const skilltab4m = new ModX('skilltab', '4', 1, 3);//sor
+const skilltab5m = new ModX('skilltab', '5', 1, 3);//sor
+const skilltab6m = new ModX('skilltab', '6', 1, 3);//nec
+const skilltab7m = new ModX('skilltab', '7', 1, 3);//nec
+const skilltab8m = new ModX('skilltab', '8', 1, 3);//nec
+const skilltab9m = new ModX('skilltab', '9', 1, 3);//pal
+const skilltab10m = new ModX('skilltab', '10', 1, 3);//pal
+const skilltab11m = new ModX('skilltab', '11', 1, 3);//pal
+
+const skilltab0r = new ModX('skilltab', '0', 1, 2);//ama
+const skilltab1r = new ModX('skilltab', '1', 1, 2);//ama
+const skilltab2r = new ModX('skilltab', '2', 1, 2);//ama
+const skilltab3r = new ModX('skilltab', '3', 1, 2);//sor
+const skilltab4r = new ModX('skilltab', '4', 1, 2);//sor
+const skilltab5r = new ModX('skilltab', '5', 1, 2);//sor
+const skilltab6r = new ModX('skilltab', '6', 1, 2);//nec
+const skilltab7r = new ModX('skilltab', '7', 1, 2);//nec
+const skilltab8r = new ModX('skilltab', '8', 1, 2);//nec
+const skilltab9r = new ModX('skilltab', '9', 1, 2);//pal
+const skilltab10r = new ModX('skilltab', '10', 1, 2);//pal
+const skilltab11r = new ModX('skilltab', '11', 1, 2);//pal
+
 const resfire = new ModX('res-fire', '', 18, 36);
 const resltng = new ModX('res-ltng', '', 18, 36);
 const rescold = new ModX('res-cold', '', 18, 36);
 const respois = new ModX('res-pois', '', 18, 36);
 
-const manaPercentModifier = MagicModifier.oneMod(new ModifierBase("manaPercent", 201, ''), manaPercent);
-const hpPercentModifier = MagicModifier.oneMod(new ModifierBase("hpPercent", 202, ''), hpPercent);
-const sorDualTabA = MagicModifier.twoMods(new ModifierBase("sorDualTabA", 203, 'sor'), skilltab3, skilltab4);
-const sorDualTabB = MagicModifier.twoMods(new ModifierBase("sorDualTabB", 203, 'sor'), skilltab3, skilltab5);
-const sorDualTabC = MagicModifier.twoMods(new ModifierBase("sorDualTabC", 203, 'sor'), skilltab4, skilltab5);
-const dualResFL = MagicModifier.twoMods(new ModifierBase("dualResFL", 204, ''), resfire, resltng);
-const dualResFC = MagicModifier.twoMods(new ModifierBase("dualResFC", 204, ''), resfire, rescold);
-const dualResFP = MagicModifier.twoMods(new ModifierBase("dualResFP", 204, ''), resfire, respois);
-const dualResCL = MagicModifier.twoMods(new ModifierBase("dualResCL", 204, ''), rescold, resltng);
-const dualResCP = MagicModifier.twoMods(new ModifierBase("dualResCP", 204, ''), rescold, respois);
-const dualResLP = MagicModifier.twoMods(new ModifierBase("dualResLP", 204, ''), resltng, respois);
 
-pushSuffix(magicSuffixs, MagicModifier.oneMod(new ModifierBase("manaPercent", 201, ''), manaPercent));
-pushSuffix(magicSuffixs, hpPercentModifier);
-pushSuffix(magicSuffixs, sorDualTabA);
-pushSuffix(magicSuffixs, sorDualTabB);
-pushSuffix(magicSuffixs, sorDualTabC);
-pushSuffix(magicSuffixs, dualResFL);
-pushSuffix(magicSuffixs, dualResFC);
-pushSuffix(magicSuffixs, dualResFP);
-pushSuffix(magicSuffixs, dualResCL);
-pushSuffix(magicSuffixs, dualResCP);
-pushSuffix(magicSuffixs, dualResLP);
+pushSuf(mss, Modifier.oneMod(new ModBase("manaPercent", 201, ''), manaPercent));
+pushSuf(mss, Modifier.oneMod(new ModBase("hpPercent", 202, ''), hpPercent));
+pushSuf(mss, Modifier.twoMods(new ModBase("hp+mana", 203, ''), hpPercent, manaPercent));
+pushSuf(mss, Modifier.twoMods(new ModBase("dualResFL", 204, ''), resfire, resltng));
+pushSuf(mss, Modifier.twoMods(new ModBase("dualResFC", 204, ''), resfire, rescold));
+pushSuf(mss, Modifier.twoMods(new ModBase("dualResFP", 204, ''), resfire, respois));
+pushSuf(mss, Modifier.twoMods(new ModBase("dualResCL", 204, ''), rescold, resltng));
+pushSuf(mss, Modifier.twoMods(new ModBase("dualResCP", 204, ''), rescold, respois));
+pushSuf(mss, Modifier.twoMods(new ModBase("dualResLP", 204, ''), resltng, respois));
 
-function pushSuffix(magicModifiers, input) {
+pushSuf(mss, noRare(Modifier.oneMod(new ModBase("allskills", 210, ''), new ModX('allskills', '', 2, 4))));
+pushSuf(mss, Modifier.oneMod(new ModBase("allskills", 210, ''), new ModX('allskills', '', 1, 2)));
+
+//rare 专属
+pushSuf(mss, Modifier.twoMods(new ModBase("amaDualTabA", 211, 'ama'), skilltab0r, skilltab1r));
+pushSuf(mss, Modifier.twoMods(new ModBase("amaDualTabB", 211, 'ama'), skilltab0r, skilltab2r));
+pushSuf(mss, Modifier.twoMods(new ModBase("amaDualTabC", 211, 'ama'), skilltab1r, skilltab2r));
+pushSuf(mss, Modifier.twoMods(new ModBase("sorDualTabA", 211, 'sor'), skilltab3r, skilltab4r));
+pushSuf(mss, Modifier.twoMods(new ModBase("sorDualTabB", 211, 'sor'), skilltab3r, skilltab5r));
+pushSuf(mss, Modifier.twoMods(new ModBase("sorDualTabC", 211, 'sor'), skilltab4r, skilltab5r));
+pushSuf(mss, Modifier.twoMods(new ModBase("necDualTabA", 211, 'nec'), skilltab6r, skilltab7r));
+pushSuf(mss, Modifier.twoMods(new ModBase("necDualTabB", 211, 'nec'), skilltab6r, skilltab8r));
+pushSuf(mss, Modifier.twoMods(new ModBase("necDualTabC", 211, 'nec'), skilltab7r, skilltab8r));
+pushSuf(mss, Modifier.twoMods(new ModBase("palDualTabA", 211, 'pal'), skilltab9r, skilltab10r));
+pushSuf(mss, Modifier.twoMods(new ModBase("palDualTabB", 211, 'pal'), skilltab9r, skilltab11r));
+pushSuf(mss, Modifier.twoMods(new ModBase("palDualTabC", 211, 'pal'), skilltab10r, skilltab11r));
+//magic 专属
+pushSuf(mss, noRare(Modifier.twoMods(new ModBase("amaDualTabA", 211, 'ama'), skilltab0m, skilltab1m)));
+pushSuf(mss, noRare(Modifier.twoMods(new ModBase("amaDualTabB", 211, 'ama'), skilltab0m, skilltab2m)));
+pushSuf(mss, noRare(Modifier.twoMods(new ModBase("amaDualTabC", 211, 'ama'), skilltab1m, skilltab2m)));
+pushSuf(mss, noRare(Modifier.twoMods(new ModBase("sorDualTabA", 211, 'sor'), skilltab3m, skilltab4m)));
+pushSuf(mss, noRare(Modifier.twoMods(new ModBase("sorDualTabB", 211, 'sor'), skilltab3m, skilltab5m)));
+pushSuf(mss, noRare(Modifier.twoMods(new ModBase("sorDualTabC", 211, 'sor'), skilltab4m, skilltab5m)));
+pushSuf(mss, noRare(Modifier.twoMods(new ModBase("necDualTabA", 211, 'nec'), skilltab6m, skilltab7m)));
+pushSuf(mss, noRare(Modifier.twoMods(new ModBase("necDualTabB", 211, 'nec'), skilltab6m, skilltab8m)));
+pushSuf(mss, noRare(Modifier.twoMods(new ModBase("necDualTabC", 211, 'nec'), skilltab7m, skilltab8m)));
+pushSuf(mss, noRare(Modifier.twoMods(new ModBase("palDualTabA", 211, 'pal'), skilltab9m, skilltab10m)));
+pushSuf(mss, noRare(Modifier.twoMods(new ModBase("palDualTabB", 211, 'pal'), skilltab9m, skilltab11m)));
+pushSuf(mss, noRare(Modifier.twoMods(new ModBase("palDualTabC", 211, 'pal'), skilltab10m, skilltab11m)));
+
+function noRare(modifier) {
+  if (modifier.base != null) {
+    modifier.base.rare = 0;
+  }
+  return modifier;
+}
+
+function pushSuf(magicModifiers, input) {
   const inputItem1 = {
     Name: input.base.Name,
     version: input.base.version,
@@ -242,6 +291,8 @@ function pushSuffix(magicModifiers, input) {
     mod1max: input.mod1.max,
     itype1: 'weap',//TODO：一些角色技能词缀需要指定具体的装备类型。
     itype2: 'armo',
+    itype3: 'amul',
+    itype3: 'ring',
   }
   if (input.mod2 !== null) {
     const inputItem2 = {
@@ -258,5 +309,5 @@ function pushSuffix(magicModifiers, input) {
   }
 }
 
-D2RMM.writeTsv(magicPrefixFilename, magicPrefixs);
-D2RMM.writeTsv(magicSuffixFilename, magicSuffixs);
+D2RMM.writeTsv(mpFileName, mps);
+D2RMM.writeTsv(msFileName, mss);
