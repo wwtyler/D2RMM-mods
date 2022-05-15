@@ -1,30 +1,14 @@
-const automagicFilename = 'global\\excel\\automagic.txt';
-const automagics = D2RMM.readTsv(automagicFilename);
+const amFilename = 'global\\excel\\automagic.txt';
+const mpFileName = 'global\\excel\\MagicPrefix.txt';
+const msFileName = 'global\\excel\\MagicSuffix.txt';
+const ams = D2RMM.readTsv(amFilename);
+const mps = D2RMM.readTsv(mpFileName);
+const mss = D2RMM.readTsv(msFileName);
 
-//自动附魔蓝色装备特有词缀。rare=0
-const GOOD_AM_EXCL_PREFIX_NAME = ["of the Colossus", "Great Wyrm's", 'Chromatic', 'of Anthrax'];
-//自动附魔高等级词缀。rare=1
-const GOOD_AM_PREFIX_NAME = ["Athlete's", "Archer's", "Lancer's", 'of the Mammoth', "Wyrm's", "Prismatic", "of Pestilence"];
-// const GOOD_AM_PREFIX_CODE = ["skilltab", "hp", "mana"];
 
-//auto附魔的词缀频率统一调整到1。
-//对于部分高级别词缀变相提升出现的概率。比如：3/2/1 -> 1/1/1，则概率1/6提升到1/3。 
-automagics.rows.forEach((row) => {
-  const prefixName = row["Name"];
-  row['frequency'] = 1;
-  GOOD_AM_PREFIX_NAME.forEach((amPrefix) => {
-    if (prefixName != null && prefixName == amPrefix) {
-      row['frequency'] = 2;
-    }
-  });
-});
-
-D2RMM.writeTsv(automagicFilename, automagics);
-
-//itype1
+//itypes，不能大于7；
 const CHARM_ITYPES = ['scha', 'mcha', 'lcha'];
 const JEW_ITYPES = ['jewl', 'amul', 'ring'];
-
 const AMA_ITYPES = ['spea', 'miss', 'glov', 'amul', 'circ'];
 const SOR_ITYPES = ['orb', 'staff', 'staf', 'circ', 'amul'];
 const NEC_ITYPES = ['wand', 'head', 'amul', 'circ', 'knif'];
@@ -35,6 +19,25 @@ const ASS_ITYPES = ['h2h', 'helm', 'amul', 'circ'];
 
 const NORMAL_ITYPES = ['weap', `armo`];
 const ARMO_ITYPES = ['tors', `helm`, `shld`, `belt`, `boot`];
+
+//自动附魔蓝色装备特有词缀。rare=0
+const GOOD_AM_EXCL_PREFIX_NAME = ["of the Colossus", "Great Wyrm's", 'Chromatic', 'of Anthrax'];
+//自动附魔高等级词缀。rare=1
+const GOOD_AM_PREFIX_NAME = ["Athlete's", "Archer's", "Lancer's", 'of the Mammoth', "Wyrm's", "Prismatic", "of Pestilence"];
+// const GOOD_AM_PREFIX_CODE = ["skilltab", "hp", "mana"];
+
+//auto附魔的词缀频率统一调整到1。
+//对于部分高级别词缀变相提升出现的概率。比如：3/2/1 -> 1/1/1，则概率1/6提升到1/3。 
+ams.rows.forEach((row) => {
+  const prefixName = row["Name"];
+  row['frequency'] = 1;
+  GOOD_AM_PREFIX_NAME.forEach((amPrefix) => {
+    if (prefixName != null && prefixName == amPrefix) {
+      row['frequency'] = 2;
+    }
+  });
+});
+
 
 //mod1code
 const GOOD_PREFIX_CODES = ['dmg%', 'mana', 'res-all', 'res-fire', 'res-ltng', 'mag%', 'sock'];
@@ -87,13 +90,6 @@ const GOOD_SUFFIX_NAMES = [
   "of the Sirocco",//abs-cold		6	8
 ];
 
-const mpFileName = 'global\\excel\\MagicPrefix.txt';
-const mps = D2RMM.readTsv(mpFileName);
-const msFileName = 'global\\excel\\MagicSuffix.txt';
-const mss = D2RMM.readTsv(msFileName);
-
-
-
 mps.rows.forEach((row) => {
   const prefixName = row['Name'];
   const frequency = row['frequency'];
@@ -115,7 +111,8 @@ mps.rows.forEach((row) => {
     }
     if (PREFIX_SKILL_CODES.includes(mod1code)) {
       if (CHARM_ITYPES.includes(itype1) | ASS_ITYPES.includes(itype1) |
-        SOR_ITYPES.includes(itype1) | NEC_ITYPES.includes(itype1) | PAL_ITYPES.includes(itype1) |
+        SOR_ITYPES.includes(itype1) | NEC_ITYPES.includes(itype1) |
+        PAL_ITYPES.includes(itype1) |
         AMA_ITYPES.includes(itype1) | DRU_ITYPES.includes(itype1) | BAR_ITYPES.includes(itype1))
         row['frequency'] = 4;
     }
@@ -190,8 +187,8 @@ class Modifier {
 //group:101-142,MagicSuffix.txt
 //new group id >2xx。例如：mana%、hp%、move3+balance3、str+dex、dmg%+ac%、res-fire+res-ltng、skilltab(3)+skilltab(4)*。
 
-const manaPercent = new ModX('mana%', '', 6, 10);
-const hpPercent = new ModX('hp%', '', 6, 10);
+const manaPercent = new ModX('mana%', '', 5, 8);
+const hpPercent = new ModX('hp%', '', 5, 8);
 
 const skilltab0m = new ModX('skilltab', '0', 1, 3);//ama
 const skilltab1m = new ModX('skilltab', '1', 1, 3);//ama
@@ -224,52 +221,63 @@ const resltng = new ModX('res-ltng', '', 18, 36);
 const rescold = new ModX('res-cold', '', 18, 36);
 const respois = new ModX('res-pois', '', 18, 36);
 
+pushSuf(mss, setItypes(Modifier.oneMod(new ModBase("manaPercent", 201, ''), manaPercent), NORMAL_ITYPES));
+pushSuf(mss, setItypes(Modifier.oneMod(new ModBase("hpPercent", 202, ''), hpPercent), NORMAL_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("hp+mana", 203, ''), hpPercent, manaPercent), NORMAL_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("dualResFL", 204, ''), resfire, resltng), NORMAL_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("dualResFC", 204, ''), resfire, rescold), NORMAL_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("dualResFP", 204, ''), resfire, respois), NORMAL_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("dualResCL", 204, ''), rescold, resltng), NORMAL_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("dualResCP", 204, ''), rescold, respois), NORMAL_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("dualResLP", 204, ''), resltng, respois), NORMAL_ITYPES));
 
-pushSuf(mss, Modifier.oneMod(new ModBase("manaPercent", 201, ''), manaPercent));
-pushSuf(mss, Modifier.oneMod(new ModBase("hpPercent", 202, ''), hpPercent));
-pushSuf(mss, Modifier.twoMods(new ModBase("hp+mana", 203, ''), hpPercent, manaPercent));
-pushSuf(mss, Modifier.twoMods(new ModBase("dualResFL", 204, ''), resfire, resltng));
-pushSuf(mss, Modifier.twoMods(new ModBase("dualResFC", 204, ''), resfire, rescold));
-pushSuf(mss, Modifier.twoMods(new ModBase("dualResFP", 204, ''), resfire, respois));
-pushSuf(mss, Modifier.twoMods(new ModBase("dualResCL", 204, ''), rescold, resltng));
-pushSuf(mss, Modifier.twoMods(new ModBase("dualResCP", 204, ''), rescold, respois));
-pushSuf(mss, Modifier.twoMods(new ModBase("dualResLP", 204, ''), resltng, respois));
-
-pushSuf(mss, noRare(Modifier.oneMod(new ModBase("allskills", 210, ''), new ModX('allskills', '', 2, 4))));
-pushSuf(mss, Modifier.oneMod(new ModBase("allskills", 210, ''), new ModX('allskills', '', 1, 2)));
+pushSuf(mss, setItypes(noRare(Modifier.oneMod(new ModBase("allskills", 210, ''), new ModX('allskills', '', 2, 4))), NORMAL_ITYPES));
+pushSuf(mss, setItypes(Modifier.oneMod(new ModBase("allskills", 210, ''), new ModX('allskills', '', 1, 2)), NORMAL_ITYPES));
 
 //rare 专属
-pushSuf(mss, Modifier.twoMods(new ModBase("amaDualTabA", 211, 'ama'), skilltab0r, skilltab1r));
-pushSuf(mss, Modifier.twoMods(new ModBase("amaDualTabB", 211, 'ama'), skilltab0r, skilltab2r));
-pushSuf(mss, Modifier.twoMods(new ModBase("amaDualTabC", 211, 'ama'), skilltab1r, skilltab2r));
-pushSuf(mss, Modifier.twoMods(new ModBase("sorDualTabA", 211, 'sor'), skilltab3r, skilltab4r));
-pushSuf(mss, Modifier.twoMods(new ModBase("sorDualTabB", 211, 'sor'), skilltab3r, skilltab5r));
-pushSuf(mss, Modifier.twoMods(new ModBase("sorDualTabC", 211, 'sor'), skilltab4r, skilltab5r));
-pushSuf(mss, Modifier.twoMods(new ModBase("necDualTabA", 211, 'nec'), skilltab6r, skilltab7r));
-pushSuf(mss, Modifier.twoMods(new ModBase("necDualTabB", 211, 'nec'), skilltab6r, skilltab8r));
-pushSuf(mss, Modifier.twoMods(new ModBase("necDualTabC", 211, 'nec'), skilltab7r, skilltab8r));
-pushSuf(mss, Modifier.twoMods(new ModBase("palDualTabA", 211, 'pal'), skilltab9r, skilltab10r));
-pushSuf(mss, Modifier.twoMods(new ModBase("palDualTabB", 211, 'pal'), skilltab9r, skilltab11r));
-pushSuf(mss, Modifier.twoMods(new ModBase("palDualTabC", 211, 'pal'), skilltab10r, skilltab11r));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("amaDualTabA", 211, 'ama'), skilltab0r, skilltab1r), AMA_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("amaDualTabB", 211, 'ama'), skilltab0r, skilltab2r), AMA_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("amaDualTabC", 211, 'ama'), skilltab1r, skilltab2r), AMA_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("sorDualTabA", 211, 'sor'), skilltab3r, skilltab4r), SOR_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("sorDualTabB", 211, 'sor'), skilltab3r, skilltab5r), SOR_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("sorDualTabC", 211, 'sor'), skilltab4r, skilltab5r), SOR_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("necDualTabA", 211, 'nec'), skilltab6r, skilltab7r), NEC_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("necDualTabB", 211, 'nec'), skilltab6r, skilltab8r), NEC_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("necDualTabC", 211, 'nec'), skilltab7r, skilltab8r), NEC_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("palDualTabA", 211, 'pal'), skilltab9r, skilltab10r), PAL_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("palDualTabB", 211, 'pal'), skilltab9r, skilltab11r), PAL_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("palDualTabC", 211, 'pal'), skilltab10r, skilltab11r), PAL_ITYPES));
 //magic 专属
-pushSuf(mss, noRare(Modifier.twoMods(new ModBase("amaDualTabA", 211, 'ama'), skilltab0m, skilltab1m)));
-pushSuf(mss, noRare(Modifier.twoMods(new ModBase("amaDualTabB", 211, 'ama'), skilltab0m, skilltab2m)));
-pushSuf(mss, noRare(Modifier.twoMods(new ModBase("amaDualTabC", 211, 'ama'), skilltab1m, skilltab2m)));
-pushSuf(mss, noRare(Modifier.twoMods(new ModBase("sorDualTabA", 211, 'sor'), skilltab3m, skilltab4m)));
-pushSuf(mss, noRare(Modifier.twoMods(new ModBase("sorDualTabB", 211, 'sor'), skilltab3m, skilltab5m)));
-pushSuf(mss, noRare(Modifier.twoMods(new ModBase("sorDualTabC", 211, 'sor'), skilltab4m, skilltab5m)));
-pushSuf(mss, noRare(Modifier.twoMods(new ModBase("necDualTabA", 211, 'nec'), skilltab6m, skilltab7m)));
-pushSuf(mss, noRare(Modifier.twoMods(new ModBase("necDualTabB", 211, 'nec'), skilltab6m, skilltab8m)));
-pushSuf(mss, noRare(Modifier.twoMods(new ModBase("necDualTabC", 211, 'nec'), skilltab7m, skilltab8m)));
-pushSuf(mss, noRare(Modifier.twoMods(new ModBase("palDualTabA", 211, 'pal'), skilltab9m, skilltab10m)));
-pushSuf(mss, noRare(Modifier.twoMods(new ModBase("palDualTabB", 211, 'pal'), skilltab9m, skilltab11m)));
-pushSuf(mss, noRare(Modifier.twoMods(new ModBase("palDualTabC", 211, 'pal'), skilltab10m, skilltab11m)));
+pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("amaDualTabA", 211, 'ama'), skilltab0m, skilltab1m)), AMA_ITYPES));
+pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("amaDualTabB", 211, 'ama'), skilltab0m, skilltab2m)), AMA_ITYPES));
+pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("amaDualTabC", 211, 'ama'), skilltab1m, skilltab2m)), AMA_ITYPES));
+pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("sorDualTabA", 211, 'sor'), skilltab3m, skilltab4m)), AMA_ITYPES));
+pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("sorDualTabB", 211, 'sor'), skilltab3m, skilltab5m)), AMA_ITYPES));
+pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("sorDualTabC", 211, 'sor'), skilltab4m, skilltab5m)), AMA_ITYPES));
+pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("necDualTabA", 211, 'nec'), skilltab6m, skilltab7m)), NEC_ITYPES));
+pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("necDualTabB", 211, 'nec'), skilltab6m, skilltab8m)), NEC_ITYPES));
+pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("necDualTabC", 211, 'nec'), skilltab7m, skilltab8m)), NEC_ITYPES));
+
+pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("palDualTabB", 211, 'pal'), skilltab9m, skilltab10m)), PAL_ITYPES));
+pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("palDualTabB", 211, 'pal'), skilltab9m, skilltab11m)), PAL_ITYPES));
+pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("palDualTabC", 211, 'pal'), skilltab10m, skilltab11m)), PAL_ITYPES));
+
 
 function noRare(modifier) {
   if (modifier.base != null) {
     modifier.base.rare = 0;
   }
   return modifier;
+}
+
+function setItypes(modInput, typeInput) {
+  //itypes 入参为空。 不知道怎么回事。
+  for (let i = 0; i < typeInput.length && i < 7; i = i + 1) {
+    const itemValue = typeInput[i];
+    const itemIndex = `itype${i + 1}`;
+    modInput[`${itemIndex}`] = itemValue;
+  }
+  return modInput;
 }
 
 function pushSuf(magicModifiers, input) {
@@ -289,10 +297,13 @@ function pushSuf(magicModifiers, input) {
     mod1param: input.mod1.param,
     mod1min: input.mod1.min,
     mod1max: input.mod1.max,
-    itype1: 'weap',//TODO：一些角色技能词缀需要指定具体的装备类型。
-    itype2: 'armo',
-    itype3: 'amul',
-    itype3: 'ring',
+    itype1: input.itype1,
+    itype2: input.itype2,
+    itype3: input.itype3,
+    itype4: input.itype4,
+    itype5: input.itype5,
+    itype6: input.itype6,
+    itype7: input.itype7,
   }
   if (input.mod2 !== null) {
     const inputItem2 = {
@@ -309,5 +320,6 @@ function pushSuf(magicModifiers, input) {
   }
 }
 
+D2RMM.writeTsv(amFilename, ams);
 D2RMM.writeTsv(mpFileName, mps);
 D2RMM.writeTsv(msFileName, mss);
