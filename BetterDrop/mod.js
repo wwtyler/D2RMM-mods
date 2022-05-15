@@ -65,16 +65,16 @@ treasureclassex.rows.forEach((row) => {
   }
 
   if (row[unique] >= 512 && row[unique] < 800) {
-    row[unique] = Math.max(800, row[unique]);
+    row[unique] = Math.max(799, row[unique]);
   }
-  if (row[unique] >= 800 && row[unique] < 950) {
-    row[unique] = Math.max(950, row[unique]);;
+  if (row[unique] >= 800 && row[unique] < 960) {
+    row[unique] = Math.max(960, row[unique]);;
   }
   if (row[set] >= 512 && row[set] < 800) {
-    row[set] = 750;
+    row[set] = 799;
   }
   if (row[set] >= 800 && row[set] < 900) {
-    row[set] = 800;
+    row[set] = 870;
   }
   if (row[rare] >= 512 && row[rare] < 900) {
     row[rare] = Math.max(900, row[rare]);
@@ -126,8 +126,14 @@ treasureclassex.rows.forEach((row) => {
   if (ACT_GOODS.includes(treasureClass)) {
     const item6 = row['Item6'] + "";
     const prob6 = row['Prob6'];
-    if (item6 != null && item6.substring(0, 5) == "Runes")
-      row['Prob6'] = Math.floor(prob6 * 1.5);
+    const level = row['level'];
+    if (item6 != null && item6.substring(0, 5) == "Runes") {
+      row['Prob6'] = Math.floor(prob6 * 2);
+    }
+    if (level != null && level >= 66) {//hell Good begin at level 66
+      row['Item2'] = 'Perfect Gem';
+      row['Prob2'] = 14;
+    }
   }
 });
 
