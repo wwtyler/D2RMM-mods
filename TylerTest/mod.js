@@ -10,15 +10,54 @@ shrines.rows.forEach((row) => {
 D2RMM.writeTsv(shrinesFilename, shrines);
 
 // 词缀颜色
+// ÿc0 - white
+// ÿc1 - red
+// ÿc2 - green
+// ÿc3 - blue
+// ÿc4 - gold
+// ÿc5 - gray
+// ÿc6 - black
+// ÿc7 - tan
+// ÿc8 - orange
+// ÿc9 - yellow
+// ÿc; - purple
+// ÿc= - white1
+// ÿcK - gray1
+// ÿcI - gray2
+// ÿcM - black1
+// ÿcE - lightred
+// ÿcU - red1
+// ÿcS - darkred
+// ÿc@ - orange1
+// ÿcJ - orange2
+// ÿcL - orange3
+// ÿcH - lightgold1
+// ÿcD - gold1
+// ÿcR - yellow1
+// ÿcQ - green1
+// ÿcC - green2
+// ÿc< - green3
+// ÿcA - darkgreen1
+// ÿc: - darkgreen2
+// ÿcN - turquoise
+// ÿcT - skyblue
+// ÿcF - lightblue1
+// ÿcP - lightblue2
+// ÿcB - blue1
+// ÿcG - lightpink
+// ÿcO - pink
 const itemModifiersFilename = 'local\\lng\\strings\\item-modifiers.json';
 const itemModifiers = D2RMM.readJson(itemModifiersFilename);
 itemModifiers.forEach((item) => {
     const itemKey = item.Key;
-    if (itemKey === 'ModStr3k') {
-        item.zhTW = 'ÿc3ÿc4%+d 所有技能ÿc3';
-    }
-    else if (itemKey === 'strModAllResistances') {
+    if (itemKey === 'strModAllResistances') {
         item.zhTW = 'ÿc3ÿc4所有抵抗力加 %+dÿc3';
+    }
+    else if (itemKey === 'ModStr4m') {
+        item.zhTW = 'ÿc3ÿcQ攻擊速度 %+d%%ÿc3';
+    }
+    else if (itemKey === 'ModStr4v') {
+        item.zhTW = 'ÿc3ÿcQ%+d%% 施法速度ÿc3';
     }
     else if (itemKey === 'ModStr1k') {
         item.zhTW = 'ÿc3ÿcT抗寒(CR) %+d%%ÿc3';
@@ -61,6 +100,35 @@ itemModifiers.forEach((item) => {
     }
     else if (itemKey === 'strItemModEtherealSocketed') {
         item.zhTW = 'ÿc3ÿc2無形（無法修復），鑲孔ÿc4（%i）ÿc3';
+    }
+    // +角色技能词缀加颜色
+    else if (itemKey === 'ModStr3k') {
+        item.zhTW = 'ÿc3ÿc4%+d 所有技能ÿc3';
+    }
+    else if (itemKey === 'ModStr3a') {
+        item.zhTW = 'ÿc3ÿc;%+d 亞馬遜技能等級ÿc3';
+    }
+    else if (itemKey === 'ModStr3b') {
+        item.zhTW = 'ÿc3ÿc;%+d 聖騎士技能等級ÿc3';
+    }
+    else if (itemKey === 'ModStr3c') {
+        item.zhTW = 'ÿc3ÿc;%+d 死靈法師技能等級ÿc3';
+    }
+    else if (itemKey === 'ModStr3d') {
+        item.zhTW = 'ÿc3ÿc;%+d 魔法使技能等級ÿc3';
+    }
+    else if (itemKey === 'ModStr3e') {
+        item.zhTW = 'ÿc3ÿc;%+d 野蠻人技能等級ÿc3';
+    }
+    else if (itemKey === 'ModStre8b') {
+        item.zhTW = 'ÿc3ÿc;%+d 刺客技能等級ÿc3';
+    }
+    else if (itemKey === 'ModStre8a') {
+        item.zhTW = 'ÿc3ÿc;%+d 德魯伊技能等級ÿc3';
+    }
+    // SkillTab技能词缀加颜色
+    else if (itemKey != null && itemKey.substring(0, 13) === 'StrSklTabItem') {
+        item.zhTW = `ÿc3ÿc8${item.zhTW}ÿc3`;
     }
 });
 
