@@ -1,12 +1,12 @@
 {
-  "name": "Increase Monster Density",
-  "description": "Increases the number of monster packs that spawn.",
-  "author": "olegbl",
-  "website": "https://github.com/olegbl/d2rmm.mods",
+  "name": "BetterLevels",
+  "description": "BetterLevels",
+  "author": "wwtyler",
+  "website": "",
   "version": "1.0",
   "config": [
     {
-      "id": "multiplier",
+      "id": "monDensityMultiplier",
       "type": "number",
       "name": "Monster Density Multiplier",
       "description": "Spawn this times as many monster packs and unique/champion monsters. 1 = vanilla. 2 = twice as many. Etc... You can also enter a number < 1 to reduce the number of monster packs.",

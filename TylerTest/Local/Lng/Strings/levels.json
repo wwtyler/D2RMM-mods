@@ -4185,7 +4185,7 @@
     "id": 22658,
     "Key": "Nihlathaks Temple",
     "enUS": "Nihlathak's Temple",
-    "zhTW": "尼拉塞克的神殿[32/63/83]",
+    "zhTW": "尼拉塞克的神殿[32/63/85]",
     "deDE": "Nihlathaks Tempel",
     "esES": "Templo de Nihlathak",
     "frFR": "Le Temple de Nihlathak",
@@ -4196,13 +4196,13 @@
     "jaJP": "ニーラサックの寺院",
     "ptBR": "Templo de Nilatak",
     "ruRU": "Храм Нильятака",
-    "zhCN": "尼拉塞克的神殿[32/63/83]"
+    "zhCN": "尼拉塞克的神殿[32/63/85]"
   },
   {
     "id": 22659,
     "Key": "Halls of Anguish",
     "enUS": "Halls of Anguish",
-    "zhTW": "怨慟之廳[33/63/83]",
+    "zhTW": "怨慟之廳[33/63/85]",
     "deDE": "Hallen der Qual",
     "esES": "Salas de la Angustia",
     "frFR": "Les Corridors de l’Angoisse",
@@ -4213,13 +4213,13 @@
     "jaJP": "苦悶の広間",
     "ptBR": "Salões da Angústia",
     "ruRU": "Чертоги Мучений",
-    "zhCN": "痛楚大厅[33/63/83]"
+    "zhCN": "痛楚大厅[33/63/85]"
   },
   {
     "id": 22660,
     "Key": "Halls of Death's Calling",
     "enUS": "Halls of Pain",
-    "zhTW": "苦痛之廳[34/64/84]",
+    "zhTW": "苦痛之廳[34/64/85]",
     "deDE": "Hallen der Schmerzen",
     "esES": "Salas del Dolor",
     "frFR": "Les Corridors de la Souffrance",
@@ -4230,7 +4230,7 @@
     "jaJP": "苦痛の広間",
     "ptBR": "Salões da Dor",
     "ruRU": "Чертоги Боли",
-    "zhCN": "苦痛大厅[34/64/84]"
+    "zhCN": "苦痛大厅[34/64/85]"
   },
   {
     "id": 22661,
@@ -4253,7 +4253,7 @@
     "id": 22662,
     "Key": "Halls of Vaught",
     "enUS": "Halls of Vaught",
-    "zhTW": "沃特之廳[36/64/84]",
+    "zhTW": "沃特之廳[36/64/85]",
     "deDE": "Hallen von Vaught",
     "esES": "Salas de Vaught",
     "frFR": "Les Corridors du Martyre",
@@ -4264,7 +4264,7 @@
     "jaJP": "ヴォートの広間",
     "ptBR": "Salões de Vaught",
     "ruRU": "Чертоги Воута",
-    "zhCN": "沃特大厅[36/64/84]"
+    "zhCN": "沃特大厅[36/64/85]"
   },
   {
     "id": 22663,
