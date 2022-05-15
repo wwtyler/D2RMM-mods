@@ -274,6 +274,31 @@ cubemain.rows.push({
   '*eol': '0',
 });
 
+cubemain.rows.push({
+  description: `洗防具`,
+  enabled: 1,
+  version: 100,
+  numinputs: 4,
+  'input 1': 'armo',
+  'input 2': 'gem4,qty=3',
+  plvl: 50,
+  ilvl: 50,
+  output: 'usetype,rar',
+  '*eol': '0',
+});
+cubemain.rows.push({
+  description: `洗武器`,
+  enabled: 1,
+  version: 100,
+  numinputs: 4,
+  'input 1': 'weap',
+  'input 2': 'gem4,qty=3',
+  plvl: 50,
+  ilvl: 50,
+  output: 'usetype,rar',
+  '*eol': '0',
+});
+
 ALL_UNIQUE_TYPES.forEach((uniqueType) => {
   const uniqueIndex = ALL_UNIQUE_TYPES.indexOf(uniqueType);
   // Math.floor(Math.random()*7);
@@ -284,7 +309,7 @@ ALL_UNIQUE_TYPES.forEach((uniqueType) => {
     version: 100,
     numinputs: 2,
     'input 1': `${uniqueType},uni`,
-    'input 2': 'wms',
+    'input 2': 'rvs',
     lvl: 99,
     output: `${pgSCode},qty=1`,
     '*eol': '0',

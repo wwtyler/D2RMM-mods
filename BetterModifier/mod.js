@@ -221,6 +221,10 @@ const resltng = new ModX('res-ltng', '', 18, 36);
 const rescold = new ModX('res-cold', '', 18, 36);
 const respois = new ModX('res-pois', '', 18, 36);
 
+
+
+
+
 pushSuf(mss, setItypes(Modifier.oneMod(new ModBase("manaPercent", 201, ''), manaPercent), NORMAL_ITYPES));
 pushSuf(mss, setItypes(Modifier.oneMod(new ModBase("hpPercent", 202, ''), hpPercent), NORMAL_ITYPES));
 pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("hp+mana", 203, ''), hpPercent, manaPercent), NORMAL_ITYPES));
@@ -234,7 +238,7 @@ pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("dualResLP", 204, ''), reslt
 pushSuf(mss, setItypes(noRare(Modifier.oneMod(new ModBase("allskills", 210, ''), new ModX('allskills', '', 2, 4))), NORMAL_ITYPES));
 pushSuf(mss, setItypes(Modifier.oneMod(new ModBase("allskills", 210, ''), new ModX('allskills', '', 1, 2)), NORMAL_ITYPES));
 
-//rare 专属
+//rare 专属  TODO mps groupID= 125
 pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("amaDualTabA", 211, 'ama'), skilltab0r, skilltab1r), AMA_ITYPES));
 pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("amaDualTabB", 211, 'ama'), skilltab0r, skilltab2r), AMA_ITYPES));
 pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("amaDualTabC", 211, 'ama'), skilltab1r, skilltab2r), AMA_ITYPES));

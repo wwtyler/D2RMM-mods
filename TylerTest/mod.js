@@ -48,50 +48,63 @@ D2RMM.writeTsv(shrinesFilename, shrines);
 // ÿcO - pink
 const itemModifiersFilename = 'local\\lng\\strings\\item-modifiers.json';
 const itemModifiers = D2RMM.readJson(itemModifiersFilename);
+
+const RESISTENCE_LIMIT = ['ModStr5u', 'ModStr5v', 'ModStr5w', 'ModStr5x', 'ModStr5y'];
+const ADD_CHAR_SKILL = ['ModStr3a', 'ModStr3b', 'ModStr3c', 'ModStr3d', 'ModStr3e', 'ModStre8b', 'ModStre8a'];
+const FIRE_MODI = ['ModStr1j', 'ModitemdamFiresk', 'ModStr5u', 'Moditemenresfiresk', 'strModFireDamage', 'strModFireDamageRange', 'ModStre9j', 'ModStre9o', 'ModStr5g', 'ModStr5h'];
+const COLD_MODI = ['ModStr1k', 'ModitemdamColdsk', 'ModStr5v', 'Moditemenrescoldsk', 'strModColdDamage', 'strModColdDamageRange', 'ModStre9k', 'ModStre9p', 'ModStr5m', 'ModStr5n'];
+const LTNG_MODI = ['ModStr1l', 'ModitemdamLtngsk', 'ModStr5w', 'Moditemenresltngsk', 'strModLightningDamage', 'strModLightningDamageRange', 'ModStre9l', 'ModStre9q', 'ModStr5i', 'ModStr5j'];
+const POIS_MODI = ['ModStr1n', 'ModitemdamPoissk', 'ModStr5y', 'Moditemenrespoissk', 'strModPoisonDamage', 'strModPoisonDamageRange', 'ModStre9m', 'ModStre9r'];
+const MR_MODI = ['ModStr1m', 'ModStr5x', 'strModMagicDamage', 'strModMagicDamageRange', 'ModStre9n', 'ModStr5k', 'ModStr5l'];
+const DAM_ED_MODI = ['strModEnhancedDamage', 'strModMinDamage', 'strModMinDamageRange'];
+const DR_MR_MODI = ['ModStr2uPercent', 'ModStr2t', 'ModStr2u'];
+const EK_MODI = ['ModitemHPaK', 'ModStr5f'];
+
+
 itemModifiers.forEach((item) => {
     const itemKey = item.Key;
     if (itemKey === 'strModAllResistances') {
         item.zhTW = 'ÿc3ÿc4所有抵抗力加 %+dÿc3';
     }
     else if (itemKey === 'ModStr4m') {
-        item.zhTW = 'ÿc3ÿcQ攻擊速度 %+d%%ÿc3';
+        item.zhTW = 'ÿc3ÿcJ攻擊速度 %+d%%ÿc3';
     }
     else if (itemKey === 'ModStr4v') {
-        item.zhTW = 'ÿc3ÿcQ%+d%% 施法速度ÿc3';
-    }
-    else if (itemKey === 'ModStr1k') {
-        item.zhTW = 'ÿc3ÿcT抗寒(CR) %+d%%ÿc3';
-    }
-    else if (itemKey === 'ModStr1j') {
-        item.zhTW = 'ÿc3ÿc1抗火 (FR) %+d%%ÿc3';
-    }
-    else if (itemKey === 'ModStr1l') {
-        item.zhTW = 'ÿc3ÿc9抗電 (LR) %+d%%ÿc3';
-    }
-    else if (itemKey === 'ModStr1m') {
-        item.zhTW = 'ÿc3ÿc7抗魔 (MR) %+d%%ÿc3';
-    }
-    else if (itemKey === 'ModStr1n') {
-        item.zhTW = 'ÿc3ÿc2抗毒 (PR) %+d%%ÿc3';
+        item.zhTW = 'ÿc3ÿcL%+d%% 施法速度ÿc3';
     }
     else if (itemKey === 'ModStr2g') {
-        item.zhTW = 'ÿc3ÿc1生命上限提高 %d%% ÿc3';
+        item.zhTW = 'ÿc3ÿc1生命上限提高 %d%%ÿc3';
     }
     else if (itemKey === 'ModStr2h') {
-        item.zhTW = 'ÿc3ÿc1法力上限提高 %d%% ÿc3';
+        item.zhTW = 'ÿc3ÿc1法力上限提高 %d%%ÿc3';
     }
-    else if (itemKey === 'ModitemdamFiresk') {
-        item.zhTW = 'ÿc3ÿc1%+d%% 火焰技能的傷害(FD)ÿc3';
+    //元素抗性和元素抗性上限;
+    else if (FIRE_MODI.includes(itemKey)) {
+        item.zhTW = `ÿc3ÿc1${item.zhTW}ÿc3`;
     }
-    else if (itemKey === 'ModitemdamLtngsk') {
-        item.zhTW = 'ÿc3ÿc9%+d%% 雷電技能的傷害(LD)ÿc3';
+    else if (COLD_MODI.includes(itemKey)) {
+        item.zhTW = `ÿc3ÿcT${item.zhTW}ÿc3`;
     }
-    else if (itemKey === 'ModitemdamColdsk') {
-        item.zhTW = 'ÿc3ÿcT%+d%% 冰凍技能的傷害(CD)ÿc3';
+    else if (LTNG_MODI.includes(itemKey)) {
+        item.zhTW = `ÿc3ÿc9${item.zhTW}ÿc3`;
     }
-    else if (itemKey === 'ModitemdamPoissk') {
-        item.zhTW = 'ÿc3ÿc2%+d%% 毒素技能的傷害(PD)ÿc3';
+    else if (POIS_MODI.includes(itemKey)) {
+        item.zhTW = `ÿc3ÿc2${item.zhTW}ÿc3`;
     }
+    else if (MR_MODI.includes(itemKey)) {
+        item.zhTW = `ÿc3ÿcP${item.zhTW}ÿc3`;
+    }
+    //
+    else if (DAM_ED_MODI.includes(itemKey)) {
+        item.zhTW = `ÿc3ÿcU${item.zhTW}ÿc3`;
+    }
+    else if (DR_MR_MODI.includes(itemKey)) {
+        item.zhTW = `ÿc3ÿcO${item.zhTW}ÿc3`;
+    }
+    else if (EK_MODI.includes(itemKey)) {
+        item.zhTW = `ÿc3ÿcN${item.zhTW}ÿc3`;
+    }
+    //
     else if (itemKey === 'ModStr1x') {
         item.zhTW = 'ÿc3ÿcA%d%% 更佳的機會取得魔法裝備(MF)ÿc3';
     }
@@ -101,35 +114,19 @@ itemModifiers.forEach((item) => {
     else if (itemKey === 'strItemModEtherealSocketed') {
         item.zhTW = 'ÿc3ÿc2無形（無法修復），鑲孔ÿc4（%i）ÿc3';
     }
-    // +角色技能词缀加颜色
+    // +角色技能词缀加颜色。gold色。
     else if (itemKey === 'ModStr3k') {
         item.zhTW = 'ÿc3ÿc4%+d 所有技能ÿc3';
     }
-    else if (itemKey === 'ModStr3a') {
-        item.zhTW = 'ÿc3ÿc;%+d 亞馬遜技能等級ÿc3';
+    //橙色
+    else if (ADD_CHAR_SKILL.includes(itemKey)) {
+        item.zhTW = `ÿc3ÿcJ${item.zhTW}ÿc3`;
     }
-    else if (itemKey === 'ModStr3b') {
-        item.zhTW = 'ÿc3ÿc;%+d 聖騎士技能等級ÿc3';
-    }
-    else if (itemKey === 'ModStr3c') {
-        item.zhTW = 'ÿc3ÿc;%+d 死靈法師技能等級ÿc3';
-    }
-    else if (itemKey === 'ModStr3d') {
-        item.zhTW = 'ÿc3ÿc;%+d 魔法使技能等級ÿc3';
-    }
-    else if (itemKey === 'ModStr3e') {
-        item.zhTW = 'ÿc3ÿc;%+d 野蠻人技能等級ÿc3';
-    }
-    else if (itemKey === 'ModStre8b') {
-        item.zhTW = 'ÿc3ÿc;%+d 刺客技能等級ÿc3';
-    }
-    else if (itemKey === 'ModStre8a') {
-        item.zhTW = 'ÿc3ÿc;%+d 德魯伊技能等級ÿc3';
-    }
-    // SkillTab技能词缀加颜色
+    // SkillTab技能词缀加颜色。橙色
     else if (itemKey != null && itemKey.substring(0, 13) === 'StrSklTabItem') {
         item.zhTW = `ÿc3ÿc8${item.zhTW}ÿc3`;
     }
+
 });
 
 itemModifiers.push({
