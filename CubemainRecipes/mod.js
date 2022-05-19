@@ -2,6 +2,11 @@
 
 const cubemainFilename = 'global\\excel\\cubemain.txt';
 const cubemain = D2RMM.readTsv(cubemainFilename);
+const EQUIP_TYPES = ['weap', 'armo'];
+const MAGIC_TYPES = ['nor', 'hiq', 'mag', 'rar', 'set', 'uni']
+const ALL_UNIQUE_TYPES = ['weap', 'armo', 'amu', 'rin', 'jew', 'char'];
+const ALL_PG_CODES = ['gpv', 'gpy', 'gpb', 'gpg', 'gpr', 'gpw', 'skz'];
+const ALL_PG_S_CODES = ['zpv', 'zpy', 'zpb', 'zpg', 'zpr', 'zpw', 'zkz'];
 
 const scRecipe = {
   description: `enhance sc `,
@@ -133,19 +138,18 @@ cubemain.rows.push({
 
 //disable原始合成公示。
 cubemain.rows.forEach((row) => {
-  const MagicRingAndAmulet = row.description;
-  if (MagicRingAndAmulet === '3 Magic Rings -> Magic Amulet') {
+  const desc = row.description;
+  if (desc === '3 Magic Rings -> Magic Amulet') {
     row.enabled = 0;
-    // row.plvl = 99;
-    // version =  100;
-    // row.output = 'rin,rar';
-
   }
-  else if (MagicRingAndAmulet === '3 Magic Amulets -> Magic Ring') {
+  else if (desc === '3 Magic Amulets -> Magic Ring') {
     row.enabled = 0;
-    // row.plvl = 99;
-    // version =  100;
-    // row.output = 'amu,rar';
+  }
+  else if (desc === '3 Perfect Gems (Any) + 1 Magic Item -> Re-rolled Magic Item') {
+    row.enabled = 0;
+  }
+  else if (desc === '6 Perfect Skulls + 1 Rare Item -> 1 Low Quality Rare Item') {
+    row.enabled = 0;
   }
 });
 
@@ -220,37 +224,99 @@ cubemain.rows.push({
   output: 'jew,mag',
   '*eol': '0',
 });
-// cubemain.rows.push({
-//   description: `三亮金戒指合成新亮金戒指`,
-//   enabled: 1,
-//   version: 100,
-//   numinputs: 3,
-//   'input 1': 'rin,rar,qty=3',
-//   plvl: 99,
-//   output: 'rin,rar',
-//   "*eol": '0',
-// });
 
-// cubemain.rows.push({
-//   description: `三亮金项链合成新亮金项链`,
-//   enabled: 1,
-//   version: 100,
-//   numinputs: 3,
-//   'input 1': 'amu,rar,qty=3',
-//   plvl: 99,
-//   output: 'amu,rar',
-//   "*eol": '0',
-// });
+cubemain.rows.push({
+  description: `洗护符`,
+  enabled: 1,
+  version: 100,
+  numinputs: 4,
+  'input 1': 'char',
+  'input 2': 'gem4,qty=3',
+  plvl: 50,
+  ilvl: 50,
+  output: 'usetype,mag',
+  '*eol': '0',
+});
+cubemain.rows.push({
+  description: `洗珠宝`,
+  enabled: 1,
+  version: 100,
+  numinputs: 4,
+  'input 1': 'jew',
+  'input 2': 'gem4,qty=3',
+  plvl: 50,
+  ilvl: 50,
+  output: 'usetype,rar',
+  '*eol': '0',
+});
+cubemain.rows.push({
+  description: `洗戒指`,
+  enabled: 1,
+  version: 100,
+  numinputs: 4,
+  'input 1': 'rin',
+  'input 2': 'gem4,qty=3',
+  plvl: 50,
+  ilvl: 50,
+  output: 'usetype,rar',
+  '*eol': '0',
+});
+cubemain.rows.push({
+  description: `洗项链`,
+  enabled: 1,
+  version: 100,
+  numinputs: 4,
+  'input 1': 'amu',
+  'input 2': 'gem4,qty=3',
+  plvl: 50,
+  ilvl: 50,
+  output: 'usetype,rar',
+  '*eol': '0',
+});
 
-// 制作无形武器-亮金	1	100		3	weap,rar	isc	run1					useitem	99			ethereal
-// 制作无形武器-蓝色	1	100		3	weap,mag	isc	run1					useitem	99			ethereal
-// 制作无形武器-暗金	1	100		3	weap,uni	isc	run1					useitem	99			ethereal
-// 制作无形防具-亮金	1	100		3	armo,rar	isc	run1					useitem	99			ethereal
-// 制作无形防具-蓝色	1	100		3	armo,mag	isc	run1					useitem	99			ethereal
-// 制作无形防具-暗金	1	100		3	armo,uni	isc	run1					useitem	99			ethereal
+cubemain.rows.push({
+  description: `洗防具`,
+  enabled: 1,
+  version: 100,
+  numinputs: 4,
+  'input 1': 'armo',
+  'input 2': 'gem4,qty=3',
+  plvl: 50,
+  ilvl: 50,
+  output: 'usetype,rar',
+  '*eol': '0',
+});
+cubemain.rows.push({
+  description: `洗武器`,
+  enabled: 1,
+  version: 100,
+  numinputs: 4,
+  'input 1': 'weap',
+  'input 2': 'gem4,qty=3',
+  plvl: 50,
+  ilvl: 50,
+  output: 'usetype,rar',
+  '*eol': '0',
+});
 
-const EQUIP_TYPES = ['weap', 'armo'];
-const MAGIC_TYPES = ['nor', 'hiq', 'mag', 'rar', 'set', 'uni']
+ALL_UNIQUE_TYPES.forEach((uniqueType) => {
+  const uniqueIndex = ALL_UNIQUE_TYPES.indexOf(uniqueType);
+  // Math.floor(Math.random()*7);
+  const pgSCode = ALL_PG_S_CODES[uniqueIndex];
+  cubemain.rows.push({
+    description: `暗金萃取-${uniqueType}`,
+    enabled: 1,
+    version: 100,
+    numinputs: 2,
+    'input 1': `${uniqueType},uni`,
+    'input 2': 'rvs',
+    lvl: 99,
+    output: `${pgSCode},qty=1`,
+    '*eol': '0',
+  });
+});
+
+
 EQUIP_TYPES.forEach((equipType) => {
   MAGIC_TYPES.forEach((magicType) => {
     const description = "制作无形" + `${equipType}-${magicType}`;
@@ -261,7 +327,7 @@ EQUIP_TYPES.forEach((equipType) => {
       numinputs: 3,
       'input 1': `${equipType},${magicType}`,
       'input 2': "isc",
-      'input 3': "rune",
+      'input 3': "r25",
       plvl: 80,
       output: 'useitem',
       'mod 1': 'ethereal',
@@ -281,9 +347,9 @@ EQUIP_TYPES.forEach((equipType) => {
       numinputs: 3,
       'input 1': `${equipType},${magicType}`,
       'input 2': "tsc",
-      'input 3': "rune",
+      'input 3': "r18",
       plvl: 99,
-      output: 'usetype,hiq',
+      output: 'usetype,bas',
       '*eol': '0',
     });
   });
