@@ -72,7 +72,7 @@ misc.rows.forEach((item) => {
       code: converItemTypeToStackItemType(item.code),
       stackable: 1,
       minstack: 1,
-      maxstack: 99,
+      maxstack: config.stackSize,
       spawnstack: 1,
       spelldesc: 2,
       spelldescstr: 'StackableRune',
@@ -117,7 +117,7 @@ for (let i = 0; i < ITEM_TYPES.length; i = i + 1) {
     numinputs: 1,
     'input 1': itemtype,
     output: stacktype,
-    '*eol': 0,
+    '*eol\r': 0,
   });
   // convert from stack to single
   cubemain.rows.push({
@@ -130,7 +130,7 @@ for (let i = 0; i < ITEM_TYPES.length; i = i + 1) {
     numinputs: 1,
     'input 1': stacktype,
     output: itemtype,
-    '*eol': 0,
+    '*eol\r': 0,
   });
 }
 
@@ -139,7 +139,7 @@ if (config.convertWhenDestacking) {
   for (let i = 0; i < ITEM_TYPES.length; i = i + 1) {
     const itemtype = ITEM_TYPES[i];
     const stacktype = converItemTypeToStackItemType(itemtype);
-    for (let j = 2; j <= 99; j = j + 1) {
+    for (let j = 2; j <= config.stackSize; j = j + 1) {
       cubemain.rows.push({
         description: `Stack of ${j} ${itemtype} -> Stack of ${j - 1
           } and Stack of 1`,
@@ -152,7 +152,7 @@ if (config.convertWhenDestacking) {
         'input 1': stacktype,
         output: `"${stacktype},qty=${j - 1}"`,
         'output b': `"${itemtype},qty=1"`,
-        '*eol': 0,
+        '*eol\r': 0,
       });
     }
   }
@@ -163,7 +163,7 @@ else if (
     (row) => row.description === 'Stack of 2 -> Stack of 1 and Stack of 1'
   ) == null
 ) {
-  for (let i = 2; i <= 99; i = i + 1) {
+  for (let i = 2; i <= config.stackSize; i = i + 1) {
     cubemain.rows.push({
       description: `Stack of ${i} -> Stack of ${i - 1} and Stack of 1`,
       enabled: 1,
@@ -175,7 +175,7 @@ else if (
       'input 1': 'misc',
       output: `"usetype,qty=${i - 1}"`,
       'output b': `"usetype,qty=1"`,
-      '*eol': 0,
+      '*eol\r': 0,
     });
   }
 }

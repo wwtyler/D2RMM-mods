@@ -11,6 +11,13 @@
       "name": "Convert When Destacking",
       "description": "Enable to have the split off gem automatically convert to a non-stackable variant when splitting a stack. Warning: this adds 15k+ cube recipes which slows down the game's startup.",
       "defaultValue": false
+    },
+    {
+      "id": "stackSize",
+      "type": "number",
+      "name": "stackSize",
+      "description": "stackSize",
+      "defaultValue": 19
     }
   ]
 }
