@@ -11,7 +11,7 @@ for (let tier = 2; tier <= 33; tier++) {
     'input 1': 'r' + tier.toString().padStart(2, '0'),
     'input 2': 'wms',
     output: 'r' + previousTier.toString().padStart(2, '0'),
-    '*eol': 0,
+    '*eol\r': 0,
   });
 }
 

@@ -10,7 +10,7 @@ for (let tier = 1; tier <= 32; tier++) {
     numinputs: 2,
     'input 1': '"r' + tier.toString().padStart(2, '0') + ',qty=2"',
     output: 'r' + nextTier.toString().padStart(2, '0'),
-    '*eol': 0,
+    '*eol\r': 0,
   });
 }
 

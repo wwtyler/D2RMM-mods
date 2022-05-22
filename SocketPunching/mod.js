@@ -9,7 +9,7 @@ if (config.unsocket) {
     // input 1 defined below
     'input 2': 'jew',
     output: '"useitem,rem"',
-    '*eol': 0,
+    '*eol\r': 0,
   };
 
   cubemain.rows.push({
@@ -37,7 +37,7 @@ for (let sockets = 1; sockets <= 6; sockets = sockets + 1) {
       'mod 1': 'sock',
       'mod 1 min': sockets,
       'mod 1 max': sockets,
-      '*eol': 0,
+      '*eol\r': 0,
     };
 
     cubemain.rows.push({
