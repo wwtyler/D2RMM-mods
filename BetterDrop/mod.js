@@ -20,6 +20,7 @@ const JUNK_ITEMS = ['tsc', 'isc', 'key', 'hp1', 'hp2', 'hp3', 'hp4', 'mp1', 'mp2
 const RECIPE_ITEMS = ['fed', 'bet', 'ceh', 'tes'];
 const UBER_KEYS = ['pk1', 'pk2', 'pk3'];
 const GOOD_ITEMS = ['jew', 'rvs'];
+// weap87
 
 treasureclassex.rows.forEach((row) => {
   const treasureClass = row['Treasure Class'];
@@ -41,7 +42,7 @@ treasureclassex.rows.forEach((row) => {
       row[`Prob${i}`] = Math.max(Math.floor(probValue / 2), 1);
     }
     if (RECIPE_ITEMS.includes(itemValue)) {
-      row[`Prob${i}`] = Math.floor(probValue * 3);
+      row[`Prob${i}`] = Math.floor(probValue * 5);
     }
     if (UBER_KEYS.includes(itemValue)) {
       if (!PANDEMONIUSMS.includes(treasureClass)) { row[`Prob${i}`] = Math.floor(probValue * 10); }
@@ -61,9 +62,10 @@ treasureclassex.rows.forEach((row) => {
   const rare = 'Rare';
   // 高级别装备掉落概率
   if (row[prob9] > 0) {
-    row[prob9] = Math.floor(500 * row[prob9] / 2000);
+    row[prob9] = Math.floor(600 * row[prob9] / 1800);
   }
 
+  //暗金的掉率修正
   if (row[unique] >= 512 && row[unique] < 800) {
     row[unique] = Math.max(799, row[unique]);
   }
@@ -74,7 +76,7 @@ treasureclassex.rows.forEach((row) => {
     row[set] = 799;
   }
   if (row[set] >= 800 && row[set] < 900) {
-    row[set] = 870;
+    row[set] = 880;
   }
   if (row[rare] >= 512 && row[rare] < 900) {
     row[rare] = Math.max(900, row[rare]);
@@ -116,7 +118,7 @@ treasureclassex.rows.forEach((row) => {
     if (groupNumber > 1) {
       const restGroupColumn = groupNumber < 17 ? 'Prob3' : 'Prob2';
       row[restGroupColumn] = Math.floor(
-        Math.max(row[restGroupColumn] / 10, 2 * Math.sqrt(10))
+        Math.max(row[restGroupColumn] / 4, 2 * Math.sqrt(4))
       );
     }
   }
@@ -144,7 +146,7 @@ treasureclassex.rows.forEach((row) => {
 
     // NODROP减半
     if (row.NoDrop != null && row.NoDrop > 0) {
-      row.NoDrop = Math.floor(row.NoDrop / 2);
+      row.NoDrop = Math.floor(row.NoDrop * 4 / 5);
     }
 
     // the countess prefer to drop runes over items

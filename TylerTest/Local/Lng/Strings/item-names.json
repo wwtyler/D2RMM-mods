@@ -26008,5 +26008,23 @@
     "ptBR": "Moe",
     "ruRU": "Мо",
     "zhCN": "莫伊"
+  },
+  {
+    "id": 40401,
+    "Key": "Gheed's Lucky",
+    "enUS": "Gheed's Lucky",
+    "zhTW": "基德的幸运"
+  },
+  {
+    "id": 40402,
+    "Key": "Hellfire's Bless",
+    "enUS": "Hellfire's Bless",
+    "zhTW": "地狱火的祝福"
+  },
+  {
+    "id": 40411,
+    "Key": "Rainbow Stone",
+    "enUS": "Rainbow Stone",
+    "zhTW": "彩虹之石"
   }
 ]

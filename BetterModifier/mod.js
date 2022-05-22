@@ -8,17 +8,17 @@ const mss = D2RMM.readTsv(msFileName);
 
 //itypes，不能大于7；
 const CHARM_ITYPES = ['scha', 'mcha', 'lcha'];
-const JEW_ITYPES = ['jewl', 'amul', 'ring'];
+const JEW_ITYPES = ['jewl'];
 const AMA_ITYPES = ['spea', 'miss', 'glov', 'amul', 'circ'];
 const SOR_ITYPES = ['orb', 'staff', 'staf', 'circ', 'amul'];
 const NEC_ITYPES = ['wand', 'head', 'amul', 'circ', 'knif'];
 const PAL_ITYPES = ['scep', 'swor', 'mace', `shld`, `ashd`, `amul`, `circ`];
-const BAR_ITYPES = ['phlm', 'axe', 'weap', 'tkni', 'spea', 'helm', 'amul'];
+const BAR_ITYPES = ['phlm', 'axe', 'tkni', 'spea', 'helm', 'amul'];
 const DRU_ITYPES = ['club', 'pelt', 'amul', 'circ'];
 const ASS_ITYPES = ['h2h', 'helm', 'amul', 'circ'];
 
 const NORMAL_ITYPES = ['weap', `armo`];
-const ARMO_ITYPES = ['tors', `helm`, `shld`, `belt`, `boot`];
+const ARMO_ITYPES = ['tors', `helm`, `shld`, `belt`, `boot`, 'glov'];
 
 //自动附魔蓝色装备特有词缀。rare=0
 const GOOD_AM_EXCL_PREFIX_NAME = ["of the Colossus", "Great Wyrm's", 'Chromatic', 'of Anthrax'];
@@ -40,8 +40,8 @@ ams.rows.forEach((row) => {
 
 
 //mod1code
-const GOOD_PREFIX_CODES = ['dmg%', 'mana', 'res-all', 'res-fire', 'res-ltng', 'mag%', 'sock'];
 const PREFIX_SKILL_CODES = ['skilltab', 'ama', 'sor', 'pal', 'nec', 'bar', 'dru', 'ass'];
+const GOOD_PREFIX_CODES = ['dmg%', 'mana', 'res-all', 'res-fire', 'res-ltng', 'mag%', 'sock'];
 const GOOD_SUFFIX_CODES = [
   'hp', 'mana', 'move3', 'noheal',
   'mag%', 'red-dmg', 'str',
@@ -90,13 +90,34 @@ const GOOD_SUFFIX_NAMES = [
   "of the Sirocco",//abs-cold		6	8
 ];
 
+const GOOD_JEW_SUFFIX_NAMES = [
+  "of Fervor", //swing1		15	15	
+  "of Carnage"//dmg-max		11	15
+];
+
+const GOOD_JEW_PREFIX_NAMES = [
+  "Scintillating", //res-all		11	15	
+  "Realgar",//dmg%		21	30
+  "Ruby"//  dmg%		31	40
+];
+
+const GOOD_CHARM_SUFFIX_NAMES = [
+  "of Vita",//HP
+  "of Good Luck",//mag%
+  "of Fortune"//mag%
+];
+
+const GOOD_CHARM_PREFIX_NAMES = [
+  "Shimmering",//res-all
+  "Serpent's",//mana
+  "Lucky",//mag%
+];
+
 mps.rows.forEach((row) => {
   const prefixName = row['Name'];
   const frequency = row['frequency'];
   const mod1code = row['mod1code'];
   const itype1 = row['itype1'];
-  const itype2 = row['itype2'];
-
 
   //降低部分词缀的频率(frequency)
   //frequency不等于0和null
@@ -116,6 +137,13 @@ mps.rows.forEach((row) => {
         AMA_ITYPES.includes(itype1) | DRU_ITYPES.includes(itype1) | BAR_ITYPES.includes(itype1))
         row['frequency'] = 4;
     }
+
+    //珠宝专用词缀
+    if (JEW_ITYPES.includes(itype1)) {
+      if (GOOD_JEW_PREFIX_NAMES.includes(prefixName)) {
+        row['frequency'] = 4;
+      }
+    }
   }
 });
 
@@ -123,6 +151,7 @@ mss.rows.forEach((row) => {
   const suffixName = row['Name'];
   const frequency = row['frequency']
   const mod1code = row['mod1code']
+  const itype1 = row['itype1']
   //frequency不等于0和null
   if (frequency != null && frequency != 0) {
     row['frequency'] = 1;
@@ -131,6 +160,20 @@ mss.rows.forEach((row) => {
     }
     if (GOOD_SUFFIX_NAMES.includes(suffixName)) {
       row['frequency'] = 3;
+    }
+
+    //珠宝专用词缀
+    if (JEW_ITYPES.includes(itype1)) {
+      if (GOOD_JEW_SUFFIX_NAMES.includes(suffixName)) {
+        row['frequency'] = 4;
+      }
+    }
+
+    //护符专用词缀
+    if (CHARM_ITYPES.includes(itype1)) {
+      if (GOOD_CHARM_SUFFIX_NAMES.includes(suffixName)) {
+        row['frequency'] = 4;
+      }
     }
   }
 });
@@ -183,10 +226,6 @@ class Modifier {
 
 }
 
-//group:1-45,MagicSuffix.txt
-//group:101-142,MagicSuffix.txt
-//new group id >2xx。例如：mana%、hp%、move3+balance3、str+dex、dmg%+ac%、res-fire+res-ltng、skilltab(3)+skilltab(4)*。
-
 const manaPercent = new ModX('mana%', '', 5, 8);
 const hpPercent = new ModX('hp%', '', 5, 8);
 
@@ -221,9 +260,12 @@ const resltng = new ModX('res-ltng', '', 18, 36);
 const rescold = new ModX('res-cold', '', 18, 36);
 const respois = new ModX('res-pois', '', 18, 36);
 
-
-
-
+//group:1-45,MagicSuffix.txt
+//group:101-142,MagicSuffix.txt
+//new group id >2xx。例如：mana%、hp%、move3+balance3、str+dex、dmg%+ac%、res-fire+res-ltng、skilltab(3)+skilltab(4)*。
+// '*ID': (itemID = itemID + 1),
+// const maxGroup = Math.max(...mss.rows.map((row) => row.group)) + 1;
+// let groupIndex = 200 + 1;
 
 pushSuf(mss, setItypes(Modifier.oneMod(new ModBase("manaPercent", 201, ''), manaPercent), NORMAL_ITYPES));
 pushSuf(mss, setItypes(Modifier.oneMod(new ModBase("hpPercent", 202, ''), hpPercent), NORMAL_ITYPES));
@@ -239,6 +281,7 @@ pushSuf(mss, setItypes(noRare(Modifier.oneMod(new ModBase("allskills", 210, ''),
 pushSuf(mss, setItypes(Modifier.oneMod(new ModBase("allskills", 210, ''), new ModX('allskills', '', 1, 2)), NORMAL_ITYPES));
 
 //rare 专属  TODO mps groupID= 125
+//"[Class Skill Tab ID] = (Amazon = 0-2, Sorceress = 3-5, Necromancer = 6-8, Paladin = 9-11, Barbarian = 12-14, Druid = 15-17,  Assassin = 18-20)"
 pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("amaDualTabA", 211, 'ama'), skilltab0r, skilltab1r), AMA_ITYPES));
 pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("amaDualTabB", 211, 'ama'), skilltab0r, skilltab2r), AMA_ITYPES));
 pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("amaDualTabC", 211, 'ama'), skilltab1r, skilltab2r), AMA_ITYPES));
@@ -262,7 +305,7 @@ pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("necDualTabA", 211, '
 pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("necDualTabB", 211, 'nec'), skilltab6m, skilltab8m)), NEC_ITYPES));
 pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("necDualTabC", 211, 'nec'), skilltab7m, skilltab8m)), NEC_ITYPES));
 
-pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("palDualTabB", 211, 'pal'), skilltab9m, skilltab10m)), PAL_ITYPES));
+pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("palDualTabA", 211, 'pal'), skilltab9m, skilltab10m)), PAL_ITYPES));
 pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("palDualTabB", 211, 'pal'), skilltab9m, skilltab11m)), PAL_ITYPES));
 pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("palDualTabC", 211, 'pal'), skilltab10m, skilltab11m)), PAL_ITYPES));
 

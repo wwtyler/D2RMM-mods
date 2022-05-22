@@ -97,7 +97,7 @@ const inputItemBase = {
   ReEquip: 0,
   AutoStack: 0,
   StorePage: 'misc',
-  '*eol': '0',
+  '*eol\r': '0',
 }
 
 itemTypes.rows.push({...inputItemBase, Code: 'run1',});
