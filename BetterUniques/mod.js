@@ -93,3 +93,27 @@ uniqueItems.rows.push({
   '*eol\r': '0',
 });
 D2RMM.writeTsv(uniqueItemsFilename, uniqueItems);
+
+
+const itemNamesFilename = 'local\\lng\\strings\\item-names.json';
+const itemNameaffixesFilename = 'local\\lng\\strings\\item-nameaffixes.json';
+const itemNameaffixes = D2RMM.readJson(itemNameaffixesFilename);
+const itemNames = D2RMM.readJson(itemNamesFilename);
+
+
+itemNames.push({
+  id: D2RMM.getNextStringID(),
+  Key: `Rainbow Stone`, enUS: `Rainbow Stone`, zhTW: `Rainbow Stone`
+});
+
+itemNames.push({
+  id: D2RMM.getNextStringID(),
+  Key: `Hellfire's Bless`, enUS: `Hellfire's Bless`, zhTW: `Hellfire's Bless`
+});
+itemNames.push({
+  id: D2RMM.getNextStringID(),
+  Key: `Gheed's Lucky`, enUS: `Gheed's Lucky`, zhTW: `Gheed's Lucky`
+});
+
+D2RMM.writeJson(itemNamesFilename, itemNames);
+D2RMM.writeJson(itemNameaffixesFilename, itemNameaffixes);

@@ -2,7 +2,7 @@
 const cubemainFilename = 'global\\excel\\cubemain.txt';
 const cubemain = D2RMM.readTsv(cubemainFilename);
 
-const ETH_TYPES = ['weap', 'armo'];
+const EQUIP_TYPES = ['weap', 'armo'];
 const ALL_RARITY = ['low', 'nor', 'hiq', 'mag', 'rar', 'set', 'uni', 'crf', 'tmp']
 const ALL_UNIQUE_TYPES = ['weap', 'armo', 'amu', 'rin', 'jew', 'char'];
 const ALL_PG_CODES = ['gpv', 'gpy', 'gpb', 'gpg', 'gpr', 'gpw', 'skz'];
@@ -160,7 +160,7 @@ cubemain.rows.push({
   numinputs: 3,
   'input 1': '"gem3,qty=3"',
   lvl: 99,
-  output: 'gem4,qty=1',
+  output: 'gem4,qty=3',
   '*eol\r': 0,
 });
 // 三蓝色戒指合成蓝色项链	1			100					3	"rin,mag,qty=3"							"amu,mag"	99	0
@@ -269,15 +269,15 @@ REROLL_TYPES.forEach(([type, typeLabel]) => {
       'input 1': `${uniqueType},${rarity}`,
       'input 2': 'rvs',
       lvl: 99,
-      ilvl: 99, // preserve item level
-      output: `gem4,qty=1`,
+      ilvl: 99,
+      output: `${pgSCode}`,
       'output b': `rvs`,
       '*eol\r': '0',
     });
   });
 });
 
-ETH_TYPES.forEach((equipType) => {
+EQUIP_TYPES.forEach((equipType) => {
   ALL_RARITY.forEach((magicType) => {
     const description = "制作无形" + `${equipType}-${magicType}`;
     cubemain.rows.push({
@@ -299,7 +299,7 @@ ETH_TYPES.forEach((equipType) => {
 });
 
 //底材萃取
-ETH_TYPES.forEach((equipType) => {
+EQUIP_TYPES.forEach((equipType) => {
   ALL_RARITY.forEach((magicType) => {
     const description = "底材萃取" + `${equipType}-${magicType}`;
     cubemain.rows.push({
@@ -318,6 +318,21 @@ ETH_TYPES.forEach((equipType) => {
 });
 
 D2RMM.writeTsv(cubemainFilename, cubemain);
+
+
+// const itemRunesFilename = 'local\\lng\\strings\\item-runes.json';
+// const itemRunes = D2RMM.readJson(itemRunesFilename);
+// itemRunes.forEach((item) => {
+//   const runeKey = item.Key;
+//   if (runeKey === 'r25') {
+//     item.zhTW = `${item.zhTW}\n r25+item=无形item`;
+//   }
+//   else if (runeKey === 'r18') {
+//     item.zhTW = `${item.zhTW}\n r18+item=底材Item`;
+//   }
+// });
+// D2RMM.writeJson(itemRunesFilename, itemRunes);
+
 
 const itemstatcostFilename = 'global\\excel\\itemstatcost.txt';
 const itemstatcost = D2RMM.readTsv(itemstatcostFilename);

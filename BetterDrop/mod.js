@@ -18,14 +18,16 @@ const ACT_JUNKS = [
 ];
 const JUNK_ITEMS = ['tsc', 'isc', 'key', 'hp1', 'hp2', 'hp3', 'hp4', 'mp1', 'mp2', 'mp3', 'mp4', 'Chipped Gem', 'Flawed Gem', 'Ammo'];
 const RECIPE_ITEMS = ['fed', 'bet', 'ceh', 'tes'];
-const UBER_KEYS = ['pk1', 'pk2', 'pk3'];
+const UBER_KEYS_ITEMS = ['pk1', 'pk2', 'pk3'];
 const GOOD_ITEMS = ['jew', 'rvs'];
-// weap87
+// weap87 bow87 armo87
+const GOOD_LOOT_ITEMS = ['weap87', 'weap84', 'weap81', 'weap78', 'weap75', 'armo87', 'armo84', 'armo81', 'armo78', 'armo75', 'armo72', 'weap72', 'bow87', 'bow84', 'bow81', 'bow78', 'bow75', 'bow72'];
+const GREAT_LOOT_ITEMS = ['weap87', 'armo87', 'bow87', 'weap84', 'armo84', 'bow84'];
 
 treasureclassex.rows.forEach((row) => {
   const treasureClass = row['Treasure Class'];
 
-  for (let i = 1; i <= 6; i = i + 1) {
+  for (let i = 1; i <= 8; i = i + 1) {
     const itemValue = row[`Item${i}`];
     const probValue = row[`Prob${i}`];
 
@@ -44,11 +46,17 @@ treasureclassex.rows.forEach((row) => {
     if (RECIPE_ITEMS.includes(itemValue)) {
       row[`Prob${i}`] = Math.floor(probValue * 5);
     }
-    if (UBER_KEYS.includes(itemValue)) {
+    if (UBER_KEYS_ITEMS.includes(itemValue)) {
       if (!PANDEMONIUSMS.includes(treasureClass)) { row[`Prob${i}`] = Math.floor(probValue * 10); }
     }
     if (GOOD_ITEMS.includes(itemValue)) {
       row[`Prob${i}`] = Math.floor(probValue * 2);
+    }
+    if (GOOD_LOOT_ITEMS.includes(itemValue)) {
+      row[`Prob${i}`] = Math.floor(probValue * 2);
+    }
+    if (GREAT_LOOT_ITEMS.includes(itemValue)) {
+      row[`Prob${i}`] = Math.floor(probValue * 3);
     }
   }
 });
@@ -132,6 +140,7 @@ treasureclassex.rows.forEach((row) => {
     if (item6 != null && item6.substring(0, 5) == "Runes") {
       row['Prob6'] = Math.floor(prob6 * 2);
     }
+    //增加完美宝石的掉落。
     if (level != null && level >= 66) {//hell Good begin at level 66
       row['Item2'] = 'Perfect Gem';
       row['Prob2'] = 14;
@@ -146,7 +155,7 @@ treasureclassex.rows.forEach((row) => {
 
     // NODROP减半
     if (row.NoDrop != null && row.NoDrop > 0) {
-      row.NoDrop = Math.floor(row.NoDrop * 4 / 5);
+      row.NoDrop = Math.floor(row.NoDrop * 2 / 3);
     }
 
     // the countess prefer to drop runes over items

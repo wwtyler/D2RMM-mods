@@ -10,7 +10,7 @@ const mss = D2RMM.readTsv(msFileName);
 const CHARM_ITYPES = ['scha', 'mcha', 'lcha'];
 const JEW_ITYPES = ['jewl'];
 const AMA_ITYPES = ['spea', 'miss', 'glov', 'amul', 'circ'];
-const SOR_ITYPES = ['orb', 'staff', 'staf', 'circ', 'amul'];
+const SOR_ITYPES = ['orb', 'staff', 'amul', 'circ'];
 const NEC_ITYPES = ['wand', 'head', 'amul', 'circ', 'knif'];
 const PAL_ITYPES = ['scep', 'swor', 'mace', `shld`, `ashd`, `amul`, `circ`];
 const BAR_ITYPES = ['phlm', 'axe', 'tkni', 'spea', 'helm', 'amul'];
@@ -179,6 +179,7 @@ mss.rows.forEach((row) => {
 });
 
 
+
 function displayModX(mod) { return `code:${mod.code}|param:${mod.param}|min:${mod.min}|max:${mod.max}`; }
 function displayModBase(base) { return `Name:${base.Name}|version:${base.version}|spawnable:${base.spawnable}|group:${base.group}|frequency:${base.frequency}|classspecific:${base.classspecific}`; }
 function displayModifier(magicModifier) {
@@ -266,48 +267,47 @@ const respois = new ModX('res-pois', '', 18, 36);
 // '*ID': (itemID = itemID + 1),
 // const maxGroup = Math.max(...mss.rows.map((row) => row.group)) + 1;
 // let groupIndex = 200 + 1;
+let groupID = Math.max(...mss.rows.map((row) => row['group']) );
+pushSuf(mss, setItypes(Modifier.oneMod(new ModBase("manaPercent", groupID++, ''), manaPercent), NORMAL_ITYPES));
+pushSuf(mss, setItypes(Modifier.oneMod(new ModBase("hpPercent", groupID++, ''), hpPercent), NORMAL_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("hp+mana", groupID++, ''), hpPercent, manaPercent), NORMAL_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("dualResFL", groupID, ''), resfire, resltng), NORMAL_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("dualResFC", groupID, ''), resfire, rescold), NORMAL_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("dualResFP", groupID, ''), resfire, respois), NORMAL_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("dualResCL", groupID, ''), rescold, resltng), NORMAL_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("dualResCP", groupID, ''), rescold, respois), NORMAL_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("dualResLP", groupID, ''), resltng, respois), NORMAL_ITYPES));
 
-pushSuf(mss, setItypes(Modifier.oneMod(new ModBase("manaPercent", 201, ''), manaPercent), NORMAL_ITYPES));
-pushSuf(mss, setItypes(Modifier.oneMod(new ModBase("hpPercent", 202, ''), hpPercent), NORMAL_ITYPES));
-pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("hp+mana", 203, ''), hpPercent, manaPercent), NORMAL_ITYPES));
-pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("dualResFL", 204, ''), resfire, resltng), NORMAL_ITYPES));
-pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("dualResFC", 204, ''), resfire, rescold), NORMAL_ITYPES));
-pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("dualResFP", 204, ''), resfire, respois), NORMAL_ITYPES));
-pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("dualResCL", 204, ''), rescold, resltng), NORMAL_ITYPES));
-pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("dualResCP", 204, ''), rescold, respois), NORMAL_ITYPES));
-pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("dualResLP", 204, ''), resltng, respois), NORMAL_ITYPES));
-
-pushSuf(mss, setItypes(noRare(Modifier.oneMod(new ModBase("allskills", 210, ''), new ModX('allskills', '', 2, 4))), NORMAL_ITYPES));
-pushSuf(mss, setItypes(Modifier.oneMod(new ModBase("allskills", 210, ''), new ModX('allskills', '', 1, 2)), NORMAL_ITYPES));
+pushSuf(mss, setItypes(noRare(Modifier.oneMod(new ModBase("allskills", groupID++, ''), new ModX('allskills', '', 2, 4))), NORMAL_ITYPES));
+pushSuf(mss, setItypes(Modifier.oneMod(new ModBase("allskills", groupID, ''), new ModX('allskills', '', 1, 2)), NORMAL_ITYPES));
 
 //rare 专属  TODO mps groupID= 125
 //"[Class Skill Tab ID] = (Amazon = 0-2, Sorceress = 3-5, Necromancer = 6-8, Paladin = 9-11, Barbarian = 12-14, Druid = 15-17,  Assassin = 18-20)"
-pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("amaDualTabA", 211, 'ama'), skilltab0r, skilltab1r), AMA_ITYPES));
-pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("amaDualTabB", 211, 'ama'), skilltab0r, skilltab2r), AMA_ITYPES));
-pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("amaDualTabC", 211, 'ama'), skilltab1r, skilltab2r), AMA_ITYPES));
-pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("sorDualTabA", 211, 'sor'), skilltab3r, skilltab4r), SOR_ITYPES));
-pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("sorDualTabB", 211, 'sor'), skilltab3r, skilltab5r), SOR_ITYPES));
-pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("sorDualTabC", 211, 'sor'), skilltab4r, skilltab5r), SOR_ITYPES));
-pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("necDualTabA", 211, 'nec'), skilltab6r, skilltab7r), NEC_ITYPES));
-pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("necDualTabB", 211, 'nec'), skilltab6r, skilltab8r), NEC_ITYPES));
-pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("necDualTabC", 211, 'nec'), skilltab7r, skilltab8r), NEC_ITYPES));
-pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("palDualTabA", 211, 'pal'), skilltab9r, skilltab10r), PAL_ITYPES));
-pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("palDualTabB", 211, 'pal'), skilltab9r, skilltab11r), PAL_ITYPES));
-pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("palDualTabC", 211, 'pal'), skilltab10r, skilltab11r), PAL_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("amaDualTabA", groupID++, 'ama'), skilltab0r, skilltab1r), AMA_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("amaDualTabB", groupID, 'ama'), skilltab0r, skilltab2r), AMA_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("amaDualTabC", groupID, 'ama'), skilltab1r, skilltab2r), AMA_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("sorDualTabA", groupID, 'sor'), skilltab3r, skilltab4r), SOR_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("sorDualTabB", groupID, 'sor'), skilltab3r, skilltab5r), SOR_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("sorDualTabC", groupID, 'sor'), skilltab4r, skilltab5r), SOR_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("necDualTabA", groupID, 'nec'), skilltab6r, skilltab7r), NEC_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("necDualTabB", groupID, 'nec'), skilltab6r, skilltab8r), NEC_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("necDualTabC", groupID, 'nec'), skilltab7r, skilltab8r), NEC_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("palDualTabA", groupID, 'pal'), skilltab9r, skilltab10r), PAL_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("palDualTabB", groupID, 'pal'), skilltab9r, skilltab11r), PAL_ITYPES));
+pushSuf(mss, setItypes(Modifier.twoMods(new ModBase("palDualTabC", groupID, 'pal'), skilltab10r, skilltab11r), PAL_ITYPES));
 //magic 专属
-pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("amaDualTabA", 211, 'ama'), skilltab0m, skilltab1m)), AMA_ITYPES));
-pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("amaDualTabB", 211, 'ama'), skilltab0m, skilltab2m)), AMA_ITYPES));
-pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("amaDualTabC", 211, 'ama'), skilltab1m, skilltab2m)), AMA_ITYPES));
-pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("sorDualTabA", 211, 'sor'), skilltab3m, skilltab4m)), AMA_ITYPES));
-pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("sorDualTabB", 211, 'sor'), skilltab3m, skilltab5m)), AMA_ITYPES));
-pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("sorDualTabC", 211, 'sor'), skilltab4m, skilltab5m)), AMA_ITYPES));
-pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("necDualTabA", 211, 'nec'), skilltab6m, skilltab7m)), NEC_ITYPES));
-pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("necDualTabB", 211, 'nec'), skilltab6m, skilltab8m)), NEC_ITYPES));
-pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("necDualTabC", 211, 'nec'), skilltab7m, skilltab8m)), NEC_ITYPES));
-
-pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("palDualTabA", 211, 'pal'), skilltab9m, skilltab10m)), PAL_ITYPES));
-pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("palDualTabB", 211, 'pal'), skilltab9m, skilltab11m)), PAL_ITYPES));
-pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("palDualTabC", 211, 'pal'), skilltab10m, skilltab11m)), PAL_ITYPES));
+pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("amaDualTabA", groupID, 'ama'), skilltab0m, skilltab1m)), AMA_ITYPES));
+pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("amaDualTabB", groupID, 'ama'), skilltab0m, skilltab2m)), AMA_ITYPES));
+pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("amaDualTabC", groupID, 'ama'), skilltab1m, skilltab2m)), AMA_ITYPES));
+pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("sorDualTabA", groupID, 'sor'), skilltab3m, skilltab4m)), SOR_ITYPES));
+pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("sorDualTabB", groupID, 'sor'), skilltab3m, skilltab5m)), SOR_ITYPES));
+pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("sorDualTabC", groupID, 'sor'), skilltab4m, skilltab5m)), SOR_ITYPES));
+pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("necDualTabA", groupID, 'nec'), skilltab6m, skilltab7m)), NEC_ITYPES));
+pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("necDualTabB", groupID, 'nec'), skilltab6m, skilltab8m)), NEC_ITYPES));
+pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("necDualTabC", groupID, 'nec'), skilltab7m, skilltab8m)), NEC_ITYPES));
+pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("palDualTabA", groupID, 'pal'), skilltab9m, skilltab10m)), PAL_ITYPES));
+pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("palDualTabB", groupID, 'pal'), skilltab9m, skilltab11m)), PAL_ITYPES));
+pushSuf(mss, setItypes(noRare(Modifier.twoMods(new ModBase("palDualTabC", groupID, 'pal'), skilltab10m, skilltab11m)), PAL_ITYPES));
 
 
 function noRare(modifier) {
@@ -318,7 +318,6 @@ function noRare(modifier) {
 }
 
 function setItypes(modInput, typeInput) {
-  //itypes 入参为空。 不知道怎么回事。
   for (let i = 0; i < typeInput.length && i < 7; i = i + 1) {
     const itemValue = typeInput[i];
     const itemIndex = `itype${i + 1}`;

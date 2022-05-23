@@ -1,32 +1,37 @@
 //赌博概率
-// const difficultylevelsFilename = 'global\\excel\\difficultylevels.txt';
-// const difficultylevels = D2RMM.readTsv(difficultylevelsFilename);
-// difficultylevels.rows.forEach((row) => {
+// Normal	0	0	0	0	1	1	1	1	1	90	90	17	100	100	10	10	17	25	50	13	100	200	400	17	50	75	0	30000	800	500	700	330
+// Nightmare	-40	-20	5	3	2	2	2	2	2	75	75	17	100	100	10	10	17	25	35	13	100	200	400	17	35	50	33	30000	800	500	700	330
+// Hell	-100	-50	10	7	4	4	4	3	3	66	66	17	100	100	10	10	17	25	25	13	100	200	400	17	20	13	50	30000	800	500	700	330
+// Hell	-100	-50	10	7	4	4	4	3	3	66	66	17	100	100	10	10	17	25	25	13	100	200	400	17	20	13	50	50000	1500	750	1800	660
+// Normal	0	0	0	0	1	1	1	1	1	90	90	17	100	100	10	10	17	25	50	13	100	200	400	17	50	75	0	50000	1500	750	1800	660
+// Nightmare	-40	-20	5	3	2	2	2	2	2	75	75	17	100	100	10	10	17	25	35	13	100	200	400	17	35	50	33	50000	1500	750	1800	660
+// 	GambleRare	GambleSet	GambleUnique	GambleUber	GambleUltra
 
-
-//   row.GambleRare = row.GambleRare * 20;
-//   row.GambleSet = row.GambleSet * 12;
-//   row.GambleUnique = row.GambleUnique * 15
-//   row.GambleUber = row.GambleUber * 15;
-
-// });
-// D2RMM.writeTsv(difficultylevelsFilename, difficultylevels);
-
+const difficultylevelsFilename = 'global\\excel\\difficultylevels.txt';
+const difficultylevels = D2RMM.readTsv(difficultylevelsFilename);
+difficultylevels.rows.forEach((row) => {
+  row.GambleRare = row.GambleRare * 5;
+  row.GambleSet = row.GambleSet * 10;
+  row.GambleUnique = row.GambleUnique * 15
+  row.GambleUber = row.GambleUber * 15
+  row[`GambleUltra\r`] = row[`GambleUltra\r`] * 20;
+});
+D2RMM.writeTsv(difficultylevelsFilename, difficultylevels);
 
 // ////////////////////////////npc sell max/////////////////////////////
-// const npcFilename = 'global\\excel\\npc.txt';
-// const npcs = D2RMM.readTsv(npcFilename);
+const npcFilename = 'global\\excel\\npc.txt';
+const npcs = D2RMM.readTsv(npcFilename);
 
-// npcs.rows.forEach((npc) => {
-//   const maxBuy = 'max buy';
-//   const maxBuyNm = 'max buy (N)'
-//   const maxBuyHell = 'max buy (H)'
-//   npc[maxBuy] = 50000;
-//   npc[maxBuyNm] = 70000;
-//   npc[maxBuyHell] = 100000;
+npcs.rows.forEach((npc) => {
+  const maxBuy = 'max buy';
+  const maxBuyNm = 'max buy (N)'
+  const maxBuyHell = 'max buy (H)\r'
+  npc[maxBuy] = 50005;
+  npc[maxBuyNm] = 60006;
+  npc[maxBuyHell] = 70007;
 
-// });
-// D2RMM.writeTsv(npcFilename, npcs);
+});
+D2RMM.writeTsv(npcFilename, npcs);
 
 
 //雇佣兵复活费用上限调整
@@ -83,33 +88,62 @@ function gambleCostDiscount(row) {
   }
 }
 
-D2RMM.writeTsv(armorFilename, armors);
-D2RMM.writeTsv(weaponsFilename, weapons);
 
-// const gambleFilename = 'global\\excel\\gamble.txt';
-// const gambles = D2RMM.readTsv(gambleFilename);
 
-// gambles.rows.push({
-//   name: `Jewel`,
-//   code: 'jew',
-// });
+const gambleFilename = 'global\\excel\\gamble.txt';
+const gambles = D2RMM.readTsv(gambleFilename);
+const itemtypesFilename = 'global\\excel\\itemtypes.txt';
+const itemtypes = D2RMM.readTsv(itemtypesFilename);
 
-// gambles.rows.push({
-//   name: `Diadem`,
-//   code: 'ci3'
+
+gambles.rows.push({
+  name: `Jewel`,
+  'code\r': 'jew',
+});
+gambles.rows.push({
+  name: `Jewel`,
+  'code\r': 'jew',
+});
+gambles.rows.push({
+  name: `Jewel`,
+  'code\r': 'jew',
+});
+gambles.rows.push({
+  name: `Jewel`,
+  'code\r': 'jew',
+});
+gambles.rows.push({
+  name: `Diadem`,
+  'code\r': 'ci3'
+});
+
+miscs.rows.forEach((row) => {
+  if (row.name === 'Jewel') {
+    row['gamble cost'] = 42000;
+  }
+});
+
+// const CHARM_NAMES = ['Small Charm', 'Medium Charm', 'Large Charm'];
+// itemtypes.rows.forEach((row) => {
+//   if (CHARM_NAMES.includes(row.ItemType)) {
+//     row['Rare'] = 1;
+//   }
 // });
 
 // gambles.rows.push({
 //   name: `Charm Small`,
-//   'code': 'char'
+//   'code\r': 'cm1'
 // });
 // gambles.rows.push({
 //   name: `Charm Medium`,
-//   'code': 'cm2'
+//   'code\r': 'cm2'
 // });
 // gambles.rows.push({
 //   name: `Charm Large`,
-//   'code': 'cm3'
+//   'code\r': 'cm3'
 // });
-
-// D2RMM.writeTsv(gambleFilename, gambles);
+D2RMM.writeTsv(miscFilename, miscs);
+D2RMM.writeTsv(armorFilename, armors);
+D2RMM.writeTsv(weaponsFilename, weapons);
+D2RMM.writeTsv(gambleFilename, gambles);
+D2RMM.writeTsv(itemtypesFilename, itemtypes);

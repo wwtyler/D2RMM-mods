@@ -146,13 +146,7 @@ const itemRunesFilename = 'local\\lng\\strings\\item-runes.json';
 const itemRunes = D2RMM.readJson(itemRunesFilename);
 itemRunes.forEach((item) => {
     const runeKey = item.Key;
-    if (runeKey === 'r25') {
-        item.zhTW = `${item.zhTW}\n r25+isc=无形`;
-    }
-    else if (runeKey === 'r18') {
-        item.zhTW = `${item.zhTW}\n r18+tsc=Base Item`;
-    }
-    else if (runeKey === 'Runeword4') {
+    if (runeKey === 'Runeword4') {
         item.zhTW = '[MAX:270ED/40STR]\n野獸';
     }
     else if (runeKey === 'Runeword8') {
