@@ -98,7 +98,8 @@ const GOOD_JEW_SUFFIX_NAMES = [
 const GOOD_JEW_PREFIX_NAMES = [
   "Scintillating", //res-all		11	15	
   "Realgar",//dmg%		21	30
-  "Ruby"//  dmg%		31	40
+  "Ruby",//  dmg%		31	40
+  "Emerald"//mag%		3	7
 ];
 
 const GOOD_CHARM_SUFFIX_NAMES = [
@@ -141,7 +142,7 @@ mps.rows.forEach((row) => {
     //珠宝专用词缀
     if (JEW_ITYPES.includes(itype1)) {
       if (GOOD_JEW_PREFIX_NAMES.includes(prefixName)) {
-        row['frequency'] = 4;
+        row['frequency'] = 3;
       }
     }
   }
@@ -165,14 +166,14 @@ mss.rows.forEach((row) => {
     //珠宝专用词缀
     if (JEW_ITYPES.includes(itype1)) {
       if (GOOD_JEW_SUFFIX_NAMES.includes(suffixName)) {
-        row['frequency'] = 4;
+        row['frequency'] = 3;
       }
     }
 
     //护符专用词缀
     if (CHARM_ITYPES.includes(itype1)) {
       if (GOOD_CHARM_SUFFIX_NAMES.includes(suffixName)) {
-        row['frequency'] = 4;
+        row['frequency'] = 3;
       }
     }
   }

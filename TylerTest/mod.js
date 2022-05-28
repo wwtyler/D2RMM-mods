@@ -1,13 +1,4 @@
-//   ShrineDurations X 3
-const shrinesFilename = 'global\\excel\\shrines.txt';
-const shrines = D2RMM.readTsv(shrinesFilename);
 
-shrines.rows.forEach((row) => {
-    if (row['Duration in frames'] > 0 && row['*Shrine Type'] === 'Booster') {
-        row['Duration in frames'] = Math.floor(row['Duration in frames'] * 3);
-    }
-});
-D2RMM.writeTsv(shrinesFilename, shrines);
 
 // 词缀颜色
 // ÿc0 - white
@@ -130,7 +121,7 @@ itemModifiers.forEach((item) => {
 });
 
 itemModifiers.push({
-    id: 33301,
+    id:  D2RMM.getNextStringID(),
     Key: 'innernumdesc',
     enUS: '%+d innernum',
     zhTW: '%+d innernum',
@@ -144,6 +135,7 @@ D2RMM.writeJson(itemModifiersFilename, itemModifiers);
 ////符文之语参数备注
 const itemRunesFilename = 'local\\lng\\strings\\item-runes.json';
 const itemRunes = D2RMM.readJson(itemRunesFilename);
+
 itemRunes.forEach((item) => {
     const runeKey = item.Key;
     if (runeKey === 'Runeword4') {

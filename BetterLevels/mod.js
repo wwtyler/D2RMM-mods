@@ -25,15 +25,44 @@ levels.rows.forEach((row) => {
   }
 });
 
+//   ShrineDurations X 3
+const shrinesFilename = 'global\\excel\\shrines.txt';
+const shrines = D2RMM.readTsv(shrinesFilename);
 
-const NIHLATHAK_TEMPLE_NAMES = ["Act 5 - Temple Entrance", "Act 5 - Temple 1", "Act 5 - Temple 2", "Act 5 - Temple Boss"];
+shrines.rows.forEach((row) => {
+  if (row['Duration in frames'] > 0 && row['*Shrine Type'] === 'Booster') {
+    row['Duration in frames'] = Math.floor(row['Duration in frames'] * 3);
+  }
+});
+D2RMM.writeTsv(shrinesFilename, shrines);
+
+const NIHLATHAK_TEMPLE_NAMES = [
+  ["Act 5 - Temple Entrance", "Nihlathaks Temple", "尼拉塞克的神殿[32/63/85]"],
+  ["Act 5 - Temple 1", "Halls of Anguish", "怨慟之廳[33/63/85]"],
+  ["Act 5 - Temple 2", "Halls of Pain", "苦痛之廳[34/64/85]"],
+  ["Act 5 - Temple Boss", "Halls of Vaught", "沃特之廳[36/64/85]"]
+];
 
 levels.rows.forEach((row) => {
-  // multiply number of packs spawned
-  if (NIHLATHAK_TEMPLE_NAMES.includes(row.Name)) {
-    row['MonLvlEx(H)'] = 85;
-  }
-
+  NIHLATHAK_TEMPLE_NAMES.forEach(([nName, levelKey, levelLabel]) => {
+    if (row.Name == nName) {
+      row['MonLvlEx(H)'] = 85;
+    }
+  });
 });
 
 D2RMM.writeTsv(levelsFilename, levels);
+
+const levelNamesFilename = 'local\\lng\\strings\\levels.json';
+const levelNames = D2RMM.readJson(levelNamesFilename);
+
+levelNames.forEach((levelName) => {
+  NIHLATHAK_TEMPLE_NAMES.forEach(([nName, levelKey, levelLabel]) => {
+    const itemKey = levelName.Key;
+    if (itemKey == levelKey) {
+      levelName.zhTW = levelLabel;
+    }
+  });
+});
+
+D2RMM.writeJson(levelNamesFilename, levelNames);

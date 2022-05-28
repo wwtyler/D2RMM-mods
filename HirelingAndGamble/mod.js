@@ -96,27 +96,18 @@ const itemtypesFilename = 'global\\excel\\itemtypes.txt';
 const itemtypes = D2RMM.readTsv(itemtypesFilename);
 
 
+// gambles.rows.push({
+//   name: `Jewel`,
+//   'code\r': 'jew',
+// });
 gambles.rows.push({
-  name: `Jewel`,
-  'code\r': 'jew',
-});
-gambles.rows.push({
-  name: `Jewel`,
-  'code\r': 'jew',
-});
-gambles.rows.push({
-  name: `Jewel`,
-  'code\r': 'jew',
-});
-gambles.rows.push({
-  name: `Jewel`,
-  'code\r': 'jew',
+  name: `Diadem`,
+  'code\r': 'ci3'
 });
 gambles.rows.push({
   name: `Diadem`,
   'code\r': 'ci3'
 });
-
 miscs.rows.forEach((row) => {
   if (row.name === 'Jewel') {
     row['gamble cost'] = 42000;

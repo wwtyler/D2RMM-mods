@@ -160,7 +160,7 @@ cubemain.rows.push({
   numinputs: 3,
   'input 1': '"gem3,qty=3"',
   lvl: 99,
-  output: 'gem4,qty=3',
+  output: `gpv,qty=1`,
   '*eol\r': 0,
 });
 // 三蓝色戒指合成蓝色项链	1			100					3	"rin,mag,qty=3"							"amu,mag"	99	0
@@ -237,15 +237,16 @@ REROLL_TYPES.forEach(([type, typeLabel]) => {
   REROLL_RARITY.forEach(([rarity, rarityLabel]) => {
     //'reg' = If the function has “usetype” and if the item is a Unique, then regenerate/reroll the Unique
     const outputString = rarity === 'uni' ? 'useitem,reg' : `usetype,${rarity}`;
-    const inputCost = 'gem4,qty=3';
+    const inputCost = 'gem4,qty=1';
     const recipe = {
       description: `洗（REROLL）${rarityLabel}${typeLabel}`,
       enabled: 1,
       version: 100,
-      numinputs: 4,
+      numinputs: 2,
       'input 1': `${type},${rarity}`,
       'input 2': `${inputCost}`,
       output: `${outputString}`,
+      'output b': `gpv,qty=1`,//免费洗装备用来调试。
       ilvl: 100, // preserve item level
       '*eol\r': 0,
     };

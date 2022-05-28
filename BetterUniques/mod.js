@@ -63,7 +63,7 @@ uniqueItems.rows.push({
   ...gheedsFortune, index: "Gheed's Lucky", '*ID': (itemID = itemID + 1),
   carry1: 0, lvl: 70, 'lvl req': 50,
   prop1: 'addxp', min1: 5, max1: 10,
-  prop2: 'res-all', min2: 5, max2: 10,
+  prop2: 'res-all', min2: 5, max2: 15,
   prop3: 'all-stats', min3: 10, max3: 20,
   '*eol\r': '0',
 });
@@ -78,10 +78,10 @@ uniqueItems.rows.push({
 
 uniqueItems.rows.push({
   ...rainbowFacet, index: "Rainbow Stone", '*ID': (itemID = itemID + 1),
-  prop1: 'dmg', min1: 10, max1: 20,
+  prop1: 'dmg', min1: 15, max1: 30,
   prop2: 'noheal', min2: 1, max2: 1,
   prop3: 'swing2', min3: 20, max3: 30,
-  prop4: 'ease', min4: 20, max4: 20,
+  prop4: 'ease', min4: -20, max4: -20, par4: null,
   '*eol\r': '0'
 });
 uniqueItems.rows.push({

@@ -1,0 +1,18 @@
+{
+    "reforge": true,
+    "reforgeIngredient": "r15",
+    "freeReforge": false,
+    "reroll": true,
+    "rerollIngredient": "r23",
+    "freeReroll": false,
+    "ethereal": true,
+    "etherealIngredient": "r23",
+    "freeEthereal": false,
+    "relevel": true,
+    "relevelIngredient25": "r20",
+    "relevelIngredient40": "r22",
+    "relevelIngredient99": "r25",
+    "freeRelevel": false,
+    "nolimit": false,
+    "nolevel": false
+}
