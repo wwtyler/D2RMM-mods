@@ -77,14 +77,14 @@ treasureclassex.rows.forEach((row) => {
   if (row[unique] >= 512 && row[unique] < 800) {
     row[unique] = Math.max(799, row[unique]);
   }
-  if (row[unique] >= 800 && row[unique] < 960) {
-    row[unique] = Math.max(960, row[unique]);;
+  if (row[unique] >= 800 && row[unique] < 850) {
+    row[unique] = Math.max(850, row[unique]);;
   }
   if (row[set] >= 512 && row[set] < 800) {
     row[set] = 799;
   }
-  if (row[set] >= 800 && row[set] < 900) {
-    row[set] = 880;
+  if (row[set] >= 800 && row[set] < 850) {
+    row[set] = 850;
   }
   if (row[rare] >= 512 && row[rare] < 900) {
     row[rare] = Math.max(900, row[rare]);

@@ -25,7 +25,7 @@ if (config.jewelry || config.charms) {
   const miscFilename = 'global\\excel\\misc.txt';
   const misc = D2RMM.readTsv(miscFilename);
   misc.rows.forEach((row) => {
-    if (config.jewelry && ['amu', 'rin'].indexOf(row.code) !== -1) {
+    if (config.jewelry && ['amu', 'rin', 'jew'].indexOf(row.code) !== -1) {
       row.ShowLevel = 1;
     }
     if (config.charms && ['cm1', 'cm2', 'cm3'].indexOf(row.code) !== -1) {
