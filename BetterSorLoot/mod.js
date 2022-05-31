@@ -48,7 +48,7 @@ const M_ITYPES = {
   CASTER_LOW: ['orb', 'scep', 'head', 'knif', 'amul', 'ring']
 };
 
-const MOD_PROPERTIES = {
+const MOD_PROP = {
   ////////////////////////////////////////////////////////////////////////SUFFIX BEGIN////////////////////////////////////////////////////////////////////////////////////////////////////////////
   'dmg': [
     ['R1', { code: 'dmg', min: 30, max: 50 }, { level: 80, levelreq: 65, frequency: 3 }, M_ITYPES.MELE_AND_MISS],
@@ -98,6 +98,9 @@ const MOD_PROPERTIES = {
     ['R2', { code: 'openwounds', min: 20, max: 30 }, { level: 60, levelreq: 45, frequency: 3 }, M_ITYPES.MELE_AND_MISS],
     ['R3', { code: 'openwounds', min: 15, max: 20 }, { level: 35, levelreq: 15, frequency: 4 }, M_ITYPES.MELE_AND_MISS]
   ],
+  // ignore-ac
+  // reduce-ac
+  //TODO
 
   // ['dmg-fire', MOD_TYPE.SUFFIX, '火焰伤害'],
   // ['dmg-ltng', MOD_TYPE.SUFFIX, '电击伤害'],
@@ -300,7 +303,7 @@ const MOD_PROPERTIES = {
     ['R3', { code: 'balance2', min: 10, max: 20 }, { level: 40, levelreq: 15, frequency: 5 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_MID)]
   ],
 
-  // ['hp-mana', MOD_TYPE.SUFFIX, '血法双加'],
+  // ['hp-mana%', MOD_TYPE.SUFFIX, '血法双加'],
   // ['super-hp', MOD_TYPE.PREFIX, '大量HP'],
   // ['super-hp%', MOD_TYPE.PREFIX, '大量HP%'],
   // ['super-mana', MOD_TYPE.PREFIX, '大量MANA'],
@@ -521,6 +524,7 @@ const MOD_PROPERTIES = {
   // ],
 
   // ['ac-miss', MOD_TYPE.PREFIX, '超级远程防御'],
+  // ['ac-hth', MOD_TYPE.PREFIX, '超级近战防御'],
   // ['super-ac', MOD_TYPE.PREFIX, '超级防御'],
   // ['super-ac%', MOD_TYPE.PREFIX, '超级防御%'],
   // ['red-dmg', MOD_TYPE.PREFIX, '物理伤害减免'],
@@ -531,6 +535,12 @@ const MOD_PROPERTIES = {
     ['R2', { code: 'ac-miss', min: 100, max: 120 }, { level: 55, levelreq: 25, frequency: 4 }, M_ITYPES.ARMO.concat(M_ITYPES.JEW)],
     ['R3', { code: 'ac-miss', min: 80, max: 100 }, { level: 40, levelreq: 15, frequency: 5 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_UPP)],
     ['R4', { code: 'ac-miss', min: 60, max: 80 }, { level: 40, levelreq: 15, frequency: 6 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_MID)]
+  ],
+  'ac-hth': [
+    ['R1', { code: 'ac-hth', min: 160, max: 200 }, { level: 85, levelreq: 45, frequency: 3 }, M_ITYPES.ARMO],
+    ['R2', { code: 'ac-hth', min: 120, max: 160 }, { level: 55, levelreq: 25, frequency: 4 }, M_ITYPES.ARMO.concat(M_ITYPES.JEW)],
+    ['R3', { code: 'ac-hth', min: 80, max: 120 }, { level: 40, levelreq: 15, frequency: 5 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_UPP)],
+    ['R4', { code: 'ac-hth', min: 60, max: 100 }, { level: 40, levelreq: 15, frequency: 6 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_MID)]
   ],
   'super-ac': [
     ['R1', { code: 'ac', min: 100, max: 120 }, { level: 85, levelreq: 45, frequency: 3 }, M_ITYPES.ARMO],
@@ -698,6 +708,7 @@ const BOOST_MODIFIERS = [
   // ['abs-pois%', MOD_TYPE.PREFIX, '毒素吸收%'],
 
   ['ac-miss', MOD_TYPE.PREFIX, '超级远程防御'],
+  ['ac-hth', MOD_TYPE.PREFIX, '超级近战防御'],
   ['super-ac', MOD_TYPE.PREFIX, '超级防御'],
   ['super-ac%', MOD_TYPE.PREFIX, '超级防御%'],
   ['red-dmg', MOD_TYPE.PREFIX, '物理伤害减免'],
@@ -729,8 +740,8 @@ BOOST_MODIFIERS.forEach(([modName, modeType, modLable]) => {
     mpsGroupID = mpsGroupID + 1;
   }
 
-  const modProperties = MOD_PROPERTIES[modName];
-  modProperties.forEach(([modRank, modXs, modBase, modItypes]) => {
+  const modProp = MOD_PROP[modName];
+  modProp.forEach(([modRank, modXs, modBase, modItypes]) => {
 
     let modClassPrefix = getModPrefix(modBase);
     itemNames.push({
