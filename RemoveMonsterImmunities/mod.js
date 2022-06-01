@@ -8,7 +8,7 @@ monstats.rows.forEach((row) => {
     DIFFICULTY_AFFIXES.forEach((difficultyAffix) => {
       const cell = `Res${elementalAffix}${difficultyAffix}`;
       if (row[cell] !== '') {
-        if (row[cell] > 120 && row[cell] < 160)
+        if (row[cell] > config.maxres && row[cell] < 160)
           row[cell] = Math.min(config.maxres, +row[cell]);
       }
     });

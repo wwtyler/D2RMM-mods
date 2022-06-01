@@ -7,7 +7,7 @@ const NPC_NAMES = ['Akara', 'Fara', 'Lysander', 'Ormus', 'Halbu', 'Malah', 'Anya
 misc.rows.forEach((row) => {
   //rarity < 10 相当于 r01~r12
   // zod = 30
-  if (row.type === "rune" && row.rarity < 10) {
+  if (row.type === "rune" && row.rarity < 31) {
     row.PermStoreItem = 1;
     row.spawnable = 1;
     NPC_NAMES.forEach((npc) => {

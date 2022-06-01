@@ -1,12 +1,12 @@
 const CLASS_NAMES = ['Amazon', 'Sorceress', 'Necromancer', 'Paladin', 'Barbarian', 'Druid', 'Assassin'];
 const skillsFilename = 'global\\excel\\skills.txt';
 const skills = D2RMM.readTsv(skillsFilename);
+const convictionMax = 250;
+
 
 skills.rows.forEach((row) => {
-
   if (row.skill === 'Blizzard') {
     row.Param8 = 6;// 原始值 5
-
     //row.EDmgSymPerCalc = " '(skill('Ice Bolt'.blvl)+skill('Ice Blast'.blvl)+skill('Glacial Spike'.blvl))*par8'";
   }
 
@@ -26,7 +26,12 @@ skills.rows.forEach((row) => {
     row.Param8 = 12;// 原始值 7
     // row.EDmgSymPerCalc = "skill('Holy Shock'.blvl)*par8";
   }
-  
+  if (row.skill === 'Conviction') {
+    row.Param4 = 10;// 原始值 5  Resistance % reduction per level
+    row.aurastatcalc2 = `-min(ln34,${convictionMax})`;//fireresist
+    row.aurastatcalc3 = `-min(ln34,${convictionMax})`;//coldresist
+    row.aurastatcalc4 = `-min(ln34,${convictionMax})`;//lightresist
+  }
 });
 D2RMM.writeTsv(skillsFilename, skills);
 
@@ -56,7 +61,8 @@ skilldescs.rows.forEach((row) => {
     row.dsc3calca4 = 'par7';
   }
 
-  if (row.skilldesc == 'blizzard') {
+  if (row.skilldesc == 'conviction') {
+    row.desccalca2 = `-min(ln34,${convictionMax})`;
   }
 
 });

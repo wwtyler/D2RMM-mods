@@ -18,6 +18,8 @@ const JEW_FORGE_TYPES = [
   ['amu', '项链']
 ];
 const REROLL_RARITY = [
+  ['nor', '普通'],
+  ['hiq', '超强'],
   ['mag', '魔法'],
   ['rar', '稀有'],
   ['uni', '暗金'],
@@ -66,11 +68,10 @@ cubemain.rows.push({
   enabled: 1,
   version: 100,
   numinputs: 2,
-  'input 1': '"char"',
-  'input 2': `run2`,
-  plvl: 99,
-  ilvl: 99,
-  output: "Andariel's Visage",
+  'input 1': 'r02',
+  'input 2': `r03`,
+  lvl: 99,
+  output: "Azurewrath",
   '*eol\r': 0,
 });
 
@@ -79,17 +80,47 @@ cubemain.rows.push({
   enabled: 1,
   version: 100,
   numinputs: 2,
-  op: 16, // less than or no more than
-  param: 127, // item_allskills (itemstatcost.txt)
-  value: 1, // start from 0. ALLSKILLs +1=0， +2=1
   'input 1': '"scha"',
-  'input 2': `r02`,
-  plvl: 99,
-  ilvl: 99,
+  'input 2': `r09`,
+  lvl: 99,
   output: 'useitem',
-  'mod 1': 'allskills',
-  'mod 1 min': 1,
-  'mod 1 max': 1,
+  'mod 1': 'aura',//  // aura Conviction	12	12	// 光环
+  'mod 1 param': 'Conviction',
+  'mod 1 min': 18,
+  'mod 1 max': 18,
+  '*eol\r': 0,
+});
+
+
+cubemain.rows.push({
+  description: `test BBC`,
+  enabled: 1,
+  version: 100,
+  numinputs: 2,
+  'input 1': '"scha"',
+  'input 2': `r10`,
+  lvl: 99,
+  output: 'useitem',
+  'mod 1': 'aura',
+  'mod 1 param': 'Meditation',
+  'mod 1 min': 16,
+  'mod 1 max': 16,
+  '*eol\r': 0,
+});
+
+
+cubemain.rows.push({
+  description: `test BBD`,
+  enabled: 1,
+  version: 100,
+  numinputs: 2,
+  'input 1': 'jew',
+  'input 2': `r08`,
+  lvl: 99,
+  output: 'useitem',
+  'mod 1': 'levelreq',//  // aura Conviction	12	12	// 光环
+  'mod 1 min': 20,
+  'mod 1 max': 20,
   '*eol\r': 0,
 });
 
@@ -103,8 +134,7 @@ cubemain.rows.push({
   value: 2, // start from 0. ALLSKILLs +1=0， +2=1
   'input 1': '"armo"',
   'input 2': `r03`,
-  plvl: 99,
-  ilvl: 99,
+  lvl: 99,
   output: 'useitem',
   'mod 1': 'addxp',
   'mod 1 min': 10,
@@ -122,8 +152,7 @@ cubemain.rows.push({
   numinputs: 2,
   'input 1': '"armo"',
   'input 2': `r04`,
-  plvl: 99,
-  ilvl: 99,
+  lvl: 99,
   output: 'useitem,suf=754',
   '*eol\r': 0,
 });
@@ -135,8 +164,7 @@ cubemain.rows.push({
   numinputs: 2,
   'input 1': '"armo"',
   'input 2': `r05`,
-  plvl: 99,
-  ilvl: 99,
+  lvl: 99,
   output: 'useitem,suf=756',
   '*eol\r': 0,
 });
@@ -147,8 +175,7 @@ cubemain.rows.push({
   numinputs: 2,
   'input 1': '"weap"',
   'input 2': `r06`,
-  plvl: 99,
-  ilvl: 99,
+  lvl: 99,
   output: 'usetype,mag,suf=748',
   '*eol\r': 0,
 });
@@ -219,6 +246,7 @@ cubemain.rows.push({
   'input 1': 'amu,rar',
   'input 2': 'rin,rar',
   output: 'jew,rar',
+  ilvl: 100, // 
   '*eol\r': '0',
 });
 cubemain.rows.push({
@@ -229,6 +257,7 @@ cubemain.rows.push({
   'input 1': 'amu,mag',
   'input 2': 'rin,mag',
   output: 'jew,mag',
+  ilvl: 100, // 
   '*eol\r': '0',
 });
 
@@ -269,8 +298,7 @@ REROLL_TYPES.forEach(([type, typeLabel]) => {
       numinputs: 2,
       'input 1': `${uniqueType},${rarity}`,
       'input 2': 'rvs',
-      lvl: 99,
-      ilvl: 99,
+      ilvl: 100,
       output: `${pgSCode}`,
       'output b': `rvs`,
       '*eol\r': '0',
@@ -285,10 +313,10 @@ EQUIP_TYPES.forEach((equipType) => {
       description: description,
       enabled: 1,
       version: 100,
-      numinputs: 2,
+      numinputs: 3,
       'input 1': `${equipType},${magicType}`,
       'input 2': "r25",
-      // 'input 3': "isc",
+      'input 3': "isc",
       ilvl: 100, // preserve item level
       output: 'useitem',
       'mod 1': 'ethereal',
@@ -307,12 +335,12 @@ EQUIP_TYPES.forEach((equipType) => {
       description: description,
       enabled: 1,
       version: 100,
-      numinputs: 2,
+      numinputs: 3,
       'input 1': `${equipType},${magicType}`,
       'input 2': "r18",
-      // 'input 3': "tsc",
-      ilvl: 100, // preserve item level
-      output: 'usetype,bas',
+      'input 3': "tsc",
+      lvl: 92, // preserve item level
+      output: 'usetype,nor',
       '*eol\r': '0',
     });
   });

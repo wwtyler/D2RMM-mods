@@ -406,12 +406,12 @@ const MOD_PROPERTIES = {
     ['R1-CL', { code: 'res-cold', min: 18, max: 30, code2: 'res-ltng', min2: 18, max2: 30 }, { level: 65, levelreq: 45, frequency: 3 }, M_ITYPES.ARMO],
     ['R1-CP', { code: 'res-cold', min: 18, max: 30, code2: 'res-pois', min2: 18, max2: 30 }, { level: 65, levelreq: 45, frequency: 3 }, M_ITYPES.ARMO],
     ['R1-LP', { code: 'res-ltng', min: 18, max: 30, code2: 'res-pois', min2: 18, max2: 30 }, { level: 65, levelreq: 45, frequency: 3 }, M_ITYPES.ARMO],
-    ['R2-FC', { code: 'res-fire', min: 12, max: 20, code2: 'res-cold', min2: 12, max2: 20 }, { level: 45, levelreq: 25, frequency: 5 }, M_ITYPES.ARMO],
-    ['R2-FL', { code: 'res-fire', min: 12, max: 20, code2: 'res-ltng', min2: 12, max2: 20 }, { level: 45, levelreq: 25, frequency: 5 }, M_ITYPES.ARMO],
-    ['R2-FP', { code: 'res-fire', min: 12, max: 20, code2: 'res-pois', min2: 12, max2: 20 }, { level: 45, levelreq: 25, frequency: 5 }, M_ITYPES.ARMO],
-    ['R2-CL', { code: 'res-cold', min: 12, max: 20, code2: 'res-ltng', min2: 12, max2: 20 }, { level: 45, levelreq: 25, frequency: 5 }, M_ITYPES.ARMO],
-    ['R2-CP', { code: 'res-cold', min: 12, max: 20, code2: 'res-pois', min2: 12, max2: 20 }, { level: 45, levelreq: 25, frequency: 5 }, M_ITYPES.ARMO],
-    ['R2-LP', { code: 'res-ltng', min: 12, max: 20, code2: 'res-pois', min2: 12, max2: 20 }, { level: 45, levelreq: 25, frequency: 5 }, M_ITYPES.ARMO]
+    ['R2-FC', { code: 'res-fire', min: 12, max: 20, code2: 'res-cold', min2: 12, max2: 20 }, { level: 45, levelreq: 25, frequency: 4 }, M_ITYPES.ARMO],
+    ['R2-FL', { code: 'res-fire', min: 12, max: 20, code2: 'res-ltng', min2: 12, max2: 20 }, { level: 45, levelreq: 25, frequency: 4 }, M_ITYPES.ARMO],
+    ['R2-FP', { code: 'res-fire', min: 12, max: 20, code2: 'res-pois', min2: 12, max2: 20 }, { level: 45, levelreq: 25, frequency: 4 }, M_ITYPES.ARMO],
+    ['R2-CL', { code: 'res-cold', min: 12, max: 20, code2: 'res-ltng', min2: 12, max2: 20 }, { level: 45, levelreq: 25, frequency: 4 }, M_ITYPES.ARMO],
+    ['R2-CP', { code: 'res-cold', min: 12, max: 20, code2: 'res-pois', min2: 12, max2: 20 }, { level: 45, levelreq: 25, frequency: 4 }, M_ITYPES.ARMO],
+    ['R2-LP', { code: 'res-ltng', min: 12, max: 20, code2: 'res-pois', min2: 12, max2: 20 }, { level: 45, levelreq: 25, frequency: 4 }, M_ITYPES.ARMO]
   ],
 
   // ['res-all-max', MOD_TYPE.PREFIX, '元素抗性上限'],//res-all-max
@@ -422,7 +422,7 @@ const MOD_PROPERTIES = {
   'res-all-max': [
     ['R1', { code: 'res-all-max', min: 4, max: 5 }, { level: 85, levelreq: 45, frequency: 1 }, M_ITYPES.NORMAL],
     ['R2', { code: 'res-all-max', min: 3, max: 4 }, { level: 55, levelreq: 25, frequency: 2 }, M_ITYPES.NORMAL.concat(M_ITYPES.JEW)],
-    ['R3', { code: 'res-all-max', min: 2, max: 3 }, { level: 40, levelreq: 15, frequency: 3 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_UPP)]
+    ['R3', { code: 'res-all-max', min: 2, max: 3 }, { level: 40, levelreq: 15, frequency: 2 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_UPP)]
   ],
   'res-fire-max': [
     ['R1', { code: 'res-fire-max', min: 6, max: 10 }, { level: 85, levelreq: 45, frequency: 3 }, M_ITYPES.NORMAL],
@@ -567,10 +567,10 @@ const MOD_PROPERTIES = {
   // ['heal-kill', MOD_TYPE.PREFIX, 'hp EK'],
   // ['regen-mana', MOD_TYPE.PREFIX, '法力恢复']
   'mana-kill': [
-    ['R1', { code: 'mana-kill', min: 8, max: 10 }, { level: 85, levelreq: 45, frequency: 3 }, M_ITYPES.ARMO],
-    ['R2', { code: 'mana-kill', min: 6, max: 8 }, { level: 55, levelreq: 25, frequency: 4 }, M_ITYPES.ARMO.concat(M_ITYPES.JEW)],
-    ['R3', { code: 'mana-kill', min: 4, max: 6 }, { level: 40, levelreq: 15, frequency: 5 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_UPP)],
-    ['R4', { code: 'mana-kill', min: 2, max: 4 }, { level: 40, levelreq: 15, frequency: 6 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_MID)]
+    ['R1', { code: 'mana-kill', min: 8, max: 10 }, { level: 85, levelreq: 45, frequency: 4 }, M_ITYPES.ARMO],
+    ['R2', { code: 'mana-kill', min: 6, max: 8 }, { level: 55, levelreq: 25, frequency: 5 }, M_ITYPES.ARMO.concat(M_ITYPES.JEW)],
+    ['R3', { code: 'mana-kill', min: 4, max: 6 }, { level: 40, levelreq: 15, frequency: 6 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_UPP)],
+    ['R4', { code: 'mana-kill', min: 2, max: 4 }, { level: 40, levelreq: 15, frequency: 7 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_MID)]
   ],
   'heal-kill': [
     ['R1', { code: 'heal-kill', min: 8, max: 10 }, { level: 85, levelreq: 45, frequency: 3 }, M_ITYPES.ARMO],
