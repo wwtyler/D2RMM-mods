@@ -52,7 +52,7 @@ const MOD_PROP = {
   ////////////////////////////////////////////////////////////////////////SUFFIX BEGIN////////////////////////////////////////////////////////////////////////////////////////////////////////////
   'dmg': [
     ['R1', { code: 'dmg', min: 30, max: 50 }, { level: 80, levelreq: 65, frequency: 3 }, M_ITYPES.MELE_AND_MISS],
-    ['R2', { code: 'dmg', min: 20, max: 35 }, { level: 70, levelreq: 45, frequency: 4 }, M_ITYPES.MELE_AND_MISS.concat(M_ITYPES.JEW)],
+    ['R2', { code: 'dmg', min: 20, max: 35 }, { level: 70, levelreq: 45, frequency: 4 }, M_ITYPES.MELE_AND_MISS],
     ['R3', { code: 'dmg', min: 10, max: 25 }, { level: 50, levelreq: 35, frequency: 4 }, M_ITYPES.MELE_AND_MISS.concat(M_ITYPES.JEW).concat(M_ITYPES.CHARM_UPP)],
     ['R4', { code: 'dmg', min: 10, max: 15 }, { level: 30, levelreq: 15, frequency: 4 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_MID)]
   ],
