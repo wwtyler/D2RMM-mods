@@ -63,6 +63,7 @@ uniqueItems.rows.forEach((item) => {
       item.prop7 = 'move2'; item.min7 = 40; item.max7 = 40;
       item.prop8 = 'res-all'; item.min8 = 45; item.max8 = 45;
       item.prop9 = 'all-stats'; item.min9 = 20; item.max9 = 30;
+      item.prop10 = 'addxp'; item.min10 = 80; item.max10 = 120;
     }
     else if (item.index === "Tomb Reaver") {
       // Tomb Reaver	298	100	1		1	1	86	84	7pa	cryptic axe		5	5000	lyel	lyel						
@@ -100,13 +101,13 @@ uniqueItems.rows.forEach((item) => {
     }
   }
 });
-      // Rainbow Facet	393	100	1		1	1	85	49	jew	jewel		3	5000								dmg-cold	3	24	38	pierce-cold		3	5	extra-cold		3	5	death-skill	Blizzard	100	37																																		0
-      // Rainbow Facet	394	100	1		1	1	85	49	jew	jewel		3	5000								dmg-fire		17	45	pierce-fire		3	5	extra-fire		3	5	death-skill	Meteor	100	31																																		0
-      // Rainbow Facet	395	100	1		1	1	85	49	jew	jewel		3	5000								dmg-pois	50	187	187	pierce-pois		3	5	extra-pois		3	5	death-skill	Poison Nova	100	51																																		0
-      // Rainbow Facet	396	100	1		1	1	85	49	jew	jewel		3	5000								dmg-ltng		1	74	pierce-ltng		3	5	extra-ltng		3	5	levelup-skill	Nova	100	41																																		0
-      // Rainbow Facet	397	100	1		1	1	85	49	jew	jewel		3	5000								dmg-cold	3	24	38	pierce-cold		3	5	extra-cold		3	5	levelup-skill	Frost Nova	100	43																																		0
-      // Rainbow Facet	398	100	1		1	1	85	49	jew	jewel		3	5000								dmg-fire		17	45	pierce-fire		3	5	extra-fire		3	5	levelup-skill	Blaze	100	29																																		0
-      // Rainbow Facet	399	100	1		1	1	85	49	jew	jewel		3	5000								dmg-pois	50	187	187	pierce-pois		3	5	extra-pois		3	5	levelup-skill	Venom	100	23		
+// Rainbow Facet	393	100	1		1	1	85	49	jew	jewel		3	5000								dmg-cold	3	24	38	pierce-cold		3	5	extra-cold		3	5	death-skill	Blizzard	100	37																																		0
+// Rainbow Facet	394	100	1		1	1	85	49	jew	jewel		3	5000								dmg-fire		17	45	pierce-fire		3	5	extra-fire		3	5	death-skill	Meteor	100	31																																		0
+// Rainbow Facet	395	100	1		1	1	85	49	jew	jewel		3	5000								dmg-pois	50	187	187	pierce-pois		3	5	extra-pois		3	5	death-skill	Poison Nova	100	51																																		0
+// Rainbow Facet	396	100	1		1	1	85	49	jew	jewel		3	5000								dmg-ltng		1	74	pierce-ltng		3	5	extra-ltng		3	5	levelup-skill	Nova	100	41																																		0
+// Rainbow Facet	397	100	1		1	1	85	49	jew	jewel		3	5000								dmg-cold	3	24	38	pierce-cold		3	5	extra-cold		3	5	levelup-skill	Frost Nova	100	43																																		0
+// Rainbow Facet	398	100	1		1	1	85	49	jew	jewel		3	5000								dmg-fire		17	45	pierce-fire		3	5	extra-fire		3	5	levelup-skill	Blaze	100	29																																		0
+// Rainbow Facet	399	100	1		1	1	85	49	jew	jewel		3	5000								dmg-pois	50	187	187	pierce-pois		3	5	extra-pois		3	5	levelup-skill	Venom	100	23		
 
 //Annihilus	381	100	1		1	1	110	70	cm1	charm	1	3	5000			flpmss	invmss	item_gem	12	item_gem	allskills		1	1	all-stats		10	20	res-all		10	20	addxp		5	10
 // '*ID': Math.max(...uniqueItems.rows.map((row) => row['*ID'])) + 1,

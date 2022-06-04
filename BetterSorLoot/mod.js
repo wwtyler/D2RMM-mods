@@ -30,9 +30,9 @@ const M_ITYPES = {
   NEC: ['necr', 'wand', 'head', 'amul', 'circ', 'knif'],
   NEC_ONLY: ['necr', 'wand', 'head'],
   PAL: ['pala', 'scep', 'swor', 'mace', `shld`, `ashd`, `amul`, `circ`],
-  PAL_ONLY: ['pala', 'scep'],
+  PAL_ONLY: ['pala', 'scep', 'ashd'],
   BAR: ['barb', 'phlm', 'axe', 'tkni', 'spea', 'helm', 'amul'],
-  BAR_ONLY: ['barb', 'phlm'],
+  BAR_ONLY: ['barb', 'phlm', 'tkni'],
   DRU: ['drui', 'club', 'pelt', 'amul', 'circ'],
   DRU_ONLY: ['drui', 'club', 'pelt'],
   ASS: ['assn', 'h2h', 'helm', 'amul', 'circ'],
@@ -80,13 +80,13 @@ const MOD_PROP = {
     ['R2', { code: 'dmg/lvl', min: 25, max: 25 }, { level: 60, levelreq: 45, frequency: 3 }, M_ITYPES.MELE_AND_MISS],
     ['R3', { code: 'dmg/lvl', min: 20, max: 20 }, { level: 35, levelreq: 15, frequency: 3 }, M_ITYPES.MELE_AND_MISS]
   ],
-  // ['bloody', MOD_TYPE.SUFFIX, '血腥攻击'],
+  // ['reduce-ac', MOD_TYPE.SUFFIX, '防御穿透'],
   // ['deadly', MOD_TYPE.SUFFIX, '致命攻击'],
   // ['openwounds', MOD_TYPE.SUFFIX, '开放伤口'],
-  'bloody': [
-    ['R1', { code: 'bloody', min: 5, max: 8 }, { level: 85, levelreq: 65, frequency: 2 }, M_ITYPES.MELE_AND_MISS],
-    ['R2', { code: 'bloody', min: 3, max: 6 }, { level: 60, levelreq: 45, frequency: 3 }, M_ITYPES.MELE_AND_MISS],
-    ['R3', { code: 'bloody', min: 2, max: 5 }, { level: 35, levelreq: 15, frequency: 4 }, M_ITYPES.MELE_AND_MISS]
+  'reduce-ac': [
+    ['R1', { code: 'reduce-ac', min: 33, max: 33 }, { level: 85, levelreq: 65, frequency: 2 }, M_ITYPES.MELE_AND_MISS],
+    ['R2', { code: 'reduce-ac', min: 25, max: 25 }, { level: 60, levelreq: 45, frequency: 3 }, M_ITYPES.MELE_AND_MISS],
+    ['R3', { code: 'reduce-ac', min: 20, max: 20 }, { level: 35, levelreq: 15, frequency: 4 }, M_ITYPES.MELE_AND_MISS]
   ],
   'deadly': [
     ['R1', { code: 'deadly', min: 35, max: 45 }, { level: 85, levelreq: 65, frequency: 2 }, M_ITYPES.MELE_AND_MISS],
@@ -99,7 +99,6 @@ const MOD_PROP = {
     ['R3', { code: 'openwounds', min: 15, max: 20 }, { level: 35, levelreq: 15, frequency: 4 }, M_ITYPES.MELE_AND_MISS]
   ],
   // ignore-ac
-  // reduce-ac
   //TODO
 
   // ['dmg-fire', MOD_TYPE.SUFFIX, '火焰伤害'],
@@ -165,39 +164,39 @@ const MOD_PROP = {
   ],
 
   'skill-rand': [
-    ['R1', { code: 'skill-rand', param: 4, min: 36, max: 60 }, { level: 80, levelreq: 55, frequency: 6, classspecific: 'sor' }, M_ITYPES.SOR_ONLY],
-    ['R2', { code: 'skill-rand', param: 3, min: 36, max: 60 }, { level: 60, levelreq: 35, frequency: 6, classspecific: 'sor' }, M_ITYPES.SOR_ONLY],
-    ['R3', { code: 'skill-rand', param: 2, min: 36, max: 60 }, { level: 40, levelreq: 15, frequency: 6, classspecific: 'sor' }, M_ITYPES.SOR_ONLY]
+    ['R1', { code: 'skill-rand', param: 4, min: 36, max: 60 }, { level: 80, levelreq: 55, frequency: 3, classspecific: 'sor' }, M_ITYPES.SOR_ONLY],
+    ['R2', { code: 'skill-rand', param: 3, min: 36, max: 60 }, { level: 60, levelreq: 35, frequency: 4, classspecific: 'sor' }, M_ITYPES.SOR_ONLY],
+    ['R3', { code: 'skill-rand', param: 2, min: 36, max: 60 }, { level: 40, levelreq: 15, frequency: 5, classspecific: 'sor' }, M_ITYPES.SOR_ONLY]
   ],
   'dual-skilltab': [
     //AMA
-    ['R1', { code: 'skilltab', param: 0, min: 1, max: 3, code2: 'skilltab', param2: 1, min2: 1, max2: 3 }, { level: 70, levelreq: 45, frequency: 1, classspecific: 'ama' }, M_ITYPES.AMA_ONLY],
-    ['R1', { code: 'skilltab', param: 0, min: 1, max: 3, code2: 'skilltab', param2: 2, min2: 1, max2: 3 }, { level: 70, levelreq: 45, frequency: 1, classspecific: 'ama' }, M_ITYPES.AMA_ONLY],
-    ['R1', { code: 'skilltab', param: 1, min: 1, max: 3, code2: 'skilltab', param2: 2, min2: 1, max2: 3 }, { level: 70, levelreq: 45, frequency: 1, classspecific: 'ama' }, M_ITYPES.AMA_ONLY],
-    ['R2', { code: 'skilltab', param: 0, min: 1, max: 2, code2: 'skilltab', param2: 1, min2: 1, max2: 2 }, { level: 50, levelreq: 25, frequency: 1, classspecific: 'ama' }, M_ITYPES.AMA_ONLY],
-    ['R2', { code: 'skilltab', param: 0, min: 1, max: 2, code2: 'skilltab', param2: 2, min2: 1, max2: 2 }, { level: 50, levelreq: 25, frequency: 1, classspecific: 'ama' }, M_ITYPES.AMA_ONLY],
-    ['R2', { code: 'skilltab', param: 1, min: 1, max: 2, code2: 'skilltab', param2: 2, min2: 1, max2: 2 }, { level: 50, levelreq: 25, frequency: 1, classspecific: 'ama' }, M_ITYPES.AMA_ONLY],
+    ['R1', { code: 'skilltab', param: 0, min: 1, max: 2, code2: 'skilltab', param2: 1, min2: 1, max2: 2 }, { level: 70, levelreq: 45, frequency: 1, classspecific: 'ama' }, M_ITYPES.AMA_ONLY],
+    ['R1', { code: 'skilltab', param: 0, min: 1, max: 2, code2: 'skilltab', param2: 2, min2: 1, max2: 2 }, { level: 70, levelreq: 45, frequency: 1, classspecific: 'ama' }, M_ITYPES.AMA_ONLY],
+    ['R1', { code: 'skilltab', param: 1, min: 1, max: 2, code2: 'skilltab', param2: 2, min2: 1, max2: 2 }, { level: 70, levelreq: 45, frequency: 1, classspecific: 'ama' }, M_ITYPES.AMA_ONLY],
+    ['R2', { code: 'skilltab', param: 0, min: 1, max: 1, code2: 'skilltab', param2: 1, min2: 1, max2: 1 }, { level: 50, levelreq: 25, frequency: 1, classspecific: 'ama' }, M_ITYPES.AMA_ONLY],
+    ['R2', { code: 'skilltab', param: 0, min: 1, max: 1, code2: 'skilltab', param2: 2, min2: 1, max2: 1 }, { level: 50, levelreq: 25, frequency: 1, classspecific: 'ama' }, M_ITYPES.AMA_ONLY],
+    ['R2', { code: 'skilltab', param: 1, min: 1, max: 1, code2: 'skilltab', param2: 2, min2: 1, max2: 1 }, { level: 50, levelreq: 25, frequency: 1, classspecific: 'ama' }, M_ITYPES.AMA_ONLY],
     //SOR
-    ['R1', { code: 'skilltab', param: 3, min: 1, max: 3, code2: 'skilltab', param2: 4, min2: 1, max2: 3 }, { level: 70, levelreq: 45, frequency: 1, classspecific: 'sor' }, M_ITYPES.SOR_ONLY],
-    ['R1', { code: 'skilltab', param: 3, min: 1, max: 3, code2: 'skilltab', param2: 5, min2: 1, max2: 3 }, { level: 70, levelreq: 45, frequency: 1, classspecific: 'sor' }, M_ITYPES.SOR_ONLY],
-    ['R1', { code: 'skilltab', param: 4, min: 1, max: 3, code2: 'skilltab', param2: 5, min2: 1, max2: 3 }, { level: 70, levelreq: 45, frequency: 1, classspecific: 'sor' }, M_ITYPES.SOR_ONLY],
-    ['R2', { code: 'skilltab', param: 3, min: 1, max: 2, code2: 'skilltab', param2: 4, min2: 1, max2: 2 }, { level: 50, levelreq: 25, frequency: 1, classspecific: 'sor' }, M_ITYPES.SOR_ONLY],
-    ['R2', { code: 'skilltab', param: 3, min: 1, max: 2, code2: 'skilltab', param2: 5, min2: 1, max2: 2 }, { level: 50, levelreq: 25, frequency: 1, classspecific: 'sor' }, M_ITYPES.SOR_ONLY],
-    ['R2', { code: 'skilltab', param: 4, min: 1, max: 2, code2: 'skilltab', param2: 5, min2: 1, max2: 2 }, { level: 50, levelreq: 25, frequency: 1, classspecific: 'sor' }, M_ITYPES.SOR_ONLY],
+    ['R1', { code: 'skilltab', param: 3, min: 1, max: 2, code2: 'skilltab', param2: 4, min2: 1, max2: 2 }, { level: 70, levelreq: 45, frequency: 1, classspecific: 'sor' }, M_ITYPES.SOR_ONLY],
+    ['R1', { code: 'skilltab', param: 3, min: 1, max: 2, code2: 'skilltab', param2: 5, min2: 1, max2: 2 }, { level: 70, levelreq: 45, frequency: 1, classspecific: 'sor' }, M_ITYPES.SOR_ONLY],
+    ['R1', { code: 'skilltab', param: 4, min: 1, max: 2, code2: 'skilltab', param2: 5, min2: 1, max2: 2 }, { level: 70, levelreq: 45, frequency: 1, classspecific: 'sor' }, M_ITYPES.SOR_ONLY],
+    ['R2', { code: 'skilltab', param: 3, min: 1, max: 1, code2: 'skilltab', param2: 4, min2: 1, max2: 1 }, { level: 50, levelreq: 25, frequency: 1, classspecific: 'sor' }, M_ITYPES.SOR_ONLY],
+    ['R2', { code: 'skilltab', param: 3, min: 1, max: 1, code2: 'skilltab', param2: 5, min2: 1, max2: 1 }, { level: 50, levelreq: 25, frequency: 1, classspecific: 'sor' }, M_ITYPES.SOR_ONLY],
+    ['R2', { code: 'skilltab', param: 4, min: 1, max: 1, code2: 'skilltab', param2: 5, min2: 1, max2: 1 }, { level: 50, levelreq: 25, frequency: 1, classspecific: 'sor' }, M_ITYPES.SOR_ONLY],
     //NEC
-    ['R1', { code: 'skilltab', param: 6, min: 1, max: 3, code2: 'skilltab', param2: 7, min2: 1, max2: 3 }, { level: 70, levelreq: 45, frequency: 1, classspecific: 'nec' }, M_ITYPES.NEC_ONLY],
-    ['R1', { code: 'skilltab', param: 6, min: 1, max: 3, code2: 'skilltab', param2: 8, min2: 1, max2: 3 }, { level: 70, levelreq: 45, frequency: 1, classspecific: 'nec' }, M_ITYPES.NEC_ONLY],
-    ['R1', { code: 'skilltab', param: 7, min: 1, max: 3, code2: 'skilltab', param2: 8, min2: 1, max2: 3 }, { level: 70, levelreq: 45, frequency: 1, classspecific: 'nec' }, M_ITYPES.NEC_ONLY],
-    ['R2', { code: 'skilltab', param: 6, min: 1, max: 2, code2: 'skilltab', param2: 7, min2: 1, max2: 2 }, { level: 50, levelreq: 25, frequency: 1, classspecific: 'nec' }, M_ITYPES.NEC_ONLY],
-    ['R2', { code: 'skilltab', param: 6, min: 1, max: 2, code2: 'skilltab', param2: 8, min2: 1, max2: 2 }, { level: 50, levelreq: 25, frequency: 1, classspecific: 'nec' }, M_ITYPES.NEC_ONLY],
-    ['R2', { code: 'skilltab', param: 7, min: 1, max: 2, code2: 'skilltab', param2: 8, min2: 1, max2: 2 }, { level: 50, levelreq: 25, frequency: 1, classspecific: 'nec' }, M_ITYPES.NEC_ONLY],
+    ['R1', { code: 'skilltab', param: 6, min: 1, max: 2, code2: 'skilltab', param2: 7, min2: 1, max2: 2 }, { level: 70, levelreq: 45, frequency: 1, classspecific: 'nec' }, M_ITYPES.NEC_ONLY],
+    ['R1', { code: 'skilltab', param: 6, min: 1, max: 2, code2: 'skilltab', param2: 8, min2: 1, max2: 2 }, { level: 70, levelreq: 45, frequency: 1, classspecific: 'nec' }, M_ITYPES.NEC_ONLY],
+    ['R1', { code: 'skilltab', param: 7, min: 1, max: 2, code2: 'skilltab', param2: 8, min2: 1, max2: 2 }, { level: 70, levelreq: 45, frequency: 1, classspecific: 'nec' }, M_ITYPES.NEC_ONLY],
+    ['R2', { code: 'skilltab', param: 6, min: 1, max: 1, code2: 'skilltab', param2: 7, min2: 1, max2: 1 }, { level: 50, levelreq: 25, frequency: 1, classspecific: 'nec' }, M_ITYPES.NEC_ONLY],
+    ['R2', { code: 'skilltab', param: 6, min: 1, max: 1, code2: 'skilltab', param2: 8, min2: 1, max2: 1 }, { level: 50, levelreq: 25, frequency: 1, classspecific: 'nec' }, M_ITYPES.NEC_ONLY],
+    ['R2', { code: 'skilltab', param: 7, min: 1, max: 1, code2: 'skilltab', param2: 8, min2: 1, max2: 1 }, { level: 50, levelreq: 25, frequency: 1, classspecific: 'nec' }, M_ITYPES.NEC_ONLY],
     //PAL
-    ['R1', { code: 'skilltab', param: 9, min: 1, max: 3, code2: 'skilltab', param2: 10, min2: 1, max2: 3 }, { level: 70, levelreq: 45, frequency: 1, classspecific: 'pal' }, M_ITYPES.PAL_ONLY],
-    ['R1', { code: 'skilltab', param: 9, min: 1, max: 3, code2: 'skilltab', param2: 11, min2: 1, max2: 3 }, { level: 70, levelreq: 45, frequency: 1, classspecific: 'pal' }, M_ITYPES.PAL_ONLY],
-    ['R1', { code: 'skilltab', param: 10, min: 1, max: 3, code2: 'skilltab', param2: 11, min2: 1, max2: 3 }, { level: 70, levelreq: 45, frequency: 1, classspecific: 'pal' }, M_ITYPES.PAL_ONLY],
-    ['R2', { code: 'skilltab', param: 9, min: 1, max: 2, code2: 'skilltab', param2: 10, min2: 1, max2: 2 }, { level: 50, levelreq: 25, frequency: 1, classspecific: 'pal' }, M_ITYPES.PAL_ONLY],
-    ['R2', { code: 'skilltab', param: 9, min: 1, max: 2, code2: 'skilltab', param2: 11, min2: 1, max2: 2 }, { level: 50, levelreq: 25, frequency: 1, classspecific: 'pal' }, M_ITYPES.PAL_ONLY],
-    ['R2', { code: 'skilltab', param: 10, min: 1, max: 2, code2: 'skilltab', param2: 11, min2: 1, max2: 2 }, { level: 50, levelreq: 25, frequency: 1, classspecific: 'pal' }, M_ITYPES.PAL_ONLY]
+    ['R1', { code: 'skilltab', param: 9, min: 1, max: 2, code2: 'skilltab', param2: 10, min2: 1, max2: 2 }, { level: 70, levelreq: 45, frequency: 1, classspecific: 'pal' }, M_ITYPES.PAL_ONLY],
+    ['R1', { code: 'skilltab', param: 9, min: 1, max: 2, code2: 'skilltab', param2: 11, min2: 1, max2: 2 }, { level: 70, levelreq: 45, frequency: 1, classspecific: 'pal' }, M_ITYPES.PAL_ONLY],
+    ['R1', { code: 'skilltab', param: 10, min: 1, max: 2, code2: 'skilltab', param2: 11, min2: 1, max2: 2 }, { level: 70, levelreq: 45, frequency: 1, classspecific: 'pal' }, M_ITYPES.PAL_ONLY],
+    ['R2', { code: 'skilltab', param: 9, min: 1, max: 1, code2: 'skilltab', param2: 10, min2: 1, max2: 1 }, { level: 50, levelreq: 25, frequency: 1, classspecific: 'pal' }, M_ITYPES.PAL_ONLY],
+    ['R2', { code: 'skilltab', param: 9, min: 1, max: 1, code2: 'skilltab', param2: 11, min2: 1, max2: 1 }, { level: 50, levelreq: 25, frequency: 1, classspecific: 'pal' }, M_ITYPES.PAL_ONLY],
+    ['R2', { code: 'skilltab', param: 10, min: 1, max: 1, code2: 'skilltab', param2: 11, min2: 1, max2: 1 }, { level: 50, levelreq: 25, frequency: 1, classspecific: 'pal' }, M_ITYPES.PAL_ONLY]
     //TODO
   ],
 
@@ -268,8 +267,8 @@ const MOD_PROP = {
     ['R3', { code: 'cheap', min: 1, max: 1 }, { level: 45, levelreq: 20, frequency: 4 }, M_ITYPES.CHARM_LOW]
   ],
   'super-magic': [
-    ['R1', { code: 'mag%', min: 24, max: 30 }, { level: 65, levelreq: 45, frequency: 5 }, M_ITYPES.NORMAL],
-    ['R2', { code: 'mag%', min: 18, max: 25 }, { level: 50, levelreq: 25, frequency: 5 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_UPP)],
+    ['R1', { code: 'mag%', min: 24, max: 30 }, { level: 65, levelreq: 45, frequency: 3 }, M_ITYPES.NORMAL],
+    ['R2', { code: 'mag%', min: 18, max: 25 }, { level: 50, levelreq: 25, frequency: 4 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_UPP)],
     ['R3', { code: 'mag%', min: 10, max: 20 }, { level: 40, levelreq: 15, frequency: 5 }, M_ITYPES.CHARM_UPP.concat(M_ITYPES.CHARM_MID)]
   ],
 
@@ -278,29 +277,29 @@ const MOD_PROP = {
   // ['balance2', MOD_TYPE.PREFIX, '打击恢复速度'],
   // ['move2', MOD_TYPE.PREFIX, '移动速度'],
   'cast2': [
-    ['R1-1', { code: 'cast2', min: 20, max: 30 }, { level: 75, levelreq: 45, frequency: 3 }, M_ITYPES.CASTER_UPP],
-    ['R1-2', { code: 'cast2', min: 15, max: 20 }, { level: 75, levelreq: 45, frequency: 3 }, M_ITYPES.CASTER_LOW],
-    ['R2-1', { code: 'cast2', min: 15, max: 25 }, { level: 55, levelreq: 25, frequency: 4 }, M_ITYPES.CASTER_UPP],
-    ['R2-2', { code: 'cast2', min: 10, max: 20 }, { level: 55, levelreq: 25, frequency: 4 }, M_ITYPES.CASTER_LOW],
-    ['R3-1', { code: 'cast2', min: 10, max: 20 }, { level: 40, levelreq: 15, frequency: 4 }, M_ITYPES.CASTER_LOW],
-    ['R3-2', { code: 'cast2', min: 10, max: 20 }, { level: 40, levelreq: 15, frequency: 5 }, M_ITYPES.JEW.concat(M_ITYPES.CASTER_LOW)],
-    ['R3-2', { code: 'cast2', min: 10, max: 20 }, { level: 40, levelreq: 15, frequency: 5 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_UPP)],
-    ['R4', { code: 'cast2', min: 10, max: 10 }, { level: 40, levelreq: 15, frequency: 5 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_MID)]
+    ['R1-1', { code: 'cast2', min: 20, max: 30 }, { level: 75, levelreq: 45, frequency: 2 }, M_ITYPES.CASTER_UPP],
+    ['R1-2', { code: 'cast2', min: 15, max: 25 }, { level: 75, levelreq: 45, frequency: 3 }, M_ITYPES.CASTER_UPP],
+    ['R2-1', { code: 'cast2', min: 15, max: 20 }, { level: 55, levelreq: 25, frequency: 3 }, M_ITYPES.CASTER_UPP],
+    ['R2-2', { code: 'cast2', min: 10, max: 15 }, { level: 55, levelreq: 25, frequency: 3 }, M_ITYPES.CASTER_LOW],
+    ['R3-1', { code: 'cast2', min: 10, max: 15 }, { level: 40, levelreq: 15, frequency: 3 }, M_ITYPES.CASTER_LOW],
+    ['R3-2', { code: 'cast2', min: 10, max: 15 }, { level: 40, levelreq: 15, frequency: 4 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_UPP)],
+    ['R3-2', { code: 'cast2', min: 10, max: 15 }, { level: 40, levelreq: 15, frequency: 4 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_UPP)],
+    ['R4', { code: 'cast2', min: 10, max: 10 }, { level: 40, levelreq: 15, frequency: 4 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_UPP)]
   ],
   'swing2': [
-    ['R1', { code: 'swing2', min: 20, max: 30 }, { level: 75, levelreq: 45, frequency: 5 }, M_ITYPES.MELE],
-    ['R2', { code: 'swing2', min: 15, max: 25 }, { level: 55, levelreq: 25, frequency: 6 }, M_ITYPES.MELE.concat(M_ITYPES.JEW)],
-    ['R3', { code: 'swing2', min: 10, max: 20 }, { level: 40, levelreq: 15, frequency: 8 }, M_ITYPES.MELE.concat(M_ITYPES.JEW).concat(M_ITYPES.CHARM_UPP)]
+    ['R1', { code: 'swing2', min: 20, max: 30 }, { level: 75, levelreq: 45, frequency: 4 }, M_ITYPES.MELE],
+    ['R2', { code: 'swing2', min: 15, max: 25 }, { level: 55, levelreq: 25, frequency: 5 }, M_ITYPES.MELE.concat(M_ITYPES.JEW)],
+    ['R3', { code: 'swing2', min: 10, max: 20 }, { level: 40, levelreq: 15, frequency: 6 }, M_ITYPES.MELE.concat(M_ITYPES.JEW).concat(M_ITYPES.CHARM_UPP)]
   ],
   'move2': [
-    ['R1', { code: 'move2', min: 25, max: 40 }, { level: 65, levelreq: 45, frequency: 5 }, [`shld`, `belt`, `boot`]],
+    ['R1', { code: 'move2', min: 25, max: 40 }, { level: 65, levelreq: 45, frequency: 4 }, [`shld`, `belt`, `boot`]],
     ['R2', { code: 'move2', min: 15, max: 30 }, { level: 50, levelreq: 25, frequency: 5 }, [`shld`, `belt`, `boot`].concat(M_ITYPES.JEW).concat(M_ITYPES.CHARM_UPP)],
-    ['R3', { code: 'move2', min: 10, max: 20 }, { level: 40, levelreq: 15, frequency: 5 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_MID)]
+    ['R3', { code: 'move2', min: 10, max: 20 }, { level: 40, levelreq: 15, frequency: 6 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_MID)]
   ],
   'balance2': [
-    ['R1', { code: 'balance2', min: 25, max: 40 }, { level: 65, levelreq: 45, frequency: 5 }, M_ITYPES.NORMAL],
+    ['R1', { code: 'balance2', min: 25, max: 40 }, { level: 65, levelreq: 45, frequency: 4 }, M_ITYPES.NORMAL],
     ['R2', { code: 'balance2', min: 15, max: 30 }, { level: 50, levelreq: 25, frequency: 5 }, M_ITYPES.NORMAL.concat(M_ITYPES.JEW).concat(M_ITYPES.CHARM_UPP)],
-    ['R3', { code: 'balance2', min: 10, max: 20 }, { level: 40, levelreq: 15, frequency: 5 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_MID)]
+    ['R3', { code: 'balance2', min: 10, max: 20 }, { level: 40, levelreq: 15, frequency: 6 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_MID)]
   ],
 
   // ['hp-mana%', MOD_TYPE.SUFFIX, '血法双加'],
@@ -309,28 +308,28 @@ const MOD_PROP = {
   // ['super-mana', MOD_TYPE.PREFIX, '大量MANA'],
   // ['super-mana%', MOD_TYPE.PREFIX, '大量MANA%'],
   'hp-mana%': [
-    ['R1', { code: 'mana%', min: 6, max: 12, code2: 'hp%', min2: 6, max2: 10 }, { level: 75, levelreq: 65, frequency: 5 }, M_ITYPES.NORMAL],
-    ['R2', { code: 'mana%', min: 4, max: 10, code2: 'hp%', min2: 4, max2: 8 }, { level: 65, levelreq: 45, frequency: 5 }, M_ITYPES.NORMAL.concat(M_ITYPES.JEW)],
-    ['R3', { code: 'mana%', min: 3, max: 8, code2: 'hp%', min2: 3, max2: 6 }, { level: 45, levelreq: 25, frequency: 5 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_MID)]
+    ['R1', { code: 'mana%', min: 6, max: 12, code2: 'hp%', min2: 6, max2: 10 }, { level: 75, levelreq: 65, frequency: 2 }, M_ITYPES.NORMAL],
+    ['R2', { code: 'mana%', min: 4, max: 10, code2: 'hp%', min2: 4, max2: 8 }, { level: 65, levelreq: 45, frequency: 3 }, M_ITYPES.NORMAL.concat(M_ITYPES.JEW)],
+    ['R3', { code: 'mana%', min: 3, max: 8, code2: 'hp%', min2: 3, max2: 6 }, { level: 45, levelreq: 25, frequency: 4 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_MID)]
   ],
   'super-hp': [
-    ['R1', { code: 'hp', min: 60, max: 80 }, { level: 75, levelreq: 55, frequency: 5 }, M_ITYPES.NORMAL],
-    ['R2', { code: 'hp', min: 40, max: 60 }, { level: 50, levelreq: 25, frequency: 5 }, M_ITYPES.NORMAL.concat(M_ITYPES.JEW).concat(M_ITYPES.CHARM_UPP)],
+    ['R1', { code: 'hp', min: 60, max: 80 }, { level: 75, levelreq: 55, frequency: 3 }, M_ITYPES.NORMAL],
+    ['R2', { code: 'hp', min: 40, max: 60 }, { level: 50, levelreq: 25, frequency: 4 }, M_ITYPES.NORMAL.concat(M_ITYPES.JEW).concat(M_ITYPES.CHARM_UPP)],
     ['R3', { code: 'hp', min: 30, max: 50 }, { level: 35, levelreq: 15, frequency: 5 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_MID)]
   ],
   'super-hp%': [
-    ['R1', { code: 'hp%', min: 15, max: 18 }, { level: 75, levelreq: 55, frequency: 5 }, M_ITYPES.NORMAL],
-    ['R2', { code: 'hp%', min: 10, max: 15 }, { level: 50, levelreq: 25, frequency: 5 }, M_ITYPES.NORMAL.concat(M_ITYPES.JEW).concat(M_ITYPES.CHARM_UPP)],
+    ['R1', { code: 'hp%', min: 15, max: 18 }, { level: 75, levelreq: 55, frequency: 3 }, M_ITYPES.NORMAL],
+    ['R2', { code: 'hp%', min: 10, max: 15 }, { level: 50, levelreq: 25, frequency: 4 }, M_ITYPES.NORMAL.concat(M_ITYPES.JEW).concat(M_ITYPES.CHARM_UPP)],
     ['R3', { code: 'hp%', min: 6, max: 12 }, { level: 35, levelreq: 15, frequency: 5 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_MID)]
   ],
   'super-mana': [
-    ['R1', { code: 'mana', min: 80, max: 100 }, { level: 75, levelreq: 55, frequency: 5 }, M_ITYPES.NORMAL],
-    ['R2', { code: 'mana', min: 60, max: 80 }, { level: 50, levelreq: 25, frequency: 5 }, M_ITYPES.NORMAL.concat(M_ITYPES.JEW).concat(M_ITYPES.CHARM_UPP)],
+    ['R1', { code: 'mana', min: 80, max: 100 }, { level: 75, levelreq: 55, frequency: 3 }, M_ITYPES.NORMAL],
+    ['R2', { code: 'mana', min: 60, max: 80 }, { level: 50, levelreq: 25, frequency: 4 }, M_ITYPES.NORMAL.concat(M_ITYPES.JEW).concat(M_ITYPES.CHARM_UPP)],
     ['R3', { code: 'mana', min: 40, max: 60 }, { level: 35, levelreq: 15, frequency: 5 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_MID)]
   ],
   'super-mana%': [
-    ['R1', { code: 'mana%', min: 16, max: 20 }, { level: 75, levelreq: 55, frequency: 5 }, M_ITYPES.NORMAL],
-    ['R2', { code: 'mana%', min: 12, max: 18 }, { level: 50, levelreq: 25, frequency: 5 }, M_ITYPES.NORMAL.concat(M_ITYPES.JEW).concat(M_ITYPES.CHARM_UPP)],
+    ['R1', { code: 'mana%', min: 16, max: 20 }, { level: 75, levelreq: 55, frequency: 3 }, M_ITYPES.NORMAL],
+    ['R2', { code: 'mana%', min: 12, max: 18 }, { level: 50, levelreq: 25, frequency: 4 }, M_ITYPES.NORMAL.concat(M_ITYPES.JEW).concat(M_ITYPES.CHARM_UPP)],
     ['R3', { code: 'mana%', min: 8, max: 15 }, { level: 35, levelreq: 15, frequency: 5 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_MID)]
   ],
 
@@ -428,28 +427,28 @@ const MOD_PROP = {
     ['R3', { code: 'res-all-max', min: 2, max: 3 }, { level: 40, levelreq: 15, frequency: 2 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_UPP)]
   ],
   'res-fire-max': [
-    ['R1', { code: 'res-fire-max', min: 6, max: 10 }, { level: 85, levelreq: 45, frequency: 3 }, M_ITYPES.NORMAL],
-    ['R2', { code: 'res-fire-max', min: 6, max: 8 }, { level: 55, levelreq: 25, frequency: 4 }, M_ITYPES.NORMAL.concat(M_ITYPES.JEW)],
-    ['R3', { code: 'res-fire-max', min: 4, max: 6 }, { level: 40, levelreq: 15, frequency: 5 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_UPP)],
-    ['R4', { code: 'res-fire-max', min: 3, max: 4 }, { level: 40, levelreq: 15, frequency: 6 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_MID)]
+    ['R1', { code: 'res-fire-max', min: 6, max: 10 }, { level: 85, levelreq: 45, frequency: 2 }, M_ITYPES.NORMAL],
+    ['R2', { code: 'res-fire-max', min: 6, max: 8 }, { level: 55, levelreq: 25, frequency: 3 }, M_ITYPES.NORMAL.concat(M_ITYPES.JEW)],
+    ['R3', { code: 'res-fire-max', min: 4, max: 6 }, { level: 40, levelreq: 15, frequency: 4 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_UPP)],
+    ['R4', { code: 'res-fire-max', min: 3, max: 4 }, { level: 40, levelreq: 15, frequency: 5 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_MID)]
   ],
   'res-cold-max': [
-    ['R1', { code: 'res-cold-max', min: 6, max: 10 }, { level: 85, levelreq: 45, frequency: 3 }, M_ITYPES.NORMAL],
-    ['R2', { code: 'res-cold-max', min: 6, max: 8 }, { level: 55, levelreq: 25, frequency: 4 }, M_ITYPES.NORMAL.concat(M_ITYPES.JEW)],
-    ['R3', { code: 'res-cold-max', min: 4, max: 6 }, { level: 40, levelreq: 15, frequency: 5 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_UPP)],
-    ['R4', { code: 'res-cold-max', min: 3, max: 4 }, { level: 40, levelreq: 15, frequency: 6 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_MID)]
+    ['R1', { code: 'res-cold-max', min: 6, max: 10 }, { level: 85, levelreq: 45, frequency: 2 }, M_ITYPES.NORMAL],
+    ['R2', { code: 'res-cold-max', min: 6, max: 8 }, { level: 55, levelreq: 25, frequency: 3 }, M_ITYPES.NORMAL.concat(M_ITYPES.JEW)],
+    ['R3', { code: 'res-cold-max', min: 4, max: 6 }, { level: 40, levelreq: 15, frequency: 4 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_UPP)],
+    ['R4', { code: 'res-cold-max', min: 3, max: 4 }, { level: 40, levelreq: 15, frequency: 5 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_MID)]
   ],
   'res-ltng-max': [
-    ['R1', { code: 'res-ltng-max', min: 6, max: 10 }, { level: 85, levelreq: 45, frequency: 3 }, M_ITYPES.NORMAL],
-    ['R2', { code: 'res-ltng-max', min: 6, max: 8 }, { level: 55, levelreq: 25, frequency: 4 }, M_ITYPES.NORMAL.concat(M_ITYPES.JEW)],
-    ['R3', { code: 'res-ltng-max', min: 4, max: 6 }, { level: 40, levelreq: 15, frequency: 5 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_UPP)],
-    ['R4', { code: 'res-ltng-max', min: 3, max: 4 }, { level: 40, levelreq: 15, frequency: 6 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_MID)]
+    ['R1', { code: 'res-ltng-max', min: 6, max: 10 }, { level: 85, levelreq: 45, frequency: 2 }, M_ITYPES.NORMAL],
+    ['R2', { code: 'res-ltng-max', min: 6, max: 8 }, { level: 55, levelreq: 25, frequency: 3 }, M_ITYPES.NORMAL.concat(M_ITYPES.JEW)],
+    ['R3', { code: 'res-ltng-max', min: 4, max: 6 }, { level: 40, levelreq: 15, frequency: 4 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_UPP)],
+    ['R4', { code: 'res-ltng-max', min: 3, max: 4 }, { level: 40, levelreq: 15, frequency: 5 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_MID)]
   ],
   'res-pois-max': [
-    ['R1', { code: 'res-pois-max', min: 6, max: 10 }, { level: 85, levelreq: 45, frequency: 3 }, M_ITYPES.NORMAL],
-    ['R2', { code: 'res-pois-max', min: 6, max: 8 }, { level: 55, levelreq: 25, frequency: 4 }, M_ITYPES.NORMAL.concat(M_ITYPES.JEW)],
-    ['R3', { code: 'res-pois-max', min: 4, max: 6 }, { level: 40, levelreq: 15, frequency: 5 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_UPP)],
-    ['R4', { code: 'res-pois-max', min: 3, max: 4 }, { level: 40, levelreq: 15, frequency: 6 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_MID)]
+    ['R1', { code: 'res-pois-max', min: 6, max: 10 }, { level: 85, levelreq: 45, frequency: 2 }, M_ITYPES.NORMAL],
+    ['R2', { code: 'res-pois-max', min: 6, max: 8 }, { level: 55, levelreq: 25, frequency: 3 }, M_ITYPES.NORMAL.concat(M_ITYPES.JEW)],
+    ['R3', { code: 'res-pois-max', min: 4, max: 6 }, { level: 40, levelreq: 15, frequency: 4 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_UPP)],
+    ['R4', { code: 'res-pois-max', min: 3, max: 4 }, { level: 40, levelreq: 15, frequency: 5 }, M_ITYPES.JEW.concat(M_ITYPES.CHARM_MID)]
   ],
 
   // // ['abs-mag', MOD_TYPE.PREFIX, '魔法吸收'],
@@ -631,12 +630,14 @@ const BOOST_MODIFIERS = [
   // kill-skill	Chain Lightning	50	20	// 消灭敌人 获得 概率  技能等级
   // gethit-skill	Lower Resist	10	7
   // levelup-skill
+
   ['dmg', MOD_TYPE.SUFFIX, '攻击'],
   ['dmg%', MOD_TYPE.SUFFIX, '攻击%'],
   ['crush', MOD_TYPE.SUFFIX, '破甲'],
   ['dmg/lvl', MOD_TYPE.SUFFIX, '攻击/等级'],
 
-  ['bloody', MOD_TYPE.SUFFIX, '血腥攻击'],
+  ['reduce-ac', MOD_TYPE.SUFFIX, '防御穿透'],
+  // ['bloody', MOD_TYPE.SUFFIX, '血腥攻击'],
   ['deadly', MOD_TYPE.SUFFIX, '致命攻击'],
   ['openwounds', MOD_TYPE.SUFFIX, '开放伤口'],
 

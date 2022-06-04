@@ -1,5 +1,32 @@
 const cubemainFilename = 'global\\excel\\cubemain.txt';
+const itemtypesFilename = 'global\\excel\\itemtypes.txt';
+const armorFilename = 'global\\excel\\armor.txt';
+
 const cubemain = D2RMM.readTsv(cubemainFilename);
+const itemtypes = D2RMM.readTsv(itemtypesFilename);
+const armor = D2RMM.readTsv(armorFilename);
+
+//手套、靴子增加打孔功能
+
+
+itemtypes.rows.forEach((eachtype) => {
+  if (eachtype.ItemType === 'Boots' || eachtype.ItemType === 'Gloves') {
+    eachtype['MaxSockets1'] = 1
+    eachtype['MaxSockets2'] = 2;
+    eachtype['MaxSockets3'] = 3;
+  }
+});
+
+armor.rows.forEach((armor) => {
+  if (armor.type === 'boot' || armor.type === 'glov') {
+    // hasinv	gemsockets	gemapplytype
+    armor['hasinv'] = 1
+    armor['gemsockets'] = 2;
+    armor['gemapplytype'] = 1;
+  }
+});
+
+//打孔公示
 if (config.unsocket) {
   const unsocketRecipe = {
     description: 'Empty Sockets',
@@ -54,3 +81,5 @@ for (let sockets = 1; sockets <= 6; sockets = sockets + 1) {
   }
 }
 D2RMM.writeTsv(cubemainFilename, cubemain);
+D2RMM.writeTsv(itemtypesFilename, itemtypes);
+D2RMM.writeTsv(armorFilename, armor);
