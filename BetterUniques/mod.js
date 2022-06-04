@@ -88,9 +88,21 @@ uniqueItems.rows.forEach((item) => {
       item.prop5 = 'slow'; item.min5 = 10; item.max5 = 10;
       item.prop6 = 'mana%'; item.min6 = 5; item.max6 = 5;
     }
-
+    else if (item.index === "Griffon's Eye") {
+     //Griffon's Eye	336	100	1		1		84	76	ci3	diadem		5	5000
+     //ac		100	200	cast2		25	25	allskills		1	1	extra-ltng		10	15	pierce-ltng		15	20
+     
+    }
+    else if (item.index ==='Alma Negra'){
+      // Alma Negra	329	100	1		1		85	77	pac	sacred rondache		5	5000	blac	blac				
+      // ac%		180	210	block2		30	30	pal		1	2	block		20	20	red-mag		5	9	att%		40	75	dmg%		40	75
+    }
+    else if (item.index ==="Deaths's Web"){
+      //Deaths's Web	299	100	1		1		74	66	7gw	unearthed wand		5	5000
+      //allskills		2	2	pierce-pois		40	50	heal-kill		7	12	mana-kill		7	12	skilltab	7	1	2
+    }
     else if (item.index === "Rainbow Facet" && item.par4 === "Chain Lightning") {
-      // Rainbow Facet	392	100	1		1	1	85	49	jew	jewel		3	5000								dmg-ltng		1	74	pierce-ltng		3	5	extra-ltng		3	5	death-skill	Chain Lightning	100	47																																		0
+      // Rainbow Facet	392	100	1		1	1	85	49	jew	jewel		3	5000								dmg-ltng		1	74	pierce-ltng		3	5	extra-ltng		3	5	death-skill	Chain Lightning	100	47
       rainbowFacet = item;
     }
     else if (item.index === "Hellfire Torch") {
