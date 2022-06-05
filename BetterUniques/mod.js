@@ -200,5 +200,10 @@ itemNames.push({
   Key: `Gheed's Lucky`, enUS: `Gheed's Lucky`, zhTW: `Gheed's Lucky`
 });
 
+itemNames.push({
+  id: D2RMM.getNextStringID(),
+  Key: `Azurewrath1`, enUS: `Azurewrath1`, zhTW: `Azurewrath1`
+});
+
 D2RMM.writeJson(itemNamesFilename, itemNames);
 D2RMM.writeJson(itemNameaffixesFilename, itemNameaffixes);

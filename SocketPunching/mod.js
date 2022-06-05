@@ -7,26 +7,24 @@ const itemtypes = D2RMM.readTsv(itemtypesFilename);
 const armor = D2RMM.readTsv(armorFilename);
 
 //手套、靴子增加打孔功能
+// itemtypes.rows.forEach((eachtype) => {
+//   if (eachtype.ItemType === 'Boots' || eachtype.ItemType === 'Gloves') {
+//     eachtype['MaxSockets1'] = 1
+//     eachtype['MaxSockets2'] = 2;
+//     eachtype['MaxSockets3'] = 3;
+//   }
+// });
 
+// armor.rows.forEach((armor) => {
+//   if (armor.type === 'boot' || armor.type === 'glov') {
+//     // hasinv	gemsockets	gemapplytype
+//     armor['hasinv'] = 1
+//     armor['gemsockets'] = 2;
+//     armor['gemapplytype'] = 1;
+//   }
+// });
 
-itemtypes.rows.forEach((eachtype) => {
-  if (eachtype.ItemType === 'Boots' || eachtype.ItemType === 'Gloves') {
-    eachtype['MaxSockets1'] = 1
-    eachtype['MaxSockets2'] = 2;
-    eachtype['MaxSockets3'] = 3;
-  }
-});
-
-armor.rows.forEach((armor) => {
-  if (armor.type === 'boot' || armor.type === 'glov') {
-    // hasinv	gemsockets	gemapplytype
-    armor['hasinv'] = 1
-    armor['gemsockets'] = 2;
-    armor['gemapplytype'] = 1;
-  }
-});
-
-//打孔公示
+//打孔公式
 if (config.unsocket) {
   const unsocketRecipe = {
     description: 'Empty Sockets',

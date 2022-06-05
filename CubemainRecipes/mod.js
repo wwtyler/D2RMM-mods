@@ -56,22 +56,81 @@ const scRecipe = {
   '*eol\r': 0,
 };
 
-// cubemain.rows.push({
-//   ...scRecipe,
-//   description: `${scRecipe.description} To R01`,
-//   'input 1': '"char"',
-//   'input 2': 'r33',
-// });
 
 cubemain.rows.push({
   description: `test AAA`,
   enabled: 1,
   version: 100,
   numinputs: 2,
-  'input 1': 'r02',
-  'input 2': `r03`,
+  'input 1': 'r01',
+  'input 2': `tsc`,
   lvl: 99,
-  output: "Azurewrath",
+  output: "k76",
+  '*eol\r': 0,
+});
+cubemain.rows.push({
+  description: `test AAA`,
+  enabled: 1,
+  version: 100,
+  numinputs: 2,
+  'input 1': 'r02',
+  'input 2': `tsc`,
+  lvl: 99,
+  output: "k77",
+  '*eol\r': 0,
+});
+cubemain.rows.push({
+  description: `test AAA`,
+  enabled: 1,
+  version: 100,
+  numinputs: 2,
+  'input 1': 'r03',
+  'input 2': `tsc`,
+  lvl: 99,
+  output: "k78",
+  '*eol\r': 0,
+});
+cubemain.rows.push({
+  description: `test AAA`,
+  enabled: 1,
+  version: 100,
+  numinputs: 2,
+  'input 1': 'r04',
+  'input 2': `tsc`,
+  lvl: 99,
+  output: "k79",
+  '*eol\r': 0,
+});
+cubemain.rows.push({
+  description: `test AAA`,
+  enabled: 1,
+  version: 100,
+  numinputs: 2,
+  'input 1': 'r05',
+  'input 2': `tsc`,
+  lvl: 99,
+  output: "k80",
+  '*eol\r': 0,
+});
+cubemain.rows.push({
+  description: `test AAA`,
+  enabled: 1,
+  version: 100,
+  numinputs: 3,
+  'input 1': 'runz,qty=3',
+  lvl: 99,
+  output: "jew,rar",
+  '*eol\r': 0,
+});
+cubemain.rows.push({
+  description: `test AAA`,
+  enabled: 1,
+  version: 100,
+  numinputs: 2,
+  'input 1': 'r04',
+  'input 2': `tsc`,
+  lvl: 99,
+  output: "runz",
   '*eol\r': 0,
 });
 
@@ -299,7 +358,8 @@ REROLL_TYPES.forEach(([type, typeLabel]) => {
       'input 1': `${uniqueType},${rarity}`,
       'input 2': 'rvs',
       ilvl: 100,
-      output: `${pgSCode}`,
+      // output: `${pgSCode}`,
+      output: `gem4,qty=1`,
       'output b': `rvs`,
       '*eol\r': '0',
     });
@@ -339,7 +399,7 @@ EQUIP_TYPES.forEach((equipType) => {
       'input 1': `${equipType},${magicType}`,
       'input 2': "r18",
       'input 3': "tsc",
-      lvl: 92, // preserve item level
+      lvl: 92,
       output: 'usetype,nor',
       '*eol\r': '0',
     });
@@ -347,21 +407,6 @@ EQUIP_TYPES.forEach((equipType) => {
 });
 
 D2RMM.writeTsv(cubemainFilename, cubemain);
-
-
-// const itemRunesFilename = 'local\\lng\\strings\\item-runes.json';
-// const itemRunes = D2RMM.readJson(itemRunesFilename);
-// itemRunes.forEach((item) => {
-//   const runeKey = item.Key;
-//   if (runeKey === 'r25') {
-//     item.zhTW = `${item.zhTW}\n r25+item=无形item`;
-//   }
-//   else if (runeKey === 'r18') {
-//     item.zhTW = `${item.zhTW}\n r18+item=底材Item`;
-//   }
-// });
-// D2RMM.writeJson(itemRunesFilename, itemRunes);
-
 
 const itemstatcostFilename = 'global\\excel\\itemstatcost.txt';
 const itemstatcost = D2RMM.readTsv(itemstatcostFilename);
