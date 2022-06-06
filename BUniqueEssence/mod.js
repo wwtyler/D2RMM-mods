@@ -40,9 +40,41 @@ const SET_CODE_PREFIX = {
 }
 
 const INVALID_INDEX = ['Expansion', 'Armor', 'Elite Uniques', 'Rings', 'Class Specific'];
-const DUPLICATE_INDEX = ['Rainbow Facet', 'Rainbow Stone', "Gheed's Lucky", 'Rings', 'Class Specific'];
+const DUPLICATE_INDEX = ['Rainbow Facet', 'Rainbow Stone', "Gheed's Lucky", 'Rings'];
 const VALID_SETS = ["Immortal King", "Tal Rasha's Wrappings", "Bul-Kathos' Children", "M'avina's Battle Hymn", "Trang-Oul's Avatar", "Orphan's Call"];
-
+// Aldur's Watchtower
+// Angelical Raiment
+// Arcanna's Tricks
+// Arctic Gear
+// Berserker's Garb
+// Bul-Kathos' Children
+// Cathan's Traps
+// Civerb's Vestments
+// Cleglaw's Brace
+// Cow King's Leathers
+// Death's Disguise
+// Griswold's Legacy
+// Heaven's Brethren
+// Hsarus' Defense
+// Hwanin's Majesty
+// Immortal King
+// Infernal Tools
+// Iratha's Finery
+// Isenhart's Armory
+// M'avina's Battle Hymn
+// McAuley's Folly
+// Milabrega's Regalia
+// Naj's Ancient Set
+// Natalya's Odium
+// Orphan's Call
+// Sazabi's Grand Tribute
+// Sigon's Complete Steel
+// Tal Rasha's Wrappings
+// Tancred's Battlegear
+// The Disciple
+// Trang-Oul's Avatar
+// Vidala's Rig
+// const ALL_SETS = ["Aldur's"];
 function getEssenceRuneCode(unique, itemID) {
   const codePreifxIndex = Math.floor(itemID / 100);
   const codeIndex = itemID - codePreifxIndex * 100;

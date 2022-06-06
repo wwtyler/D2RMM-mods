@@ -154,7 +154,7 @@ mps.rows.forEach((row) => {
         SOR_ITYPES.includes(itype1) | NEC_ITYPES.includes(itype1) |
         PAL_ITYPES.includes(itype1) |
         AMA_ITYPES.includes(itype1) | DRU_ITYPES.includes(itype1) | BAR_ITYPES.includes(itype1))
-        row['frequency'] = 4;
+        row['frequency'] = 3;
     }
 
     //珠宝专用词缀

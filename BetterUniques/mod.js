@@ -1,7 +1,6 @@
 const uniqueItemsFilename = 'global\\excel\\UniqueItems.txt';
 const uniqueItems = D2RMM.readTsv(uniqueItemsFilename);
 
-
 let gheedsFortune;
 let rainbowFacet;
 let hellfireTorch;
@@ -100,6 +99,7 @@ uniqueItems.rows.forEach((item) => {
     else if (item.index ==="Deaths's Web"){
       //Deaths's Web	299	100	1		1		74	66	7gw	unearthed wand		5	5000
       //allskills		2	2	pierce-pois		40	50	heal-kill		7	12	mana-kill		7	12	skilltab	7	1	2
+    
     }
     else if (item.index === "Rainbow Facet" && item.par4 === "Chain Lightning") {
       // Rainbow Facet	392	100	1		1	1	85	49	jew	jewel		3	5000								dmg-ltng		1	74	pierce-ltng		3	5	extra-ltng		3	5	death-skill	Chain Lightning	100	47
