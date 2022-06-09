@@ -188,21 +188,21 @@ const itemNames = D2RMM.readJson(itemNamesFilename);
 
 itemNames.push({
   id: D2RMM.getNextStringID(),
-  Key: `Rainbow Stone`, enUS: `Rainbow Stone`, zhTW: `Rainbow Stone`
+  Key: `Rainbow Stone`, enUS: `Rainbow Stone`, zhTW: `ÿcDRainbow StoneÿcD`
 });
 
 itemNames.push({
   id: D2RMM.getNextStringID(),
-  Key: `Hellfire's Bless`, enUS: `Hellfire's Bless`, zhTW: `Hellfire's Bless`
+  Key: `Hellfire's Bless`, enUS: `Hellfire's Bless`, zhTW: `ÿcDHellfire's BlessÿcD`
 });
 itemNames.push({
   id: D2RMM.getNextStringID(),
-  Key: `Gheed's Lucky`, enUS: `Gheed's Lucky`, zhTW: `Gheed's Lucky`
+  Key: `Gheed's Lucky`, enUS: `Gheed's Lucky`, zhTW: `ÿcDGheed's LuckyÿcD`
 });
 
 itemNames.push({
   id: D2RMM.getNextStringID(),
-  Key: `Azurewrath1`, enUS: `Azurewrath1`, zhTW: `Azurewrath1`
+  Key: `Azurewrath1`, enUS: `Azurewrath1`, zhTW: `ÿcDAzurewrath1ÿcD`
 });
 
 D2RMM.writeJson(itemNamesFilename, itemNames);
