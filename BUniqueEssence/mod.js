@@ -44,7 +44,7 @@ const UNIQUE_GEMS = {
   "Frostburn": { ...gemTemp, hcode: 'mana%', hmin: 40, hmax: 40 },
   "Magefist": { ...gemTemp, hcode: 'fireskill', hmin: 1, hmax: 1 },
   // Veil of Steel	249	res-all		50	50	ac%		60	60	str		15	15	vit		15	15	light		-4	-4
-  "Veil of Steel": { ...gemTemp, hcode: 'res-all', hmin: 50, hmax: 50 },
+  "Veil of Steel": { ...gemTemp, hcode: 'res-all', hmin: 30, hmax: 30, hcode2: 'vit', hmin2: 15, hmax2: 15 },
   // The Gladiator's Bane	250	ac%		150	200	red-mag		15	20	red-dmg		15	20	thorns		20	20	res-pois-len		50	50
   "The Gladiator's Bane": { ...gemTemp, hcode: 'red-dmg', hmin: 20, hmax: 20, hcode2: 'red-mag', hmin2: 20, hmax2: 20 },
   // Arkaine's Valor	251	ac%		150	180	balance2		30	30	allskills		1	2	red-dmg		10	15	vit/lvl	4		
@@ -78,14 +78,15 @@ const UNIQUE_GEMS = {
   // Djinnslayer	290	dmg%		190	240	dmg-fire		250	500	dmg-demon		100	150	att-demon		200	300	abs-ltng		3	7
   // Warshrike	292	dmg%		200	250	pierce		50	50	swing2		30	30	deadly		50	50	rep-quant	30		
   // Gutsiphon	293	dmg%		160	220	pierce		33	33	lifesteal		12	18	slow		25	25	openwounds		33	33
-  // Razoredge	294	dmg%		175	225	swing2		40	40	reduce-ac		33	33	deadly		50	50	openwounds		50	50
+  // Razoredge	294	dmg%		175	225	swing2		40	40	reduce-ac		33	33	deadly		50	50	openwounds		50	50+
+  "Razoredge": { ...gemTemp, wcode: 'reduce-ac', wmin: 33, wmax: 33 },
   // Demonlimb	296	dmg%		180	230	dmg-fire		222	333	lifesteal		7	13	charged	Enchant	20	23	rep-dur	5		
   // Tomb Reaver	298	swing2		60	60	light		8	8	dmg%		200	280	dmg		150	230	mag%		50	80
   "Tomb Reaver": { ...gemTemp, wcode: 'swing2', wmin: 60, wmax: 60, wcode2: 'mag%', wmin2: 50, wmax2: 50 },
   // Deaths's Web	299	allskills		2	2	pierce-pois		40	50	heal-kill		7	12	mana-kill		7	12	skilltab	7	1	2
   "Death's Web": { ...gemTemp, wcode: 'pierce-pois', wmin2: 50, wmax2: 50, wcode2: 'heal-kill', wmin2: 12, wmax2: 12, wcode3: 'mana-kill', wmin3: 12, wmax3: 12 },
   // Nature's Peace	300	noheal		1	1	rip		1	1	red-dmg		7	11	res-pois		20	30	charged	Oak Sage	27	5
-  "Nature's Peace": { ...gemTemp, wcode: 'rip', wmin: 1, wmax: 1, wcode2: 'res-pois', wmin2: 30, wmax2: 30 },
+  "Nature's Peace": { ...gemTemp, wcode: 'noheal', wmin: 1, wmax: 1, hcode: 'rip', hmin: 1, hmax: 1 },
   // Azurewrath	301	dmg-mag		300	500	dmg%		230	270	aura	Conviction	10	13	dmg-cold	300	300	500	swing2		35	45
   "Azurewrath": { ...gemTemp, wcode: 'dmg-mag', wmin: 300, wmax: 300, wcode2: 'dmg-cold', wmin2: 300, wmax2: 300 },
   // Seraph's Hymn	302	allskills		2	2	skilltab	11	1	2	dmg-demon		25	50	dmg-undead		25	50	att-demon		150	250
@@ -108,9 +109,12 @@ const UNIQUE_GEMS = {
   // Leviathan	317	ac%		170	200	ac		100	150	red-dmg%		15	25	str		40	50	indestruct		1	1
   // Wisp	319	abs-ltng%		10	20	hit-skill	Lightning	10	16	mag%		10	20	charged	Oak Sage	15	2	charged	Heart of Wolverine	13	5
   // Gargoyle's Bite	320	dmg%		180	230	rep-quant	30			dmg-pois	250	300	300	lifesteal		9	15	charged	Plague Javelin	60	11
-  // Lacerator	321	dmg%		150	210	rep-quant	25			swing2		30	30	noheal		1	1	openwounds		33	33
+  "Gargoyle's Bite": { ...gemTemp, wcode: 'lifesteal', wmin: 15, wmax: 15, wcode2: 'hit-skill', wparam2: 'Plague Javelin', wmin2: 30, wmax2: 30, wcode3: 'dmg-pois', wparam3: 150, wmin3: 450, wmax3: 450 },
+  // Lacerator		swing2		30	30	noheal		1	1	openwounds		33	33	howl		64	64	hit-skill	Amplify Damage	33	3
+  "Lacerator": { ...gemTemp, wcode: 'openwounds', wmin: 33, wmax: 33, wcode2: 'hit-skill', wparam2: 'Amplify Damage', wmin2: 33, wmax2: 3 },
   // Mang Song's Lesson	322	allskills		5	5	pierce-fire		15	25	pierce-ltng		15	25	pierce-cold		15	25	regen-mana		20	30
   // Viperfork	323	dmg%		190	240	dmg-pois	250	333	333	swing2		50	50	att		200	250	hit-skill	Poison Explosion	15	9
+  "Viperfork": { ...gemTemp, wcode: 'hit-skill', wparam: 'Poison Explosion', wmin: 20, wmax: 12 },
   // Ethereal Edge	324	dmg%		150	180	swing2		25	25	abs-fire		10	12	dmg-demon		150	200	demon-heal		5	10
   // The Reaper's Toll	326	dmg%		190	240	hit-skill	Decrepify	33	1	ignore-ac		1	1	lifesteal		11	15	ease		-25	-25
   "The Reaper's Toll": { ...gemTemp, wcode: 'hit-skill', wparam: 'Decrepify', wmin: 33, wmax: 8 },
@@ -125,6 +129,7 @@ const UNIQUE_GEMS = {
   // Griffon's Eye	336	ac		100	200	cast2		25	25	allskills		1	1	extra-ltng		10	15	pierce-ltng		15	20
   "Griffon's Eye": { ...gemTemp, hcode: 'pierce-ltng', hmin: 20, hmax: 20, hcode2: 'extra-ltng', hmin2: 15, hmax2: 15 },
   // Windhammer	337	dmg%		180	230	crush		50	50	swing2		60	60	hit-skill	Twister	33	22				
+  "Windhammer": { ...gemTemp, wcode: 'hit-skill', wparam: 'Twister', wmin: 33, wmax: 25, wcode2: 'crush', wmin2: 33, wmax2: 33 },
   // Thunderstroke	338	dmg%		150	200	dmg-ltng		1	511	hit-skill	Lightning	20	14	swing2		15	15	pierce-ltng		15	15
   // Demon's Arch	340	dmg%		160	210	dmg-fire		232	323	lifesteal		6	12	rep-quant	30			swing2		30	30
   // Boneflame	341	ac%		120	150	move2		20	20	gethit-skill	Terror	15	3	nec		2	3	res-all		20	30
@@ -141,11 +146,14 @@ const UNIQUE_GEMS = {
   // Ravenlore	350	ac%		120	150	res-all		15	25	skilltab	17	3	3	enr		20	30	pierce-fire		10	20
   // Boneshade	351	nec		2	2	cast2		25	25	skill	Teeth	4	5	skill	Bone Armor	4	5	skill	Bone Spear	2	3
   // Flamebellow	353	dmg%		170	240	dmg-fire		233	482	fireskill		3	3	abs-fire%		20	30	hit-skill	Firestorm	12	16
+  "Flamebellow": { ...gemTemp, wcode: 'hit-skill', wparam: 'Firestorm', wmin: 12, wmax: 16, hcode: 'fireskill', hmin: 1, hmax: 1 },
   // Fathom	354	sor		3	3	extra-cold		15	30	cast2		20	20	res-fire		25	40	res-ltng		25	40
   // Wolfhowl	355	ac%		120	150	skilltab	14	2	3	str		8	15	dex		8	15	vit		8	15
   // Spirit Ward	356	ac%		130	180	abs-cold		6	11	res-all		30	40	block		20	30	block2		25	25
   // Kira's Guardian	357	ac		50	120	res-all		50	70	nofreeze		1	1	balance2		20	20				
+  "Kira's Guardian": { ...gemTemp, hcode: 'res-all', hmin: 30, hmax: 30 },
   // Ormus' Robes	358	ac		20	80	cast2		20	35	extra-fire		10	20	extra-cold		10	20	extra-ltng		10	20
+  "Ormus' Robes": { ...gemTemp, hcode: 'extra-fire', hmin: 20, wmax: 20, hcode2: 'extra-cold', hmin2: 20, hmax2: 20, hcode3: 'extra-ltng', hmin3: 20, hmax3: 20 },
   // Stormlash	360	dmg%		240	300	swing2		30	30	hit-skill	Static Field	15	10	hit-skill	Tornado	20	18	dmg-ltng		1	473
   // Halaberd's Reign	361	ac%		140	170	skilltab	13	1	1	bar		2	2	balance2		20	20	regen		15	23
   // Spike Thorn	363	ac%		120	150	thorns/lvl	11			dur		250	250	balance2		30	30	red-dmg%		15	20
@@ -153,28 +161,47 @@ const UNIQUE_GEMS = {
   "Dracul's Grasp": { ...gemTemp, wcode: 'lifesteal', wmin: 10, wmax: 10, wcode2: 'hit-skill', wparam2: 'Life Tap', wmin2: 10, wmax2: 10 },
   // Frostwind	365	dmg%		180	230	freeze		4	4	half-freeze		1	1	dmg-cold	150	237	486	swing2		25	25
   // Templar's Might	366	ac%		170	220	balance2		20	20	ac-miss		250	300	stam		40	50	str		10	15
-  // Eschuta's temper	367	sor		1	3	cast2		40	40	extra-fire		10	20	extra-ltng		10	20	enr		20	30
   // Firelizard's Talons	368	dmg%		200	270	swing2		15	15	skilltab	20	1	3	dmg-fire		236	480	res-fire		40	70
   // Sandstorm Trek	369	ac%		140	170	move2		20	20	balance2		20	20	stam/lvl	8			stamdrain		50	50
+  "Sandstorm Trek": { ...gemTemp, hcode: 'stam/lvl', hmin: 8, hmax: 8, hcode2: 'move2', hmin2: 20, hmax2: 20 },
   // Marrowwalk	370	ac%		170	200	move2		20	20	charged	Bone Prison	13	33	charged	Life Tap	10	12	regen-stam		10	10
+  "Marrowwalk": { ...gemTemp, wcode: 'hit-skill', wparam: 'Life Tap', wmin: 15, wmax: 10 },
   // Arachnid Mesh	373	ac%		90	120	cast2		20	20	charged	Venom	11	13	allskills		1	1	slow		10	10
   // Metalgrid	375	ac		300	350	res-all		25	35	att		400	450	charged	IronGolem	11	22	charged	Iron Maiden	20	12
   // Verdugo's Hearty Cord	376	ac%		90	140	vit		30	40	stam		100	120	balance2		10	10	red-dmg%		10	15
   // Giantskull	379	ac		250	320	str		25	35	crush		10	10	sock		1	2	knock		1	1
+  "Giantskull": { ...gemTemp, wcode: 'crush', wmin: 10, wmax: 10, hcode: 'str', hmin: 25, hmax: 25 },
   // Annihilus	381	allskills		1	1	all-stats		10	20	res-all		10	20	addxp		5	10				
   // Arioc's Needle	382	dmg%		180	230	dmg-pois	250	403	403	deadly		50	50	ignore-ac		1	1	allskills		2	4
+  "Arioc's Needle": { ...gemTemp, wcode: 'dmg-pois', wparam: 150, wmin: 400, wmax: 400, wcode2: 'ignore-ac', wmin2: 1, wmax2: 1 },
   // Cranebeak	383	dmg%		240	300	dmg-ltng		1	305	swing2		40	40	reduce-ac		25	25	mag%		20	50
   // Nord's Tenderizer	384	dmg%		270	330	freeze		2	4	swing2		25	25	charged	Blizzard	12	16	att%		150	180
   // Earthshifter	385	dmg%		250	300	hit-skill	Eruption	25	14	crush		33	33	swing2		10	10	charged	Volcano	30	14
-  // Wraithflight	386	dmg%		150	190	rep-quant	40			lifesteal		9	13	mana-kill		15	15	ethereal		1	1
+  // Wraithflight	386		lifesteal		9	13	mana-kill		15	15	ethereal		1	1
+  "Wraithflight": { ...gemTemp, wcode: 'lifesteal', wmin: 13, wmax: 13, wcode2: 'mana-kill', wmin2: 15, wmax2: 15 },
   // Bonehew	387	dmg%		270	320	swing2		30	30	charged	Corpse Explosion	30	14	hit-skill	Bone Spear	50	16	noheal		1	1
   // Ondal's Wisdom	388	cast2		45	45	enr		40	50	allskills		2	4	ac		450	550	addxp		5	5
+  "Ondal's Wisdom": { ...gemTemp, wcode: 'enr', wmin: 50, wmax: 50, wcode2: 'cast2', wmin2: 25, wmax2: 25, hcode: "addxp", hmin: 15, hmax: 15 },
   // The Reedeemer	389	dmg%		250	300	dmg-demon		200	250	pal		2	2	ease		-60	-60	skill	Redemption	2	4
   // Headhunter's Glory	390	ac		320	420	ac-miss		300	350	res-pois		30	40	sock		1	3	res-fire		20	30
   // Steelrend	391	ac		170	210	str		15	20	dmg%		30	60	crush		10	10	
 
+  //Demonhorn's Edge		ac%		120	160	swing2		10	10	lifesteal		3	6	thorns		55	77	skilltab	12	1	3	skilltab	13	1	3	skilltab	14	1	3	
+  "Demonhorn's Edge": { ...gemTemp, wcode2: 'lifesteal', wmin2: 6, wmax2: 6, wcode: 'thorns', wmin: 77, wmax: 77 },
+  //Eschuta's temper	367	sor		1	3	cast2		40	40	extra-fire		10	20	extra-ltng		10	20	enr		20	30
+  "Eschuta's temper": { ...gemTemp, wcode: 'cast2', wmin: 20, wmax: 20, wcode2: 'enr', wmin2: 15, wmax2: 15, hcode: 'extra-fire', hmin: 15, hmax: 15, hcode2: 'extra-ltng', hmin2: 15, hmax2: 15 },
   // //The Oculus		sor		3	3	gethit-skill	54	25	1	res-all		20	20	cast2		30	30	ac%		20	20	vit		20	20	enr		20	20	mana-kill		5	5	mag%		50	50
   "The Oculus": { ...gemTemp, wcode: 'cast2', wmin: 30, wmax: 30, wcode2: 'mana-kill', wmin2: 5, wmax2: 5, hcode: 'mag%', hmin: 50, hmax: 50 },
+  // Infernostride	dmg-fire		12	33	move2		20	20	res-fire-max		10	10	res-fire		30	30	light		2	2	ac%		120	150	gold%		40	70	ac		15	15	gethit-skill	46	5	8				
+  "Inferno Stride": { ...gemTemp, hcode: 'move2', hmin: 20, hmax: 20, hcode2: 'gethit-skill', hparam2: '46', hmin2: 5, hmax2: 8 },
+  // String of Ears		red-mag		10	15	red-dmg%		10	15	lifesteal		6	8	ac%		150	180	ac		15	15	dur		10	10
+  "String of Ears": { ...gemTemp, hcode: 'red-dmg%', hmin: 10, hmax: 10, hcode2: 'lifesteal', hmin2: 6, hmax2: 6 },
+  //Thudergod's Vigor	246		gethit-skill	121	5	7	dmg-ltng		1	50	res-ltng-max		10	10	abs-ltng		20	20	ac%		160	200	vit		20	20	str		20	20		
+  "Thudergod's Vigor": { ...gemTemp, hcode: 'gethit-skill', hparam: 121, hmin: 5, hmax: 7, hcode2: 'abs-ltng', hmin2: 20, hmax2: 20 },
+  // Nagelring		red-mag		3	3	thorns		3	3	att		50	75	mag%		15	30	
+  "Nagelring": { ...gemTemp, wcode: 'mag%', wmin: 30, wmax: 30, hcode: 'mag%', hmin: 30, hmax: 30, scode: 'mag%', smin: 30, smax: 30 },
+  //Ghostflame			manasteal		10	15	ethereal		1	1	indestruct		1	1	light		2	2																						0
+  "Ghostflame": { ...gemTemp, wcode: 'manasteal', wmin: 15, wmax: 15 },
   "default": { ...gemTemp }
   // "default": { wcode: 'all-stats', wmin: 5, wmax: 5, hcode: 'all-stats', hmin: 5, hmax: 5, scode: 'all-stats', smin: 5, smax: 5 }
 }
@@ -236,7 +263,7 @@ uniqueItems.rows.forEach((uniqueItem) => {
 
       //复制一份图标文件。可以考虑不同的装备类型使用不同的宝石或者珠宝图标。TODO
       D2RMM.copyFile(
-        'texture/perfect_diamond2.sprite',
+        'texture/perfect_dark_blue.sprite',
         `hd/global/ui/items/misc/rune/${essenceCode}_rune.sprite`,
         true // overwrite any conflicts
       );
@@ -256,7 +283,7 @@ setItems.rows.forEach((setItem) => {
 
       //复制一份图标文件。可以考虑不同的装备类型使用不同的宝石或者珠宝图标。TODO
       D2RMM.copyFile(
-        'texture/perfect_jew_dark_green.sprite',//绿色珠宝
+        'texture/perfect_dark_green.sprite',//绿色珠宝
         `hd/global/ui/items/misc/rune/${essenceCode}_rune.sprite`,
         true // overwrite any conflicts
       );
@@ -300,8 +327,8 @@ function addEssenceRunes(essenceCode, item) {
   misc.rows.push({
     ...zodMiscItemTemplate,
     name: `ERune-${essenceCode}-${item.index}(${item['*ID']})`,
-    ShowLevel: 1,
-    cost: 2000,
+    // ShowLevel: 1,
+    cost: 5000,
     spawnable: 1,
     speed: 0,
     nodurability: 1,

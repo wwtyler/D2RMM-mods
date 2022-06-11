@@ -26,12 +26,12 @@ const REROLL_RARITY = [
   ['set', '套装']
 ];
 const REROLL_TYPES = [
-  ['rin', '戒指'],
-  ['amu', '项链'],
-  ['char', '护符'],
-  ['jew', '珠宝'],
-  ['weap', '武器'],
-  ['armo', '防具']
+  ['rin', '戒指', 'gem4,qty=1'],
+  ['amu', '项链', 'gem4,qty=1'],
+  ['char', '护符', 'runz,qty=1'],
+  ['jew', '珠宝', 'runz,qty=1'],
+  ['weap', '武器', 'runx,qty=1'],
+  ['armo', '防具', 'runx,qty=1']
 ];
 const EXTRACT_TYPES = [
   ['rin', '戒指'],
@@ -109,7 +109,7 @@ cubemain.rows.push({
   'input 1': 'r05',
   'input 2': `tsc`,
   lvl: 99,
-  output: "k80",
+  output: "toa",
   '*eol\r': 0,
 });
 cubemain.rows.push({
@@ -151,22 +151,6 @@ cubemain.rows.push({
 });
 
 
-cubemain.rows.push({
-  description: `test BBC`,
-  enabled: 1,
-  version: 100,
-  numinputs: 2,
-  'input 1': '"scha"',
-  'input 2': `r10`,
-  lvl: 99,
-  output: 'useitem',
-  'mod 1': 'aura',
-  'mod 1 param': 'Meditation',
-  'mod 1 min': 16,
-  'mod 1 max': 16,
-  '*eol\r': 0,
-});
-
 
 cubemain.rows.push({
   description: `test BBD`,
@@ -177,7 +161,7 @@ cubemain.rows.push({
   'input 2': `r08`,
   lvl: 99,
   output: 'useitem',
-  'mod 1': 'levelreq',//  // aura Conviction	12	12	// 光环
+  'mod 1': 'levelreq',
   'mod 1 min': 20,
   'mod 1 max': 20,
   '*eol\r': 0,
@@ -246,7 +230,7 @@ cubemain.rows.push({
   numinputs: 3,
   'input 1': '"gem3,qty=3"',
   lvl: 99,
-  output: `gpv,qty=1`,
+  output: `gem4,qty=1`,
   '*eol\r': 0,
 });
 // 三蓝色戒指合成蓝色项链	1			100					3	"rin,mag,qty=3"							"amu,mag"	99	0
@@ -321,7 +305,7 @@ cubemain.rows.push({
 });
 
 //各种装备REROLL
-REROLL_TYPES.forEach(([type, typeLabel]) => {
+REROLL_TYPES.forEach(([type, typeLabel, cost]) => {
   REROLL_RARITY.forEach(([rarity, rarityLabel]) => {
     //'reg' = If the function has “usetype” and if the item is a Unique, then regenerate/reroll the Unique
     const outputString = rarity === 'uni' ? 'useitem,reg' : `usetype,${rarity}`;
@@ -332,10 +316,11 @@ REROLL_TYPES.forEach(([type, typeLabel]) => {
       version: 100,
       numinputs: 2,
       'input 1': `${type},${rarity}`,
-      'input 2': `${inputCost}`,
+      'input 2': `${cost}`,
       output: `${outputString}`,
-      'output b': `gpv,qty=1`,//免费洗装备用来调试。
+      'output b': `${cost}`,//免费洗装备用来调试。
       ilvl: 100, // preserve item level
+      'b lvl': 99,//免费洗装备用来调试。
       '*eol\r': 0,
     };
     cubemain.rows.push(recipe);

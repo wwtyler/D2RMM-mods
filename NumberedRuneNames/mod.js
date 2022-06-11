@@ -81,8 +81,8 @@ const itemTypesFilename = 'global\\excel\\itemtypes.txt';
 const itemTypes = D2RMM.readTsv(itemTypesFilename);
 const runeTypeBase = {
   ItemType: `Rune`,
-  'Equiv1': 'rune',
-  'Equiv2': 'sock',
+  'Equiv1': 'runx',
+  // 'Equiv2': 'rune',
   // Magic	=0,
   // Rare	= 0,
   Normal: 1,
