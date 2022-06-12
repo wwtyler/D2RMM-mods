@@ -15,7 +15,15 @@ difficultylevels.rows.forEach((row) => {
   row.GambleUnique = row.GambleUnique * 12
   row.GambleUber = row.GambleUber * 15
   row[`GambleUltra\r`] = row[`GambleUltra\r`] * 15;
+
+  if (row.ResistPenalty !== '') {
+    row.ResistPenalty = Math.floor(row.ResistPenalty * 150 / 100);
+  }
+  if (row.DeathExpPenalty !== '') {
+    row.DeathExpPenalty = Math.floor(row.DeathExpPenalty * 50 / 100);
+  }
 });
+
 D2RMM.writeTsv(difficultylevelsFilename, difficultylevels);
 
 // ////////////////////////////npc sell max/////////////////////////////
@@ -44,55 +52,6 @@ hirelings.rows.forEach((hireling) => {
 });
 D2RMM.writeTsv(hirelingFilename, hirelings);
 
-
-//赌博价格折扣
-
-// const armorFilename = 'global\\excel\\armor.txt';
-// const armors = D2RMM.readTsv(armorFilename);
-
-// const weaponsFilename = 'global\\excel\\weapons.txt';
-// const weapons = D2RMM.readTsv(weaponsFilename);
-
-// const miscFilename = 'global\\excel\\misc.txt';
-// const miscs = D2RMM.readTsv(miscFilename);
-
-// armors.rows.forEach((row) => {
-//   gambleCostDiscount(row);
-
-// });
-
-// weapons.rows.forEach((row) => {
-//   gambleCostDiscount(row);
-
-// });
-
-// miscs.rows.forEach((row) => {
-//   gambleCostDiscount(row);
-
-// });
-
-// function gambleCostDiscount(row) {
-//   if (row['gamble cost'] > 0) {
-//     if (row['gamble cost'] > 30000) {
-//       // row['gamble cost'] = Math.floor(row['gamble cost'] * 0.7);
-//       row['gamble cost'] = 30001;
-//     };
-//     if (row['gamble cost'] > 60000) {
-//       row['gamble cost'] = Math.floor(row['gamble cost'] * 0.6 + 2);
-//     };
-//     if (row['gamble cost'] > 100000) {
-//       row['gamble cost'] = Math.floor(row['gamble cost'] * 0.5 + 3);
-//     };
-//     if (row['gamble cost'] > 150000) {
-//       row['gamble cost'] = 50004;
-//     }
-//   }
-// }
-
-
-
-// const gambleFilename = 'global\\excel\\gamble.txt';
-// const gambles = D2RMM.readTsv(gambleFilename);
 const itemtypesFilename = 'global\\excel\\itemtypes.txt';
 const itemtypes = D2RMM.readTsv(itemtypesFilename);
 const CHARM_NAMES = ['Small Charm', 'Medium Charm', 'Large Charm'];
@@ -120,9 +79,6 @@ D2RMM.writeTsv(itemtypesFilename, itemtypes);
 //     row['gamble cost'] = 42000;
 //   }
 // });
-
-
-
 // gambles.rows.push({
 //   name: `Charm Small`,
 //   'code\r': 'cm1'

@@ -26,12 +26,12 @@ const REROLL_RARITY = [
   ['set', '套装']
 ];
 const REROLL_TYPES = [
-  ['rin', '戒指', 'gem4,qty=1'],
-  ['amu', '项链', 'gem4,qty=1'],
-  ['char', '护符', 'runz,qty=1'],
-  ['jew', '珠宝', 'runz,qty=1'],
-  ['weap', '武器', 'runx,qty=1'],
-  ['armo', '防具', 'runx,qty=1']
+  ['rin', '戒指', 'gem4'],
+  ['amu', '项链', 'gem4'],
+  ['char', '护符', 'runz'],
+  ['jew', '珠宝', 'runz'],
+  ['weap', '武器', 'runx'],
+  ['armo', '防具', 'runx']
 ];
 const EXTRACT_TYPES = [
   ['rin', '戒指'],
@@ -90,17 +90,7 @@ cubemain.rows.push({
   output: "k78",
   '*eol\r': 0,
 });
-cubemain.rows.push({
-  description: `test AAA`,
-  enabled: 1,
-  version: 100,
-  numinputs: 2,
-  'input 1': 'r04',
-  'input 2': `tsc`,
-  lvl: 99,
-  output: "k79",
-  '*eol\r': 0,
-});
+
 cubemain.rows.push({
   description: `test AAA`,
   enabled: 1,
@@ -143,7 +133,7 @@ cubemain.rows.push({
   'input 2': `r09`,
   lvl: 99,
   output: 'useitem',
-  'mod 1': 'aura',//  // aura Conviction	12	12	// 光环
+  'mod 1': 'aura',// aura Conviction	12	12	// 光环
   'mod 1 param': 'Conviction',
   'mod 1 min': 18,
   'mod 1 max': 18,
@@ -167,61 +157,38 @@ cubemain.rows.push({
   '*eol\r': 0,
 });
 
-cubemain.rows.push({
-  description: `test CCC`,
-  enabled: 1,
-  version: 100,
-  numinputs: 2,
-  op: 16, // less than or no more than
-  param: 183, // item_allskills (itemstatcost.txt)
-  value: 2, // start from 0. ALLSKILLs +1=0， +2=1
-  'input 1': '"armo"',
-  'input 2': `r03`,
-  lvl: 99,
-  output: 'useitem',
-  'mod 1': 'addxp',
-  'mod 1 min': 10,
-  'mod 1 max': 10,
-  'mod 2': 'innernum',
-  'mod 2 min': 1,
-  'mod 2 max': 1,
-  '*eol\r': 0,
-});
+// cubemain.rows.push({
+//   description: `test CCC`,
+//   enabled: 1,
+//   version: 100,
+//   numinputs: 2,
+//   op: 16, // less than or no more than
+//   param: 183, // item_allskills (itemstatcost.txt)
+//   value: 2, // start from 0. ALLSKILLs +1=0， +2=1
+//   'input 1': '"armo"',
+//   'input 2': `r03`,
+//   lvl: 99,
+//   output: 'useitem',
+//   'mod 1': 'addxp',
+//   'mod 1 min': 10,
+//   'mod 1 max': 10,
+//   'mod 2': 'innernum',
+//   'mod 2 min': 1,
+//   'mod 2 max': 1,
+//   '*eol\r': 0,
+// });
 
-cubemain.rows.push({
-  description: `test DDD`,
-  enabled: 1,
-  version: 100,
-  numinputs: 2,
-  'input 1': '"armo"',
-  'input 2': `r04`,
-  lvl: 99,
-  output: 'useitem,suf=754',
-  '*eol\r': 0,
-});
-
-cubemain.rows.push({
-  description: `test EEE`,
-  enabled: 1,
-  version: 100,
-  numinputs: 2,
-  'input 1': '"armo"',
-  'input 2': `r05`,
-  lvl: 99,
-  output: 'useitem,suf=756',
-  '*eol\r': 0,
-});
-cubemain.rows.push({
-  description: `test FFF`,
-  enabled: 1,
-  version: 100,
-  numinputs: 2,
-  'input 1': '"weap"',
-  'input 2': `r06`,
-  lvl: 99,
-  output: 'usetype,mag,suf=748',
-  '*eol\r': 0,
-});
+// cubemain.rows.push({
+//   description: `test FFF`,
+//   enabled: 1,
+//   version: 100,
+//   numinputs: 2,
+//   'input 1': '"weap"',
+//   'input 2': `r06`,
+//   lvl: 99,
+//   output: 'usetype,mag,suf=748',
+//   '*eol\r': 0,
+// });
 
 cubemain.rows.push({
   description: `test GGG`,
@@ -236,23 +203,22 @@ cubemain.rows.push({
 // 三蓝色戒指合成蓝色项链	1			100					3	"rin,mag,qty=3"							"amu,mag"	99	0
 // 三蓝色项链合成蓝色戒指	1			100					3	"amu,mag,qty=3"							"rin,mag"	99	0
 
-//disable原始合成公示。
+//disable部分原始合成公示。
+const DISABLED_DESCRIPTION = [
+  '3 Magic Rings -> Magic Amulet',
+  '3 Magic Amulets -> Magic Ring',
+  '3 Perfect Gems (Any) + 1 Magic Item -> Re-rolled Magic Item',
+  '6 Perfect Skulls + 1 Rare Item -> 1 Low Quality Rare Item',
+  '1 Ort Rune + 1 Weapon -> Fully Repaired Weapon',
+  '1 Ral Rune + 1 Armor -> Fully Repaired Armor'
+];
+
 cubemain.rows.forEach((row) => {
   const desc = row.description;
-  if (desc === '3 Magic Rings -> Magic Amulet') {
-    row.enabled = 0;
-  }
-  else if (desc === '3 Magic Amulets -> Magic Ring') {
-    row.enabled = 0;
-  }
-  else if (desc === '3 Perfect Gems (Any) + 1 Magic Item -> Re-rolled Magic Item') {
-    row.enabled = 0;
-  }
-  else if (desc === '6 Perfect Skulls + 1 Rare Item -> 1 Low Quality Rare Item') {
+  if (DISABLED_DESCRIPTION.includes(desc)) {
     row.enabled = 0;
   }
 });
-
 
 //三个项链、戒指REROLL。
 [
@@ -315,12 +281,12 @@ REROLL_TYPES.forEach(([type, typeLabel, cost]) => {
       enabled: 1,
       version: 100,
       numinputs: 2,
-      'input 1': `${type},${rarity}`,
-      'input 2': `${cost}`,
-      output: `${outputString}`,
-      'output b': `${cost}`,//免费洗装备用来调试。
       ilvl: 100, // preserve item level
-      'b lvl': 99,//免费洗装备用来调试。
+      'input 1': `${type},${rarity}`,
+      'input 2': `${cost},qty=1`,
+      output: `${outputString}`,
+      'output b': `${cost},qty=1`,//免费洗装备用来调试。
+      'b lvl': 99,
       '*eol\r': 0,
     };
     cubemain.rows.push(recipe);

@@ -82,7 +82,7 @@ const itemTypes = D2RMM.readTsv(itemTypesFilename);
 const runeTypeBase = {
   ItemType: `Rune`,
   'Equiv1': 'runx',
-  // 'Equiv2': 'rune',
+  'Equiv2': 'rune',
   // Magic	=0,
   // Rare	= 0,
   Normal: 1,
@@ -109,6 +109,7 @@ itemTypes.rows.push({ ...runeTypeBase, Code: 'run2', });
 itemTypes.rows.push({ ...runeTypeBase, Code: 'run3', });
 itemTypes.rows.push({ ...runeTypeBase, Code: 'run4', });
 itemTypes.rows.push({ ...runeTypeBase, Code: 'run5', });
+itemTypes.rows.push({ ...runeTypeBase, ItemType: 'Rune x', Code: 'runx', 'Equiv1': 'rune', 'Equiv2': 'misc', });
 
 // Perfect Gem	gem4	gem		0	0					0	0	0	0			1	0	0	25	0	40	0	0	3			0							misc	0
 const gemTypeBase = {
@@ -135,13 +136,13 @@ const gemTypeBase = {
 }
 
 
-// Perfect Amethyst	1	0	0	0	18			6	0	0	1	30000		gpv	gpv	gpv	16	1	1	0	0	0	flpgsv	invgsve		0	xxx			0	gema	gem4	item_gem	12	item_gem	0	0	5	0	0	0	0	0	0	0			0	-1	-1																0	0	0	non	0					255					255					255					255					255					255					255					255					255					255					255					255					255					255					255					255					255	0	0	0	xxx	xxx						
-// Perfect Topaz	1	0	0	0	18			7	0	0	1	30000		gpy	gpy	gpy	16	1	1	0	0	0	flpgsy	invgsye		0	xxx			0	gemt	gem4	item_gem	12	item_gem	0	0	5	0	0	0	0	0	0	0			0	-1	-1																0	0	0	non	0					255					255					255					255					255					255					255					255					255					255					255					255					255					255					255					255					255	0	0	0	xxx	xxx						
-// Perfect Sapphire	1	0	0	0	18			8	0	0	1	30000		gpb	gpb	gpb	16	1	1	0	0	0	flpgsb	invgsbe		0	xxx			0	gems	gem4	item_gem	12	item_gem	0	0	5	0	0	0	0	0	0	0			0	-1	-1																0	0	0	non	0					255					255					255					255					255					255					255					255					255					255					255					255					255					255					255					255					255	0	0	0	xxx	xxx						
-// Perfect Emerald	1	0	0	0	18			9	0	0	1	30000		gpg	gpg	gpg	16	1	1	0	0	0	flpgsg	invgsge		0	xxx			0	geme	gem4	item_gem	12	item_gem	0	0	5	0	0	0	0	0	0	0			0	-1	-1																0	0	0	non	0					255					255					255					255					255					255					255					255					255					255					255					255					255					255					255					255					255	0	0	0	xxx	xxx						
-// Perfect Ruby	1	0	0	0	18			10	0	0	1	30000		gpr	gpr	gpr	16	1	1	0	0	0	flpgsr	invgsre		0	xxx			0	gemr	gem4	item_gem	12	item_gem	0	0	5	0	0	0	0	0	0	0			0	-1	-1																0	0	0	non	0					255					255					255					255					255					255					255					255					255					255					255					255					255					255					255					255					255	0	0	0	xxx	xxx						
-// Perfect Diamond	1	0	0	0	18			11	0	0	1	30000		gpw	gpw	gpw	16	1	1	0	0	0	flpgsw	invgswe		0	xxx			0	gemd	gem4	item_gem	12	item_gem	0	0	5	0	0	0	0	0	0	0			0	-1	-1																0	0	0	non	0					255					255					255					255					255					255					255					255					255					255					255					255					255					255					255					255					255	0	0	0	xxx	xxx						
-// Perfect Skull	1	0	0	0	18			12	0	0	1	100000		skz	skz	skz	16	1	1	0	0	0	flpskl	invskz		0	xxx			0	gemz	gem4	item_monsterbone	12	item_monsterbone	0	0	5	0	0	0	0	0	0	0			0	-1	-1																0	0	0	non	0					255					255					255					255					255					255					255					255					255					255					255					255					255					255					255					255					255	0	0	0	xxx	xxx						
+// Perfect Amethyst	1	0	0	0	18			6	0	0	1	30000		gpv	gpv	gpv	16	1	1	0	0	0	flpgsv	invgsve		0	xxx			0	gema	gem4	item_gem	12	item_gem
+// Perfect Topaz	1	0	0	0	18			7	0	0	1	30000		gpy	gpy	gpy	16	1	1	0	0	0	flpgsy	invgsye		0	xxx			0	gemt	gem4	item_gem	12	item_gem
+// Perfect Sapphire	1	0	0	0	18			8	0	0	1	30000		gpb	gpb	gpb	16	1	1	0	0	0	flpgsb	invgsbe		0	xxx			0	gems	gem4	item_gem	12	item_gem
+// Perfect Emerald	1	0	0	0	18			9	0	0	1	30000		gpg	gpg	gpg	16	1	1	0	0	0	flpgsg	invgsge		0	xxx			0	geme	gem4	item_gem	12	item_gem
+// Perfect Ruby	1	0	0	0	18			10	0	0	1	30000		gpr	gpr	gpr	16	1	1	0	0	0	flpgsr	invgsre		0	xxx			0	gemr	gem4	item_gem	12	item_gem
+// Perfect Diamond	1	0	0	0	18			11	0	0	1	30000		gpw	gpw	gpw	16	1	1	0	0	0	flpgsw	invgswe		0	xxx			0	gemd	gem4	item_gem	12	item_gem
+// Perfect Skull	1	0	0	0	18			12	0	0	1	100000		skz	skz	skz	16	1	1	0	0	0	flpskl	invskz		0	xxx			0	gemz	gem4	item_monsterbone	12	item_monsterbone					
 itemTypes.rows.push({ ...gemTypeBase, ItemType: `Perfect Amethyst`, Code: 'gpv', 'Equiv2': 'gem' });
 itemTypes.rows.push({ ...gemTypeBase, ItemType: `Perfect Topaz`, Code: 'gpy', 'Equiv2': 'gem' });
 itemTypes.rows.push({ ...gemTypeBase, ItemType: `Perfect Sapphire`, Code: 'gpb', 'Equiv2': 'gem' });

@@ -1,4 +1,8 @@
 const uniqueItemsFilename = 'global\\excel\\UniqueItems.txt';
+const itemNamesFilename = 'local\\lng\\strings\\item-names.json';
+const itemNameaffixesFilename = 'local\\lng\\strings\\item-nameaffixes.json';
+const itemNameaffixes = D2RMM.readJson(itemNameaffixesFilename);
+const itemNames = D2RMM.readJson(itemNamesFilename);
 const uniqueItems = D2RMM.readTsv(uniqueItemsFilename);
 
 let gheedsFortune;
@@ -88,23 +92,28 @@ uniqueItems.rows.forEach((item) => {
       item.prop6 = 'mana%'; item.min6 = 5; item.max6 = 5;
     }
     else if (item.index === "Griffon's Eye") {
-     //Griffon's Eye	336	100	1		1		84	76	ci3	diadem		5	5000
-     //ac		100	200	cast2		25	25	allskills		1	1	extra-ltng		10	15	pierce-ltng		15	20
-     
+      //Griffon's Eye	336	100	1		1		84	76	ci3	diadem		5	5000
+      //ac		100	200	cast2		25	25	allskills		1	1	extra-ltng		10	15	pierce-ltng		15	20
+
     }
-    else if (item.index ==='Alma Negra'){
+    else if (item.index === 'Alma Negra') {
       // Alma Negra	329	100	1		1		85	77	pac	sacred rondache		5	5000	blac	blac				
       // ac%		180	210	block2		30	30	pal		1	2	block		20	20	red-mag		5	9	att%		40	75	dmg%		40	75
     }
-    else if (item.index ==="Deaths's Web"){
+    else if (item.index === "Deaths's Web") {
       //Deaths's Web	299	100	1		1		74	66	7gw	unearthed wand		5	5000
       //allskills		2	2	pierce-pois		40	50	heal-kill		7	12	mana-kill		7	12	skilltab	7	1	2
-    
+
     }
-    else if (item.index === "Rainbow Facet" && item.par4 === "Chain Lightning") {
-      // Rainbow Facet	392	100	1		1	1	85	49	jew	jewel		3	5000								dmg-ltng		1	74	pierce-ltng		3	5	extra-ltng		3	5	death-skill	Chain Lightning	100	47
-      rainbowFacet = item;
+    else if (item.index === "Rainbow Facet" && item.code === 'jew') {
+      // Rainbow Facet		pierce-ltng		3	5	extra-ltng		3	5	death-skill	Chain Lightning	100	47
+      if (item.par4 === "Chain Lightning") {
+        rainbowFacet = item;
+      }
+      item.min2 = 6; item.max2 = 10;
+      item.min3 = 6; item.max3 = 10;
     }
+
     else if (item.index === "Hellfire Torch") {
       hellfireTorch = item;
     }
@@ -177,14 +186,6 @@ uniqueItems.rows.push({
   prop4: 'ease', min4: -20, max4: -20, par4: null,
   '*eol\r': '0',
 });
-D2RMM.writeTsv(uniqueItemsFilename, uniqueItems);
-
-
-const itemNamesFilename = 'local\\lng\\strings\\item-names.json';
-const itemNameaffixesFilename = 'local\\lng\\strings\\item-nameaffixes.json';
-const itemNameaffixes = D2RMM.readJson(itemNameaffixesFilename);
-const itemNames = D2RMM.readJson(itemNamesFilename);
-
 
 itemNames.push({
   id: D2RMM.getNextStringID(),
@@ -205,5 +206,6 @@ itemNames.push({
   Key: `Azurewrath1`, enUS: `Azurewrath1`, zhTW: `ÿcDAzurewrath1ÿcD`
 });
 
+D2RMM.writeTsv(uniqueItemsFilename, uniqueItems);
 D2RMM.writeJson(itemNamesFilename, itemNames);
 D2RMM.writeJson(itemNameaffixesFilename, itemNameaffixes);
