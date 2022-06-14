@@ -155,7 +155,15 @@ const UNIQUE_GEMS = {
     hcode: 'gold%/lvl', hmin: 20, hmax: 20, hcode2: 'mag%/lvl', hmin2: 8, hmax2: 8,
     scode: 'gold%/lvl', smin: 20, smax: 20, scode2: 'mag%/lvl', smin2: 8, smax2: 8
   },
-
+  // Hexfire	156 charged	62	36	6	ignore-ac		1	1	res-fire		25	25	res-fire-max		10	10	dmg-norm		35	40	dmg%		140	160	fireskill		3	3	
+  "Hexfire": { ...gemTemp, wcode: 'fireskill', wmin: 3, wmax: 3, hcode: 'res-fire', hmin: 25, hmax: 25, hcode2: 'res-fire-max', hmin2: 10, hmax2: 10 },
+  //Baezil's Vortex	150		hit-skill	48	5	8	dmg-ltng		1	150	mana		100	100	res-ltng		25	25	dmg%		160	200	swing2		20	20	charged	48	80	15	
+  "Baezil's Vortex": {
+    ...gemTemp, wcode: 'dmg-ltng', wmin: 1, wmax: 150, wcode2: 'hit-skill', wparam2: 48, wmin2: 20, wmax2: 35,
+    hcode: 'mana', hmin: 100, hmax: 100, hcode2: 'res-ltng', hmin2: 25, hmax2: 25
+  },
+  //The Humongous	9		str		20	30crush		33	33	ease		20	20	dmg%		80	120
+  "The Humongous": { ...gemTemp, wcode: 'crush', wmin: 33, wmax: 33, hcode: 'str', hmin: 20, hmax: 20 },
   //**********************************************************||scep||****************************************************************************/
   // Ironward		dmg%		240	290	slow		25	25	att%		150	200	swing2		10	10	dmg-mag		80	240	red-dmg		4	7	dmg		40	85	skilltab	9	2	4	crush		33	33
   "Ironward": {
@@ -169,7 +177,7 @@ const UNIQUE_GEMS = {
   "The Oculus": { ...gemTemp, wcode: 'cast2', wmin: 30, wmax: 30, wcode2: 'mana-kill', wmin2: 5, wmax2: 5, hcode: 'mag%', hmin: 50, hmax: 50 },
 
 
-   //**********************************************************||WANDs||****************************************************************************/
+  //**********************************************************||WANDs||****************************************************************************/
   // Deaths's Web	299	allskills		2	2	pierce-pois		40	50	heal-kill		7	12	mana-kill		7	12	skilltab	7	1	2
   "Deaths's Web": {
     ...gemTemp, wcode: 'pierce-pois', wmin: 50, wmax: 50, wcode2: 'heal-kill', wmin2: 12, wmax2: 12, wcode3: 'mana-kill', wmin3: 12, wmax3: 12,
@@ -192,6 +200,8 @@ const UNIQUE_GEMS = {
   "The Gladiator's Bane": { ...gemTemp, hcode: 'red-dmg', hmin: 20, hmax: 20, hcode2: 'red-mag', hmin2: 20, hmax2: 20 },
   // Templar's Might	366	ac%		170	220	balance2		20	20	ac-miss		250	300	stam		40	50	str		10	15
   "Templar's Might": { ...gemTemp, hcode: 'ac-miss', hmin: 300, hmax: 300, hcode2: 'balance2', hmin2: 20, hmax2: 20 },
+  //Hawkmail	84 	res-cold-max		15	15	res-cold		15	15	nofreeze		1	1	move2		10	10	
+  "Hawkmail": { ...gemTemp, hcode: 'res-cold-max', hmin: 15, hmax: 15, hcode2: 'move2', hmin2: 10, hmax2: 10, hcode3: 'res-cold', hmin3: 15, hmax3: 15 },
   //**********************************************************||HELM||****************************************************************************/
   // Griffon's Eye	336	ac		100	200	cast2		25	25	allskills		1	1	extra-ltng		10	15	pierce-ltng		15	20
   "Griffon's Eye": { ...gemTemp, hcode: 'pierce-ltng', hmin: 20, hmax: 20, hcode2: 'extra-ltng', hmin2: 15, hmax2: 15 },
@@ -211,6 +221,8 @@ const UNIQUE_GEMS = {
   "Harlequin Crest": { ...gemTemp, hcode: 'mana/lvl', hmin: 12, hmax: 12, hcode2: 'mag%', hmin2: 50, hmax2: 50, hcode3: 'hp/lvl', hmin3: 12, hmax3: 12, },
   // Steelshade	297	ac%		100	130	abs-fire		5	11	manasteal		4	8	regen		10	18
   "Steelshade": { ...gemTemp, hcode: 'regen', hmin: 18, hmax: 18, hcode2: 'manasteal', hmin2: 5, hmax2: 5 },
+  //Rockstopper	202		red-dmg%		10	10	balance2		30	30 res-fire		20	50	res-cold		20	40 res-ltng		20	40
+  "Rockstopper": { ...gemTemp, hcode: 'balance2', hmin: 30, hmax: 30, hcode2: 'res-fire', hmin2: 40, hmax2: 40, hcode3: 'res-ltng', hmin3: 40, hmax3: 40 },
   //**********************************************************||BOOTS||****************************************************************************/
   // Infernostride	dmg-fire		12	33	move2		20	20	res-fire-max		10	10	res-fire		30	30	light		2	2	ac%		120	150	gold%		40	70	ac		15	15	gethit-skill	46	5	8				
   "Inferno Stride": { ...gemTemp, hcode: 'move2', hmin: 20, hmax: 20, hcode2: 'gethit-skill', hparam2: '46', hmin2: 5, hmax2: 8 },
@@ -236,11 +248,14 @@ const UNIQUE_GEMS = {
   "Gravepalm": { ...gemTemp, hcode: 'str', hmin: 10, hmax: 10, hcode2: 'enr', hmin2: 10, hmax2: 10 },
   // Chance Guards	gold%		200	200	mag%		25	40	att		25	25	ac		15	15	light		2	2	ac%		20	30
   "Chance Guards": { ...gemTemp, hcode: 'gold%', hmin: 200, hmax: 200, hcode2: 'mag%', hmin2: 40, hmax2: 40 },
+  //Venom Grip	232		res-pois		30	30	res-pois-max		5	5	dmg-pois	100	153	153	crush		5	5	lifesteal		5	5	ac		15	25
+  "Venom Grip": { ...gemTemp, hcode: 'res-pois', hmin: 30, hmax: 30, hcode2: 'res-pois-max', hmin2: 5, hmax2: 5 },
+
   //**********************************************************||SHIELD||****************************************************************************/
   // Medusa's Gaze	349	ac%		150	180	slow		20	20	gethit-skill	Lower Resist	10	7	lifesteal		5	9	death-skill	Nova	100	44
   "Medusa's Gaze": { ...gemTemp, wcode: 'slow', wmin: 20, wmax: 20, hcode2: 'gethit-skill', hparam2: 'Lower Resist', hmin2: 10, hmax2: 7 },
   // Stormshield	253	ac/lvl	30			red-dmg%		35	35	str		30	30	indestruct		1	1	block2		35	35
-  "Stormshield": { ...gemTemp, scode: 'red-dmg%', smin: 35, smax: 35 },
+  "Stormshield": { ...gemTemp, scode: 'red-dmg%', smin: 35, smax: 35, scode2: 'str', smin2: 30, smax2: 30, scode3: 'ac/lvl', sparam3: 30 },
   // Headhunter's Glory	390	ac		320	420	ac-miss		300	350	res-pois		30	40	sock		1	3	res-fire		20	30
   "Headhunter's Glory": { ...gemTemp, scode: 'ac-miss', smin: 300, smax: 350, scode2: 'res-fire', smin2: 30, smax2: 30, scode3: 'ac', smin3: 420, smax3: 420 },
   // Dragonscale	347	ac%		170	200	abs-fire%		10	20	res-fire-max		5	5	str		15	25	dmg-fire		211	371

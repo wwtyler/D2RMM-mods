@@ -17,10 +17,10 @@ difficultylevels.rows.forEach((row) => {
   row[`GambleUltra\r`] = row[`GambleUltra\r`] * 15;
 
   if (row.ResistPenalty !== '') {
-    row.ResistPenalty = Math.floor(row.ResistPenalty * 150 / 100);
+    row.ResistPenalty = Math.floor(row.ResistPenalty * 125 / 100);
   }
   if (row.DeathExpPenalty !== '') {
-    row.DeathExpPenalty = Math.floor(row.DeathExpPenalty * 50 / 100);
+    row.DeathExpPenalty = Math.floor(row.DeathExpPenalty * 40 / 100);
   }
 });
 

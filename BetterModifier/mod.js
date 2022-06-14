@@ -23,7 +23,6 @@ const ARMO_ITYPES = ['tors', `helm`, `shld`, `belt`, `boot`, 'glov'];
 const GOOD_AM_EXCL_PREFIX_NAME = ["of the Colossus", "Great Wyrm's", 'Chromatic', 'of Anthrax'];
 //自动附魔高等级词缀。rare=1
 const GOOD_AM_PREFIX_NAME = ["Athlete's", "Archer's", "Lancer's", 'of the Mammoth', "Wyrm's", "Prismatic", "of Pestilence"];
-// const GOOD_AM_PREFIX_CODE = ["skilltab", "hp", "mana"];
 
 //auto附魔的词缀频率统一调整到1。
 //对于部分高级别词缀变相提升出现的概率。比如：3/2/1 -> 1/1/1，则概率1/6提升到1/3。 
@@ -36,6 +35,114 @@ ams.rows.forEach((row) => {
     }
   });
 });
+
+ams.rows.push({
+  Name: "Weapon Boost #1",
+  version: 100,
+  spawnable: 1,
+  rare: 1,
+  level: 85,
+  levelreq: 65,
+  frequency: 1,
+  group: 310,
+  mod1code: "dmg%",
+  mod1min: 150,
+  mod1max: 250,
+  itype1: "weap",
+  multiply: 0,
+  add: 0
+});
+ams.rows.push({
+  Name: "Weapon Boost #2",
+  version: 100,
+  spawnable: 1,
+  rare: 1,
+  level: 65,
+  levelreq: 35,
+  frequency: 2,
+  group: 310,
+  mod1code: "dmg%",
+  mod1min: 100,
+  mod1max: 200,
+  itype1: "weap",
+  multiply: 0,
+  add: 0
+});
+
+ams.rows.push({
+  Name: "Weapon Boost #3",
+  version: 100,
+  spawnable: 1,
+  rare: 1,
+  level: 35,
+  levelreq: 15,
+  frequency: 3,
+  group: 310,
+  mod1code: "dmg%",
+  mod1min: 50,
+  mod1max: 100,
+  itype1: "weap",
+  multiply: 0,
+  add: 0
+});
+
+const weaponFilename = 'global\\excel\\weapons.txt';
+const weapons = D2RMM.readTsv(weaponFilename);
+
+const WEAPON_AM_TYPES = ["axe", "club", "scep", "mace", "hamm", "swor", "knif", "tkni", "taxe", "jave", "spea", "pole", "bow", "xbow", "tpot", "h2h", "h2h2", "abow", "aspe", "ajav"];
+weapons.rows.forEach((row) => {
+  if (WEAPON_AM_TYPES.includes(row.type)) {
+    if (row['auto prefix'] != 302 || row['auto suffix'] != 300 || row['auto prefix'] != 301 || row['auto suffix'] != 303) {
+      // row['auto prefix'] = 310;
+    }
+  }
+});
+D2RMM.writeTsv(weaponFilename, weapons);
+
+
+const qualityitemsFilename = 'global\\excel\\qualityitems.txt';
+const qualityitems = D2RMM.readTsv(qualityitemsFilename);
+
+qualityitems.rows.forEach((item) => {
+  // mod1code 	mod1param 	mod1min 	mod1max 	mod2code 	mod2param 	mod2min 	mod2max 	armor 	weapon 	shield 	scepter 	wand 	staff 	bow 	boots 	gloves 	belt
+  // att      	        0 	     15 	     50 	         	        0 	        	        	    0 	     1 	     0 	      1 	   1 	    1 	  1 	    0 	     0 	   0
+  // dmg%     	        0 	     15 	     50 	         	        0 	        	        	    0 	     1 	     0 	      1 	   1 	    1 	  1 	    0 	     0 	   0
+  // ac%      	        0 	      5 	     15 	         	        0 	        	        	    1 	     0 	     1 	      0 	   0 	    0 	  0 	    1 	     1 	   1
+  // att      	        0 	     15 	     50 	dmg%     	        0 	      5 	     15 	    0 	     1 	     0 	      1 	   1 	    1 	  1 	    0 	     0 	   0
+  // dur%     	        0 	     10 	     15 	         	          	        	        	    1 	     1 	     1 	      1 	   1 	    1 	  1 	    1 	     1 	   1
+  // att      	        0 	     1 	     3 	dur%     	        0 	     10 	     15 	    0 	     1 	     0 	      1 	   1 	    1 	  1 	    0 	     0 	   0
+  // dmg%     	        0 	     15 	     50 	dur%     	        0 	     10 	     15 	    0 	     1 	     0 	      1 	   1 	    1 	  1 	    0 	     0 	   0
+  // ac%      	        0 	      5 	     15 	dur%     	        0 	     10 	     15 	    1 	     0 	     1 	      0 	   0 	    0 	  0 	    1 	     1 	   1
+  // dmg      	          	     15 	     50 	att      	          	     10 	     50 	    0 	     1 	     1 	      0 	   0 	    0 	  1 	    0 	     0 	    
+  if (item.mod1code === 'att' && item.mod2code === null) { item.mod1min = 15; item.mod1max = 50; }
+  if (item.mod1code === 'dmg%' && item.mod2code === null) { item.mod1min = 15; item.mod1max = 50; }
+  if (item.mod1code === 'ac%' && item.mod2code === null) { item.mod1min = 15; item.mod1max = 50; }
+  if (item.mod1code === 'att' && item.mod2code === 'dmg%') { item.mod1min = 15; item.mod1max = 50; }
+  if (item.mod1code === 'dur% ' && item.mod2code === null) { item.mod1min = 15; item.mod1max = 50; }
+  if (item.mod1code === 'att ' && item.mod2code === 'dur%') { item.mod1min = 15; item.mod1max = 50; }
+  if (item.mod1code === 'dmg% ' && item.mod2code === 'dur%') { item.mod1min = 15; item.mod1max = 50; }
+});
+qualityitems.rows.push({
+  mod1code: 'dmg',
+  mod1min: 15,
+  mod1max: 50,
+  mod2code: 'att',
+  mod2min: 10,
+  mod2max: 50,
+  armor: 0,
+  weapon: 1,
+  shield: 1,
+  scepter: 0,
+  wand: 0,
+  staff: 0,
+  bow: 1,
+  boots: 0,
+  gloves: 0,
+  'belt\r': 0,
+});
+
+
+
 
 const PREFIX_SKILL_CODES = ['skilltab', 'ama', 'sor', 'pal', 'nec', 'bar', 'dru', 'ass'];
 const GOOD_PREFIX_CODES = ['dmg%', 'mana', 'res-all', 'res-fire', 'res-ltng', 'mag%', 'sock'];
@@ -119,7 +226,7 @@ const DISABLED_PREFIX_CODES = [
 const DISABLED_SUFFIX_CODES = [
   'cold-min', 'cold-len', 'fire-min', 'pois-min', 'ltng-min',
   'dmg-pois', 'dmg-cold', 'dmg-fire', 'dmg-ltng',
-  'thorns', 'knock','red-dmg',
+  'thorns', 'knock', 'red-dmg',
   'red-mag', 'manasteal', 'hp', 'mana'
 ];
 
@@ -228,3 +335,4 @@ mss.rows.forEach((row) => {
 D2RMM.writeTsv(amFilename, ams);
 D2RMM.writeTsv(mpFileName, mps);
 D2RMM.writeTsv(msFileName, mss);
+D2RMM.writeTsv(qualityitemsFilename, qualityitems);

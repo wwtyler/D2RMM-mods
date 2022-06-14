@@ -350,7 +350,7 @@ EQUIP_TYPES.forEach((equipType) => {
       'input 1': `${equipType},${magicType}`,
       'input 2': "r18",
       'input 3': "tsc",
-      lvl: 92,
+      lvl: 95,
       output: 'usetype,nor',
       '*eol\r': '0',
     });
