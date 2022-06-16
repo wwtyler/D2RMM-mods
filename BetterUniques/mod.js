@@ -183,7 +183,7 @@ uniqueItems.rows.push({
   prop1: 'res-all', min1: 10, max1: 20,
   prop2: 'red-mag', min2: 6, max2: 12,
   prop3: 'mana-kill', min3: 4, max3: 8,
-  prop4: 'ease', min4: -20, max4: -20, par4: null,
+  prop4: 'ease', min4: -20, max4: -20,
   '*eol\r': '0',
 });
 

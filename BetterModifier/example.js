@@ -41,3 +41,11 @@ console.log(getEssenceRuneUniqueCode('unique',0));
 console.log(getEssenceRuneUniqueCode('unique',122));
 console.log(getEssenceRuneUniqueCode('set',122));
 console.log(getEssenceRuneUniqueCode('unique',405));
+console.log(getEssenceRuneUniqueCode('unique',6));
+console.log(getEssenceRuneUniqueCode('unique',017));
+
+
+var randBetween = (min, max) => min + Math.floor(Math.random() * (max - min))
+
+console.log(randBetween(5,10));
+
