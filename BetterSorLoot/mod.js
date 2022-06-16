@@ -108,7 +108,6 @@ const MOD_PROP = {
     ['R3', { code: 'dmg/lvl', min: 10, max: 10 }, { lvl: 35, lvlreq: 20, freq: 3 }, M_ITS.JEW],
     ['R4', { code: 'dmg/lvl', min: 8, max: 8 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.JEW]
   ],
-  // dmg-undead
   'dmg-undead': [
     ['R1', { code: 'dmg-undead', min: 350, max: 450 }, { lvl: 85, lvlreq: 60, freq: 3 }, M_ITS.MELE_AND_MISS],
     ['R2', { code: 'dmg-undead', min: 250, max: 350 }, { lvl: 60, lvlreq: 40, freq: 3 }, M_ITS.MELE_AND_MISS],
@@ -120,7 +119,7 @@ const MOD_PROP = {
     ['R4', { code: 'dmg-undead', min: 40, max: 60 }, { lvl: 15, lvlreq: 10, freq: 2 }, M_ITS.CM321],
     ['R1', { code: 'dmg-undead', min: 100, max: 120 }, { lvl: 60, lvlreq: 45, freq: 2 }, M_ITS.JEW],
     ['R2', { code: 'dmg-undead', min: 80, max: 100 }, { lvl: 40, lvlreq: 25, freq: 2 }, M_ITS.JEW],
-    ['R1', { code: 'dmg-undead', min: 60, max: 80 }, { lvl: 20, lvlreq: 15, freq: 2 }, M_ITS.JEW],
+    ['R1', { code: 'dmg-undead', min: 60, max: 80 }, { lvl: 20, lvlreq: 15, freq: 2 }, M_ITS.JEW]
   ],
   'dmg-demon': [
     ['R1', { code: 'dmg-demon', min: 300, max: 400 }, { lvl: 85, lvlreq: 60, freq: 3 }, M_ITS.MELE_AND_MISS],
@@ -133,7 +132,7 @@ const MOD_PROP = {
     ['R4', { code: 'dmg-demon', min: 50, max: 60 }, { lvl: 15, lvlreq: 10, freq: 2 }, M_ITS.CM321],
     ['R1', { code: 'dmg-demon', min: 80, max: 100 }, { lvl: 60, lvlreq: 45, freq: 2 }, M_ITS.JEW],
     ['R2', { code: 'dmg-demon', min: 60, max: 80 }, { lvl: 40, lvlreq: 25, freq: 2 }, M_ITS.JEW],
-    ['R1', { code: 'dmg-demon', min: 50, max: 60 }, { lvl: 20, lvlreq: 15, freq: 2 }, M_ITS.JEW],
+    ['R1', { code: 'dmg-demon', min: 50, max: 60 }, { lvl: 20, lvlreq: 15, freq: 2 }, M_ITS.JEW]
   ],
   // ['crush', MOD_TYPE.SUFFIX, '破甲'],
   'crush': [
@@ -366,23 +365,23 @@ const MOD_PROP = {
     ['R2-1', { code: 'cast2', min: 15, max: 20 }, { lvl: 55, lvlreq: 25, freq: 3 }, M_ITS.CASTER_UPP],
     ['R2-2', { code: 'cast2', min: 10, max: 15 }, { lvl: 55, lvlreq: 25, freq: 3 }, M_ITS.CASTER_LOW],
     ['R3-1', { code: 'cast2', min: 10, max: 15 }, { lvl: 40, lvlreq: 15, freq: 3 }, M_ITS.CASTER_LOW],
-    ['R3-2', { code: 'cast2', min: 10, max: 15 }, { lvl: 40, lvlreq: 15, freq: 4 }, M_ITS.JEW.concat(M_ITS.CM3)],
-    ['R3-3', { code: 'cast2', min: 10, max: 15 }, { lvl: 40, lvlreq: 15, freq: 4 }, M_ITS.JEW.concat(M_ITS.CM3)],
-    ['R4', { code: 'cast2', min: 10, max: 10 }, { lvl: 40, lvlreq: 15, freq: 4 }, M_ITS.JEW.concat(M_ITS.CM3)]
+    ['R3-2', { code: 'cast2', min: 10, max: 15 }, { lvl: 40, lvlreq: 15, freq: 4 }, M_ITS.CM3_AND_JEW],
+    ['R3-3', { code: 'cast2', min: 10, max: 15 }, { lvl: 40, lvlreq: 15, freq: 4 }, M_ITS.CM3_AND_JEW],
+    ['R4', { code: 'cast2', min: 10, max: 10 }, { lvl: 40, lvlreq: 15, freq: 4 }, M_ITS.CM3_AND_JEW]
   ],
   'swing2': [
     ['R1', { code: 'swing2', min: 20, max: 30 }, { lvl: 75, lvlreq: 45, freq: 4 }, M_ITS.MELE],
     ['R2', { code: 'swing2', min: 15, max: 20 }, { lvl: 55, lvlreq: 25, freq: 5 }, M_ITS.MELE.concat(M_ITS.JEW)],
-    ['R3', { code: 'swing2', min: 10, max: 15 }, { lvl: 40, lvlreq: 15, freq: 6 }, M_ITS.MELE.concat(M_ITS.JEW).concat(M_ITS.CM3)]
+    ['R3', { code: 'swing2', min: 10, max: 15 }, { lvl: 40, lvlreq: 15, freq: 6 }, M_ITS.MELE.concat(M_ITS.CM3_AND_JEW)]
   ],
   'move2': [
     ['R1', { code: 'move2', min: 25, max: 40 }, { lvl: 65, lvlreq: 45, freq: 4 }, [`shld`, `belt`, `boot`]],
-    ['R2', { code: 'move2', min: 15, max: 30 }, { lvl: 50, lvlreq: 25, freq: 5 }, [`shld`, `belt`, `boot`].concat(M_ITS.JEW).concat(M_ITS.CM3)],
-    ['R3', { code: 'move2', min: 10, max: 20 }, { lvl: 40, lvlreq: 15, freq: 6 }, M_ITS.JEW.concat(M_ITS.CM32)]
+    ['R2', { code: 'move2', min: 15, max: 30 }, { lvl: 50, lvlreq: 25, freq: 5 }, [`shld`, `belt`, `boot`].concat(M_ITS.CM3_AND_JEW)],
+    ['R3', { code: 'move2', min: 10, max: 20 }, { lvl: 40, lvlreq: 15, freq: 6 }, M_ITS.CM32_AND_JEW]
   ],
   'balance2': [
     ['R1', { code: 'balance2', min: 25, max: 40 }, { lvl: 65, lvlreq: 45, freq: 4 }, M_ITS.NORMAL],
-    ['R2', { code: 'balance2', min: 15, max: 30 }, { lvl: 50, lvlreq: 25, freq: 5 }, M_ITS.NORMAL.concat(M_ITS.JEW).concat(M_ITS.CM3)],
+    ['R2', { code: 'balance2', min: 15, max: 30 }, { lvl: 50, lvlreq: 25, freq: 5 }, M_ITS.NORMAL.concat(M_ITS.CM3_AND_JEW)],
     ['R3', { code: 'balance2', min: 10, max: 20 }, { lvl: 40, lvlreq: 15, freq: 6 }, M_ITS.JEW.concat(M_ITS.CM32)]
   ],
 
@@ -691,11 +690,11 @@ const MOD_PROP = {
     ['R1', { code: 'ac-miss', min: 160, max: 200 }, { lvl: 75, lvlreq: 50, freq: 2 }, M_ITS.ARMO],
     ['R2', { code: 'ac-miss', min: 120, max: 160 }, { lvl: 55, lvlreq: 40, freq: 3 }, M_ITS.ARMO],
     ['R3', { code: 'ac-miss', min: 80, max: 120 }, { lvl: 35, lvlreq: 20, freq: 4 }, M_ITS.ARMO],
-    ['R4', { code: 'ac-miss', min: 60, max: 80 }, { lvl: 15, lvlreq: 10, freq: 5 }, M_ITS.ARMO]
+    ['R4', { code: 'ac-miss', min: 60, max: 80 }, { lvl: 15, lvlreq: 10, freq: 5 }, M_ITS.ARMO],
     ['R1', { code: 'ac-miss', min: 120, max: 150 }, { lvl: 75, lvlreq: 50, freq: 2 }, M_ITS.CM3],
     ['R2', { code: 'ac-miss', min: 90, max: 120 }, { lvl: 55, lvlreq: 40, freq: 3 }, M_ITS.CM32],
     ['R3', { code: 'ac-miss', min: 60, max: 90 }, { lvl: 35, lvlreq: 20, freq: 4 }, M_ITS.CM32],
-    ['R4', { code: 'ac-miss', min: 60, max: 60 }, { lvl: 15, lvlreq: 10, freq: 5 }, M_ITS.CM321]
+    ['R4', { code: 'ac-miss', min: 60, max: 60 }, { lvl: 15, lvlreq: 10, freq: 5 }, M_ITS.CM321],
     ['R1', { code: 'ac-miss', min: 100, max: 120 }, { lvl: 70, lvlreq: 45, freq: 2 }, M_ITS.JEW],
     ['R2', { code: 'ac-miss', min: 80, max: 100 }, { lvl: 50, lvlreq: 25, freq: 3 }, M_ITS.JEW],
     ['R3', { code: 'ac-miss', min: 60, max: 80 }, { lvl: 30, lvlreq: 15, freq: 4 }, M_ITS.JEW],
@@ -705,11 +704,11 @@ const MOD_PROP = {
     ['R1', { code: 'ac-hth', min: 160, max: 200 }, { lvl: 75, lvlreq: 50, freq: 2 }, M_ITS.ARMO],
     ['R2', { code: 'ac-hth', min: 120, max: 160 }, { lvl: 55, lvlreq: 40, freq: 3 }, M_ITS.ARMO],
     ['R3', { code: 'ac-hth', min: 80, max: 120 }, { lvl: 35, lvlreq: 20, freq: 4 }, M_ITS.ARMO],
-    ['R4', { code: 'ac-hth', min: 60, max: 80 }, { lvl: 15, lvlreq: 10, freq: 5 }, M_ITS.ARMO]
+    ['R4', { code: 'ac-hth', min: 60, max: 80 }, { lvl: 15, lvlreq: 10, freq: 5 }, M_ITS.ARMO],
     ['R1', { code: 'ac-hth', min: 120, max: 150 }, { lvl: 75, lvlreq: 50, freq: 2 }, M_ITS.CM3],
     ['R2', { code: 'ac-hth', min: 90, max: 120 }, { lvl: 55, lvlreq: 40, freq: 3 }, M_ITS.CM32],
     ['R3', { code: 'ac-hth', min: 60, max: 90 }, { lvl: 35, lvlreq: 20, freq: 4 }, M_ITS.CM32],
-    ['R4', { code: 'ac-hth', min: 60, max: 60 }, { lvl: 15, lvlreq: 10, freq: 5 }, M_ITS.CM321]
+    ['R4', { code: 'ac-hth', min: 60, max: 60 }, { lvl: 15, lvlreq: 10, freq: 5 }, M_ITS.CM321],
     ['R1', { code: 'ac-hth', min: 100, max: 120 }, { lvl: 70, lvlreq: 45, freq: 2 }, M_ITS.JEW],
     ['R2', { code: 'ac-hth', min: 80, max: 100 }, { lvl: 50, lvlreq: 25, freq: 3 }, M_ITS.JEW],
     ['R3', { code: 'ac-hth', min: 60, max: 80 }, { lvl: 30, lvlreq: 15, freq: 4 }, M_ITS.JEW],
@@ -719,11 +718,11 @@ const MOD_PROP = {
     ['R1', { code: 'ac', min: 120, max: 150 }, { lvl: 76, lvlreq: 52, freq: 2 }, M_ITS.ARMO],
     ['R2', { code: 'ac', min: 100, max: 120 }, { lvl: 56, lvlreq: 42, freq: 3 }, M_ITS.ARMO],
     ['R3', { code: 'ac', min: 80, max: 100 }, { lvl: 36, lvlreq: 22, freq: 4 }, M_ITS.ARMO],
-    ['R4', { code: 'ac', min: 60, max: 80 }, { lvl: 16, lvlreq: 12, freq: 5 }, M_ITS.ARMO]
+    ['R4', { code: 'ac', min: 60, max: 80 }, { lvl: 16, lvlreq: 12, freq: 5 }, M_ITS.ARMO],
     ['R1', { code: 'ac', min: 100, max: 120 }, { lvl: 74, lvlreq: 51, freq: 2 }, M_ITS.CM3],
     ['R2', { code: 'ac', min: 70, max: 100 }, { lvl: 54, lvlreq: 41, freq: 3 }, M_ITS.CM32],
     ['R3', { code: 'ac', min: 50, max: 70 }, { lvl: 34, lvlreq: 21, freq: 4 }, M_ITS.CM32],
-    ['R4', { code: 'ac', min: 40, max: 50 }, { lvl: 14, lvlreq: 11, freq: 5 }, M_ITS.CM321]
+    ['R4', { code: 'ac', min: 40, max: 50 }, { lvl: 14, lvlreq: 11, freq: 5 }, M_ITS.CM321],
     ['R1', { code: 'ac', min: 80, max: 100 }, { lvl: 71, lvlreq: 43, freq: 2 }, M_ITS.JEW],
     ['R2', { code: 'ac', min: 60, max: 80 }, { lvl: 51, lvlreq: 26, freq: 3 }, M_ITS.JEW],
     ['R3', { code: 'ac', min: 40, max: 60 }, { lvl: 31, lvlreq: 14, freq: 4 }, M_ITS.JEW],
@@ -733,7 +732,7 @@ const MOD_PROP = {
     ['R1', { code: 'ac%', min: 50, max: 60 }, { lvl: 75, lvlreq: 51, freq: 2 }, M_ITS.ARMO],
     ['R2', { code: 'ac%', min: 40, max: 50 }, { lvl: 55, lvlreq: 41, freq: 3 }, M_ITS.ARMO],
     ['R3', { code: 'ac%', min: 30, max: 40 }, { lvl: 35, lvlreq: 21, freq: 3 }, M_ITS.ARMO],
-    ['R4', { code: 'ac%', min: 20, max: 30 }, { lvl: 15, lvlreq: 11, freq: 3 }, M_ITS.ARMO]
+    ['R4', { code: 'ac%', min: 20, max: 30 }, { lvl: 15, lvlreq: 11, freq: 3 }, M_ITS.ARMO],
     ['R1', { code: 'ac%', min: 35, max: 50 }, { lvl: 72, lvlreq: 51, freq: 2 }, M_ITS.CM3_AND_JEW],
     ['R2', { code: 'ac%', min: 25, max: 35 }, { lvl: 52, lvlreq: 41, freq: 3 }, M_ITS.CM32_AND_JEW],
     ['R3', { code: 'ac%', min: 15, max: 25 }, { lvl: 32, lvlreq: 22, freq: 3 }, M_ITS.CM32_AND_JEW],
@@ -841,18 +840,17 @@ const MOD_PROP = {
     ['R3', { code: 'mag%', min: 8, max: 15 }, { lvl: 30, lvlreq: 20, freq: 4 }, M_ITS.CM32_AND_JEW],
     ['R4', { code: 'mag%', min: 5, max: 10 }, { lvl: 20, lvlreq: 10, freq: 3 }, M_ITS.CM321_AND_JEW]
   ],
-  //  ['lvl-magic', MOD_TYPE.BOTH, 'MF/lvl']
   'lvl-magic': [
     ['R1', { code: 'mag/lvl', min: 8, max: 8 }, { lvl: 60, lvlreq: 40, freq: 2 }, M_ITS.NORMAL],
     ['R2', { code: 'mag/lvl', min: 7, max: 7 }, { lvl: 40, lvlreq: 30, freq: 2 }, M_ITS.NORMAL],
     ['R3', { code: 'mag/lvl', min: 6, max: 6 }, { lvl: 30, lvlreq: 20, freq: 2 }, M_ITS.NORMAL],
     ['R4', { code: 'mag/lvl', min: 5, max: 5 }, { lvl: 20, lvlreq: 10, freq: 2 }, M_ITS.NORMAL],
-    ['R5', { code: 'mag/lvl', min: 4, max: 4 }, { lvl: 20, lvlreq: 10, freq: 2 }, M_ITS.NORMAL]
+    ['R5', { code: 'mag/lvl', min: 4, max: 4 }, { lvl: 12, lvlreq: 5, freq: 2 }, M_ITS.NORMAL],
     ['R1', { code: 'mag/lvl', min: 6, max: 6 }, { lvl: 60, lvlreq: 40, freq: 2 }, M_ITS.CM3],
     ['R2', { code: 'mag/lvl', min: 5, max: 5 }, { lvl: 40, lvlreq: 30, freq: 2 }, M_ITS.CM3_AND_JEW],
     ['R3', { code: 'mag/lvl', min: 4, max: 4 }, { lvl: 30, lvlreq: 20, freq: 2 }, M_ITS.CM32_AND_JEW],
     ['R4', { code: 'mag/lvl', min: 3, max: 3 }, { lvl: 20, lvlreq: 10, freq: 2 }, M_ITS.CM32_AND_JEW],
-    ['R5', { code: 'mag/lvl', min: 2, max: 2 }, { lvl: 20, lvlreq: 10, freq: 2 }, M_ITS.CM321],
+    ['R5', { code: 'mag/lvl', min: 2, max: 2 }, { lvl: 12, lvlreq: 5, freq: 2 }, M_ITS.CM321]
   ]
   ////////////////////////////////////////////////////////////////////////BOTH END////////////////////////////////////////////////////////////////////////////////////////////////////////////
 };
@@ -868,14 +866,6 @@ const MOD_TYPE = { PREFIX: 'PREFIX', SUFFIX: 'SUFFIX', BOTH: 'BOTH' };
 
 const BOOST_MODIFIERS = [
   //////////////////////SUFFIX///////////////////////////
-  // ['skilltab', '单系强化'],
-  // randclassskill		0	6 
-  // oskill	Teleport	1	1	0  //赋能技能
-  // aura Conviction	12	12	// 光环
-  // aura	Redemption	10	15	
-  // kill-skill	Chain Lightning	50	20	// 消灭敌人 获得 概率  技能等级
-  // gethit-skill	Lower Resist	10	7
-  // levelup-skill
 
   ['dmg', MOD_TYPE.SUFFIX, '攻击'],
   ['dmg%', MOD_TYPE.SUFFIX, '攻击%'],
@@ -933,12 +923,12 @@ const BOOST_MODIFIERS = [
   ['super-dex', MOD_TYPE.PREFIX, '大量敏捷'],
   ['super-enr', MOD_TYPE.PREFIX, '大量能量'],
 
-  ['res-all', MOD_TYPE.PREFIX, '全抗性'],//res-all-max
+  ['res-all', MOD_TYPE.PREFIX, '全抗性'],
   ['res-fire', MOD_TYPE.PREFIX, '火焰抗性'],
   ['res-cold', MOD_TYPE.PREFIX, '冰冷抗性'],
   ['res-ltng', MOD_TYPE.PREFIX, '闪电抗性'],
   ['res-pois', MOD_TYPE.PREFIX, '毒素抗性'],
-  ['res-all-max', MOD_TYPE.PREFIX, '元素抗性上限'],//res-all-max
+  ['res-all-max', MOD_TYPE.PREFIX, '元素抗性上限'],
   ['dual-res', MOD_TYPE.PREFIX, '双系抵抗'],
   ['res-fire-max', MOD_TYPE.PREFIX, '火焰抗性上限'],
   ['res-cold-max', MOD_TYPE.PREFIX, '冰冷抗性上限'],
@@ -966,7 +956,7 @@ const BOOST_MODIFIERS = [
   ['mana-kill', MOD_TYPE.PREFIX, 'MANA EK'],
   ['heal-kill', MOD_TYPE.PREFIX, 'HP EK'],
   ['regen-mana', MOD_TYPE.PREFIX, '法力恢复'],
-  //////////////////////BOTH///////////////////////////
+  ////////////////////BOTH///////////////////////////
   ['addxp', MOD_TYPE.BOTH, '经验值加成'],
   ['allskills', MOD_TYPE.BOTH, '所有技能'],
   ['cheap', MOD_TYPE.BOTH, '店铺折扣'],
@@ -993,79 +983,80 @@ BOOST_MODIFIERS.forEach(([modName, modeType, modLable]) => {
   }
 
   const modProp = MOD_PROP[modName];
-  modProp.forEach(([modRank, modXs, modBase, modItypes]) => {
+  if (modProp != null) {
+    modProp.forEach(([modRank, modXs, modBase, modItypes]) => {
 
-    let modClassPrefix = getModPrefix(modBase);
-    itemNames.push({
-      id: D2RMM.getNextStringID(),
-      Key: `${modClassPrefix}${modName.toUpperCase()}-${modRank}`,
-      enUS: `${modClassPrefix}${modName.toUpperCase()}-${modRank}`,
-      zhTW: `${modClassPrefix}${modLable}-${modRank}`
+      let modClassPrefix = getModPrefix(modBase);
+      itemNames.push({
+        id: D2RMM.getNextStringID(),
+        Key: `${modClassPrefix}${modName.toUpperCase()}-${modRank}`,
+        enUS: `${modClassPrefix}${modName.toUpperCase()}-${modRank}`,
+        zhTW: `${modClassPrefix}${modLable}-${modRank}`
+      });
+      itemNames.push({
+        id: D2RMM.getNextStringID(),
+        Key: `${modClassPrefix}${modName.toUpperCase()}-M-${modRank}`,
+        enUS: `${modClassPrefix}${modName.toUpperCase()}-M-${modRank}`,
+        zhTW: `${modClassPrefix}${modLable}-M-${modRank}`
+      });
+
+      //ITYPE的缺省值
+      let itypes = modItypes == null ? M_ITS.NORMAL : modItypes;
+
+      const newModifier = {
+        Name: `${modClassPrefix}${modName.toUpperCase()}-${modRank}`,
+        version: 100,
+        spawnable: 1,
+        rare: 1,
+        classspecific: modBase.clz,
+        frequency: modBase.freq == null ? 2 : modBase.freq,
+        level: modBase.lvl,
+        levelreq: modBase.lvlreq,
+        multiply: 0,
+        add: 0,
+        mod1code: modXs.code,
+        mod1param: modXs.param,
+        mod1min: modXs.min,
+        mod1max: modXs.max,
+        mod2code: modXs.code2,
+        mod2param: modXs.param2,
+        mod2min: modXs.min2,
+        mod2max: modXs.max2,
+        mod3code: modXs.code3,
+        mod3param: modXs.param3,
+        mod3min: modXs.min3,
+        mod3max: modXs.max3,
+        itype1: itypes[0],
+        itype2: itypes[1],
+        itype3: itypes[2],
+        itype4: itypes[3],
+        itype5: itypes[4],
+        itype6: itypes[5],
+        itype7: itypes[6],
+        '*eol\r': 0,
+      };
+
+      //克隆一份为魔法词缀
+      const newMagicModifier = {
+        ...newModifier,
+        Name: `${modClassPrefix}${modName.toUpperCase()}-M-${modRank}`,
+        rare: 0
+      };
+
+      if (modeType === MOD_TYPE.SUFFIX || modeType === MOD_TYPE.BOTH) {
+        newModifier.group = mssGroupID;
+        newMagicModifier.group = mssGroupID;
+        mss.rows.push(newModifier);
+        mss.rows.push(newMagicModifier);
+      };
+      if (modeType === MOD_TYPE.PREFIX || modeType === MOD_TYPE.BOTH) {
+        newModifier.group = mpsGroupID;
+        newMagicModifier.group = mpsGroupID;
+        mps.rows.push(newModifier);
+        mps.rows.push(newMagicModifier);
+      }
     });
-    itemNames.push({
-      id: D2RMM.getNextStringID(),
-      Key: `${modClassPrefix}${modName.toUpperCase()}-M-${modRank}`,
-      enUS: `${modClassPrefix}${modName.toUpperCase()}-M-${modRank}`,
-      zhTW: `${modClassPrefix}${modLable}-M-${modRank}`
-    });
-
-    //ITYPE的缺省值
-    let itypes = modItypes == null ? M_ITS.NORMAL : modItypes;
-
-    const newModifier = {
-      Name: `${modClassPrefix}${modName.toUpperCase()}-${modRank}`,
-      version: 100,
-      spawnable: 1,
-      rare: 1,
-      classspecific: modBase.clz,
-      frequency: modBase.freq == null ? 2 : modBase.freq,
-      level: modBase.lvl,
-      levelreq: modBase.lvlreq,
-      multiply: 0,
-      add: 0,
-      mod1code: modXs.code,
-      mod1param: modXs.param,
-      mod1min: modXs.min,
-      mod1max: modXs.max,
-      mod2code: modXs.code2,
-      mod2param: modXs.param2,
-      mod2min: modXs.min2,
-      mod2max: modXs.max2,
-      mod3code: modXs.code3,
-      mod3param: modXs.param3,
-      mod3min: modXs.min3,
-      mod3max: modXs.max3,
-      itype1: itypes[0],
-      itype2: itypes[1],
-      itype3: itypes[2],
-      itype4: itypes[3],
-      itype5: itypes[4],
-      itype6: itypes[5],
-      itype7: itypes[6],
-      '*eol\r': 0,
-    };
-
-    //克隆一份为魔法词缀
-    const newMagicModifier = {
-      ...newModifier,
-      Name: `${modClassPrefix}${modName.toUpperCase()}-M-${modRank}`,
-      rare: 0
-    };
-
-    if (modeType === MOD_TYPE.SUFFIX || modeType === MOD_TYPE.BOTH) {
-      newModifier.group = mssGroupID;
-      newMagicModifier.group = mssGroupID;
-      mss.rows.push(newModifier);
-      mss.rows.push(newMagicModifier);
-    };
-    if (modeType === MOD_TYPE.PREFIX || modeType === MOD_TYPE.BOTH) {
-      newModifier.group = mpsGroupID;
-      newMagicModifier.group = mpsGroupID;
-      mps.rows.push(newModifier);
-      mps.rows.push(newMagicModifier);
-    }
-  });
-
+  }
 });
 
 D2RMM.writeTsv(amFilename, ams);

@@ -144,6 +144,7 @@ const UNIQUE_GEMS = {
     scode: 'lifesteal', smin: 13, smax: 13, scode2: 'mana-kill', smin2: 15, smax2: 15
   },
   // Bonehew	387	dmg%		270	320	swing2		30	30	charged	Corpse Explosion	30	14	hit-skill	Bone Spear	50	16	noheal		1	1
+  "Bonehew": { ...gemTemp, wcode: 'hit-skill', wparam: 'Bone Spear', wmin: 50, wmax: 16, wcode2: 'noheal', hmin2: 1, hma2x: 1 },
   // The Reedeemer	389	dmg%		250	300	dmg-demon		200	250	pal		2	2	ease		-60	-60	skill	Redemption	2	4
 
   // Steelrend	391	ac		170	210	str		15	20	dmg%		30	60	crush		10	10	
@@ -250,7 +251,8 @@ const UNIQUE_GEMS = {
   "Chance Guards": { ...gemTemp, hcode: 'gold%', hmin: 200, hmax: 200, hcode2: 'mag%', hmin2: 40, hmax2: 40 },
   //Venom Grip	232		res-pois		30	30	res-pois-max		5	5	dmg-pois	100	153	153	crush		5	5	lifesteal		5	5	ac		15	25
   "Venom Grip": { ...gemTemp, hcode: 'res-pois', hmin: 30, hmax: 30, hcode2: 'res-pois-max', hmin2: 5, hmax2: 5 },
-
+  // Ghoulhide	234	1 att-und/lvl	16			dmg-und/lvl	16			manasteal		4	5	hp		20	20
+  "Ghoulhide": { ...gemTemp, hcode: 'dmg-und/lvl', hmin: 16, hmax: 16, hcode2: 'manasteal', hmin2: 5, hmax2: 5 },
   //**********************************************************||SHIELD||****************************************************************************/
   // Medusa's Gaze	349	ac%		150	180	slow		20	20	gethit-skill	Lower Resist	10	7	lifesteal		5	9	death-skill	Nova	100	44
   "Medusa's Gaze": { ...gemTemp, wcode: 'slow', wmin: 20, wmax: 20, hcode2: 'gethit-skill', hparam2: 'Lower Resist', hmin2: 10, hmax2: 7 },
