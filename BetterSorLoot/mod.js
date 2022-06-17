@@ -22,9 +22,9 @@ const M_ITS = {
   CM3: ['lcha'],
   CM32: ['mcha', 'lcha'],
   CM321: ['scha', 'mcha', 'lcha'],
-  CM3_AND_JEW: ['lcha', 'jewl'],
-  CM32_AND_JEW: ['mcha', 'lcha', 'jewl'],
-  CM321_AND_JEW: ['scha', 'mcha', 'lcha', 'jewl'],
+  CM3_JEW: ['lcha', 'jewl'],
+  CM32_JEW: ['mcha', 'lcha', 'jewl'],
+  CM321_JEW: ['scha', 'mcha', 'lcha', 'jewl'],
   JEW: ['jewl'],
   AMA: ['amaz', 'spea', 'miss', 'glov', 'amul', 'circ'],
   AMA_ONLY: ['amaz', 'spea', 'miss'],
@@ -45,7 +45,7 @@ const M_ITS = {
   NORMAL: ['weap', `armo`],
   ARMO: ['tors', `helm`, `shld`, `belt`, `boot`, 'glov'],
   WEAP: ['weap'],
-  MELE_AND_MISS: ['mele', 'miss'],
+  MELE_MISS: ['mele', 'miss'],
   MELE: ['mele'],
   MISS: ['miss'],
   CASTER: ['orb', 'staff', 'scep', 'wand', 'head', 'knif', 'amul', 'ring', 'circ'],
@@ -56,30 +56,30 @@ const M_ITS = {
 const MOD_PROP = {
   ////////////////////////////////////////////////////////////////////////SUFFIX BEGIN////////////////////////////////////////////////////////////////////////////////////////////////////////////
   'dmg': [
-    ['R1', { code: 'dmg', min: 35, max: 50 }, { lvl: 75, lvlreq: 50, freq: 2 }, M_ITS.MELE_AND_MISS],
-    ['R2', { code: 'dmg', min: 25, max: 35 }, { lvl: 55, lvlreq: 35, freq: 3 }, M_ITS.MELE_AND_MISS],
-    ['R3', { code: 'dmg', min: 20, max: 25 }, { lvl: 40, lvlreq: 25, freq: 4 }, M_ITS.MELE_AND_MISS],
-    ['R4', { code: 'dmg', min: 15, max: 20 }, { lvl: 25, lvlreq: 15, freq: 4 }, M_ITS.MELE_AND_MISS],
-    ['R5', { code: 'dmg', min: 10, max: 15 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.MELE_AND_MISS],
-    ['R6', { code: 'dmg', min: 5, max: 10 }, { lvl: 10, lvlreq: 5, freq: 2 }, M_ITS.MELE_AND_MISS],
-    ['R1', { code: 'dmg', min: 25, max: 30 }, { lvl: 75, lvlreq: 50, freq: 2 }, M_ITS.CM3_AND_JEW],
-    ['R2', { code: 'dmg', min: 20, max: 25 }, { lvl: 55, lvlreq: 35, freq: 3 }, M_ITS.CM3_AND_JEW],
-    ['R3', { code: 'dmg', min: 15, max: 20 }, { lvl: 40, lvlreq: 25, freq: 4 }, M_ITS.CM3_AND_JEW],
-    ['R4', { code: 'dmg', min: 10, max: 15 }, { lvl: 25, lvlreq: 15, freq: 4 }, M_ITS.CM3_AND_JEW],
-    ['R5', { code: 'dmg', min: 5, max: 10 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.CM3_AND_JEW],
-    ['R6', { code: 'dmg', min: 3, max: 5 }, { lvl: 10, lvlreq: 5, freq: 2 }, M_ITS.CM3_AND_JEW],
+    ['R1', { code: 'dmg', min: 35, max: 50 }, { lvl: 75, lvlreq: 50, freq: 2 }, M_ITS.MELE_MISS],
+    ['R2', { code: 'dmg', min: 25, max: 35 }, { lvl: 55, lvlreq: 35, freq: 3 }, M_ITS.MELE_MISS],
+    ['R3', { code: 'dmg', min: 20, max: 25 }, { lvl: 40, lvlreq: 25, freq: 4 }, M_ITS.MELE_MISS],
+    ['R4', { code: 'dmg', min: 15, max: 20 }, { lvl: 25, lvlreq: 15, freq: 4 }, M_ITS.MELE_MISS],
+    ['R5', { code: 'dmg', min: 10, max: 15 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.MELE_MISS],
+    ['R6', { code: 'dmg', min: 5, max: 10 }, { lvl: 10, lvlreq: 5, freq: 2 }, M_ITS.MELE_MISS],
+    ['R1', { code: 'dmg', min: 25, max: 30 }, { lvl: 75, lvlreq: 50, freq: 2 }, M_ITS.CM3_JEW],
+    ['R2', { code: 'dmg', min: 20, max: 25 }, { lvl: 55, lvlreq: 35, freq: 3 }, M_ITS.CM3_JEW],
+    ['R3', { code: 'dmg', min: 15, max: 20 }, { lvl: 40, lvlreq: 25, freq: 4 }, M_ITS.CM3_JEW],
+    ['R4', { code: 'dmg', min: 10, max: 15 }, { lvl: 25, lvlreq: 15, freq: 4 }, M_ITS.CM3_JEW],
+    ['R5', { code: 'dmg', min: 5, max: 10 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.CM3_JEW],
+    ['R6', { code: 'dmg', min: 3, max: 5 }, { lvl: 10, lvlreq: 5, freq: 2 }, M_ITS.CM3_JEW],
     ['R1', { code: 'dmg', min: 15, max: 20 }, { lvl: 75, lvlreq: 45, freq: 2 }, M_ITS.CM2],
     ['R2', { code: 'dmg', min: 10, max: 15 }, { lvl: 55, lvlreq: 35, freq: 3 }, M_ITS.CM2],
     ['R3', { code: 'dmg', min: 5, max: 10 }, { lvl: 40, lvlreq: 25, freq: 4 }, M_ITS.CM2],
   ],
   // ['dmg%', MOD_TYPE.SUFFIX, '攻击%'],
   'dmg%': [
-    ['R1', { code: 'dmg%', min: 80, max: 100 }, { lvl: 85, lvlreq: 65, freq: 2 }, M_ITS.MELE_AND_MISS],
-    ['R2', { code: 'dmg%', min: 60, max: 80 }, { lvl: 70, lvlreq: 50, freq: 3 }, M_ITS.MELE_AND_MISS],
-    ['R3', { code: 'dmg%', min: 40, max: 60 }, { lvl: 55, lvlreq: 35, freq: 4 }, M_ITS.MELE_AND_MISS],
-    ['R4', { code: 'dmg%', min: 30, max: 45 }, { lvl: 40, lvlreq: 25, freq: 4 }, M_ITS.MELE_AND_MISS],
-    ['R5', { code: 'dmg%', min: 20, max: 35 }, { lvl: 25, lvlreq: 15, freq: 3 }, M_ITS.MELE_AND_MISS],
-    ['R6', { code: 'dmg%', min: 10, max: 20 }, { lvl: 10, lvlreq: 5, freq: 2 }, M_ITS.MELE_AND_MISS],
+    ['R1', { code: 'dmg%', min: 80, max: 100 }, { lvl: 85, lvlreq: 65, freq: 2 }, M_ITS.MELE_MISS],
+    ['R2', { code: 'dmg%', min: 60, max: 80 }, { lvl: 70, lvlreq: 50, freq: 3 }, M_ITS.MELE_MISS],
+    ['R3', { code: 'dmg%', min: 40, max: 60 }, { lvl: 55, lvlreq: 35, freq: 4 }, M_ITS.MELE_MISS],
+    ['R4', { code: 'dmg%', min: 30, max: 45 }, { lvl: 40, lvlreq: 25, freq: 4 }, M_ITS.MELE_MISS],
+    ['R5', { code: 'dmg%', min: 20, max: 35 }, { lvl: 25, lvlreq: 15, freq: 3 }, M_ITS.MELE_MISS],
+    ['R6', { code: 'dmg%', min: 10, max: 20 }, { lvl: 10, lvlreq: 5, freq: 2 }, M_ITS.MELE_MISS],
     ['R1', { code: 'dmg%', min: 30, max: 40 }, { lvl: 85, lvlreq: 65, freq: 3 }, M_ITS.CM3],
     ['R2', { code: 'dmg%', min: 20, max: 30 }, { lvl: 70, lvlreq: 45, freq: 3 }, M_ITS.CM32],
     ['R3', { code: 'dmg%', min: 15, max: 25 }, { lvl: 50, lvlreq: 30, freq: 3 }, M_ITS.CM32],
@@ -95,10 +95,10 @@ const MOD_PROP = {
   ],
   // ['dmg/lvl', MOD_TYPE.SUFFIX, '攻击/等级'],
   'dmg/lvl': [
-    ['R1', { code: 'dmg/lvl', min: 30, max: 30 }, { lvl: 85, lvlreq: 60, freq: 3 }, M_ITS.MELE_AND_MISS],
-    ['R2', { code: 'dmg/lvl', min: 25, max: 25 }, { lvl: 60, lvlreq: 40, freq: 3 }, M_ITS.MELE_AND_MISS],
-    ['R3', { code: 'dmg/lvl', min: 20, max: 20 }, { lvl: 35, lvlreq: 20, freq: 3 }, M_ITS.MELE_AND_MISS],
-    ['R4', { code: 'dmg/lvl', min: 15, max: 15 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.MELE_AND_MISS],
+    ['R1', { code: 'dmg/lvl', min: 30, max: 30 }, { lvl: 85, lvlreq: 60, freq: 3 }, M_ITS.MELE_MISS],
+    ['R2', { code: 'dmg/lvl', min: 25, max: 25 }, { lvl: 60, lvlreq: 40, freq: 3 }, M_ITS.MELE_MISS],
+    ['R3', { code: 'dmg/lvl', min: 20, max: 20 }, { lvl: 35, lvlreq: 20, freq: 3 }, M_ITS.MELE_MISS],
+    ['R4', { code: 'dmg/lvl', min: 15, max: 15 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.MELE_MISS],
     ['R1', { code: 'dmg/lvl', min: 20, max: 20 }, { lvl: 85, lvlreq: 60, freq: 3 }, M_ITS.CM3],
     ['R2', { code: 'dmg/lvl', min: 15, max: 15 }, { lvl: 60, lvlreq: 40, freq: 3 }, M_ITS.CM32],
     ['R3', { code: 'dmg/lvl', min: 10, max: 10 }, { lvl: 35, lvlreq: 20, freq: 3 }, M_ITS.CM321],
@@ -109,10 +109,10 @@ const MOD_PROP = {
     ['R4', { code: 'dmg/lvl', min: 8, max: 8 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.JEW]
   ],
   'dmg-undead': [
-    ['R1', { code: 'dmg-undead', min: 350, max: 450 }, { lvl: 85, lvlreq: 60, freq: 3 }, M_ITS.MELE_AND_MISS],
-    ['R2', { code: 'dmg-undead', min: 250, max: 350 }, { lvl: 60, lvlreq: 40, freq: 3 }, M_ITS.MELE_AND_MISS],
-    ['R3', { code: 'dmg-undead', min: 150, max: 250 }, { lvl: 35, lvlreq: 20, freq: 3 }, M_ITS.MELE_AND_MISS],
-    ['R4', { code: 'dmg-undead', min: 100, max: 150 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.MELE_AND_MISS],
+    ['R1', { code: 'dmg-undead', min: 350, max: 450 }, { lvl: 85, lvlreq: 60, freq: 3 }, M_ITS.MELE_MISS],
+    ['R2', { code: 'dmg-undead', min: 250, max: 350 }, { lvl: 60, lvlreq: 40, freq: 3 }, M_ITS.MELE_MISS],
+    ['R3', { code: 'dmg-undead', min: 150, max: 250 }, { lvl: 35, lvlreq: 20, freq: 3 }, M_ITS.MELE_MISS],
+    ['R4', { code: 'dmg-undead', min: 100, max: 150 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.MELE_MISS],
     ['R1', { code: 'dmg-undead', min: 100, max: 150 }, { lvl: 75, lvlreq: 60, freq: 2 }, M_ITS.CM3],
     ['R2', { code: 'dmg-undead', min: 80, max: 100 }, { lvl: 55, lvlreq: 40, freq: 2 }, M_ITS.CM32],
     ['R3', { code: 'dmg-undead', min: 60, max: 80 }, { lvl: 35, lvlreq: 20, freq: 2 }, M_ITS.CM321],
@@ -122,10 +122,10 @@ const MOD_PROP = {
     ['R1', { code: 'dmg-undead', min: 60, max: 80 }, { lvl: 20, lvlreq: 15, freq: 2 }, M_ITS.JEW]
   ],
   'dmg-demon': [
-    ['R1', { code: 'dmg-demon', min: 300, max: 400 }, { lvl: 85, lvlreq: 60, freq: 3 }, M_ITS.MELE_AND_MISS],
-    ['R2', { code: 'dmg-demon', min: 200, max: 300 }, { lvl: 60, lvlreq: 40, freq: 3 }, M_ITS.MELE_AND_MISS],
-    ['R3', { code: 'dmg-demon', min: 150, max: 200 }, { lvl: 35, lvlreq: 20, freq: 3 }, M_ITS.MELE_AND_MISS],
-    ['R4', { code: 'dmg-demon', min: 100, max: 150 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.MELE_AND_MISS],
+    ['R1', { code: 'dmg-demon', min: 300, max: 400 }, { lvl: 85, lvlreq: 60, freq: 3 }, M_ITS.MELE_MISS],
+    ['R2', { code: 'dmg-demon', min: 200, max: 300 }, { lvl: 60, lvlreq: 40, freq: 3 }, M_ITS.MELE_MISS],
+    ['R3', { code: 'dmg-demon', min: 150, max: 200 }, { lvl: 35, lvlreq: 20, freq: 3 }, M_ITS.MELE_MISS],
+    ['R4', { code: 'dmg-demon', min: 100, max: 150 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.MELE_MISS],
     ['R1', { code: 'dmg-demon', min: 100, max: 120 }, { lvl: 75, lvlreq: 60, freq: 2 }, M_ITS.CM3],
     ['R2', { code: 'dmg-demon', min: 80, max: 100 }, { lvl: 55, lvlreq: 40, freq: 2 }, M_ITS.CM32],
     ['R3', { code: 'dmg-demon', min: 60, max: 80 }, { lvl: 35, lvlreq: 20, freq: 2 }, M_ITS.CM321],
@@ -136,36 +136,114 @@ const MOD_PROP = {
   ],
   // ['crush', MOD_TYPE.SUFFIX, '破甲'],
   'crush': [
-    ['R1', { code: 'crush', min: 30, max: 40 }, { lvl: 85, lvlreq: 65, freq: 3 }, M_ITS.MELE_AND_MISS],
-    ['R2', { code: 'crush', min: 20, max: 30 }, { lvl: 60, lvlreq: 45, freq: 3 }, M_ITS.MELE_AND_MISS],
-    ['R3', { code: 'crush', min: 15, max: 20 }, { lvl: 35, lvlreq: 15, freq: 3 }, M_ITS.MELE_AND_MISS],
-    ['R4', { code: 'crush', min: 10, max: 15 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.MELE_AND_MISS]
+    ['R1', { code: 'crush', min: 30, max: 40 }, { lvl: 85, lvlreq: 65, freq: 3 }, M_ITS.MELE_MISS],
+    ['R2', { code: 'crush', min: 20, max: 30 }, { lvl: 60, lvlreq: 45, freq: 3 }, M_ITS.MELE_MISS],
+    ['R3', { code: 'crush', min: 15, max: 20 }, { lvl: 35, lvlreq: 15, freq: 3 }, M_ITS.MELE_MISS],
+    ['R4', { code: 'crush', min: 10, max: 15 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.MELE_MISS]
   ],
   // ['reduce-ac', MOD_TYPE.SUFFIX, '防御穿透'],
   // ['deadly', MOD_TYPE.SUFFIX, '致命攻击'],
   // ['openwounds', MOD_TYPE.SUFFIX, '开放伤口'],
   'reduce-ac': [
-    ['R1', { code: 'reduce-ac', min: 33, max: 33 }, { lvl: 85, lvlreq: 65, freq: 2 }, M_ITS.MELE_AND_MISS],
-    ['R2', { code: 'reduce-ac', min: 25, max: 25 }, { lvl: 60, lvlreq: 45, freq: 3 }, M_ITS.MELE_AND_MISS],
-    ['R3', { code: 'reduce-ac', min: 20, max: 20 }, { lvl: 35, lvlreq: 15, freq: 4 }, M_ITS.MELE_AND_MISS],
-    ['R4', { code: 'reduce-ac', min: 15, max: 15 }, { lvl: 15, lvlreq: 10, freq: 4 }, M_ITS.MELE_AND_MISS]
+    ['R1', { code: 'reduce-ac', min: 33, max: 33 }, { lvl: 85, lvlreq: 65, freq: 2 }, M_ITS.MELE_MISS],
+    ['R2', { code: 'reduce-ac', min: 25, max: 25 }, { lvl: 60, lvlreq: 45, freq: 3 }, M_ITS.MELE_MISS],
+    ['R3', { code: 'reduce-ac', min: 20, max: 20 }, { lvl: 35, lvlreq: 15, freq: 4 }, M_ITS.MELE_MISS],
+    ['R4', { code: 'reduce-ac', min: 15, max: 15 }, { lvl: 15, lvlreq: 10, freq: 4 }, M_ITS.MELE_MISS]
 
   ],
   'deadly': [
-    ['R1', { code: 'deadly', min: 35, max: 45 }, { lvl: 85, lvlreq: 65, freq: 2 }, M_ITS.MELE_AND_MISS],
-    ['R2', { code: 'deadly', min: 25, max: 35 }, { lvl: 60, lvlreq: 45, freq: 3 }, M_ITS.MELE_AND_MISS],
-    ['R3', { code: 'deadly', min: 15, max: 25 }, { lvl: 35, lvlreq: 15, freq: 4 }, M_ITS.MELE_AND_MISS],
-    ['R4', { code: 'deadly', min: 10, max: 15 }, { lvl: 15, lvlreq: 10, freq: 4 }, M_ITS.MELE_AND_MISS]
+    ['R1', { code: 'deadly', min: 35, max: 45 }, { lvl: 85, lvlreq: 65, freq: 2 }, M_ITS.MELE_MISS],
+    ['R2', { code: 'deadly', min: 25, max: 35 }, { lvl: 60, lvlreq: 45, freq: 3 }, M_ITS.MELE_MISS],
+    ['R3', { code: 'deadly', min: 15, max: 25 }, { lvl: 35, lvlreq: 15, freq: 4 }, M_ITS.MELE_MISS],
+    ['R4', { code: 'deadly', min: 10, max: 15 }, { lvl: 15, lvlreq: 10, freq: 4 }, M_ITS.MELE_MISS]
 
   ],
   'openwounds': [
-    ['R1', { code: 'openwounds', min: 30, max: 40 }, { lvl: 85, lvlreq: 65, freq: 2 }, M_ITS.MELE_AND_MISS],
-    ['R2', { code: 'openwounds', min: 20, max: 30 }, { lvl: 60, lvlreq: 45, freq: 3 }, M_ITS.MELE_AND_MISS],
-    ['R3', { code: 'openwounds', min: 15, max: 20 }, { lvl: 35, lvlreq: 15, freq: 4 }, M_ITS.MELE_AND_MISS],
-    ['R4', { code: 'openwounds', min: 10, max: 15 }, { lvl: 15, lvlreq: 10, freq: 4 }, M_ITS.MELE_AND_MISS]
+    ['R1', { code: 'openwounds', min: 30, max: 40 }, { lvl: 85, lvlreq: 65, freq: 2 }, M_ITS.MELE_MISS],
+    ['R2', { code: 'openwounds', min: 20, max: 30 }, { lvl: 60, lvlreq: 45, freq: 3 }, M_ITS.MELE_MISS],
+    ['R3', { code: 'openwounds', min: 15, max: 20 }, { lvl: 35, lvlreq: 15, freq: 4 }, M_ITS.MELE_MISS],
+    ['R4', { code: 'openwounds', min: 10, max: 15 }, { lvl: 15, lvlreq: 10, freq: 4 }, M_ITS.MELE_MISS]
   ],
-  // ignore-ac
-  //TODO
+
+  // ['pierce', MOD_TYPE.SUFFIX, '穿透'],
+  // ['nofreeze', MOD_TYPE.SUFFIX, '不冻结'],
+  // ['half-freeze', MOD_TYPE.SUFFIX, '半冻结'],
+  // ['freeze', MOD_TYPE.SUFFIX, '冻结'],
+  // ['ignore-ac', MOD_TYPE.SUFFIX, '无视防御'],
+  // ['reduce-ac', MOD_TYPE.SUFFIX, '防御穿透'],
+  'pierce': [
+    ['R1', { code: 'pierce', min: 35, max: 35 }, { lvl: 75, lvlreq: 65, freq: 1 }, M_ITS.MELE_MISS],
+    ['R2', { code: 'pierce', min: 25, max: 25 }, { lvl: 60, lvlreq: 45, freq: 2 }, M_ITS.MELE_MISS],
+    ['R3', { code: 'pierce', min: 15, max: 15 }, { lvl: 35, lvlreq: 15, freq: 2 }, M_ITS.MELE_MISS],
+    ['R4', { code: 'pierce', min: 10, max: 10 }, { lvl: 15, lvlreq: 10, freq: 2 }, M_ITS.MELE_MISS]
+  ],
+  'nofreeze': [
+    ['R1', { code: 'nofreeze', min: 1, max: 1 }, { lvl: 55, lvlreq: 35, freq: 2 }, M_ITS.MELE_MISS]
+  ],
+  'half-freeze': [
+    ['R1', { code: 'half-freeze', min: 1, max: 1 }, { lvl: 35, lvlreq: 15, freq: 4 }, M_ITS.MELE_MISS]
+  ],
+  'freeze': [
+    ['R1', { code: 'freeze', min: 4, max: 4 }, { lvl: 70, lvlreq: 50, freq: 1 }, M_ITS.MELE_MISS],
+    ['R2', { code: 'freeze', min: 3, max: 3 }, { lvl: 50, lvlreq: 30, freq: 1 }, M_ITS.MELE_MISS],
+    ['R3', { code: 'freeze', min: 2, max: 2 }, { lvl: 30, lvlreq: 10, freq: 2 }, M_ITS.MELE_MISS],
+    ['R4', { code: 'freeze', min: 1, max: 1 }, { lvl: 15, lvlreq: 5, freq: 2 }, M_ITS.MELE_MISS]
+  ],
+  'ignore-ac': [
+    ['R1', { code: 'ignore-ac', min: 1, max: 1 }, { lvl: 65, lvlreq: 35, freq: 2 }, M_ITS.MELE_MISS],
+  ],
+  'reduce-ac': [
+    ['R1', { code: 'reduce-ac', min: 50, max: 50 }, { lvl: 80, lvlreq: 65, freq: 1 }, M_ITS.MELE_MISS],
+    ['R2', { code: 'reduce-ac', min: 33, max: 33 }, { lvl: 60, lvlreq: 45, freq: 2 }, M_ITS.MELE_MISS],
+    ['R3', { code: 'reduce-ac', min: 25, max: 25 }, { lvl: 35, lvlreq: 15, freq: 2 }, M_ITS.MELE_MISS],
+    ['R4', { code: 'reduce-ac', min: 15, max: 15 }, { lvl: 15, lvlreq: 10, freq: 2 }, M_ITS.MELE_MISS]
+  ],
+  // ['att', MOD_TYPE.SUFFIX, '准确率'],
+  // ['att%', MOD_TYPE.SUFFIX, '准确率%'],
+  // ['att/lvl', MOD_TYPE.SUFFIX, '准确率/等级'],
+  // ['att%/lvl', MOD_TYPE.SUFFIX, '准确率%/等级'],
+  'att': [
+    ['R1', { code: 'att', min: 120, max: 150 }, { lvl: 75, lvlreq: 65, freq: 1 }, M_ITS.MELE_MISS],
+    ['R2', { code: 'att', min: 90, max: 120 }, { lvl: 60, lvlreq: 45, freq: 2 }, M_ITS.MELE_MISS],
+    ['R3', { code: 'att', min: 60, max: 90 }, { lvl: 35, lvlreq: 15, freq: 2 }, M_ITS.MELE_MISS],
+    ['R4', { code: 'att', min: 40, max: 60 }, { lvl: 15, lvlreq: 10, freq: 2 }, M_ITS.MELE_MISS],
+    ['R1', { code: 'att', min: 100, max: 120 }, { lvl: 75, lvlreq: 65, freq: 1 }, M_ITS.CM3],
+    ['R2', { code: 'att', min: 80, max: 100 }, { lvl: 60, lvlreq: 45, freq: 2 }, M_ITS.CM32_JEW],
+    ['R3', { code: 'att', min: 50, max: 80 }, { lvl: 35, lvlreq: 15, freq: 2 }, M_ITS.CM32_JEW],
+    ['R4', { code: 'att', min: 30, max: 40 }, { lvl: 15, lvlreq: 10, freq: 2 }, M_ITS.CM321]
+  ],
+  'att%': [
+    ['R1', { code: 'att%', min: 70, max: 100 }, { lvl: 75, lvlreq: 65, freq: 1 }, M_ITS.MELE_MISS],
+    ['R2', { code: 'att%', min: 50, max: 70 }, { lvl: 60, lvlreq: 45, freq: 2 }, M_ITS.MELE_MISS],
+    ['R3', { code: 'att%', min: 30, max: 50 }, { lvl: 35, lvlreq: 15, freq: 2 }, M_ITS.MELE_MISS],
+    ['R4', { code: 'att%', min: 20, max: 30 }, { lvl: 15, lvlreq: 10, freq: 2 }, M_ITS.MELE_MISS],
+    ['R1', { code: 'att%', min: 70, max: 90 }, { lvl: 75, lvlreq: 65, freq: 1 }, M_ITS.CM3],
+    ['R2', { code: 'att%', min: 50, max: 70 }, { lvl: 60, lvlreq: 45, freq: 2 }, M_ITS.CM32_JEW],
+    ['R3', { code: 'att%', min: 30, max: 50 }, { lvl: 35, lvlreq: 15, freq: 2 }, M_ITS.CM32_JEW],
+    ['R4', { code: 'att%', min: 20, max: 30 }, { lvl: 15, lvlreq: 10, freq: 2 }, M_ITS.CM321]
+  ],
+  // ['att-demon', MOD_TYPE.SUFFIX, '准确率-恶魔'],
+  // ['att-undead', MOD_TYPE.SUFFIX, '准确率-不死'],
+  'att-demon': [
+    ['R1', { code: 'att-demon', min: 120, max: 200 }, { lvl: 75, lvlreq: 65, freq: 1 }, M_ITS.MELE_MISS],
+    ['R2', { code: 'att-demon', min: 90, max: 160 }, { lvl: 60, lvlreq: 45, freq: 2 }, M_ITS.MELE_MISS],
+    ['R3', { code: 'att-demon', min: 60, max: 120 }, { lvl: 35, lvlreq: 15, freq: 2 }, M_ITS.MELE_MISS],
+    ['R4', { code: 'att-demon', min: 40, max: 80 }, { lvl: 15, lvlreq: 10, freq: 2 }, M_ITS.MELE_MISS],
+    ['R1', { code: 'att-demon', min: 135, max: 180 }, { lvl: 75, lvlreq: 65, freq: 1 }, M_ITS.CM3],
+    ['R2', { code: 'att-demon', min: 90, max: 135 }, { lvl: 60, lvlreq: 45, freq: 2 }, M_ITS.CM32_JEW],
+    ['R3', { code: 'att-demon', min: 60, max: 90 }, { lvl: 35, lvlreq: 15, freq: 2 }, M_ITS.CM32_JEW],
+    ['R4', { code: 'att-demon', min: 50, max: 60 }, { lvl: 15, lvlreq: 10, freq: 2 }, M_ITS.CM321]
+  ],
+  'att-undead': [
+    ['R1', { code: 'att-undead', min: 240, max: 300 }, { lvl: 75, lvlreq: 65, freq: 1 }, M_ITS.MELE_MISS],
+    ['R2', { code: 'att-undead', min: 180, max: 240 }, { lvl: 60, lvlreq: 45, freq: 2 }, M_ITS.MELE_MISS],
+    ['R3', { code: 'att-undead', min: 120, max: 180 }, { lvl: 35, lvlreq: 15, freq: 2 }, M_ITS.MELE_MISS],
+    ['R4', { code: 'att-undead', min: 100, max: 120 }, { lvl: 15, lvlreq: 10, freq: 2 }, M_ITS.MELE_MISS],
+    ['R1', { code: 'att-undead', min: 160, max: 240 }, { lvl: 75, lvlreq: 65, freq: 1 }, M_ITS.CM3],
+    ['R2', { code: 'att-undead', min: 120, max: 160 }, { lvl: 60, lvlreq: 45, freq: 2 }, M_ITS.CM32_JEW],
+    ['R3', { code: 'att-undead', min: 80, max: 120 }, { lvl: 35, lvlreq: 15, freq: 2 }, M_ITS.CM32_JEW],
+    ['R4', { code: 'att-undead', min: 50, max: 80 }, { lvl: 15, lvlreq: 10, freq: 2 }, M_ITS.CM321]
+  ],
 
   // ['dmg-fire', MOD_TYPE.SUFFIX, '火焰伤害'],
   // ['dmg-ltng', MOD_TYPE.SUFFIX, '电击伤害'],
@@ -173,64 +251,64 @@ const MOD_PROP = {
   // ['dmg-pois', MOD_TYPE.SUFFIX, '毒素伤害'],
   // ['dmg-mag', MOD_TYPE.SUFFIX, '魔法伤害'],
   'dmg-fire': [
-    ['R1', { code: 'dmg-fire', min: 250, max: 350 }, { lvl: 80, lvlreq: 65, freq: 2 }, M_ITS.MELE_AND_MISS],
-    ['R2', { code: 'dmg-fire', min: 150, max: 250 }, { lvl: 70, lvlreq: 45, freq: 2 }, M_ITS.MELE_AND_MISS],
-    ['R3', { code: 'dmg-fire', min: 100, max: 150 }, { lvl: 50, lvlreq: 35, freq: 3 }, M_ITS.MELE_AND_MISS],
-    ['R4', { code: 'dmg-fire', min: 60, max: 100 }, { lvl: 30, lvlreq: 15, freq: 3 }, M_ITS.MELE_AND_MISS],
-    ['R5', { code: 'dmg-fire', min: 30, max: 60 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.MELE_AND_MISS],
+    ['R1', { code: 'dmg-fire', min: 250, max: 350 }, { lvl: 80, lvlreq: 65, freq: 2 }, M_ITS.MELE_MISS],
+    ['R2', { code: 'dmg-fire', min: 150, max: 250 }, { lvl: 70, lvlreq: 45, freq: 2 }, M_ITS.MELE_MISS],
+    ['R3', { code: 'dmg-fire', min: 100, max: 150 }, { lvl: 50, lvlreq: 35, freq: 3 }, M_ITS.MELE_MISS],
+    ['R4', { code: 'dmg-fire', min: 60, max: 100 }, { lvl: 30, lvlreq: 15, freq: 3 }, M_ITS.MELE_MISS],
+    ['R5', { code: 'dmg-fire', min: 30, max: 60 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.MELE_MISS],
     ['R1', { code: 'dmg-fire', min: 120, max: 150 }, { lvl: 80, lvlreq: 65, freq: 2 }, M_ITS.CM3],
-    ['R2', { code: 'dmg-fire', min: 90, max: 120 }, { lvl: 70, lvlreq: 45, freq: 2 }, M_ITS.CM3_AND_JEW],
-    ['R3', { code: 'dmg-fire', min: 60, max: 90 }, { lvl: 50, lvlreq: 35, freq: 3 }, M_ITS.CM32_AND_JEW],
-    ['R4', { code: 'dmg-fire', min: 30, max: 60 }, { lvl: 30, lvlreq: 15, freq: 3 }, M_ITS.CM321_AND_JEW],
-    ['R5', { code: 'dmg-fire', min: 10, max: 30 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.CM321_AND_JEW]
+    ['R2', { code: 'dmg-fire', min: 90, max: 120 }, { lvl: 70, lvlreq: 45, freq: 2 }, M_ITS.CM3_JEW],
+    ['R3', { code: 'dmg-fire', min: 60, max: 90 }, { lvl: 50, lvlreq: 35, freq: 3 }, M_ITS.CM32_JEW],
+    ['R4', { code: 'dmg-fire', min: 30, max: 60 }, { lvl: 30, lvlreq: 15, freq: 3 }, M_ITS.CM321_JEW],
+    ['R5', { code: 'dmg-fire', min: 10, max: 30 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.CM321_JEW]
   ],
   'dmg-ltng': [
-    ['R1', { code: 'dmg-ltng', min: 250, max: 350 }, { lvl: 80, lvlreq: 65, freq: 2 }, M_ITS.MELE_AND_MISS],
-    ['R2', { code: 'dmg-ltng', min: 150, max: 250 }, { lvl: 70, lvlreq: 45, freq: 2 }, M_ITS.MELE_AND_MISS],
-    ['R3', { code: 'dmg-ltng', min: 100, max: 150 }, { lvl: 50, lvlreq: 35, freq: 3 }, M_ITS.MELE_AND_MISS],
-    ['R4', { code: 'dmg-ltng', min: 60, max: 100 }, { lvl: 30, lvlreq: 15, freq: 3 }, M_ITS.MELE_AND_MISS],
-    ['R5', { code: 'dmg-ltng', min: 30, max: 60 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.MELE_AND_MISS],
+    ['R1', { code: 'dmg-ltng', min: 250, max: 350 }, { lvl: 80, lvlreq: 65, freq: 2 }, M_ITS.MELE_MISS],
+    ['R2', { code: 'dmg-ltng', min: 150, max: 250 }, { lvl: 70, lvlreq: 45, freq: 2 }, M_ITS.MELE_MISS],
+    ['R3', { code: 'dmg-ltng', min: 100, max: 150 }, { lvl: 50, lvlreq: 35, freq: 3 }, M_ITS.MELE_MISS],
+    ['R4', { code: 'dmg-ltng', min: 60, max: 100 }, { lvl: 30, lvlreq: 15, freq: 3 }, M_ITS.MELE_MISS],
+    ['R5', { code: 'dmg-ltng', min: 30, max: 60 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.MELE_MISS],
     ['R1', { code: 'dmg-ltng', min: 120, max: 150 }, { lvl: 80, lvlreq: 65, freq: 2 }, M_ITS.CM3],
-    ['R2', { code: 'dmg-ltng', min: 90, max: 120 }, { lvl: 70, lvlreq: 45, freq: 2 }, M_ITS.CM3_AND_JEW],
-    ['R3', { code: 'dmg-ltng', min: 60, max: 90 }, { lvl: 50, lvlreq: 35, freq: 3 }, M_ITS.CM32_AND_JEW],
-    ['R4', { code: 'dmg-ltng', min: 30, max: 60 }, { lvl: 30, lvlreq: 15, freq: 3 }, M_ITS.CM321_AND_JEW],
-    ['R5', { code: 'dmg-ltng', min: 10, max: 30 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.CM321_AND_JEW]
+    ['R2', { code: 'dmg-ltng', min: 90, max: 120 }, { lvl: 70, lvlreq: 45, freq: 2 }, M_ITS.CM3_JEW],
+    ['R3', { code: 'dmg-ltng', min: 60, max: 90 }, { lvl: 50, lvlreq: 35, freq: 3 }, M_ITS.CM32_JEW],
+    ['R4', { code: 'dmg-ltng', min: 30, max: 60 }, { lvl: 30, lvlreq: 15, freq: 3 }, M_ITS.CM321_JEW],
+    ['R5', { code: 'dmg-ltng', min: 10, max: 30 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.CM321_JEW]
   ],
   'dmg-cold': [
-    ['R1', { code: 'dmg-cold', param: 50, min: 250, max: 350 }, { lvl: 80, lvlreq: 65, freq: 2 }, M_ITS.MELE_AND_MISS],
-    ['R2', { code: 'dmg-cold', param: 50, min: 150, max: 250 }, { lvl: 70, lvlreq: 45, freq: 2 }, M_ITS.MELE_AND_MISS],
-    ['R3', { code: 'dmg-cold', param: 50, min: 100, max: 150 }, { lvl: 50, lvlreq: 35, freq: 3 }, M_ITS.MELE_AND_MISS],
-    ['R4', { code: 'dmg-cold', param: 50, min: 60, max: 100 }, { lvl: 30, lvlreq: 15, freq: 3 }, M_ITS.MELE_AND_MISS],
-    ['R5', { code: 'dmg-cold', param: 50, min: 30, max: 60 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.MELE_AND_MISS],
+    ['R1', { code: 'dmg-cold', param: 50, min: 250, max: 350 }, { lvl: 80, lvlreq: 65, freq: 2 }, M_ITS.MELE_MISS],
+    ['R2', { code: 'dmg-cold', param: 50, min: 150, max: 250 }, { lvl: 70, lvlreq: 45, freq: 2 }, M_ITS.MELE_MISS],
+    ['R3', { code: 'dmg-cold', param: 50, min: 100, max: 150 }, { lvl: 50, lvlreq: 35, freq: 3 }, M_ITS.MELE_MISS],
+    ['R4', { code: 'dmg-cold', param: 50, min: 60, max: 100 }, { lvl: 30, lvlreq: 15, freq: 3 }, M_ITS.MELE_MISS],
+    ['R5', { code: 'dmg-cold', param: 50, min: 30, max: 60 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.MELE_MISS],
     ['R1', { code: 'dmg-cold', param: 50, min: 120, max: 150 }, { lvl: 80, lvlreq: 65, freq: 2 }, M_ITS.CM3],
-    ['R2', { code: 'dmg-cold', param: 50, min: 90, max: 120 }, { lvl: 70, lvlreq: 45, freq: 2 }, M_ITS.CM3_AND_JEW],
-    ['R3', { code: 'dmg-cold', param: 50, min: 60, max: 90 }, { lvl: 50, lvlreq: 35, freq: 3 }, M_ITS.CM32_AND_JEW],
-    ['R4', { code: 'dmg-cold', param: 50, min: 30, max: 60 }, { lvl: 30, lvlreq: 15, freq: 3 }, M_ITS.CM321_AND_JEW],
-    ['R5', { code: 'dmg-cold', param: 50, min: 10, max: 30 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.CM321_AND_JEW]
+    ['R2', { code: 'dmg-cold', param: 50, min: 90, max: 120 }, { lvl: 70, lvlreq: 45, freq: 2 }, M_ITS.CM3_JEW],
+    ['R3', { code: 'dmg-cold', param: 50, min: 60, max: 90 }, { lvl: 50, lvlreq: 35, freq: 3 }, M_ITS.CM32_JEW],
+    ['R4', { code: 'dmg-cold', param: 50, min: 30, max: 60 }, { lvl: 30, lvlreq: 15, freq: 3 }, M_ITS.CM321_JEW],
+    ['R5', { code: 'dmg-cold', param: 50, min: 10, max: 30 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.CM321_JEW]
   ],
   'dmg-pois': [
-    ['R1', { code: 'dmg-pois', param: 75, min: 350, max: 450 }, { lvl: 80, lvlreq: 65, freq: 2 }, M_ITS.MELE_AND_MISS],
-    ['R2', { code: 'dmg-pois', param: 75, min: 250, max: 350 }, { lvl: 70, lvlreq: 45, freq: 2 }, M_ITS.MELE_AND_MISS],
-    ['R3', { code: 'dmg-pois', param: 75, min: 150, max: 250 }, { lvl: 50, lvlreq: 35, freq: 3 }, M_ITS.MELE_AND_MISS],
-    ['R4', { code: 'dmg-pois', param: 75, min: 100, max: 150 }, { lvl: 30, lvlreq: 15, freq: 3 }, M_ITS.MELE_AND_MISS],
-    ['R5', { code: 'dmg-pois', param: 75, min: 50, max: 100 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.MELE_AND_MISS],
+    ['R1', { code: 'dmg-pois', param: 75, min: 350, max: 450 }, { lvl: 80, lvlreq: 65, freq: 2 }, M_ITS.MELE_MISS],
+    ['R2', { code: 'dmg-pois', param: 75, min: 250, max: 350 }, { lvl: 70, lvlreq: 45, freq: 2 }, M_ITS.MELE_MISS],
+    ['R3', { code: 'dmg-pois', param: 75, min: 150, max: 250 }, { lvl: 50, lvlreq: 35, freq: 3 }, M_ITS.MELE_MISS],
+    ['R4', { code: 'dmg-pois', param: 75, min: 100, max: 150 }, { lvl: 30, lvlreq: 15, freq: 3 }, M_ITS.MELE_MISS],
+    ['R5', { code: 'dmg-pois', param: 75, min: 50, max: 100 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.MELE_MISS],
     ['R1', { code: 'dmg-pois', param: 75, min: 350, max: 450 }, { lvl: 80, lvlreq: 65, freq: 2 }, M_ITS.CM3],
-    ['R2', { code: 'dmg-pois', param: 75, min: 250, max: 350 }, { lvl: 70, lvlreq: 45, freq: 2 }, M_ITS.CM3_AND_JEW],
-    ['R3', { code: 'dmg-pois', param: 75, min: 150, max: 250 }, { lvl: 50, lvlreq: 35, freq: 3 }, M_ITS.CM32_AND_JEW],
-    ['R4', { code: 'dmg-pois', param: 75, min: 100, max: 150 }, { lvl: 30, lvlreq: 15, freq: 3 }, M_ITS.CM321_AND_JEW],
-    ['R5', { code: 'dmg-pois', param: 75, min: 50, max: 100 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.CM321_AND_JEW]
+    ['R2', { code: 'dmg-pois', param: 75, min: 250, max: 350 }, { lvl: 70, lvlreq: 45, freq: 2 }, M_ITS.CM3_JEW],
+    ['R3', { code: 'dmg-pois', param: 75, min: 150, max: 250 }, { lvl: 50, lvlreq: 35, freq: 3 }, M_ITS.CM32_JEW],
+    ['R4', { code: 'dmg-pois', param: 75, min: 100, max: 150 }, { lvl: 30, lvlreq: 15, freq: 3 }, M_ITS.CM321_JEW],
+    ['R5', { code: 'dmg-pois', param: 75, min: 50, max: 100 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.CM321_JEW]
   ],
   'dmg-mag': [
-    ['R1', { code: 'dmg-mag', min: 250, max: 350 }, { lvl: 80, lvlreq: 65, freq: 2 }, M_ITS.MELE_AND_MISS],
-    ['R2', { code: 'dmg-mag', min: 150, max: 250 }, { lvl: 70, lvlreq: 45, freq: 2 }, M_ITS.MELE_AND_MISS],
-    ['R3', { code: 'dmg-mag', min: 100, max: 150 }, { lvl: 50, lvlreq: 35, freq: 3 }, M_ITS.MELE_AND_MISS],
-    ['R4', { code: 'dmg-mag', min: 60, max: 100 }, { lvl: 30, lvlreq: 15, freq: 3 }, M_ITS.MELE_AND_MISS],
-    ['R5', { code: 'dmg-mag', min: 30, max: 60 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.MELE_AND_MISS],
+    ['R1', { code: 'dmg-mag', min: 250, max: 350 }, { lvl: 80, lvlreq: 65, freq: 2 }, M_ITS.MELE_MISS],
+    ['R2', { code: 'dmg-mag', min: 150, max: 250 }, { lvl: 70, lvlreq: 45, freq: 2 }, M_ITS.MELE_MISS],
+    ['R3', { code: 'dmg-mag', min: 100, max: 150 }, { lvl: 50, lvlreq: 35, freq: 3 }, M_ITS.MELE_MISS],
+    ['R4', { code: 'dmg-mag', min: 60, max: 100 }, { lvl: 30, lvlreq: 15, freq: 3 }, M_ITS.MELE_MISS],
+    ['R5', { code: 'dmg-mag', min: 30, max: 60 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.MELE_MISS],
     ['R1', { code: 'dmg-mag', min: 120, max: 150 }, { lvl: 80, lvlreq: 65, freq: 2 }, M_ITS.CM3],
-    ['R2', { code: 'dmg-mag', min: 90, max: 120 }, { lvl: 70, lvlreq: 45, freq: 2 }, M_ITS.CM3_AND_JEW],
-    ['R3', { code: 'dmg-mag', min: 60, max: 90 }, { lvl: 50, lvlreq: 35, freq: 3 }, M_ITS.CM32_AND_JEW],
-    ['R4', { code: 'dmg-mag', min: 30, max: 60 }, { lvl: 30, lvlreq: 15, freq: 3 }, M_ITS.CM321_AND_JEW],
-    ['R5', { code: 'dmg-mag', min: 10, max: 30 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.CM321_AND_JEW]
+    ['R2', { code: 'dmg-mag', min: 90, max: 120 }, { lvl: 70, lvlreq: 45, freq: 2 }, M_ITS.CM3_JEW],
+    ['R3', { code: 'dmg-mag', min: 60, max: 90 }, { lvl: 50, lvlreq: 35, freq: 3 }, M_ITS.CM32_JEW],
+    ['R4', { code: 'dmg-mag', min: 30, max: 60 }, { lvl: 30, lvlreq: 15, freq: 3 }, M_ITS.CM321_JEW],
+    ['R5', { code: 'dmg-mag', min: 10, max: 30 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.CM321_JEW]
   ],
 
   // ['sor-fire', MOD_TYPE.SUFFIX, '火系技能'],
@@ -365,23 +443,23 @@ const MOD_PROP = {
     ['R2-1', { code: 'cast2', min: 15, max: 20 }, { lvl: 55, lvlreq: 25, freq: 3 }, M_ITS.CASTER_UPP],
     ['R2-2', { code: 'cast2', min: 10, max: 15 }, { lvl: 55, lvlreq: 25, freq: 3 }, M_ITS.CASTER_LOW],
     ['R3-1', { code: 'cast2', min: 10, max: 15 }, { lvl: 40, lvlreq: 15, freq: 3 }, M_ITS.CASTER_LOW],
-    ['R3-2', { code: 'cast2', min: 10, max: 15 }, { lvl: 40, lvlreq: 15, freq: 4 }, M_ITS.CM3_AND_JEW],
-    ['R3-3', { code: 'cast2', min: 10, max: 15 }, { lvl: 40, lvlreq: 15, freq: 4 }, M_ITS.CM3_AND_JEW],
-    ['R4', { code: 'cast2', min: 10, max: 10 }, { lvl: 40, lvlreq: 15, freq: 4 }, M_ITS.CM3_AND_JEW]
+    ['R3-2', { code: 'cast2', min: 10, max: 15 }, { lvl: 40, lvlreq: 15, freq: 4 }, M_ITS.CM3_JEW],
+    ['R3-3', { code: 'cast2', min: 10, max: 15 }, { lvl: 40, lvlreq: 15, freq: 4 }, M_ITS.CM3_JEW],
+    ['R4', { code: 'cast2', min: 10, max: 10 }, { lvl: 40, lvlreq: 15, freq: 4 }, M_ITS.CM3_JEW]
   ],
   'swing2': [
     ['R1', { code: 'swing2', min: 20, max: 30 }, { lvl: 75, lvlreq: 45, freq: 4 }, M_ITS.MELE],
     ['R2', { code: 'swing2', min: 15, max: 20 }, { lvl: 55, lvlreq: 25, freq: 5 }, M_ITS.MELE.concat(M_ITS.JEW)],
-    ['R3', { code: 'swing2', min: 10, max: 15 }, { lvl: 40, lvlreq: 15, freq: 6 }, M_ITS.MELE.concat(M_ITS.CM3_AND_JEW)]
+    ['R3', { code: 'swing2', min: 10, max: 15 }, { lvl: 40, lvlreq: 15, freq: 6 }, M_ITS.MELE.concat(M_ITS.CM3_JEW)]
   ],
   'move2': [
     ['R1', { code: 'move2', min: 25, max: 40 }, { lvl: 65, lvlreq: 45, freq: 4 }, [`shld`, `belt`, `boot`]],
-    ['R2', { code: 'move2', min: 15, max: 30 }, { lvl: 50, lvlreq: 25, freq: 5 }, [`shld`, `belt`, `boot`].concat(M_ITS.CM3_AND_JEW)],
-    ['R3', { code: 'move2', min: 10, max: 20 }, { lvl: 40, lvlreq: 15, freq: 6 }, M_ITS.CM32_AND_JEW]
+    ['R2', { code: 'move2', min: 15, max: 30 }, { lvl: 50, lvlreq: 25, freq: 5 }, [`shld`, `belt`, `boot`].concat(M_ITS.CM3_JEW)],
+    ['R3', { code: 'move2', min: 10, max: 20 }, { lvl: 40, lvlreq: 15, freq: 6 }, M_ITS.CM32_JEW]
   ],
   'balance2': [
     ['R1', { code: 'balance2', min: 25, max: 40 }, { lvl: 65, lvlreq: 45, freq: 4 }, M_ITS.NORMAL],
-    ['R2', { code: 'balance2', min: 15, max: 30 }, { lvl: 50, lvlreq: 25, freq: 5 }, M_ITS.NORMAL.concat(M_ITS.CM3_AND_JEW)],
+    ['R2', { code: 'balance2', min: 15, max: 30 }, { lvl: 50, lvlreq: 25, freq: 5 }, M_ITS.NORMAL.concat(M_ITS.CM3_JEW)],
     ['R3', { code: 'balance2', min: 10, max: 20 }, { lvl: 40, lvlreq: 15, freq: 6 }, M_ITS.JEW.concat(M_ITS.CM32)]
   ],
 
@@ -398,11 +476,11 @@ const MOD_PROP = {
     ['R3', { code: 'mana%', min: 8, max: 10, code2: 'hp%', min2: 3, max2: 10 }, { lvl: 45, lvlreq: 30, freq: 2 }, M_ITS.NORMAL],
     ['R4', { code: 'mana%', min: 6, max: 8, code2: 'hp%', min2: 6, max2: 8 }, { lvl: 25, lvlreq: 20, freq: 3 }, M_ITS.NORMAL],
     ['R5', { code: 'mana%', min: 4, max: 6, code2: 'hp%', min2: 4, max2: 6 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.NORMAL],
-    ['R1', { code: 'mana%', min: 10, max: 12, code2: 'hp%', min2: 4, max2: 12 }, { lvl: 65, lvlreq: 50, freq: 1 }, M_ITS.CM3_AND_JEW],
-    ['R2', { code: 'mana%', min: 8, max: 10, code2: 'hp%', min2: 3, max2: 10 }, { lvl: 45, lvlreq: 35, freq: 2 }, M_ITS.CM3_AND_JEW],
-    ['R3', { code: 'mana%', min: 6, max: 8, code2: 'hp%', min2: 6, max2: 8 }, { lvl: 35, lvlreq: 25, freq: 2 }, M_ITS.CM32_AND_JEW],
-    ['R4', { code: 'mana%', min: 4, max: 6, code2: 'hp%', min2: 4, max2: 6 }, { lvl: 25, lvlreq: 15, freq: 3 }, M_ITS.CM32_AND_JEW],
-    ['R5', { code: 'mana%', min: 3, max: 4, code2: 'hp%', min2: 3, max2: 4 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.CM321_AND_JEW]
+    ['R1', { code: 'mana%', min: 10, max: 12, code2: 'hp%', min2: 4, max2: 12 }, { lvl: 65, lvlreq: 50, freq: 1 }, M_ITS.CM3_JEW],
+    ['R2', { code: 'mana%', min: 8, max: 10, code2: 'hp%', min2: 3, max2: 10 }, { lvl: 45, lvlreq: 35, freq: 2 }, M_ITS.CM3_JEW],
+    ['R3', { code: 'mana%', min: 6, max: 8, code2: 'hp%', min2: 6, max2: 8 }, { lvl: 35, lvlreq: 25, freq: 2 }, M_ITS.CM32_JEW],
+    ['R4', { code: 'mana%', min: 4, max: 6, code2: 'hp%', min2: 4, max2: 6 }, { lvl: 25, lvlreq: 15, freq: 3 }, M_ITS.CM32_JEW],
+    ['R5', { code: 'mana%', min: 3, max: 4, code2: 'hp%', min2: 3, max2: 4 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.CM321_JEW]
   ],
   'super-hp': [
     ['R1', { code: 'hp', min: 80, max: 100 }, { lvl: 75, lvlreq: 60, freq: 2 }, M_ITS.NORMAL],
@@ -411,18 +489,18 @@ const MOD_PROP = {
     ['R4', { code: 'hp', min: 35, max: 50 }, { lvl: 35, lvlreq: 15, freq: 4 }, M_ITS.NORMAL],
     ['R5', { code: 'hp', min: 20, max: 35 }, { lvl: 20, lvlreq: 10, freq: 4 }, M_ITS.NORMAL],
     ['R6', { code: 'hp', min: 10, max: 20 }, { lvl: 10, lvlreq: 5, freq: 3 }, M_ITS.NORMAL],
-    ['R1', { code: 'hp', min: 60, max: 80 }, { lvl: 65, lvlreq: 40, freq: 3 }, M_ITS.CM3_AND_JEW],
-    ['R2', { code: 'hp', min: 50, max: 60 }, { lvl: 50, lvlreq: 25, freq: 3 }, M_ITS.CM32_AND_JEW],
-    ['R3', { code: 'hp', min: 35, max: 50 }, { lvl: 35, lvlreq: 15, freq: 4 }, M_ITS.CM32_AND_JEW],
-    ['R4', { code: 'hp', min: 20, max: 35 }, { lvl: 20, lvlreq: 10, freq: 4 }, M_ITS.CM321_AND_JEW],
+    ['R1', { code: 'hp', min: 60, max: 80 }, { lvl: 65, lvlreq: 40, freq: 3 }, M_ITS.CM3_JEW],
+    ['R2', { code: 'hp', min: 50, max: 60 }, { lvl: 50, lvlreq: 25, freq: 3 }, M_ITS.CM32_JEW],
+    ['R3', { code: 'hp', min: 35, max: 50 }, { lvl: 35, lvlreq: 15, freq: 4 }, M_ITS.CM32_JEW],
+    ['R4', { code: 'hp', min: 20, max: 35 }, { lvl: 20, lvlreq: 10, freq: 4 }, M_ITS.CM321_JEW],
     ['R5', { code: 'hp', min: 10, max: 20 }, { lvl: 10, lvlreq: 5, freq: 3 }, M_ITS.CM321],
   ],
   'super-hp%': [
     ['R1', { code: 'hp%', min: 15, max: 18 }, { lvl: 75, lvlreq: 55, freq: 2 }, M_ITS.NORMAL],
-    ['R2', { code: 'hp%', min: 10, max: 15 }, { lvl: 50, lvlreq: 25, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM3_AND_JEW)],
-    ['R3', { code: 'hp%', min: 6, max: 12 }, { lvl: 35, lvlreq: 15, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM32_AND_JEW)],
-    ['R4', { code: 'hp%', min: 6, max: 8 }, { lvl: 20, lvlreq: 10, freq: 5 }, M_ITS.NORMAL.concat(M_ITS.CM32_AND_JEW)],
-    ['R5', { code: 'hp%', min: 3, max: 6 }, { lvl: 15, lvlreq: 5, freq: 5 }, M_ITS.CM321_AND_JEW],
+    ['R2', { code: 'hp%', min: 10, max: 15 }, { lvl: 50, lvlreq: 25, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM3_JEW)],
+    ['R3', { code: 'hp%', min: 6, max: 12 }, { lvl: 35, lvlreq: 15, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM32_JEW)],
+    ['R4', { code: 'hp%', min: 6, max: 8 }, { lvl: 20, lvlreq: 10, freq: 5 }, M_ITS.NORMAL.concat(M_ITS.CM32_JEW)],
+    ['R5', { code: 'hp%', min: 3, max: 6 }, { lvl: 15, lvlreq: 5, freq: 5 }, M_ITS.CM321_JEW],
   ],
   'super-mana': [
     ['R1', { code: 'mana', min: 120, max: 150 }, { lvl: 75, lvlreq: 60, freq: 2 }, M_ITS.NORMAL],
@@ -431,33 +509,48 @@ const MOD_PROP = {
     ['R4', { code: 'mana', min: 50, max: 75 }, { lvl: 35, lvlreq: 15, freq: 4 }, M_ITS.NORMAL],
     ['R5', { code: 'mana', min: 30, max: 50 }, { lvl: 20, lvlreq: 10, freq: 4 }, M_ITS.NORMAL],
     ['R6', { code: 'mana', min: 20, max: 30 }, { lvl: 10, lvlreq: 5, freq: 3 }, M_ITS.NORMAL],
-    ['R1', { code: 'mana', min: 90, max: 120 }, { lvl: 65, lvlreq: 40, freq: 3 }, M_ITS.CM3_AND_JEW],
-    ['R2', { code: 'mana', min: 75, max: 90 }, { lvl: 50, lvlreq: 25, freq: 3 }, M_ITS.CM32_AND_JEW],
-    ['R3', { code: 'mana', min: 50, max: 75 }, { lvl: 35, lvlreq: 15, freq: 4 }, M_ITS.CM32_AND_JEW],
-    ['R4', { code: 'mana', min: 30, max: 50 }, { lvl: 20, lvlreq: 10, freq: 4 }, M_ITS.CM321_AND_JEW],
+    ['R1', { code: 'mana', min: 90, max: 120 }, { lvl: 65, lvlreq: 40, freq: 3 }, M_ITS.CM3_JEW],
+    ['R2', { code: 'mana', min: 75, max: 90 }, { lvl: 50, lvlreq: 25, freq: 3 }, M_ITS.CM32_JEW],
+    ['R3', { code: 'mana', min: 50, max: 75 }, { lvl: 35, lvlreq: 15, freq: 4 }, M_ITS.CM32_JEW],
+    ['R4', { code: 'mana', min: 30, max: 50 }, { lvl: 20, lvlreq: 10, freq: 4 }, M_ITS.CM321_JEW],
     ['R5', { code: 'mana', min: 20, max: 30 }, { lvl: 10, lvlreq: 5, freq: 3 }, M_ITS.CM321],
   ],
   'super-mana%': [
     ['R1', { code: 'mana%', min: 18, max: 25 }, { lvl: 75, lvlreq: 55, freq: 2 }, M_ITS.NORMAL],
-    ['R2', { code: 'mana%', min: 15, max: 20 }, { lvl: 50, lvlreq: 25, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM3_AND_JEW)],
-    ['R3', { code: 'mana%', min: 12, max: 18 }, { lvl: 35, lvlreq: 15, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_AND_JEW)],
-    ['R4', { code: 'mana%', min: 8, max: 12 }, { lvl: 20, lvlreq: 10, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_AND_JEW)],
-    ['R5', { code: 'mana%', min: 3, max: 8 }, { lvl: 15, lvlreq: 5, freq: 3 }, M_ITS.CM321_AND_JEW],
+    ['R2', { code: 'mana%', min: 15, max: 20 }, { lvl: 50, lvlreq: 25, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM3_JEW)],
+    ['R3', { code: 'mana%', min: 12, max: 18 }, { lvl: 35, lvlreq: 15, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_JEW)],
+    ['R4', { code: 'mana%', min: 8, max: 12 }, { lvl: 20, lvlreq: 10, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_JEW)],
+    ['R5', { code: 'mana%', min: 3, max: 8 }, { lvl: 15, lvlreq: 5, freq: 3 }, M_ITS.CM321_JEW],
   ],
   'lvl-hp': [
     ['R1', { code: 'hp/lvl', min: 12, max: 15 }, { lvl: 75, lvlreq: 55, freq: 2 }, M_ITS.NORMAL],
-    ['R2', { code: 'hp/lvl', min: 10, max: 12 }, { lvl: 50, lvlreq: 25, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM3_AND_JEW)],
-    ['R3', { code: 'hp/lvl', min: 10, max: 10 }, { lvl: 35, lvlreq: 15, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_AND_JEW)],
-    ['R4', { code: 'hp/lvl', min: 8, max: 8 }, { lvl: 20, lvlreq: 10, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_AND_JEW)],
-    ['R5', { code: 'hp/lvl', min: 6, max: 6 }, { lvl: 15, lvlreq: 5, freq: 3 }, M_ITS.CM321_AND_JEW],
+    ['R2', { code: 'hp/lvl', min: 10, max: 12 }, { lvl: 50, lvlreq: 25, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM3_JEW)],
+    ['R3', { code: 'hp/lvl', min: 10, max: 10 }, { lvl: 35, lvlreq: 15, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_JEW)],
+    ['R4', { code: 'hp/lvl', min: 8, max: 8 }, { lvl: 20, lvlreq: 10, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_JEW)],
+    ['R5', { code: 'hp/lvl', min: 6, max: 6 }, { lvl: 15, lvlreq: 5, freq: 3 }, M_ITS.CM321_JEW],
   ],
   'lvl-mana': [
     ['R1', { code: 'mana/lvl', min: 12, max: 15 }, { lvl: 75, lvlreq: 55, freq: 2 }, M_ITS.NORMAL],
-    ['R2', { code: 'mana/lvl', min: 10, max: 12 }, { lvl: 50, lvlreq: 25, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM3_AND_JEW)],
-    ['R3', { code: 'mana/lvl', min: 10, max: 10 }, { lvl: 35, lvlreq: 15, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_AND_JEW)],
-    ['R4', { code: 'mana/lvl', min: 8, max: 8 }, { lvl: 20, lvlreq: 10, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_AND_JEW)],
-    ['R5', { code: 'mana/lvl', min: 6, max: 6 }, { lvl: 15, lvlreq: 5, freq: 3 }, M_ITS.CM321_AND_JEW],
+    ['R2', { code: 'mana/lvl', min: 10, max: 12 }, { lvl: 50, lvlreq: 25, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM3_JEW)],
+    ['R3', { code: 'mana/lvl', min: 10, max: 10 }, { lvl: 35, lvlreq: 15, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_JEW)],
+    ['R4', { code: 'mana/lvl', min: 8, max: 8 }, { lvl: 20, lvlreq: 10, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_JEW)],
+    ['R5', { code: 'mana/lvl', min: 6, max: 6 }, { lvl: 15, lvlreq: 5, freq: 3 }, M_ITS.CM321_JEW],
   ],
+  // ['super-stam', MOD_TYPE.PREFIX, '体力上限'],
+  'super-stam': [
+    ['R1', { code: 'stam', min: 120, max: 150 }, { lvl: 75, lvlreq: 60, freq: 1 }, M_ITS.NORMAL],
+    ['R2', { code: 'stam', min: 90, max: 120 }, { lvl: 65, lvlreq: 40, freq: 1 }, M_ITS.NORMAL],
+    ['R3', { code: 'stam', min: 75, max: 90 }, { lvl: 50, lvlreq: 25, freq: 1 }, M_ITS.NORMAL],
+    ['R4', { code: 'stam', min: 50, max: 75 }, { lvl: 35, lvlreq: 15, freq: 1 }, M_ITS.NORMAL],
+    ['R5', { code: 'stam', min: 30, max: 50 }, { lvl: 20, lvlreq: 10, freq: 1 }, M_ITS.NORMAL],
+    ['R6', { code: 'stam', min: 20, max: 30 }, { lvl: 10, lvlreq: 5, freq: 1 }, M_ITS.NORMAL],
+    ['R1', { code: 'stam', min: 90, max: 120 }, { lvl: 65, lvlreq: 40, freq: 1 }, M_ITS.CM3_JEW],
+    ['R2', { code: 'stam', min: 75, max: 90 }, { lvl: 50, lvlreq: 25, freq: 1 }, M_ITS.CM32_JEW],
+    ['R3', { code: 'stam', min: 50, max: 75 }, { lvl: 35, lvlreq: 15, freq: 1 }, M_ITS.CM32_JEW],
+    ['R4', { code: 'stam', min: 30, max: 50 }, { lvl: 20, lvlreq: 10, freq: 1 }, M_ITS.CM321_JEW],
+    ['R5', { code: 'stam', min: 20, max: 30 }, { lvl: 10, lvlreq: 5, freq: 1 }, M_ITS.CM321],
+  ],
+
   // ['all-stats', MOD_TYPE.PREFIX, '全属性'],
   // ['super-str', MOD_TYPE.PREFIX, '大量力量'],
   // ['super-vit', MOD_TYPE.PREFIX, '大量体能'],
@@ -465,38 +558,38 @@ const MOD_PROP = {
   // ['super-enr', MOD_TYPE.PREFIX, '大量能量'],
   'all-stats': [
     ['R1', { code: 'all-stats', min: 15, max: 15 }, { lvl: 75, lvlreq: 60, freq: 2 }, M_ITS.NORMAL],
-    ['R2', { code: 'all-stats', min: 10, max: 12 }, { lvl: 60, lvlreq: 45, freq: 2 }, M_ITS.NORMAL.concat(M_ITS.CM3_AND_JEW)],
-    ['R3', { code: 'all-stats', min: 6, max: 10 }, { lvl: 45, lvlreq: 25, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_AND_JEW)],
-    ['R4', { code: 'all-stats', min: 5, max: 8 }, { lvl: 30, lvlreq: 15, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_AND_JEW)],
-    ['R5', { code: 'all-stats', min: 3, max: 5 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM321_AND_JEW)]
+    ['R2', { code: 'all-stats', min: 10, max: 12 }, { lvl: 60, lvlreq: 45, freq: 2 }, M_ITS.NORMAL.concat(M_ITS.CM3_JEW)],
+    ['R3', { code: 'all-stats', min: 6, max: 10 }, { lvl: 45, lvlreq: 25, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_JEW)],
+    ['R4', { code: 'all-stats', min: 5, max: 8 }, { lvl: 30, lvlreq: 15, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_JEW)],
+    ['R5', { code: 'all-stats', min: 3, max: 5 }, { lvl: 15, lvlreq: 10, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)]
   ],
   'super-str': [
     ['R1', { code: 'str', min: 20, max: 30 }, { lvl: 75, lvlreq: 50, freq: 2 }, M_ITS.NORMAL],
-    ['R2', { code: 'str', min: 16, max: 24 }, { lvl: 55, lvlreq: 40, freq: 2 }, M_ITS.NORMAL.concat(M_ITS.CM3_AND_JEW)],
-    ['R3', { code: 'str', min: 12, max: 16 }, { lvl: 40, lvlreq: 25, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_AND_JEW)],
-    ['R4', { code: 'str', min: 8, max: 12 }, { lvl: 25, lvlreq: 10, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_AND_JEW)],
-    ['R5', { code: 'str', min: 5, max: 8 }, { lvl: 10, lvlreq: 5, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM321_AND_JEW)]
+    ['R2', { code: 'str', min: 16, max: 24 }, { lvl: 55, lvlreq: 40, freq: 2 }, M_ITS.NORMAL.concat(M_ITS.CM3_JEW)],
+    ['R3', { code: 'str', min: 12, max: 16 }, { lvl: 40, lvlreq: 25, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_JEW)],
+    ['R4', { code: 'str', min: 8, max: 12 }, { lvl: 25, lvlreq: 10, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_JEW)],
+    ['R5', { code: 'str', min: 5, max: 8 }, { lvl: 10, lvlreq: 5, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)]
   ],
   'super-vit': [
     ['R1', { code: 'vit', min: 20, max: 30 }, { lvl: 75, lvlreq: 50, freq: 2 }, M_ITS.NORMAL],
-    ['R2', { code: 'vit', min: 16, max: 24 }, { lvl: 55, lvlreq: 40, freq: 2 }, M_ITS.NORMAL.concat(M_ITS.CM3_AND_JEW)],
-    ['R3', { code: 'vit', min: 12, max: 16 }, { lvl: 40, lvlreq: 25, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_AND_JEW)],
-    ['R4', { code: 'vit', min: 8, max: 12 }, { lvl: 25, lvlreq: 10, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_AND_JEW)],
-    ['R5', { code: 'vit', min: 5, max: 8 }, { lvl: 10, lvlreq: 5, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM321_AND_JEW)]
+    ['R2', { code: 'vit', min: 16, max: 24 }, { lvl: 55, lvlreq: 40, freq: 2 }, M_ITS.NORMAL.concat(M_ITS.CM3_JEW)],
+    ['R3', { code: 'vit', min: 12, max: 16 }, { lvl: 40, lvlreq: 25, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_JEW)],
+    ['R4', { code: 'vit', min: 8, max: 12 }, { lvl: 25, lvlreq: 10, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_JEW)],
+    ['R5', { code: 'vit', min: 5, max: 8 }, { lvl: 10, lvlreq: 5, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)]
   ],
   'super-dex': [
     ['R1', { code: 'dex', min: 20, max: 30 }, { lvl: 75, lvlreq: 50, freq: 2 }, M_ITS.NORMAL],
-    ['R2', { code: 'dex', min: 16, max: 24 }, { lvl: 55, lvlreq: 40, freq: 2 }, M_ITS.NORMAL.concat(M_ITS.CM3_AND_JEW)],
-    ['R3', { code: 'dex', min: 12, max: 16 }, { lvl: 40, lvlreq: 25, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_AND_JEW)],
-    ['R4', { code: 'dex', min: 8, max: 12 }, { lvl: 25, lvlreq: 10, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_AND_JEW)],
-    ['R5', { code: 'dex', min: 5, max: 8 }, { lvl: 10, lvlreq: 5, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM321_AND_JEW)]
+    ['R2', { code: 'dex', min: 16, max: 24 }, { lvl: 55, lvlreq: 40, freq: 2 }, M_ITS.NORMAL.concat(M_ITS.CM3_JEW)],
+    ['R3', { code: 'dex', min: 12, max: 16 }, { lvl: 40, lvlreq: 25, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_JEW)],
+    ['R4', { code: 'dex', min: 8, max: 12 }, { lvl: 25, lvlreq: 10, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_JEW)],
+    ['R5', { code: 'dex', min: 5, max: 8 }, { lvl: 10, lvlreq: 5, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)]
   ],
   'super-enr': [
     ['R1', { code: 'enr', min: 20, max: 30 }, { lvl: 75, lvlreq: 50, freq: 2 }, M_ITS.NORMAL],
-    ['R2', { code: 'enr', min: 16, max: 24 }, { lvl: 55, lvlreq: 40, freq: 2 }, M_ITS.NORMAL.concat(M_ITS.CM3_AND_JEW)],
-    ['R3', { code: 'enr', min: 12, max: 16 }, { lvl: 40, lvlreq: 25, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_AND_JEW)],
-    ['R4', { code: 'enr', min: 8, max: 12 }, { lvl: 25, lvlreq: 10, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_AND_JEW)],
-    ['R5', { code: 'enr', min: 5, max: 8 }, { lvl: 10, lvlreq: 5, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM321_AND_JEW)]
+    ['R2', { code: 'enr', min: 16, max: 24 }, { lvl: 55, lvlreq: 40, freq: 2 }, M_ITS.NORMAL.concat(M_ITS.CM3_JEW)],
+    ['R3', { code: 'enr', min: 12, max: 16 }, { lvl: 40, lvlreq: 25, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_JEW)],
+    ['R4', { code: 'enr', min: 8, max: 12 }, { lvl: 25, lvlreq: 10, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_JEW)],
+    ['R5', { code: 'enr', min: 5, max: 8 }, { lvl: 10, lvlreq: 5, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)]
   ],
 
   // ['res-all', MOD_TYPE.PREFIX, '全抗性'],
@@ -512,9 +605,9 @@ const MOD_PROP = {
     ['R4', { code: 'res-all', min: 10, max: 12 }, { lvl: 30, lvlreq: 15, freq: 3 }, M_ITS.NORMAL],
     ['R5', { code: 'res-all', min: 8, max: 10 }, { lvl: 15, lvlreq: 7, freq: 3 }, M_ITS.NORMAL],
     ['R1', { code: 'res-all', min: 15, max: 18 }, { lvl: 75, lvlreq: 55, freq: 1 }, M_ITS.CM3],
-    ['R2', { code: 'res-all', min: 12, max: 15 }, { lvl: 60, lvlreq: 40, freq: 2 }, M_ITS.CM3_AND_JEW],
-    ['R3', { code: 'res-all', min: 9, max: 12 }, { lvl: 45, lvlreq: 25, freq: 2 }, M_ITS.CM32_AND_JEW],
-    ['R4', { code: 'res-all', min: 6, max: 9 }, { lvl: 30, lvlreq: 15, freq: 3 }, M_ITS.CM32_AND_JEW],
+    ['R2', { code: 'res-all', min: 12, max: 15 }, { lvl: 60, lvlreq: 40, freq: 2 }, M_ITS.CM3_JEW],
+    ['R3', { code: 'res-all', min: 9, max: 12 }, { lvl: 45, lvlreq: 25, freq: 2 }, M_ITS.CM32_JEW],
+    ['R4', { code: 'res-all', min: 6, max: 9 }, { lvl: 30, lvlreq: 15, freq: 3 }, M_ITS.CM32_JEW],
     ['R5', { code: 'res-all', min: 3, max: 6 }, { lvl: 15, lvlreq: 7, freq: 3 }, M_ITS.CM321]
   ],
   'res-fire': [
@@ -523,8 +616,8 @@ const MOD_PROP = {
     ['R3', { code: 'res-fire', min: 16, max: 30 }, { lvl: 35, lvlreq: 25, freq: 4 }, M_ITS.NORMAL],
     ['R4', { code: 'res-fire', min: 12, max: 20 }, { lvl: 15, lvlreq: 7, freq: 4 }, M_ITS.NORMAL],
     ['R1', { code: 'res-fire', min: 20, max: 36 }, { lvl: 75, lvlreq: 50, freq: 2 }, M_ITS.CM3],
-    ['R2', { code: 'res-fire', min: 20, max: 30 }, { lvl: 55, lvlreq: 30, freq: 3 }, M_ITS.CM3_AND_JEW],
-    ['R3', { code: 'res-fire', min: 16, max: 24 }, { lvl: 35, lvlreq: 15, freq: 4 }, M_ITS.CM32_AND_JEW],
+    ['R2', { code: 'res-fire', min: 20, max: 30 }, { lvl: 55, lvlreq: 30, freq: 3 }, M_ITS.CM3_JEW],
+    ['R3', { code: 'res-fire', min: 16, max: 24 }, { lvl: 35, lvlreq: 15, freq: 4 }, M_ITS.CM32_JEW],
     ['R4', { code: 'res-fire', min: 12, max: 12 }, { lvl: 15, lvlreq: 7, freq: 4 }, M_ITS.CM321]
   ],
   'res-cold': [
@@ -533,8 +626,8 @@ const MOD_PROP = {
     ['R3', { code: 'res-cold', min: 16, max: 30 }, { lvl: 35, lvlreq: 25, freq: 4 }, M_ITS.NORMAL],
     ['R4', { code: 'res-cold', min: 12, max: 20 }, { lvl: 15, lvlreq: 7, freq: 4 }, M_ITS.NORMAL],
     ['R1', { code: 'res-cold', min: 20, max: 36 }, { lvl: 75, lvlreq: 50, freq: 2 }, M_ITS.CM3],
-    ['R2', { code: 'res-cold', min: 20, max: 30 }, { lvl: 55, lvlreq: 30, freq: 3 }, M_ITS.CM3_AND_JEW],
-    ['R3', { code: 'res-cold', min: 16, max: 24 }, { lvl: 35, lvlreq: 15, freq: 4 }, M_ITS.CM32_AND_JEW],
+    ['R2', { code: 'res-cold', min: 20, max: 30 }, { lvl: 55, lvlreq: 30, freq: 3 }, M_ITS.CM3_JEW],
+    ['R3', { code: 'res-cold', min: 16, max: 24 }, { lvl: 35, lvlreq: 15, freq: 4 }, M_ITS.CM32_JEW],
     ['R4', { code: 'res-cold', min: 12, max: 12 }, { lvl: 15, lvlreq: 7, freq: 4 }, M_ITS.CM321]
   ],
   'res-ltng': [
@@ -543,8 +636,8 @@ const MOD_PROP = {
     ['R3', { code: 'res-ltng', min: 16, max: 30 }, { lvl: 35, lvlreq: 25, freq: 4 }, M_ITS.NORMAL],
     ['R4', { code: 'res-ltng', min: 12, max: 20 }, { lvl: 15, lvlreq: 7, freq: 4 }, M_ITS.NORMAL],
     ['R1', { code: 'res-ltng', min: 20, max: 36 }, { lvl: 75, lvlreq: 50, freq: 2 }, M_ITS.CM3],
-    ['R2', { code: 'res-ltng', min: 20, max: 30 }, { lvl: 55, lvlreq: 30, freq: 3 }, M_ITS.CM3_AND_JEW],
-    ['R3', { code: 'res-ltng', min: 16, max: 24 }, { lvl: 35, lvlreq: 15, freq: 4 }, M_ITS.CM32_AND_JEW],
+    ['R2', { code: 'res-ltng', min: 20, max: 30 }, { lvl: 55, lvlreq: 30, freq: 3 }, M_ITS.CM3_JEW],
+    ['R3', { code: 'res-ltng', min: 16, max: 24 }, { lvl: 35, lvlreq: 15, freq: 4 }, M_ITS.CM32_JEW],
     ['R4', { code: 'res-ltng', min: 12, max: 12 }, { lvl: 15, lvlreq: 7, freq: 4 }, M_ITS.CM321]
   ],
   'res-pois': [
@@ -553,8 +646,8 @@ const MOD_PROP = {
     ['R3', { code: 'res-pois', min: 16, max: 30 }, { lvl: 35, lvlreq: 25, freq: 4 }, M_ITS.NORMAL],
     ['R4', { code: 'res-pois', min: 12, max: 20 }, { lvl: 15, lvlreq: 7, freq: 4 }, M_ITS.NORMAL],
     ['R1', { code: 'res-pois', min: 20, max: 36 }, { lvl: 75, lvlreq: 50, freq: 2 }, M_ITS.CM3],
-    ['R2', { code: 'res-pois', min: 20, max: 30 }, { lvl: 55, lvlreq: 30, freq: 3 }, M_ITS.CM3_AND_JEW],
-    ['R3', { code: 'res-pois', min: 16, max: 24 }, { lvl: 35, lvlreq: 15, freq: 4 }, M_ITS.CM32_AND_JEW],
+    ['R2', { code: 'res-pois', min: 20, max: 30 }, { lvl: 55, lvlreq: 30, freq: 3 }, M_ITS.CM3_JEW],
+    ['R3', { code: 'res-pois', min: 16, max: 24 }, { lvl: 35, lvlreq: 15, freq: 4 }, M_ITS.CM32_JEW],
     ['R4', { code: 'res-pois', min: 12, max: 12 }, { lvl: 15, lvlreq: 7, freq: 4 }, M_ITS.CM321]
   ],
   'dual-res': [
@@ -580,32 +673,32 @@ const MOD_PROP = {
   'res-all-max': [
     ['R1', { code: 'res-all-max', min: 5, max: 5 }, { lvl: 75, lvlreq: 45, freq: 1 }, M_ITS.NORMAL],
     ['R2', { code: 'res-all-max', min: 4, max: 4 }, { lvl: 55, lvlreq: 25, freq: 2 }, M_ITS.NORMAL],
-    ['R3', { code: 'res-all-max', min: 3, max: 3 }, { lvl: 40, lvlreq: 15, freq: 2 }, M_ITS.CM3_AND_JEW],
-    ['R4', { code: 'res-all-max', min: 2, max: 2 }, { lvl: 40, lvlreq: 15, freq: 2 }, M_ITS.CM32_AND_JEW]
+    ['R3', { code: 'res-all-max', min: 3, max: 3 }, { lvl: 40, lvlreq: 15, freq: 2 }, M_ITS.CM3_JEW],
+    ['R4', { code: 'res-all-max', min: 2, max: 2 }, { lvl: 40, lvlreq: 15, freq: 2 }, M_ITS.CM32_JEW]
   ],
   'res-fire-max': [
     ['R1', { code: 'res-fire-max', min: 8, max: 10 }, { lvl: 75, lvlreq: 45, freq: 2 }, M_ITS.NORMAL],
     ['R2', { code: 'res-fire-max', min: 6, max: 8 }, { lvl: 55, lvlreq: 25, freq: 2 }, M_ITS.NORMAL],
-    ['R3', { code: 'res-fire-max', min: 4, max: 6 }, { lvl: 40, lvlreq: 15, freq: 2 }, M_ITS.CM3_AND_JEW],
-    ['R4', { code: 'res-fire-max', min: 3, max: 4 }, { lvl: 40, lvlreq: 15, freq: 3 }, M_ITS.CM32_AND_JEW]
+    ['R3', { code: 'res-fire-max', min: 4, max: 6 }, { lvl: 40, lvlreq: 15, freq: 2 }, M_ITS.CM3_JEW],
+    ['R4', { code: 'res-fire-max', min: 3, max: 4 }, { lvl: 40, lvlreq: 15, freq: 3 }, M_ITS.CM32_JEW]
   ],
   'res-cold-max': [
     ['R1', { code: 'res-cold-max', min: 8, max: 10 }, { lvl: 75, lvlreq: 45, freq: 2 }, M_ITS.NORMAL],
     ['R2', { code: 'res-cold-max', min: 6, max: 8 }, { lvl: 55, lvlreq: 25, freq: 2 }, M_ITS.NORMAL],
-    ['R3', { code: 'res-cold-max', min: 4, max: 6 }, { lvl: 40, lvlreq: 15, freq: 2 }, M_ITS.CM3_AND_JEW],
-    ['R4', { code: 'res-cold-max', min: 3, max: 4 }, { lvl: 40, lvlreq: 15, freq: 2 }, M_ITS.CM32_AND_JEW]
+    ['R3', { code: 'res-cold-max', min: 4, max: 6 }, { lvl: 40, lvlreq: 15, freq: 2 }, M_ITS.CM3_JEW],
+    ['R4', { code: 'res-cold-max', min: 3, max: 4 }, { lvl: 40, lvlreq: 15, freq: 2 }, M_ITS.CM32_JEW]
   ],
   'res-ltng-max': [
     ['R1', { code: 'res-ltng-max', min: 8, max: 10 }, { lvl: 75, lvlreq: 45, freq: 2 }, M_ITS.NORMAL],
     ['R2', { code: 'res-ltng-max', min: 6, max: 8 }, { lvl: 55, lvlreq: 25, freq: 2 }, M_ITS.NORMAL],
-    ['R3', { code: 'res-ltng-max', min: 4, max: 6 }, { lvl: 40, lvlreq: 15, freq: 2 }, M_ITS.CM3_AND_JEW],
-    ['R4', { code: 'res-ltng-max', min: 3, max: 4 }, { lvl: 40, lvlreq: 15, freq: 2 }, M_ITS.CM32_AND_JEW]
+    ['R3', { code: 'res-ltng-max', min: 4, max: 6 }, { lvl: 40, lvlreq: 15, freq: 2 }, M_ITS.CM3_JEW],
+    ['R4', { code: 'res-ltng-max', min: 3, max: 4 }, { lvl: 40, lvlreq: 15, freq: 2 }, M_ITS.CM32_JEW]
   ],
   'res-pois-max': [
     ['R1', { code: 'res-pois-max', min: 8, max: 10 }, { lvl: 75, lvlreq: 45, freq: 2 }, M_ITS.NORMAL],
     ['R2', { code: 'res-pois-max', min: 6, max: 8 }, { lvl: 55, lvlreq: 25, freq: 2 }, M_ITS.NORMAL],
-    ['R3', { code: 'res-pois-max', min: 4, max: 6 }, { lvl: 40, lvlreq: 15, freq: 2 }, M_ITS.CM3_AND_JEW],
-    ['R4', { code: 'res-pois-max', min: 3, max: 4 }, { lvl: 40, lvlreq: 15, freq: 2 }, M_ITS.CM32_AND_JEW]
+    ['R3', { code: 'res-pois-max', min: 4, max: 6 }, { lvl: 40, lvlreq: 15, freq: 2 }, M_ITS.CM3_JEW],
+    ['R4', { code: 'res-pois-max', min: 3, max: 4 }, { lvl: 40, lvlreq: 15, freq: 2 }, M_ITS.CM32_JEW]
   ],
 
   // // ['abs-mag', MOD_TYPE.PREFIX, '魔法吸收'],
@@ -621,62 +714,56 @@ const MOD_PROP = {
   'abs-mag': [
     ['R1', { code: 'abs-mag', min: 8, max: 12 }, { lvl: 85, lvlreq: 45, freq: 3 }, M_ITS.NORMAL],
     ['R2', { code: 'abs-mag', min: 7, max: 10 }, { lvl: 55, lvlreq: 25, freq: 4 }, M_ITS.NORMAL],
-    ['R3', { code: 'abs-mag', min: 6, max: 7 }, { lvl: 40, lvlreq: 15, freq: 5 }, M_ITS.JEW.concat(M_ITS.CM3)],
-    ['R4', { code: 'abs-mag', min: 5, max: 6 }, { lvl: 40, lvlreq: 15, freq: 6 }, M_ITS.JEW.concat(M_ITS.CM32)]
+    ['R3', { code: 'abs-mag', min: 6, max: 7 }, { lvl: 40, lvlreq: 15, freq: 5 }, M_ITS.CM3_JEW],
+    ['R4', { code: 'abs-mag', min: 5, max: 6 }, { lvl: 40, lvlreq: 15, freq: 6 }, M_ITS.CM32_JEW]
   ],
   'abs-fire': [
     ['R1', { code: 'abs-fire', min: 8, max: 12 }, { lvl: 85, lvlreq: 45, freq: 3 }, M_ITS.NORMAL],
     ['R2', { code: 'abs-fire', min: 7, max: 10 }, { lvl: 55, lvlreq: 25, freq: 4 }, M_ITS.NORMAL],
-    ['R3', { code: 'abs-fire', min: 6, max: 7 }, { lvl: 40, lvlreq: 15, freq: 5 }, M_ITS.JEW.concat(M_ITS.CM3)],
-    ['R4', { code: 'abs-fire', min: 5, max: 6 }, { lvl: 40, lvlreq: 15, freq: 6 }, M_ITS.JEW.concat(M_ITS.CM32)]
+    ['R3', { code: 'abs-fire', min: 6, max: 7 }, { lvl: 40, lvlreq: 15, freq: 5 }, M_ITS.CM3_JEW],
+    ['R4', { code: 'abs-fire', min: 5, max: 6 }, { lvl: 40, lvlreq: 15, freq: 6 }, M_ITS.CM32_JEW]
   ],
   'abs-cold': [
     ['R1', { code: 'abs-cold', min: 8, max: 12 }, { lvl: 85, lvlreq: 45, freq: 3 }, M_ITS.NORMAL],
     ['R2', { code: 'abs-cold', min: 7, max: 10 }, { lvl: 55, lvlreq: 25, freq: 4 }, M_ITS.NORMAL],
-    ['R3', { code: 'abs-cold', min: 6, max: 7 }, { lvl: 40, lvlreq: 15, freq: 5 }, M_ITS.JEW.concat(M_ITS.CM3)],
-    ['R4', { code: 'abs-cold', min: 5, max: 6 }, { lvl: 40, lvlreq: 15, freq: 6 }, M_ITS.JEW.concat(M_ITS.CM32)]
+    ['R3', { code: 'abs-cold', min: 6, max: 7 }, { lvl: 40, lvlreq: 15, freq: 5 }, M_ITS.CM3_JEW],
+    ['R4', { code: 'abs-cold', min: 5, max: 6 }, { lvl: 40, lvlreq: 15, freq: 6 }, M_ITS.CM32_JEW]
   ],
   'abs-ltng': [
     ['R1', { code: 'abs-ltng', min: 8, max: 12 }, { lvl: 85, lvlreq: 45, freq: 3 }, M_ITS.NORMAL],
     ['R2', { code: 'abs-ltng', min: 7, max: 10 }, { lvl: 55, lvlreq: 25, freq: 4 }, M_ITS.NORMAL],
-    ['R3', { code: 'abs-ltng', min: 6, max: 7 }, { lvl: 40, lvlreq: 15, freq: 5 }, M_ITS.JEW.concat(M_ITS.CM3)],
-    ['R4', { code: 'abs-ltng', min: 5, max: 6 }, { lvl: 40, lvlreq: 15, freq: 6 }, M_ITS.JEW.concat(M_ITS.CM32)]
+    ['R3', { code: 'abs-ltng', min: 6, max: 7 }, { lvl: 40, lvlreq: 15, freq: 5 }, M_ITS.CM3_JEW],
+    ['R4', { code: 'abs-ltng', min: 5, max: 6 }, { lvl: 40, lvlreq: 15, freq: 6 }, M_ITS.CM32_JEW]
   ],
   // 'abs-pois': [
   //   ['R1', { code: 'abs-pois', min: 8, max: 12 }, { lvl: 85,  lvlreq: 45, freq: 3 }, MOD_ITYPES['NORMAL']],
-  //   ['R2', { code: 'abs-pois', min: 7, max: 10 }, { lvl: 55,  lvlreq: 25, freq: 4 }, MOD_ITYPES['NORMAL'].concat(MOD_ITYPES['JEW'])],
-  //   ['R3', { code: 'abs-pois', min: 6, max: 7 }, { lvl: 40,  lvlreq: 15, freq: 5 }, MOD_ITYPES['JEW'].concat(MOD_ITYPES['CHARM_UPP'])],
-  //   ['R4', { code: 'abs-pois', min: 5, max: 6 }, { lvl: 40,  lvlreq: 15, freq: 6 }, MOD_ITYPES['JEW'].concat(MOD_ITYPES['CHARM_MID'])]
   // ],
   'abs-mag%': [
     ['R1', { code: 'abs-mag%', min: 5, max: 8 }, { lvl: 85, lvlreq: 45, freq: 2 }, M_ITS.NORMAL],
     ['R2', { code: 'abs-mag%', min: 4, max: 6 }, { lvl: 55, lvlreq: 25, freq: 3 }, M_ITS.NORMAL],
-    ['R3', { code: 'abs-mag%', min: 3, max: 4 }, { lvl: 40, lvlreq: 15, freq: 4 }, M_ITS.JEW.concat(M_ITS.CM3)],
-    ['R4', { code: 'abs-mag%', min: 2, max: 3 }, { lvl: 40, lvlreq: 15, freq: 5 }, M_ITS.JEW.concat(M_ITS.CM32)]
+    ['R3', { code: 'abs-mag%', min: 3, max: 4 }, { lvl: 40, lvlreq: 15, freq: 4 }, M_ITS.CM3_JEW],
+    ['R4', { code: 'abs-mag%', min: 2, max: 3 }, { lvl: 40, lvlreq: 15, freq: 5 }, M_ITS.CM32_JEW]
   ],
   'abs-fire%': [
     ['R1', { code: 'abs-fire%', min: 5, max: 8 }, { lvl: 85, lvlreq: 45, freq: 2 }, M_ITS.NORMAL],
     ['R2', { code: 'abs-fire%', min: 4, max: 6 }, { lvl: 55, lvlreq: 25, freq: 3 }, M_ITS.NORMAL],
-    ['R3', { code: 'abs-fire%', min: 3, max: 4 }, { lvl: 40, lvlreq: 15, freq: 4 }, M_ITS.JEW.concat(M_ITS.CM3)],
-    ['R4', { code: 'abs-fire%', min: 2, max: 3 }, { lvl: 40, lvlreq: 15, freq: 5 }, M_ITS.JEW.concat(M_ITS.CM32)]
+    ['R3', { code: 'abs-fire%', min: 3, max: 4 }, { lvl: 40, lvlreq: 15, freq: 4 }, M_ITS.CM3_JEW],
+    ['R4', { code: 'abs-fire%', min: 2, max: 3 }, { lvl: 40, lvlreq: 15, freq: 5 }, M_ITS.CM32_JEW]
   ],
   'abs-cold%': [
     ['R1', { code: 'abs-cold%', min: 5, max: 8 }, { lvl: 85, lvlreq: 45, freq: 2 }, M_ITS.NORMAL],
     ['R2', { code: 'abs-cold%', min: 4, max: 6 }, { lvl: 55, lvlreq: 25, freq: 3 }, M_ITS.NORMAL],
-    ['R3', { code: 'abs-cold%', min: 3, max: 4 }, { lvl: 40, lvlreq: 15, freq: 4 }, M_ITS.JEW.concat(M_ITS.CM3)],
-    ['R4', { code: 'abs-cold%', min: 2, max: 3 }, { lvl: 40, lvlreq: 15, freq: 5 }, M_ITS.JEW.concat(M_ITS.CM32)]
+    ['R3', { code: 'abs-cold%', min: 3, max: 4 }, { lvl: 40, lvlreq: 15, freq: 4 }, M_ITS.CM3_JEW],
+    ['R4', { code: 'abs-cold%', min: 2, max: 3 }, { lvl: 40, lvlreq: 15, freq: 5 }, M_ITS.CM32_JEW]
   ],
   'abs-ltng%': [
     ['R1', { code: 'abs-ltng%', min: 5, max: 8 }, { lvl: 85, lvlreq: 45, freq: 2 }, M_ITS.NORMAL],
     ['R2', { code: 'abs-ltng%', min: 4, max: 6 }, { lvl: 55, lvlreq: 25, freq: 3 }, M_ITS.NORMAL],
-    ['R3', { code: 'abs-ltng%', min: 3, max: 4 }, { lvl: 40, lvlreq: 15, freq: 4 }, M_ITS.JEW.concat(M_ITS.CM3)],
-    ['R4', { code: 'abs-ltng%', min: 2, max: 3 }, { lvl: 40, lvlreq: 15, freq: 5 }, M_ITS.JEW.concat(M_ITS.CM32)]
+    ['R3', { code: 'abs-ltng%', min: 3, max: 4 }, { lvl: 40, lvlreq: 15, freq: 4 }, M_ITS.CM3_JEW],
+    ['R4', { code: 'abs-ltng%', min: 2, max: 3 }, { lvl: 40, lvlreq: 15, freq: 5 }, M_ITS.CM32_JEW]
   ],
   // 'abs-pois%': [
   //   ['R1', { code: 'abs-pois%', min: 5, max: 8 }, { lvl: 85,  lvlreq: 45, freq: 2 }, M_ITS['NORMAL']],
-  //   ['R2', { code: 'abs-pois%', min: 4, max: 6 }, { lvl: 55,  lvlreq: 25, freq: 3 }, M_ITS['NORMAL'].concat(M_ITS['JEW'])],
-  //   ['R3', { code: 'abs-pois%', min: 3, max: 4 }, { lvl: 40,  lvlreq: 15, freq: 4 }, M_ITS['JEW'].concat(M_ITS['CHARM_UPP'])],
-  //   ['R4', { code: 'abs-pois%', min: 2, max: 3 }, { lvl: 40,  lvlreq: 15, freq: 5 }, M_ITS['JEW'].concat(M_ITS['CHARM_MID'])]
   // ],
 
   // ['ac-miss', MOD_TYPE.PREFIX, '超级远程防御'],
@@ -733,40 +820,40 @@ const MOD_PROP = {
     ['R2', { code: 'ac%', min: 40, max: 50 }, { lvl: 55, lvlreq: 41, freq: 3 }, M_ITS.ARMO],
     ['R3', { code: 'ac%', min: 30, max: 40 }, { lvl: 35, lvlreq: 21, freq: 3 }, M_ITS.ARMO],
     ['R4', { code: 'ac%', min: 20, max: 30 }, { lvl: 15, lvlreq: 11, freq: 3 }, M_ITS.ARMO],
-    ['R1', { code: 'ac%', min: 35, max: 50 }, { lvl: 72, lvlreq: 51, freq: 2 }, M_ITS.CM3_AND_JEW],
-    ['R2', { code: 'ac%', min: 25, max: 35 }, { lvl: 52, lvlreq: 41, freq: 3 }, M_ITS.CM32_AND_JEW],
-    ['R3', { code: 'ac%', min: 15, max: 25 }, { lvl: 32, lvlreq: 22, freq: 3 }, M_ITS.CM32_AND_JEW],
-    ['R4', { code: 'ac%', min: 10, max: 15 }, { lvl: 12, lvlreq: 11, freq: 3 }, M_ITS.CM321_AND_JEW]
+    ['R1', { code: 'ac%', min: 35, max: 50 }, { lvl: 72, lvlreq: 51, freq: 2 }, M_ITS.CM3_JEW],
+    ['R2', { code: 'ac%', min: 25, max: 35 }, { lvl: 52, lvlreq: 41, freq: 3 }, M_ITS.CM32_JEW],
+    ['R3', { code: 'ac%', min: 15, max: 25 }, { lvl: 32, lvlreq: 22, freq: 3 }, M_ITS.CM32_JEW],
+    ['R4', { code: 'ac%', min: 10, max: 15 }, { lvl: 12, lvlreq: 11, freq: 3 }, M_ITS.CM321_JEW]
   ],
   'red-dmg': [
     ['R1', { code: 'red-dmg', min: 10, max: 12 }, { lvl: 73, lvlreq: 53, freq: 2 }, M_ITS.ARMO],
     ['R2', { code: 'red-dmg', min: 8, max: 10 }, { lvl: 62, lvlreq: 36, freq: 3 }, M_ITS.ARMO],
     ['R3', { code: 'red-dmg', min: 6, max: 8 }, { lvl: 40, lvlreq: 21, freq: 4 }, M_ITS.ARMO],
     ['R4', { code: 'red-dmg', min: 4, max: 6 }, { lvl: 15, lvlreq: 8, freq: 5 }, M_ITS.ARMO],
-    ['R1', { code: 'red-dmg', min: 8, max: 10 }, { lvl: 77, lvlreq: 49, freq: 2 }, M_ITS.CM3_AND_JEW],
-    ['R2', { code: 'red-dmg', min: 6, max: 8 }, { lvl: 57, lvlreq: 39, freq: 3 }, M_ITS.CM32_AND_JEW],
-    ['R3', { code: 'red-dmg', min: 4, max: 6 }, { lvl: 37, lvlreq: 19, freq: 3 }, M_ITS.CM32_AND_JEW],
-    ['R4', { code: 'red-dmg', min: 3, max: 4 }, { lvl: 17, lvlreq: 9, freq: 4 }, M_ITS.CM321_AND_JEW]
+    ['R1', { code: 'red-dmg', min: 8, max: 10 }, { lvl: 77, lvlreq: 49, freq: 2 }, M_ITS.CM3_JEW],
+    ['R2', { code: 'red-dmg', min: 6, max: 8 }, { lvl: 57, lvlreq: 39, freq: 3 }, M_ITS.CM32_JEW],
+    ['R3', { code: 'red-dmg', min: 4, max: 6 }, { lvl: 37, lvlreq: 19, freq: 3 }, M_ITS.CM32_JEW],
+    ['R4', { code: 'red-dmg', min: 3, max: 4 }, { lvl: 17, lvlreq: 9, freq: 4 }, M_ITS.CM321_JEW]
   ],
   'red-dmg%': [
     ['R1', { code: 'red-dmg%', min: 12, max: 15 }, { lvl: 73, lvlreq: 53, freq: 2 }, M_ITS.ARMO],
     ['R2', { code: 'red-dmg%', min: 9, max: 12 }, { lvl: 62, lvlreq: 36, freq: 3 }, M_ITS.ARMO],
     ['R3', { code: 'red-dmg%', min: 6, max: 9 }, { lvl: 40, lvlreq: 21, freq: 4 }, M_ITS.ARMO],
     ['R4', { code: 'red-dmg%', min: 3, max: 6 }, { lvl: 15, lvlreq: 8, freq: 5 }, M_ITS.ARMO],
-    ['R1', { code: 'red-dmg%', min: 9, max: 12 }, { lvl: 77, lvlreq: 49, freq: 2 }, M_ITS.CM3_AND_JEW],
-    ['R2', { code: 'red-dmg%', min: 6, max: 9 }, { lvl: 57, lvlreq: 39, freq: 3 }, M_ITS.CM32_AND_JEW],
-    ['R3', { code: 'red-dmg%', min: 4, max: 6 }, { lvl: 37, lvlreq: 19, freq: 3 }, M_ITS.CM32_AND_JEW],
-    ['R4', { code: 'red-dmg%', min: 3, max: 4 }, { lvl: 17, lvlreq: 9, freq: 4 }, M_ITS.CM321_AND_JEW]
+    ['R1', { code: 'red-dmg%', min: 9, max: 12 }, { lvl: 77, lvlreq: 49, freq: 2 }, M_ITS.CM3_JEW],
+    ['R2', { code: 'red-dmg%', min: 6, max: 9 }, { lvl: 57, lvlreq: 39, freq: 3 }, M_ITS.CM32_JEW],
+    ['R3', { code: 'red-dmg%', min: 4, max: 6 }, { lvl: 37, lvlreq: 19, freq: 3 }, M_ITS.CM32_JEW],
+    ['R4', { code: 'red-dmg%', min: 3, max: 4 }, { lvl: 17, lvlreq: 9, freq: 4 }, M_ITS.CM321_JEW]
   ],
   'red-mag': [
     ['R1', { code: 'red-mag', min: 10, max: 12 }, { lvl: 73, lvlreq: 53, freq: 2 }, M_ITS.ARMO],
     ['R2', { code: 'red-mag', min: 8, max: 10 }, { lvl: 62, lvlreq: 36, freq: 3 }, M_ITS.ARMO],
     ['R3', { code: 'red-mag', min: 6, max: 8 }, { lvl: 40, lvlreq: 21, freq: 4 }, M_ITS.ARMO],
     ['R4', { code: 'red-mag', min: 4, max: 6 }, { lvl: 15, lvlreq: 8, freq: 5 }, M_ITS.ARMO],
-    ['R1', { code: 'red-mag', min: 8, max: 10 }, { lvl: 77, lvlreq: 49, freq: 2 }, M_ITS.CM3_AND_JEW],
-    ['R2', { code: 'red-mag', min: 6, max: 8 }, { lvl: 57, lvlreq: 39, freq: 3 }, M_ITS.CM32_AND_JEW],
-    ['R3', { code: 'red-mag', min: 4, max: 6 }, { lvl: 37, lvlreq: 19, freq: 3 }, M_ITS.CM32_AND_JEW],
-    ['R4', { code: 'red-mag', min: 3, max: 4 }, { lvl: 17, lvlreq: 9, freq: 4 }, M_ITS.CM321_AND_JEW]
+    ['R1', { code: 'red-mag', min: 8, max: 10 }, { lvl: 77, lvlreq: 49, freq: 2 }, M_ITS.CM3_JEW],
+    ['R2', { code: 'red-mag', min: 6, max: 8 }, { lvl: 57, lvlreq: 39, freq: 3 }, M_ITS.CM32_JEW],
+    ['R3', { code: 'red-mag', min: 4, max: 6 }, { lvl: 37, lvlreq: 19, freq: 3 }, M_ITS.CM32_JEW],
+    ['R4', { code: 'red-mag', min: 3, max: 4 }, { lvl: 17, lvlreq: 9, freq: 4 }, M_ITS.CM321_JEW]
   ],
 
   // ['mana-kill', MOD_TYPE.PREFIX, 'mana EK'],
@@ -775,42 +862,63 @@ const MOD_PROP = {
   'mana-kill': [
     ['R1', { code: 'mana-kill', min: 10, max: 12 }, { lvl: 76, lvlreq: 52, freq: 2 }, M_ITS.WEAP],
     ['R2', { code: 'mana-kill', min: 8, max: 10 }, { lvl: 62, lvlreq: 36, freq: 3 }, M_ITS.WEAP],
-    ['R3', { code: 'mana-kill', min: 6, max: 8 }, { lvl: 41, lvlreq: 21, freq: 4 }, M_ITS.WEAP],
-    ['R4', { code: 'mana-kill', min: 4, max: 6 }, { lvl: 16, lvlreq: 8, freq: 5 }, M_ITS.WEAP],
-    ['R1', { code: 'mana-kill', min: 8, max: 10 }, { lvl: 73, lvlreq: 48, freq: 2 }, M_ITS.CM3_AND_JEW],
-    ['R2', { code: 'mana-kill', min: 6, max: 8 }, { lvl: 53, lvlreq: 38, freq: 3 }, M_ITS.CM32_AND_JEW],
-    ['R3', { code: 'mana-kill', min: 4, max: 6 }, { lvl: 33, lvlreq: 18, freq: 3 }, M_ITS.CM32_AND_JEW],
-    ['R4', { code: 'mana-kill', min: 3, max: 4 }, { lvl: 13, lvlreq: 8, freq: 4 }, M_ITS.CM321_AND_JEW]
+    ['R3', { code: 'mana-kill', min: 6, max: 8 }, { lvl: 41, lvlreq: 21, freq: 3 }, M_ITS.WEAP],
+    ['R4', { code: 'mana-kill', min: 4, max: 6 }, { lvl: 16, lvlreq: 8, freq: 3 }, M_ITS.WEAP],
+    ['R1', { code: 'mana-kill', min: 8, max: 10 }, { lvl: 73, lvlreq: 48, freq: 2 }, M_ITS.CM3_JEW],
+    ['R2', { code: 'mana-kill', min: 6, max: 8 }, { lvl: 53, lvlreq: 38, freq: 3 }, M_ITS.CM32_JEW],
+    ['R3', { code: 'mana-kill', min: 4, max: 6 }, { lvl: 33, lvlreq: 18, freq: 3 }, M_ITS.CM32_JEW],
+    ['R4', { code: 'mana-kill', min: 3, max: 4 }, { lvl: 13, lvlreq: 8, freq: 3 }, M_ITS.CM321_JEW]
   ],
   'heal-kill': [
     ['R1', { code: 'heal-kill', min: 10, max: 12 }, { lvl: 76, lvlreq: 52, freq: 2 }, M_ITS.WEAP],
     ['R2', { code: 'heal-kill', min: 8, max: 10 }, { lvl: 62, lvlreq: 36, freq: 3 }, M_ITS.WEAP],
-    ['R3', { code: 'heal-kill', min: 6, max: 8 }, { lvl: 41, lvlreq: 21, freq: 4 }, M_ITS.WEAP],
-    ['R4', { code: 'heal-kill', min: 4, max: 6 }, { lvl: 16, lvlreq: 8, freq: 5 }, M_ITS.WEAP],
-    ['R1', { code: 'heal-kill', min: 8, max: 10 }, { lvl: 73, lvlreq: 48, freq: 2 }, M_ITS.CM3_AND_JEW],
-    ['R2', { code: 'heal-kill', min: 6, max: 8 }, { lvl: 53, lvlreq: 38, freq: 3 }, M_ITS.CM32_AND_JEW],
-    ['R3', { code: 'heal-kill', min: 4, max: 6 }, { lvl: 33, lvlreq: 18, freq: 3 }, M_ITS.CM32_AND_JEW],
-    ['R4', { code: 'heal-kill', min: 3, max: 4 }, { lvl: 13, lvlreq: 8, freq: 4 }, M_ITS.CM321_AND_JEW]
+    ['R3', { code: 'heal-kill', min: 6, max: 8 }, { lvl: 41, lvlreq: 21, freq: 3 }, M_ITS.WEAP],
+    ['R4', { code: 'heal-kill', min: 4, max: 6 }, { lvl: 16, lvlreq: 8, freq: 3 }, M_ITS.WEAP],
+    ['R1', { code: 'heal-kill', min: 8, max: 10 }, { lvl: 73, lvlreq: 48, freq: 2 }, M_ITS.CM3_JEW],
+    ['R2', { code: 'heal-kill', min: 6, max: 8 }, { lvl: 53, lvlreq: 38, freq: 3 }, M_ITS.CM32_JEW],
+    ['R3', { code: 'heal-kill', min: 4, max: 6 }, { lvl: 33, lvlreq: 18, freq: 3 }, M_ITS.CM32_JEW],
+    ['R4', { code: 'heal-kill', min: 3, max: 4 }, { lvl: 13, lvlreq: 8, freq: 3 }, M_ITS.CM321_JEW]
   ],
   'regen-mana': [
-    ['R1', { code: 'regen-mana', min: 25, max: 30 }, { lvl: 60, lvlreq: 45, freq: 3 }, M_ITS.ARMO],
-    ['R2', { code: 'regen-mana', min: 20, max: 25 }, { lvl: 40, lvlreq: 25, freq: 4 }, M_ITS.ARMO],
-    ['R3', { code: 'regen-mana', min: 15, max: 20 }, { lvl: 20, lvlreq: 15, freq: 4 }, M_ITS.ARMO],
-    ['R4', { code: 'regen-mana', min: 10, max: 15 }, { lvl: 10, lvlreq: 5, freq: 4 }, M_ITS.ARMO],
-    ['R1', { code: 'regen-mana', min: 25, max: 30 }, { lvl: 55, lvlreq: 46, freq: 3 }, M_ITS.CM3_AND_JEW],
-    ['R2', { code: 'regen-mana', min: 20, max: 25 }, { lvl: 35, lvlreq: 26, freq: 4 }, M_ITS.CM32_AND_JEW],
-    ['R3', { code: 'regen-mana', min: 15, max: 20 }, { lvl: 15, lvlreq: 16, freq: 4 }, M_ITS.CM32_AND_JEW],
-    ['R4', { code: 'regen-mana', min: 10, max: 15 }, { lvl: 11, lvlreq: 6, freq: 4 }, M_ITS.CM321_AND_JEW]
+    ['R1', { code: 'regen-mana', min: 30, max: 40 }, { lvl: 60, lvlreq: 45, freq: 3 }, M_ITS.WEAP],
+    ['R2', { code: 'regen-mana', min: 20, max: 30 }, { lvl: 40, lvlreq: 25, freq: 4 }, M_ITS.WEAP],
+    ['R3', { code: 'regen-mana', min: 15, max: 20 }, { lvl: 20, lvlreq: 15, freq: 4 }, M_ITS.WEAP],
+    ['R4', { code: 'regen-mana', min: 10, max: 15 }, { lvl: 10, lvlreq: 5, freq: 4 }, M_ITS.WEAP],
+    ['R1', { code: 'regen-mana', min: 30, max: 40 }, { lvl: 55, lvlreq: 46, freq: 3 }, M_ITS.CM3_JEW],
+    ['R2', { code: 'regen-mana', min: 20, max: 30 }, { lvl: 35, lvlreq: 26, freq: 4 }, M_ITS.CM32_JEW],
+    ['R3', { code: 'regen-mana', min: 15, max: 20 }, { lvl: 15, lvlreq: 16, freq: 4 }, M_ITS.CM32_JEW],
+    ['R4', { code: 'regen-mana', min: 10, max: 15 }, { lvl: 11, lvlreq: 6, freq: 4 }, M_ITS.CM321_JEW]
+  ],
+
+  // ['regen-stam', MOD_TYPE.PREFIX, '体力恢复'],  
+  // ['regen', MOD_TYPE.PREFIX, '生命恢复'],
+  'regen-stam': [
+    ['R1', { code: 'regen-stam', min: 40, max: 50 }, { lvl: 60, lvlreq: 45, freq: 1 }, M_ITS.ARMO],
+    ['R2', { code: 'regen-stam', min: 30, max: 40 }, { lvl: 40, lvlreq: 25, freq: 2 }, M_ITS.ARMO],
+    ['R3', { code: 'regen-stam', min: 20, max: 30 }, { lvl: 20, lvlreq: 15, freq: 2 }, M_ITS.ARMO],
+    ['R4', { code: 'regen-stam', min: 10, max: 20 }, { lvl: 10, lvlreq: 5, freq: 2 }, M_ITS.ARMO],
+    ['R1', { code: 'regen-stam', min: 30, max: 45 }, { lvl: 55, lvlreq: 46, freq: 1 }, M_ITS.CM3_JEW],
+    ['R2', { code: 'regen-stam', min: 20, max: 30 }, { lvl: 35, lvlreq: 26, freq: 2 }, M_ITS.CM32_JEW],
+    ['R3', { code: 'regen-stam', min: 15, max: 25 }, { lvl: 15, lvlreq: 16, freq: 2 }, M_ITS.CM32_JEW],
+    ['R4', { code: 'regen-stam', min: 10, max: 15 }, { lvl: 11, lvlreq: 6, freq: 2 }, M_ITS.CM321_JEW]
+  ],
+  'regen': [
+    ['R1', { code: 'regen', min: 20, max: 25 }, { lvl: 60, lvlreq: 45, freq: 2 }, M_ITS.WEAP],
+    ['R2', { code: 'regen', min: 15, max: 20 }, { lvl: 40, lvlreq: 25, freq: 2 }, M_ITS.WEAP],
+    ['R3', { code: 'regen', min: 10, max: 15 }, { lvl: 20, lvlreq: 15, freq: 2 }, M_ITS.WEAP],
+    ['R4', { code: 'regen', min: 5, max: 20 }, { lvl: 10, lvlreq: 5, freq: 2 }, M_ITS.WEAP],
+    ['R1', { code: 'regen', min: 20, max: 25 }, { lvl: 55, lvlreq: 46, freq: 2 }, M_ITS.CM3_JEW],
+    ['R2', { code: 'regen', min: 15, max: 20 }, { lvl: 35, lvlreq: 26, freq: 2 }, M_ITS.CM32_JEW],
+    ['R3', { code: 'regen', min: 10, max: 15 }, { lvl: 15, lvlreq: 16, freq: 2 }, M_ITS.CM32_JEW],
+    ['R4', { code: 'regen', min: 5, max: 10 }, { lvl: 11, lvlreq: 6, freq: 2 }, M_ITS.CM321_JEW]
   ],
   //////////////////////////////////////////////////////////////////////////PREFIX END////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
   ////////////////////////////////////////////////////////////////////////BOTH BEGIN////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
   'addxp': [
-    ['R1', { code: 'addxp', min: 6, max: 10 }, { lvl: 80, lvlreq: 65, freq: 2 }, M_ITS.CM3.concat(M_ITS.NORMAL).concat(M_ITS.JEW)],
-    ['R2', { code: 'addxp', min: 4, max: 8 }, { lvl: 55, lvlreq: 45, freq: 3 }, M_ITS.CM32.concat(M_ITS.NORMAL).concat(M_ITS.JEW)],
-    ['R3', { code: 'addxp', min: 2, max: 5 }, { lvl: 45, lvlreq: 20, freq: 3 }, M_ITS.CM321.concat(M_ITS.JEW)]
+    ['R1', { code: 'addxp', min: 6, max: 10 }, { lvl: 80, lvlreq: 65, freq: 2 }, M_ITS.NORMAL.concat(M_ITS.CM3_JEW)],
+    ['R2', { code: 'addxp', min: 4, max: 8 }, { lvl: 55, lvlreq: 45, freq: 3 }, M_ITS.NORMAL.concat(M_ITS.CM32_JEW)],
+    ['R3', { code: 'addxp', min: 2, max: 5 }, { lvl: 45, lvlreq: 20, freq: 3 }, M_ITS.CM321_JEW]
   ],
   // ['allskills', MOD_TYPE.BOTH, '所有技能']
   'allskills': [
@@ -835,23 +943,88 @@ const MOD_PROP = {
     ['R2', { code: 'mag%', min: 20, max: 25 }, { lvl: 40, lvlreq: 30, freq: 3 }, M_ITS.NORMAL],
     ['R3', { code: 'mag%', min: 15, max: 20 }, { lvl: 30, lvlreq: 20, freq: 4 }, M_ITS.NORMAL],
     ['R4', { code: 'mag%', min: 10, max: 15 }, { lvl: 20, lvlreq: 10, freq: 4 }, M_ITS.NORMAL],
-    ['R1', { code: 'mag%', min: 16, max: 24 }, { lvl: 60, lvlreq: 40, freq: 2 }, M_ITS.CM3_AND_JEW],
-    ['R2', { code: 'mag%', min: 12, max: 18 }, { lvl: 40, lvlreq: 30, freq: 3 }, M_ITS.CM32_AND_JEW],
-    ['R3', { code: 'mag%', min: 8, max: 15 }, { lvl: 30, lvlreq: 20, freq: 4 }, M_ITS.CM32_AND_JEW],
-    ['R4', { code: 'mag%', min: 5, max: 10 }, { lvl: 20, lvlreq: 10, freq: 3 }, M_ITS.CM321_AND_JEW]
+    ['R1', { code: 'mag%', min: 16, max: 24 }, { lvl: 60, lvlreq: 40, freq: 2 }, M_ITS.CM3_JEW],
+    ['R2', { code: 'mag%', min: 12, max: 18 }, { lvl: 40, lvlreq: 30, freq: 3 }, M_ITS.CM32_JEW],
+    ['R3', { code: 'mag%', min: 8, max: 15 }, { lvl: 30, lvlreq: 20, freq: 4 }, M_ITS.CM32_JEW],
+    ['R4', { code: 'mag%', min: 5, max: 10 }, { lvl: 20, lvlreq: 10, freq: 3 }, M_ITS.CM321_JEW]
   ],
   'lvl-magic': [
-    ['R1', { code: 'mag/lvl', min: 8, max: 8 }, { lvl: 60, lvlreq: 40, freq: 2 }, M_ITS.NORMAL],
-    ['R2', { code: 'mag/lvl', min: 7, max: 7 }, { lvl: 40, lvlreq: 30, freq: 2 }, M_ITS.NORMAL],
-    ['R3', { code: 'mag/lvl', min: 6, max: 6 }, { lvl: 30, lvlreq: 20, freq: 2 }, M_ITS.NORMAL],
-    ['R4', { code: 'mag/lvl', min: 5, max: 5 }, { lvl: 20, lvlreq: 10, freq: 2 }, M_ITS.NORMAL],
-    ['R5', { code: 'mag/lvl', min: 4, max: 4 }, { lvl: 12, lvlreq: 5, freq: 2 }, M_ITS.NORMAL],
-    ['R1', { code: 'mag/lvl', min: 6, max: 6 }, { lvl: 60, lvlreq: 40, freq: 2 }, M_ITS.CM3],
-    ['R2', { code: 'mag/lvl', min: 5, max: 5 }, { lvl: 40, lvlreq: 30, freq: 2 }, M_ITS.CM3_AND_JEW],
-    ['R3', { code: 'mag/lvl', min: 4, max: 4 }, { lvl: 30, lvlreq: 20, freq: 2 }, M_ITS.CM32_AND_JEW],
-    ['R4', { code: 'mag/lvl', min: 3, max: 3 }, { lvl: 20, lvlreq: 10, freq: 2 }, M_ITS.CM32_AND_JEW],
-    ['R5', { code: 'mag/lvl', min: 2, max: 2 }, { lvl: 12, lvlreq: 5, freq: 2 }, M_ITS.CM321]
-  ]
+    ['R1', { code: 'mag%/lvl', min: 8, max: 8 }, { lvl: 60, lvlreq: 40, freq: 2 }, M_ITS.NORMAL],
+    ['R2', { code: 'mag%/lvl', min: 7, max: 7 }, { lvl: 40, lvlreq: 30, freq: 2 }, M_ITS.NORMAL],
+    ['R3', { code: 'mag%/lvl', min: 6, max: 6 }, { lvl: 30, lvlreq: 20, freq: 2 }, M_ITS.NORMAL],
+    ['R4', { code: 'mag%/lvl', min: 5, max: 5 }, { lvl: 20, lvlreq: 10, freq: 2 }, M_ITS.NORMAL],
+    ['R5', { code: 'mag%/lvl', min: 4, max: 4 }, { lvl: 12, lvlreq: 5, freq: 2 }, M_ITS.NORMAL],
+    ['R1', { code: 'mag%/lvl', min: 6, max: 6 }, { lvl: 60, lvlreq: 40, freq: 2 }, M_ITS.CM3],
+    ['R2', { code: 'mag%/lvl', min: 5, max: 5 }, { lvl: 40, lvlreq: 30, freq: 2 }, M_ITS.CM3_JEW],
+    ['R3', { code: 'mag%/lvl', min: 4, max: 4 }, { lvl: 30, lvlreq: 20, freq: 2 }, M_ITS.CM32_JEW],
+    ['R4', { code: 'mag%/lvl', min: 3, max: 3 }, { lvl: 20, lvlreq: 10, freq: 2 }, M_ITS.CM32_JEW],
+    ['R5', { code: 'mag%/lvl', min: 2, max: 2 }, { lvl: 12, lvlreq: 5, freq: 2 }, M_ITS.CM321]
+  ],
+  // ['lvl-gold', MOD_TYPE.BOTH, '金币%/lvl'],
+  // ['super-gold', MOD_TYPE.BOTH, '金币%'],
+  'lvl-gold': [
+    ['R1', { code: 'gold%/lvl', min: 14, max: 16 }, { lvl: 60, lvlreq: 40, freq: 2 }, M_ITS.NORMAL],
+    ['R2', { code: 'gold%/lvl', min: 12, max: 14 }, { lvl: 40, lvlreq: 30, freq: 2 }, M_ITS.NORMAL],
+    ['R3', { code: 'gold%/lvl', min: 10, max: 12 }, { lvl: 30, lvlreq: 20, freq: 2 }, M_ITS.NORMAL],
+    ['R4', { code: 'gold%/lvl', min: 6, max: 8 }, { lvl: 20, lvlreq: 10, freq: 2 }, M_ITS.NORMAL],
+    ['R5', { code: 'gold%/lvl', min: 4, max: 6 }, { lvl: 12, lvlreq: 5, freq: 2 }, M_ITS.NORMAL],
+    ['R1', { code: 'gold%/lvl', min: 14, max: 16 }, { lvl: 60, lvlreq: 38, freq: 2 }, M_ITS.CM3],
+    ['R2', { code: 'gold%/lvl', min: 12, max: 14 }, { lvl: 40, lvlreq: 28, freq: 2 }, M_ITS.CM3_JEW],
+    ['R3', { code: 'gold%/lvl', min: 10, max: 12 }, { lvl: 30, lvlreq: 18, freq: 2 }, M_ITS.CM32_JEW],
+    ['R4', { code: 'gold%/lvl', min: 8, max: 10 }, { lvl: 20, lvlreq: 8, freq: 2 }, M_ITS.CM32_JEW],
+    ['R5', { code: 'gold%/lvl', min: 6, max: 8 }, { lvl: 10, lvlreq: 5, freq: 2 }, M_ITS.CM321]
+  ],
+  'super-gold': [
+    ['R1', { code: 'gold%', min: 120, max: 160 }, { lvl: 60, lvlreq: 40, freq: 2 }, M_ITS.NORMAL],
+    ['R2', { code: 'gold%', min: 100, max: 120 }, { lvl: 40, lvlreq: 30, freq: 3 }, M_ITS.NORMAL],
+    ['R3', { code: 'gold%', min: 80, max: 100 }, { lvl: 30, lvlreq: 20, freq: 4 }, M_ITS.NORMAL],
+    ['R4', { code: 'gold%', min: 60, max: 80 }, { lvl: 20, lvlreq: 10, freq: 4 }, M_ITS.NORMAL],
+    ['R1', { code: 'gold%', min: 100, max: 120 }, { lvl: 60, lvlreq: 40, freq: 2 }, M_ITS.CM3_JEW],
+    ['R2', { code: 'gold%', min: 80, max: 100 }, { lvl: 40, lvlreq: 30, freq: 3 }, M_ITS.CM32_JEW],
+    ['R3', { code: 'gold%', min: 70, max: 80 }, { lvl: 30, lvlreq: 20, freq: 4 }, M_ITS.CM32_JEW],
+    ['R4', { code: 'gold%', min: 30, max: 40 }, { lvl: 20, lvlreq: 10, freq: 3 }, M_ITS.CM321_JEW]
+  ],
+  'easy-lvlup': [
+    ['经验值', { code: 'addxp', min: 100, max: 100 }, { lvl: 5, lvlreq: 3, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['经验值', { code: 'addxp', min: 100, max: 200 }, { lvl: 15, lvlreq: 13, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['经验值', { code: 'addxp', min: 200, max: 300 }, { lvl: 25, lvlreq: 23, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['生命', { code: 'hp', min: 40, max: 80 }, { lvl: 5, lvlreq: 3, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['生命', { code: 'hp', min: 80, max: 120 }, { lvl: 15, lvlreq: 13, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['生命', { code: 'hp', min: 120, max: 200 }, { lvl: 25, lvlreq: 23, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['法力', { code: 'mana', min: 40, max: 80 }, { lvl: 5, lvlreq: 3, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['法力', { code: 'mana', min: 80, max: 120 }, { lvl: 15, lvlreq: 13, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['法力', { code: 'mana', min: 120, max: 200 }, { lvl: 25, lvlreq: 23, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['攻击力', { code: 'dmg', min: 40, max: 80 }, { lvl: 5, lvlreq: 3, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['攻击力', { code: 'dmg', min: 80, max: 120 }, { lvl: 15, lvlreq: 13, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['攻击力', { code: 'dmg', min: 120, max: 200 }, { lvl: 25, lvlreq: 23, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['准确率', { code: 'att', min: 50, max: 100 }, { lvl: 5, lvlreq: 3, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['准确率', { code: 'att', min: 100, max: 200 }, { lvl: 15, lvlreq: 13, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['准确率', { code: 'att', min: 200, max: 300 }, { lvl: 25, lvlreq: 23, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['防御', { code: 'ac', min: 100, max: 100 }, { lvl: 5, lvlreq: 3, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['防御', { code: 'ac', min: 200, max: 200 }, { lvl: 15, lvlreq: 13, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['防御', { code: 'ac', min: 300, max: 300 }, { lvl: 25, lvlreq: 23, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['移动速度', { code: 'move2', min: 30, max: 30 }, { lvl: 5, lvlreq: 3, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['移动速度', { code: 'move2', min: 40, max: 40 }, { lvl: 15, lvlreq: 13, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['移动速度', { code: 'move2', min: 50, max: 50 }, { lvl: 25, lvlreq: 23, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['全抗性', { code: 'res-all', min: 15, max: 15 }, { lvl: 5, lvlreq: 3, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['全抗性', { code: 'res-all', min: 25, max: 25 }, { lvl: 15, lvlreq: 13, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['全抗性', { code: 'res-all', min: 35, max: 35 }, { lvl: 25, lvlreq: 23, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['全属性', { code: 'all-stats', min: 10, max: 10 }, { lvl: 5, lvlreq: 3, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['全属性', { code: 'all-stats', min: 20, max: 20 }, { lvl: 15, lvlreq: 13, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['全属性', { code: 'all-stats', min: 30, max: 30 }, { lvl: 25, lvlreq: 23, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['击杀回蓝', { code: 'mana-kill', min: 5, max: 5 }, { lvl: 5, lvlreq: 3, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['击杀回蓝', { code: 'mana-kill', min: 10, max: 10 }, { lvl: 15, lvlreq: 13, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['击杀回蓝', { code: 'mana-kill', min: 15, max: 15 }, { lvl: 25, lvlreq: 23, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['击杀回红', { code: 'heal-kill', min: 5, max: 5 }, { lvl: 5, lvlreq: 3, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['击杀回红', { code: 'heal-kill', min: 10, max: 10 }, { lvl: 15, lvlreq: 13, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['击杀回红', { code: 'heal-kill', min: 15, max: 15 }, { lvl: 25, lvlreq: 23, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['物理伤害减免', { code: 'red-dmg', min: 5, max: 5 }, { lvl: 5, lvlreq: 3, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['物理伤害减免', { code: 'red-dmg', min: 10, max: 10 }, { lvl: 15, lvlreq: 13, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['物理伤害减免', { code: 'red-dmg', min: 15, max: 15 }, { lvl: 25, lvlreq: 23, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['魔法伤害减免', { code: 'red-mag', min: 5, max: 5 }, { lvl: 5, lvlreq: 3, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['魔法伤害减免', { code: 'red-mag', min: 10, max: 10 }, { lvl: 15, lvlreq: 13, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+    ['魔法伤害减免', { code: 'red-mag', min: 15, max: 15 }, { lvl: 25, lvlreq: 23, freq: 4 }, M_ITS.NORMAL.concat(M_ITS.CM321_JEW)],
+  ],
   ////////////////////////////////////////////////////////////////////////BOTH END////////////////////////////////////////////////////////////////////////////////////////////////////////////
 };
 //level，levelreq
@@ -866,6 +1039,11 @@ const MOD_TYPE = { PREFIX: 'PREFIX', SUFFIX: 'SUFFIX', BOTH: 'BOTH' };
 
 const BOOST_MODIFIERS = [
   //////////////////////SUFFIX///////////////////////////
+  //fireskill
+  //att-skill,hit-skill,gethit-skill,kill-skill,death-skill,levelup-skill
+  //charged	
+  //oskill
+  //skill
 
   ['dmg', MOD_TYPE.SUFFIX, '攻击'],
   ['dmg%', MOD_TYPE.SUFFIX, '攻击%'],
@@ -878,6 +1056,24 @@ const BOOST_MODIFIERS = [
   // ['bloody', MOD_TYPE.SUFFIX, '血腥攻击'],
   ['deadly', MOD_TYPE.SUFFIX, '致命攻击'],
   ['openwounds', MOD_TYPE.SUFFIX, '开放伤口'],
+
+  //pierce,nofreeze,half-freeze,freeze,
+  //att,att%,att/lvl,att%/lvl
+  //att-demon,att-undead,att-dem/lvl,att-und/lvl
+  //ignore-ac,reduce-ac
+  ['pierce', MOD_TYPE.SUFFIX, '穿透'],
+  ['nofreeze', MOD_TYPE.SUFFIX, '不冻结'],
+  ['half-freeze', MOD_TYPE.SUFFIX, '半冻结'],
+  ['freeze', MOD_TYPE.SUFFIX, '冻结'],
+  ['ignore-ac', MOD_TYPE.SUFFIX, '无视防御'],
+  ['reduce-ac', MOD_TYPE.SUFFIX, '防御穿透'],
+
+  ['att', MOD_TYPE.SUFFIX, '准确率'],
+  ['att%', MOD_TYPE.SUFFIX, '准确率%'],
+  // ['att/lvl', MOD_TYPE.SUFFIX, '准确率/等级'],
+  // ['att%/lvl', MOD_TYPE.SUFFIX, '准确率%/等级'],
+  ['att-demon', MOD_TYPE.SUFFIX, '准确率-恶魔'],
+  ['att-undead', MOD_TYPE.SUFFIX, '准确率-不死'],
 
   ['dmg-fire', MOD_TYPE.SUFFIX, '火焰伤害'],
   ['dmg-ltng', MOD_TYPE.SUFFIX, '电击伤害'],
@@ -910,9 +1106,10 @@ const BOOST_MODIFIERS = [
   ['move2', MOD_TYPE.PREFIX, '移动速度'],
 
   ['hp-mana%', MOD_TYPE.PREFIX, '血法双加'],
-  ['super-hp', MOD_TYPE.PREFIX, '大量HP'],
+  ['super-hp', MOD_TYPE.PREFIX, 'HP上限'],
+  ['super-mana', MOD_TYPE.PREFIX, '法力上限'],
+  ['super-stam', MOD_TYPE.PREFIX, '体力上限'],
   ['super-hp%', MOD_TYPE.PREFIX, '大量HP%'],
-  ['super-mana', MOD_TYPE.PREFIX, '大量MANA'],
   ['super-mana%', MOD_TYPE.PREFIX, '大量MANA%'],
   ['lvl-hp', MOD_TYPE.PREFIX, 'HP/lvl'],
   ['lvl-mana', MOD_TYPE.PREFIX, 'MANA/lvl'],
@@ -923,12 +1120,12 @@ const BOOST_MODIFIERS = [
   ['super-dex', MOD_TYPE.PREFIX, '大量敏捷'],
   ['super-enr', MOD_TYPE.PREFIX, '大量能量'],
 
-  ['res-all', MOD_TYPE.PREFIX, '全抗性'],
+  ['res-all', MOD_TYPE.PREFIX, '全元素抗性'],
   ['res-fire', MOD_TYPE.PREFIX, '火焰抗性'],
   ['res-cold', MOD_TYPE.PREFIX, '冰冷抗性'],
   ['res-ltng', MOD_TYPE.PREFIX, '闪电抗性'],
   ['res-pois', MOD_TYPE.PREFIX, '毒素抗性'],
-  ['res-all-max', MOD_TYPE.PREFIX, '元素抗性上限'],
+  ['res-all-max', MOD_TYPE.PREFIX, '全元素抗性上限'],
   ['dual-res', MOD_TYPE.PREFIX, '双系抵抗'],
   ['res-fire-max', MOD_TYPE.PREFIX, '火焰抗性上限'],
   ['res-cold-max', MOD_TYPE.PREFIX, '冰冷抗性上限'],
@@ -956,12 +1153,20 @@ const BOOST_MODIFIERS = [
   ['mana-kill', MOD_TYPE.PREFIX, 'MANA EK'],
   ['heal-kill', MOD_TYPE.PREFIX, 'HP EK'],
   ['regen-mana', MOD_TYPE.PREFIX, '法力恢复'],
+
+  ['regen-stam', MOD_TYPE.PREFIX, '体力恢复'],
+  ['regen', MOD_TYPE.PREFIX, '生命恢复'],
   ////////////////////BOTH///////////////////////////
   ['addxp', MOD_TYPE.BOTH, '经验值加成'],
   ['allskills', MOD_TYPE.BOTH, '所有技能'],
   ['cheap', MOD_TYPE.BOTH, '店铺折扣'],
   ['super-magic', MOD_TYPE.BOTH, '强化MF'],
-  ['lvl-magic', MOD_TYPE.BOTH, 'MF/lvl']
+  ['lvl-magic', MOD_TYPE.BOTH, 'MF/lvl'],
+
+  ['lvl-gold', MOD_TYPE.BOTH, '金币%/lvl'],
+  ['super-gold', MOD_TYPE.BOTH, '金币%'],
+
+  ['easy-lvlup', MOD_TYPE.BOTH, '开荒专属']
 ];
 
 function getModPrefix(modBase) {
@@ -1010,8 +1215,8 @@ BOOST_MODIFIERS.forEach(([modName, modeType, modLable]) => {
         rare: 1,
         classspecific: modBase.clz,
         frequency: modBase.freq == null ? 2 : modBase.freq,
-        level: modBase.lvl,
-        levelreq: modBase.lvlreq,
+        level: getLvl(modBase.lvl),
+        levelreq: getLvlreq(modBase.lvlreq),
         multiply: 0,
         add: 0,
         mod1code: modXs.code,
@@ -1058,6 +1263,32 @@ BOOST_MODIFIERS.forEach(([modName, modeType, modLable]) => {
     });
   }
 });
+
+var randBetween = (min, max) => min + Math.floor(Math.random() * (max - min));
+
+function getLvl(lvl) {
+  if (lvl >= 85) {
+    return randLvlM5(lvl);
+  }
+  else
+    return randLvlAM5(lvl);
+}
+function getLvlreq(lvlreq) {
+  if (lvlreq >= 70) {
+    return randLvlM5(lvlreq);
+  }
+  else
+    return randLvlAM3(lvlreq);
+}
+function randLvlM5(lvl) {
+  return lvl - randBetween(0, 6);
+}
+function randLvlAM3(lvl) {
+  return Math.max(lvl + randBetween(-3, 4), 3);//不能低于3级。
+}
+function randLvlAM5(lvl) {
+  return Math.max(lvl + randBetween(-5, 6), 3);//不能低于3级。
+}
 
 D2RMM.writeTsv(amFilename, ams);
 D2RMM.writeTsv(mpFileName, mps);

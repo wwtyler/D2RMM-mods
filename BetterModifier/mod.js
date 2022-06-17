@@ -99,7 +99,6 @@ weapons.rows.forEach((row) => {
 });
 D2RMM.writeTsv(weaponFilename, weapons);
 
-
 const qualityitemsFilename = 'global\\excel\\qualityitems.txt';
 const qualityitems = D2RMM.readTsv(qualityitemsFilename);
 
@@ -114,34 +113,32 @@ qualityitems.rows.forEach((item) => {
   // dmg%     	        0 	     15 	     50 	dur%     	        0 	     10 	     15 	    0 	     1 	     0 	      1 	   1 	    1 	  1 	    0 	     0 	   0
   // ac%      	        0 	      5 	     15 	dur%     	        0 	     10 	     15 	    1 	     0 	     1 	      0 	   0 	    0 	  0 	    1 	     1 	   1
   // dmg      	          	     15 	     50 	att      	          	     10 	     50 	    0 	     1 	     1 	      0 	   0 	    0 	  1 	    0 	     0 	    
-  if (item.mod1code === 'att' && item.mod2code === null) { item.mod1min = 15; item.mod1max = 50; }
-  if (item.mod1code === 'dmg%' && item.mod2code === null) { item.mod1min = 15; item.mod1max = 50; }
-  if (item.mod1code === 'ac%' && item.mod2code === null) { item.mod1min = 15; item.mod1max = 50; }
-  if (item.mod1code === 'att' && item.mod2code === 'dmg%') { item.mod1min = 15; item.mod1max = 50; }
-  if (item.mod1code === 'dur% ' && item.mod2code === null) { item.mod1min = 15; item.mod1max = 50; }
-  if (item.mod1code === 'att ' && item.mod2code === 'dur%') { item.mod1min = 15; item.mod1max = 50; }
-  if (item.mod1code === 'dmg% ' && item.mod2code === 'dur%') { item.mod1min = 15; item.mod1max = 50; }
+  if (item.mod1code === 'att' && item.mod2code === null) { item.mod1min = 30; item.mod1max = 50; }
+  if (item.mod1code === 'dmg%' && item.mod2code === null) { item.mod1min = 30; item.mod1max = 50; }
+  if (item.mod1code === 'ac%' && item.mod2code === null) { item.mod1min = 30; item.mod1max = 50; }
+  if (item.mod1code === 'att' && item.mod2code === 'dmg%') { item.mod1min = 20; item.mod1max = 30; item.mod2min = 20; item.mod2max = 30; }
+  if (item.mod1code === 'dur% ' && item.mod2code === null) { item.mod1min = 30; item.mod1max = 50; }
+  if (item.mod1code === 'att ' && item.mod2code === 'dur%') { item.mod1min = 20; item.mod1max = 30; item.mod2min = 20; item.mod2max = 30; }
+  if (item.mod1code === 'dmg% ' && item.mod2code === 'dur%') { item.mod1min = 20; item.mod1max = 30; item.mod2min = 20; item.mod2max = 30; }
 });
-qualityitems.rows.push({
-  mod1code: 'dmg',
-  mod1min: 15,
-  mod1max: 50,
-  mod2code: 'att',
-  mod2min: 10,
-  mod2max: 50,
-  armor: 0,
-  weapon: 1,
-  shield: 1,
-  scepter: 0,
-  wand: 0,
-  staff: 0,
-  bow: 1,
-  boots: 0,
-  gloves: 0,
-  'belt\r': 0,
-});
-
-
+// qualityitems.rows.push({
+//   mod1code: 'dmg',
+//   mod1min: 15,
+//   mod1max: 50,
+//   mod2code: 'att',
+//   mod2min: 10,
+//   mod2max: 50,
+//   armor: 0,
+//   weapon: 1,
+//   shield: 1,
+//   scepter: 0,
+//   wand: 0,
+//   staff: 0,
+//   bow: 1,
+//   boots: 0,
+//   gloves: 0,
+//   'belt\r': 0,
+// });
 
 
 const PREFIX_SKILL_CODES = ['skilltab', 'ama', 'sor', 'pal', 'nec', 'bar', 'dru', 'ass'];
