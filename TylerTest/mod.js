@@ -47,9 +47,23 @@ const COLD_MODI = ['ModStr1k', 'ModitemdamColdsk', 'ModStr5v', 'Moditemenrescold
 const LTNG_MODI = ['ModStr1l', 'ModitemdamLtngsk', 'ModStr5w', 'Moditemenresltngsk', 'strModLightningDamage', 'strModLightningDamageRange', 'ModStre9l', 'ModStre9q', 'ModStr5i', 'ModStr5j'];
 const POIS_MODI = ['ModStr1n', 'ModitemdamPoissk', 'ModStr5y', 'Moditemenrespoissk', 'strModPoisonDamage', 'strModPoisonDamageRange', 'ModStre9m', 'ModStre9r'];
 const MR_MODI = ['ModStr1m', 'ModStr5x', 'strModMagicDamage', 'strModMagicDamageRange', 'ModStre9n', 'ModStr5k', 'ModStr5l'];
-const DAM_ED_MODI = ['strModEnhancedDamage', 'strModMinDamage', 'strModMinDamageRange'];
+//攻擊 紅色 ModStr2j ModStr2k strModEnhancedDamage
+const DAM_ED_MODI = ['strModEnhancedDamage', 'strModMinDamage', 'strModMinDamageRange', 'ModStr1f', 'ModStr2j', 'ModStr1g', 'ModStr2k', 'ModStr5b'];
 const DR_MR_MODI = ['ModStr2uPercent', 'ModStr2t', 'ModStr2u'];
 const EK_MODI = ['ModitemHPaK', 'ModStr5f'];
+// ModStr1a 力量
+const LIFE_MODI = ['ModStr1a', 'ModStr2g', 'ModStr2l', 'ModStr2p', 'ModStr2w', 'ModStr2z', 'ModStr1u'];
+// ModStr4o ModStr4p ModStr4q 打擊恢復
+// ModStr4x ModStr4y ModStr4z 格擋速度
+// ModStr1b 敏捷
+const DEX_MODI = ['ModStr1b', 'ModStr4x', 'ModStr4y', 'ModStr4z', 'ModStr4o', 'ModStr4p', 'ModStr4q'];
+// ModStr1c 体能
+const STAM_MODI = ['ModStr1c', 'ModStr3v', 'ModStr5d', 'ModStr6e'];
+// ModStr1d 能量
+const MANA_MODI = ['ModStr1d', 'ModStr2h', 'ModStr2m', 'ModStr2s', 'ModStr2x', 'ModStr2y', 'ModStr3w', 'ModStr4g', 'ModStr1e'];
+// Moditem2ExpG Moditem2ExpG
+const EXP_MODI = ['Moditem2ExpG', 'Moditem2ExpG'];
+
 
 
 itemModifiers.forEach((item) => {
@@ -62,12 +76,6 @@ itemModifiers.forEach((item) => {
     }
     else if (itemKey === 'ModStr4v') {
         item.zhTW = 'ÿc3ÿcL%+d%% 施法速度ÿc3';
-    }
-    else if (itemKey === 'ModStr2g') {
-        item.zhTW = 'ÿc3ÿc1生命上限提高 %d%%ÿc3';
-    }
-    else if (itemKey === 'ModStr2h') {
-        item.zhTW = 'ÿc3ÿc1法力上限提高 %d%%ÿc3';
     }
     //元素抗性和元素抗性上限;
     else if (FIRE_MODI.includes(itemKey)) {
@@ -92,10 +100,6 @@ itemModifiers.forEach((item) => {
     else if (DR_MR_MODI.includes(itemKey)) {
         item.zhTW = `ÿc3ÿcO${item.zhTW}ÿc3`;
     }
-    else if (EK_MODI.includes(itemKey)) {
-        item.zhTW = `ÿc3ÿcN${item.zhTW}ÿc3`;
-    }
-    //
     else if (itemKey === 'ModStr1x') {
         item.zhTW = 'ÿc3ÿcA%d%% 更佳的機會取得魔法裝備(MF)ÿc3';
     }
@@ -107,24 +111,53 @@ itemModifiers.forEach((item) => {
     }
     // +角色技能词缀加颜色。gold色。
     else if (itemKey === 'ModStr3k') {
-        item.zhTW = 'ÿc3ÿc4%+d 所有技能ÿc3';
+        // item.zhTW = 'ÿc3ÿc4%+d 所有技能ÿc3';
+        item.zhTW = `ÿc3ÿc4${item.zhTW}ÿc3`;
     }
-    //橙色
+    else if (itemKey === 'Moditem2allattrib') {
+        item.zhTW = `ÿc3ÿc4${item.zhTW}ÿc3`;
+    }
+    //生命 力量 红色
+    else if (LIFE_MODI.includes(itemKey)) {
+        item.zhTW = `ÿc3ÿc1${item.zhTW}ÿc3`;
+    }
+    //法力 能量 青色 turquoise
+    else if (MANA_MODI.includes(itemKey)) {
+        item.zhTW = `ÿc3ÿcN${item.zhTW}ÿc3`;
+    }
+    //体能 活力 黄色
+    else if (STAM_MODI.includes(itemKey)) {
+        item.zhTW = `ÿc3ÿcR${item.zhTW}ÿc3`;
+    }
+    //敏捷 格擋 打擊恢復 淺綠
+    else if (DEX_MODI.includes(itemKey)) {
+        item.zhTW = `ÿc3ÿc<${item.zhTW}ÿc3`;
+    }
+    //經驗值 紫色
+    else if (EXP_MODI.includes(itemKey)) {
+        item.zhTW = `ÿc3ÿc;${item.zhTW}ÿc3`;
+    }
+    //角色技能 橙色
     else if (ADD_CHAR_SKILL.includes(itemKey)) {
-        item.zhTW = `ÿc3ÿcJ${item.zhTW}ÿc3`;
+        item.zhTW = `ÿc3ÿcL${item.zhTW}ÿc3`;
     }
     // SkillTab技能词缀加颜色。橙色
     else if (itemKey != null && itemKey.substring(0, 13) === 'StrSklTabItem') {
         item.zhTW = `ÿc3ÿc8${item.zhTW}ÿc3`;
     }
 
+    //EK 浅蓝 重置前面的颜色设置
+    if (EK_MODI.includes(itemKey)) {
+        item.zhTW = `ÿc3ÿcN${item.zhTW}ÿc3`;
+    }
+
 });
 
 itemModifiers.push({
-    id:  D2RMM.getNextStringID(),
+    id: D2RMM.getNextStringID(),
     Key: 'innernumdesc',
     enUS: '%+d innernum',
-    zhTW: '%+d innernum',
+    zhTW: '%+d innernum'
 });
 
 D2RMM.writeJson(itemModifiersFilename, itemModifiers);

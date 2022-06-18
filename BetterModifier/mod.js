@@ -227,12 +227,16 @@ const DISABLED_SUFFIX_CODES = [
   'red-mag', 'manasteal', 'hp', 'mana'
 ];
 
-const DISABLED_ITYPES_ARRAY = ['jewl', 'scha', 'mcha', 'lcha'];
+const DISABLED_ITYPES_ARRAY = ['jewl', 'scha', 'mcha', 'lcha', 'amul', 'ring', 'circ'];
 const DISABLED_CODES_WITH_ITYPES = {
-  jewl: ['dex', 'str', 'enr', 'vit', 'att', 'stam', 'ac', 'dmg-min', 'regen-stam', 'light', 'att-demon', 'att-undead', 'thorns'],
-  scha: ['dex', 'str', 'enr', 'vit', 'att', 'stam', 'ac', 'dmg-pois', 'cold-min', 'cold-len', 'fire-min', 'pois-min', 'ltng-min'],
-  mcha: ['dex', 'str', 'enr', 'vit', 'att', 'stam', 'ac'],
-  lcha: ['dex', 'str', 'enr', 'vit', 'att', 'stam', 'ac', 'dmg-max', 'cold-min', 'cold-len', 'fire-min', 'pois-min', 'ltng-min']
+  jewl: ['dex', 'str', 'enr', 'vit', 'att', 'stam', 'ac', 'dmg-min', 'dmg-max',  'cold-len', 'fire-min', 'pois-min', 'ltng-min',
+    'regen-stam', 'light', 'att-demon', 'att-undead', 'thorns'],
+  scha: ['dex', 'str', 'enr', 'vit', 'att', 'stam', 'ac', 'dmg-min', 'dmg-max',  'cold-len', 'fire-min', 'pois-min', 'ltng-min','dmg-pois'],
+  mcha: ['dex', 'str', 'enr', 'vit', 'att', 'stam', 'ac', 'dmg-min', 'dmg-max',  'cold-len', 'fire-min', 'pois-min', 'ltng-min','dmg-pois'],
+  lcha: ['dex', 'str', 'enr', 'vit', 'att', 'stam', 'ac', 'dmg-min', 'dmg-max',  'cold-len', 'fire-min', 'pois-min', 'ltng-min','dmg-pois'],
+  amul: ['dex', 'str', 'enr', 'vit', 'att', 'stam', 'ac', 'dmg-min', 'dmg-max',  'cold-len', 'fire-min', 'pois-min', 'ltng-min','dmg-pois'],
+  ring: ['dex', 'str', 'enr', 'vit', 'att', 'stam', 'ac', 'dmg-min', 'dmg-max',  'cold-len', 'fire-min', 'pois-min', 'ltng-min','dmg-pois'],
+  circ: ['dex', 'str', 'enr', 'vit', 'att', 'stam', 'ac', 'dmg-min', 'dmg-max',  'cold-len', 'fire-min', 'pois-min', 'ltng-min','dmg-pois'],
 };
 
 mps.rows.forEach((row) => {
@@ -240,6 +244,9 @@ mps.rows.forEach((row) => {
   const frequency = row['frequency'];
   const mod1code = row['mod1code'];
   const itype1 = row['itype1'];
+  const itype2 = row['itype2'];
+  const itype3 = row['itype3'];
+  const itype4 = row['itype4'];
   const level = row['level'];
 
   //降低部分词缀的频率(frequency)
@@ -275,10 +282,17 @@ mps.rows.forEach((row) => {
     }
 
     //屏蔽珠宝和护符的部分词缀
-    if (DISABLED_ITYPES_ARRAY.includes(itype1)) {
-      if (DISABLED_CODES_WITH_ITYPES[itype1].includes(mod1code)) {
-        row['frequency'] = 0;
-        row['spawnable'] = 0;
+    // if (DISABLED_ITYPES_ARRAY.includes(itype1)) {
+    //   if (DISABLED_CODES_WITH_ITYPES[itype1].includes(mod1code)) {
+    //     row['frequency'] = 0;
+    //     row['spawnable'] = 0;
+    //   }
+    // }
+
+    for (let i = 1; i <= 4; i++) {
+      const itypeN = row[`itype` + i];
+      if (itypeN != null && DISABLED_ITYPES_ARRAY.includes(itypeN) && DISABLED_CODES_WITH_ITYPES[itypeN].includes(mod1code)) {
+        row[`itype` + i] = null;
       }
     }
   }
