@@ -316,7 +316,7 @@ const INVALID_ITEM_CODE = [
 const DUPLICATE_INDEX = ['Rainbow Facet', 'Rainbow Stone', "Gheed's Lucky", 'Rings'];
 const VALID_SETS = ["Immortal King", "Tal Rasha's Wrappings", "Bul-Kathos' Children", "M'avina's Battle Hymn", "Trang-Oul's Avatar", "Orphan's Call",
   "The Disciple", "Tancred's Battlegear", "Sazabi's Grand Tribute", "Naj's Ancient Set", "Natalya's Odium", "Griswold's Legacy", "Milabrega's Regalia",
-  "Hwanin's Majesty", "Heaven's Brethren"
+  "Hwanin's Majesty", "Heaven's Brethren", "Civerb's Vestments", "Cleglaw's Brace", "Berserker's Garb", "Death's Disguise", "Arctic Gear", "Angelical Raiment", "Cathan's Traps", "Isenhart's Armory"
 ];
 const ALL_SETS = [
   "Aldur's Watchtower", "Angelical Raiment", "Arcanna's Tricks", "Arctic Gear", "Berserker's Garb", "Bul-Kathos' Children",

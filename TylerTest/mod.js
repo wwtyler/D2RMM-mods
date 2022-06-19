@@ -112,7 +112,7 @@ itemModifiers.forEach((item) => {
     // +角色技能词缀加颜色。gold色。
     else if (itemKey === 'ModStr3k') {
         // item.zhTW = 'ÿc3ÿc4%+d 所有技能ÿc3';
-        item.zhTW = `ÿc3ÿc4${item.zhTW}ÿc3`;
+        item.zhTW = `ÿc3ÿcD${item.zhTW}ÿc3`;
     }
     else if (itemKey === 'Moditem2allattrib') {
         item.zhTW = `ÿc3ÿc4${item.zhTW}ÿc3`;
