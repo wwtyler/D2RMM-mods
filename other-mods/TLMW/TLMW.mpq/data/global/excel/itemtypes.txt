@@ -1,0 +1,318 @@
+ItemType	Code	Equiv1	Equiv2	Repair	Body	BodyLoc1	BodyLoc2	Shoots	Quiver	Throwable	Reload	ReEquip	AutoStack	Magic	Rare	Normal	Beltable	MaxSockets1	MaxSocketsLevelThreshold1	MaxSockets2	MaxSocketsLevelThreshold2	MaxSockets3	TreasureClass	Rarity	StaffMods	Class	VarInvGfx	InvGfx1	InvGfx2	InvGfx3	InvGfx4	InvGfx5	InvGfx6	StorePage	*eol
+Any				0	0					0	0	0	0			0	0	0	25	0	40	0	0	3			0								0
+None	none			0	0					0	0	0	0			0	0	0	25	0	40	0	0	3			0								0
+Shield	shie	shld		1	1	rarm	larm			0	0	0	0		1	0	0	3	25	3	40	4	0	3			0							armo	0
+Armor	tors	armo		1	1	tors	tors			0	0	0	0		1	0	0	3	25	4	40	6	0	3			0							armo	0
+Gold	gold	misc		0	0					0	0	0	0			1	0	0	25	0	40	0	0	3			0								0
+Bow Quiver	bowq	misl	seco	0	1	rarm	larm		bow	0	1	0	1			1	0	0	25	0	40	0	0	3			0							misc	0
+Crossbow Quiver	xboq	misl	seco	0	1	rarm	larm		xbow	0	1	0	1			1	0	0	25	0	40	0	0	3			0							misc	0
+Player Body Part	play	misc		0	0					0	0	0	0			1	0	0	25	0	40	0	0	3			0							misc	0
+Herb	herb	misc		0	0					0	0	0	0			0	0	0	25	0	40	0	0	3			0							misc	0
+Potion	poti	misc		0	0					0	0	0	0			1	1	0	25	0	40	0	0	3			0							misc	0
+Ring	ring	misc		0	1	rrin	lrin			0	0	0	0	1	1	0	0	0	25	0	40	0	0	3			5	invrin1	invrin2	invrin3	invrin4	invrin5		misc	0
+Elixir	elix	misc		0	0					0	0	0	0			0	1	0	25	0	40	0	0	3			0							misc	0
+Amulet	amul	misc		0	1	neck	neck			0	0	0	0	1	1	0	0	0	25	0	40	0	0	3			3	invamu1	invamu2	invamu3				misc	0
+Charm	char	misc		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			3	invch1	invch4	invch7				misc	0
+Not Used				0	0					0	0	0	0			0	0	0	25	0	40	0	0	3			0								0
+Boots	boot	armo		1	1	feet	feet			0	0	0	0		1	0	0	0	25	0	40	0	0	3			0							armo	0
+Gloves	glov	armo		1	1	glov	glov			0	0	0	0		1	0	0	0	25	0	40	0	0	3			0							armo	0
+Not Used				0	0					0	0	0	0			0	0	0	25	0	40	0	0	3			0								0
+Book	book	misc		0	0					0	0	0	0			1	0	0	25	0	40	0	0	3			0							misc	0
+Belt	belt	armo		1	1	belt	belt			0	0	0	0		1	0	0	0	25	0	40	0	0	3			0							armo	0
+Gem	gem	sock		0	0					0	0	0	0			1	0	0	25	0	40	0	0	3			0							misc	0
+Torch	torc	misc		0	1					0	0	0	0			1	0	0	25	0	40	0	0	3			0							misc	0
+Scroll	scro	misc		0	0					0	0	0	0			1	1	0	25	0	40	0	0	3			0							misc	0
+Not Used				0	0					0	0	0	0			0	0	0	25	0	40	0	0	3			0								0
+Scepter	scep	rod		1	1	rarm	larm			0	0	0	0		1	0	0	3	25	5	40	6	0	1	pal		0							weap	0
+Wand	wand	rod		1	1	rarm	larm			0	0	0	0		1	0	0	2	25	2	40	2	0	1	nec		0							weap	0
+Staff	staf	rod		1	1	rarm	larm			0	0	0	0		1	0	0	5	25	6	40	6	0	1	sor		0							weap	0
+Bow	bow	miss		0	1	rarm	larm	bowq		0	0	0	0		1	0	0	3	25	4	40	6	1	3			0							weap	0
+Axe	axe	mele		1	1	rarm	larm			0	0	0	0		1	0	0	4	25	5	40	6	0	3			0							weap	0
+Club	club	blun		1	1	rarm	larm			0	0	0	0		1	0	0	3	25	4	40	6	0	3			0							weap	0
+Sword	swor	blde		1	1	rarm	larm			0	0	0	0		1	0	0	3	25	4	40	6	0	3			0							weap	0
+Hammer	hamm	blun		1	1	rarm	larm			0	0	0	0		1	0	0	3	25	4	40	6	0	3			0							weap	0
+Knife	knif	blde		1	1	rarm	larm			0	0	0	0		1	0	0	2	25	3	40	3	0	3			0							weap	0
+Spear	spea	sppl		1	1	rarm	larm			0	0	0	0		1	0	0	3	25	4	40	6	0	3			0							weap	0
+Polearm	pole	sppl		1	1	rarm	larm			0	0	0	0		1	0	0	3	25	4	40	6	0	3			0							weap	0
+Crossbow	xbow	miss		1	1	rarm	larm	xboq		0	0	0	0		1	0	0	3	25	4	40	6	0	3			0							weap	0
+Mace	mace	blun		1	1	rarm	larm			0	0	0	0		1	0	0	3	25	4	40	6	0	3			0							weap	0
+Helm	helm	armo		1	1	head	head			0	0	0	0		1	0	0	2	25	2	40	3	0	3			0							armo	0
+Missile Potion	tpot	thro		0	1	rarm	larm			1	1	1	1			1	0	0	25	0	40	0	0	3			0							misc	0
+Quest	ques			0	0					0	0	0	0			0	0	0	25	0	40	0	0	3			0								0
+Body Part	body	misc		0	0					0	0	0	0			1	0	0	25	0	40	0	0	3			0							misc	0
+Key	key	misc		0	0					0	0	0	1			1	0	0	25	0	40	0	0	3			0							misc	0
+Throwing Knife	tkni	comb	knif	1	1	rarm	larm			1	1	1	1		1	0	0	0	25	0	40	0	0	3			0							misc	0
+Throwing Axe	taxe	comb	axe	1	1	rarm	larm			1	1	1	1		1	0	0	0	25	0	40	0	0	3			0							misc	0
+Javelin	jave	comb	spea	1	1	rarm	larm			1	1	1	1		1	0	0	0	25	0	40	0	0	3			0							misc	0
+Weapon	weap			0	0					0	0	0	0		1	0	0	0	25	0	40	0	1	3			0								0
+Melee Weapon	mele	weap		0	0					0	0	0	0		1	0	0	0	25	0	40	0	1	3			0								0
+Missile Weapon	miss	weap		0	0					0	0	0	0		1	0	0	0	25	0	40	0	0	3			0								0
+Thrown Weapon	thro	weap		0	0					1	0	0	0		1	0	0	0	25	0	40	0	0	3			0								0
+Combo Weapon	comb	mele	thro	0	0					1	0	0	0		1	0	0	0	25	0	40	0	0	3			0								0
+Any Armor	armo			0	0					0	0	0	0		1	0	0	0	25	0	40	0	1	3			0								0
+Any Shield	shld	armo	seco	0	0					0	0	0	0		1	0	0	0	25	0	40	0	0	3			0								0
+Miscellaneous	misc			0	0					0	0	0	0		1	0	0	0	25	0	40	0	0	3			0								0
+Socket Filler	sock	misc		0	0					0	0	0	0			0	0	0	25	0	40	0	0	3			0								0
+Second Hand	seco			0	0					0	0	0	0		1	0	0	0	25	0	40	0	0	3			0								0
+Staves And Rods	rod	blun		0	0					0	0	0	0		1	0	0	0	25	0	40	0	0	3			0								0
+Missile	misl	misc		0	0					0	0	0	0			0	0	0	25	0	40	0	0	3			0								0
+Blunt	blun	mele		0	0					0	0	0	0		1	0	0	0	25	0	40	0	0	3			0								0
+Expansion																																			
+Jewel	jewl	sock		0	0					0	0	0	0	1	1	0	0	0	25	0	40	0	0	3			6	invjw1	invjw2	invjw3	invjw4	invjw5	invjw6	misc	0
+Class Specific	clas			0	0					0	0	0	0		1	0	0	0	25	0	40	0	0	3			0								0
+Amazon Item	amaz	clas		0	0					0	0	0	0		1	0	0	0	25	0	40	0	0	1		ama	0								0
+Barbarian Item	barb	clas		0	0					0	0	0	0		1	0	0	0	25	0	40	0	0	1		bar	0								0
+Necromancer Item	necr	clas		0	0					0	0	0	0		1	0	0	0	25	0	40	0	0	1		nec	0								0
+Paladin Item	pala	clas		0	0					0	0	0	0		1	0	0	0	25	0	40	0	0	1		pal	0								0
+Sorceress Item	sorc	clas		0	0					0	0	0	0		1	0	0	0	25	0	40	0	0	1		sor	0								0
+Assassin Item	assn	clas		0	0					0	0	0	0		1	0	0	0	25	0	40	0	0	2		ass	0								0
+Druid Item	drui	clas		0	0					0	0	0	0		1	0	0	0	25	0	40	0	0	1		dru	0								0
+Hand to Hand	h2h	mele	assn	1	1	rarm	larm			0	0	0	0		1	0	0	2	25	3	40	3	0	2		ass	0							weap	0
+Orb	orb	weap	sorc	1	1	rarm	larm			0	0	0	0		1	0	0	2	25	3	40	3	0	1	sor	sor	0							weap	0
+Voodoo Heads	head	shld	necr	1	1	rarm	larm			0	0	0	0		1	0	0	2	25	3	40	3	0	1	nec	nec	0							armo	0
+Auric Shields	ashd	shld	pala	1	1	rarm	larm			0	0	0	0		1	0	0	3	25	4	40	4	0	1		pal	0							armo	0
+Primal Helm	phlm	helm	barb	1	1	head	head			0	0	0	0		1	0	0	2	25	3	40	3	0	1	bar	bar	0							armo	0
+Pelt	pelt	helm	drui	1	1	head	head			0	0	0	0		1	0	0	2	25	3	40	3	0	1	dru	dru	0							armo	0
+Cloak	cloa	tors	assn	1	1	tors	tors			0	0	0	0		1	0	0	0	25	0	40	0	0	1	ass	ass	0							armo	0
+Rune	rune	sock		0	0					0	0	0	0			1	0	0	25	0	40	0	0	3			0							misc	0
+Circlet	circ	helm		1	1	head	head			0	0	0	0		1	0	0	1	25	2	40	3	0	3			0							armo	0
+Healing Potion	hpot	poti		0	0					0	0	0	0			1	1	0	25	0	40	0	0	3			0							misc	0
+Mana Potion	mpot	poti		0	0					0	0	0	0			1	1	0	25	0	40	0	0	3			0							misc	0
+Rejuv Potion	rpot	hpot	mpot	0	0					0	0	0	0			1	1	0	25	0	40	0	0	3			0							misc	0
+Stamina Potion	spot	poti		0	0					0	0	0	0			1	1	0	25	0	40	0	0	3			0							misc	0
+Antidote Potion	apot	poti		0	0					0	0	0	0			1	1	0	25	0	40	0	0	3			0							misc	0
+Thawing Potion	wpot	poti		0	0					0	0	0	0			1	1	0	25	0	40	0	0	3			0							misc	0
+Small Charm	scha	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			3	invch1	invch4	invch7				misc	0
+Medium Charm	mcha	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			3	invch2	invch5	invch8				misc	0
+Large Charm	lcha	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			3	invch3	invch6	invch9				misc	0
+Amazon Bow	abow	bow	amaz	0	1	rarm	larm	bowq		0	0	0	0		1	0	0	3	25	4	40	5	1	1		ama	0							weap	0
+Amazon Spear	aspe	spea	amaz	1	1	rarm	larm			0	0	0	0		1	0	0	3	25	4	40	6	0	1		ama	0							weap	0
+Amazon Javelin	ajav	jave	amaz	1	1	rarm	larm			1	1	1	1		1	0	0	0	25	0	40	0	0	1		ama	0							misc	0
+Hand to Hand 2	h2h2	h2h		1	1	rarm	larm			0	0	0	0		1	0	0	2	25	3	40	3	0	2	ass	ass	0							weap	0
+Magic Bow Quiv	mboq	bowq		0	1	rarm	larm		bow	0	1	0	0	1	1	0	0	0	25	0	40	0	0	3			0							misc	0
+Magic Xbow Quiv	mxbq	xboq		0	1	rarm	larm		xbow	0	1	0	0	1	1	0	0	0	25	0	40	0	0	3			0							misc	0
+Chipped Gem	gem0	gem		0	0					0	0	0	0			1	0	0	25	0	40	0	0	3			0							misc	0
+Flawed Gem	gem1	gem		0	0					0	0	0	0			1	0	0	25	0	40	0	0	3			0							misc	0
+Standard Gem	gem2	gem		0	0					0	0	0	0			1	0	0	25	0	40	0	0	3			0							misc	0
+Flawless Gem	gem3	gem		0	0					0	0	0	0			1	0	0	25	0	40	0	0	3			0							misc	0
+Perfect Gem	gem4	gem		0	0					0	0	0	0			1	0	0	25	0	40	0	0	3			0							misc	0
+Amethyst	gema	gem		0	0					0	0	0	0			1	0	0	25	0	40	0	0	3			0							misc	0
+Diamond	gemd	gem		0	0					0	0	0	0			1	0	0	25	0	40	0	0	3			0							misc	0
+Emerald	geme	gem		0	0					0	0	0	0			1	0	0	25	0	40	0	0	3			0							misc	0
+Ruby	gemr	gem		0	0					0	0	0	0			1	0	0	25	0	40	0	0	3			0							misc	0
+Sapphire	gems	gem		0	0					0	0	0	0			1	0	0	25	0	40	0	0	3			0							misc	0
+Topaz	gemt	gem		0	0					0	0	0	0			1	0	0	25	0	40	0	0	3			0							misc	0
+Skull	gemz	gem		0	0					0	0	0	0			1	0	0	25	0	40	0	0	3			0							misc	0
+Swords and Knives	blde	mele		0	0					0	0	0	0		1	0	0	0	25	0	40	0	0	3			0								0
+Spears and Polearms	sppl	mele		0	0					0	0	0	0		1	0	0	0	25	0	40	0	0	3			0								0
+Gift	gift	misc		0	0					0	0	0	0	0		1	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Avoid	t100	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Charged Strike	t101	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Cold Arrow	t102	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Critical Strike	t103	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Decoy	t104	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Dodge	t105	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Evade	t106	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Exploding Arrow	t107	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Fend	t108	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Fire Arrow	t109	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Freezing Arrow	t10a	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Guided Arrow	t10b	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Ice Arrow	t10c	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Immolation Arrow	t10d	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Impale	t10e	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Inner Sight	t10f	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Jab	t10g	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Lightning Bolt	t10h	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Lightning Fury	t10i	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Lightning Strike	t10j	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Magic Arrow	t10k	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Multiple Shot	t10l	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Penetrate	t10m	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Pierce	t10n	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Plague Javelin	t10o	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Poison Javelin	t10p	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Power Strike	t10q	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Slow Missiles	t10r	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Strafe	t10s	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Valkyrie	t10t	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Blades of Ice	t10u	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Blade Fury	t10v	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Blade Sentinel	t10w	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Blade Shield	t10x	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Burst of Speed	t10y	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Charged Bolt Sentry	t10z	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Claws of Thunder	t110	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Claw Mastery	t111	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Cloak of Shadows	t112	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Cobra Strike	t113	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Death Sentry	t114	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Dragon Claw	t115	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Dragon Flight	t116	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Dragon Tail	t117	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Dragon Talon	t118	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Fade	t119	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Fire Blast	t11a	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Fists of Fire	t11b	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Lightning Sentry	t11c	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Mind Blast	t11d	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Phoenix Strike	t11e	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Psychic Hammer	t11f	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Shadow Master	t11g	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Shadow Warrior	t11h	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Shock Web	t11i	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Tiger Strike	t11j	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Venom	t11k	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Wake of Fire	t11l	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Wake of Inferno	t11m	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Weapon Block	t11n	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Axe Mastery	t11o	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Bash	t11p	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Battle Command	t11q	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Battle Cry	t11r	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Battle Orders	t11s	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Berserk	t11t	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Blade Mastery	t11u	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Concentrate	t11v	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Double Swing	t11w	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Double Throw	t11x	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Find Item	t11y	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Find Potion	t11z	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Frenzy	t120	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Grim Ward	t121	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Howl	t122	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Increased Speed	t123	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Increased Stamina	t124	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Iron Skin	t125	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Leap	t126	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Leap Attack	t127	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Mace Mastery	t128	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Natural Resistance	t129	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Polearm Mastery	t12a	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Shout	t12b	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Spear Mastery	t12c	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Stun	t12d	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Taunt	t12e	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Throwing Mastery	t12f	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of War Cry	t12g	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Whirlwind	t12h	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Arctic Blast	t12i	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Armageddon	t12j	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Carrion Vine	t12k	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Cyclone Armor	t12l	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Feral Rage	t12m	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Firestorm	t12n	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Fire Claws	t12o	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Fissure	t12p	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Fury	t12q	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Heart of Wolverine	t12r	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Hunger	t12s	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Hurricane	t12t	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Lycanthropy	t12u	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Maul	t12v	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Molten Boulder	t12w	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Oak Sage	t12x	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Poison Creeper	t12y	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Rabies	t12z	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Raven	t130	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Shock Wave	t131	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Solar Creeper	t132	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Spirit of Barbs	t133	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Summon Dire Wolf	t134	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Summon Grizzly	t135	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Summon Spirit Wolf	t136	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Tornado	t137	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Twister	t138	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Volcano	t139	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Werebear	t13a	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Werewolf	t13b	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Amplify Damage	t13c	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Attract	t13d	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Blood Golem	t13e	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Bone Armor	t13f	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Bone Prison	t13g	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Bone Spear	t13h	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Bone Spirit	t13i	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Bone Wall	t13j	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Clay Golem	t13k	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Confuse	t13l	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Corpse Explosion	t13m	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Decrepify	t13n	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Dim Vision	t13o	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Fire Golem	t13p	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Golem Mastery	t13q	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Iron Golem	t13r	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Iron Maiden	t13s	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Life Tap	t13t	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Lower Resist	t13u	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Poison Dagger	t13v	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Poison Explosion	t13w	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Poison Nova	t13x	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Raise Skeletal Mage	t13y	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Raise Skeleton	t13z	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Revive	t140	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Skeleton Mastery	t141	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Summon Resist	t142	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Teeth	t143	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Terror	t144	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Weaken	t145	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Blessed Aim	t146	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Blessed Hammer	t147	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Charge	t148	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Cleansing	t149	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Concentration	t14a	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Conversion	t14b	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Conviction	t14c	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Defiance	t14d	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Fanaticism	t14e	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Fist of the Heavens	t14f	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Holy Bolt	t14g	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Holy Fire	t14h	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Holy Freeze	t14i	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Holy Shield	t14j	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Holy Shock	t14k	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Meditation	t14l	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Might	t14m	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Prayer	t14n	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Redemption	t14o	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Resist Cold	t14p	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Resist Fire	t14q	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Resist Lightning	t14r	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Sacrifice	t14s	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Salvation	t14t	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Sanctuary	t14u	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Smite	t14v	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Thorns	t14w	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Vengeance	t14x	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Vigor	t14y	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Zeal	t14z	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Blaze	t150	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Blizzard	t151	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Chain Lightning	t152	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Charged Bolt	t153	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Chilling Armor	t154	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Cold Mastery	t155	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Enchant	t156	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Energy Shield	t157	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Fire Ball	t158	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Fire Bolt	t159	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Fire Mastery	t15a	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Fire Wall	t15b	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Frost Nova	t15c	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Frozen Armor	t15d	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Frozen Orb	t15e	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Glacial Spike	t15f	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Hydra	t15g	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Ice Blast	t15h	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Ice Bolt	t15i	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Inferno	t15j	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Lightning	t15k	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Lightning Mastery	t15l	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Meteor	t15m	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Nova	t15n	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Shiver Armor	t15o	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Static Field	t15p	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Telekinesis	t15q	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Teleport	t15r	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Thunder Storm	t15s	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
+Lost Magic of Warmth	t15t	char		0	0					0	0	0	0	1		0	0	0	25	0	40	0	0	3			0							misc	0
