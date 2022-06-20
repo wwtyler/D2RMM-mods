@@ -39,7 +39,7 @@ const M_ITS = {
   SOR_LOW: ['ring', 'glov', 'belt'],
   NEC: ['necr', 'wand', 'head', 'amul', 'circ', 'knif'],
   NEC_ONLY: ['necr', 'wand', 'head'],
-  PAL: ['pala', 'scep', 'swor', 'mace', `shld`, `ashd`, `amul`, `circ`],
+  PAL: ['pala', 'scep', 'swor', 'mace', `shld`, `amul`, `circ`],
   PAL_ONLY: ['pala', 'scep', 'ashd'],
   BAR: ['barb', 'phlm', 'axe', 'tkni', 'spea', 'helm', 'amul'],
   BAR_ONLY: ['barb', 'phlm', 'tkni'],
