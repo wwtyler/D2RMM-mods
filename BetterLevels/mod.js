@@ -31,7 +31,7 @@ const shrines = D2RMM.readTsv(shrinesFilename);
 
 shrines.rows.forEach((row) => {
   if (row['Duration in frames'] > 0 && row['*Shrine Type'] === 'Booster') {
-    row['Duration in frames'] = Math.floor(row['Duration in frames'] * 3);
+    row['Duration in frames'] = Math.floor(row['Duration in frames'] * 2);
   }
 });
 D2RMM.writeTsv(shrinesFilename, shrines);

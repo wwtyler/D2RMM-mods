@@ -338,7 +338,6 @@ const zodJsonFilename = `${miscDirFilename + 'zod_rune'}.json`;
 const zodRuneJsonTemplate1 = D2RMM.readJson(zodJsonFilename);
 const zodRuneJsonTemplate2 = D2RMM.readJson(zodJsonFilename);
 
-
 let zodMiscItemTemplate;
 misc.rows.forEach((item) => {
   if (item.name === 'Zod Rune') {
@@ -393,8 +392,7 @@ itemtypes.rows.forEach((itemtype) => {
     itemtypes.rows.push({
       ...itemtype,
       ItemType: `ESSENCE Rune`,
-      Code: 'runz', //runz later
-      // Equiv1	Equiv2
+      Code: 'runz', 
       Equiv1: 'rune',
       Equiv2: 'misc',
     });
@@ -424,27 +422,15 @@ function addEssenceRunes(essenceCode, item) {
   misc.rows.push({
     ...zodMiscItemTemplate,
     name: `ERune-${essenceCode}-${item.index}(${item['*ID']})`,
-    // ShowLevel: 1,
-    cost: 5000,
-    spawnable: 1,
-    speed: 0,
-    nodurability: 1,
-    level: item.lvl,
-    levelreq: getMinusLvlReq(),
-    type: 'rune',
-    type2: 'runz',
+    spawnable: 1,// ShowLevel: 1,
+    cost: 5000, speed: 0, nodurability: 1,
+    level: item.lvl, levelreq: getMinusLvlReq(),
+    type: 'rune', type2: 'runz',
     //code	alternategfx	namestr
-    code: `${essenceCode}`,
-    alternategfx: `${essenceCode}`,
-    namestr: `${essenceCode}`,
-    //flippyfile  invfile
-    flippyfile: 'flprun',
-    invfile: 'invrZod',
-    dropsound: 'item_rune',
-    usesound: 'item_rune',
-    spelldesc: 2,
-    spelldescstr: 'EssenceRune',
-    spelldesccolor: 7,
+    code: `${essenceCode}`, alternategfx: `${essenceCode}`, namestr: `${essenceCode}`,
+    flippyfile: 'flprun', invfile: 'invrZod',
+    dropsound: 'item_rune', usesound: 'item_rune',
+    spelldesc: 2, spelldescstr: 'EssenceRune', spelldesccolor: 7,
   });
 
   let uMod = UNIQUE_GEMS[`${item.index}`];
@@ -472,8 +458,7 @@ function addEssenceRunes(essenceCode, item) {
   if (!DUPLICATE_INDEX.includes(item.index)) {
     cubemain.rows.push({
       description: `转换装备为精华符文：item->${essenceCode}`,
-      enabled: 1,
-      version: 100,
+      enabled: 1, version: 100,
       numinputs: 2,
       'input 1': item.index,
       'input 2': 'wms',
@@ -523,12 +508,6 @@ function addEssenceRunes(essenceCode, item) {
   function getMinusLvlReq() {
     let lvlreq = item['lvl req'];
     let minusLvlreq = Math.floor(lvlreq * 0.7);
-    // if (lvlreq > 70)
-    //   minusLvlreq = Math.max(60, lvlreq - 25);
-    // else if (lvlreq > 50)
-    //   minusLvlreq = Math.max(40, lvlreq - 20);
-    // else if (lvlreq > 30)
-    //   minusLvlreq = Math.max(20, lvlreq - 15);
     return minusLvlreq;
   }
 }

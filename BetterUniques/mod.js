@@ -29,6 +29,7 @@ uniqueItems.rows.forEach((item) => {
       item.prop8 = 'allskills'; item.min8 = 1; item.max8 = 1;;
     }
     else if (item.index === "Azurewrath" && item.code === 'crs') {
+      //Azurewrath重名，不唯一。
       item.index = "Azurewrath1";
     }
     else if (item.index === "Azurewrath" && item.code === '7cr') {
@@ -43,19 +44,17 @@ uniqueItems.rows.forEach((item) => {
       item.prop8 = 'allskills'; item.min8 = 1; item.max8 = 2;
     }
     else if (item.index === "Mang Song's Lesson") {
-      // Mang Song's Lesson	322	100	1		1	1	
-      // 86	82	6ws	archon staff		5	5000	dgld	dgld		inv8wsu				
+      // Mang Song's Lesson	322	100	1		1	1	 86	82	6ws	archon staff		5	5000	dgld	dgld		inv8wsu				
       // allskills		5	5	pierce-fire		7	15	pierce-ltng		7	15	pierce-cold		7	15	regen-mana		10	10	cast2		30	30
-      item.min1 = 5; item.max1 = 5;
+      item.min1 = 5; item.max1 = 6;
       item.min2 = 15; item.max2 = 25;
       item.min3 = 15; item.max3 = 25;
       item.min4 = 15; item.max4 = 25;
       item.prop5 = 'regen-mana'; item.min5 = 20; item.max5 = 30;
-      item.prop6 = 'cast2'; item.min6 = 35; item.max6 = 50;
+      item.prop6 = 'cast2'; item.min6 = 35; item.max6 = 55;
     }
     else if (item.index === "Tyrael's Might") {
-      // Tyrael's Might	311	100	1		1	1	
-      // 87	84	uar	sacred armor		5	5000	dblu	dblu		invaaru				
+      // Tyrael's Might	311	100	1		1	1	87	84	uar	sacred armor		5	5000	dblu	dblu		invaaru				
       // ease		-100	-100	indestruct		1	1	ac%		120	150	rip		1	1	dmg-demon		50	100	nofreeze		1	1	move2		20	20	res-all		20	30	str		20	30
       item.prop1 = 'ease'; item.min1 = -100; item.max1 = -100;
       item.prop2 = 'indestruct'; item.min2 = 1; item.max2 = 1;
@@ -80,30 +79,38 @@ uniqueItems.rows.forEach((item) => {
       item.prop7 = 'aura'; item.par7 = 'Concentration'; item.min7 = 12; item.max7 = 16;
       item.prop8 = 'reanimate'; item.min8 = 10; item.max8 = 14;
       item.prop9 = 'heal-kill'; item.min9 = 10; item.max9 = 14;
-      item.prop10 = 'sock'; item.min10 = 1; item.max10 = 3;
+      item.prop10 = 'sock'; item.min10 = 2; item.max10 = 3;
     }
     else if (item.index === "Arachnid Mesh") {
-      // Arachnid Mesh	373	100	1		1	1	87	80	ulc	spiderweb sash		5	5000	blac	blac						ac%		90	120	cast2		20	20	charged	Venom	11	3	allskills		1	1	slow		10	10	mana%		5	5																										0
+      // Arachnid Mesh	373	100	1		1	1	87	80	ulc	spiderweb sash		5	5000	blac	blac						
+      // ac%		90	120	cast2		20	20	charged	Venom	11	3	allskills		1	1	slow		10	10	mana%		5	5	
       item.prop1 = 'ac%'; item.min1 = 90; item.max1 = 120;
       item.prop2 = 'cast2'; item.min2 = 20; item.max2 = 20;
-      item.prop3 = 'charged'; item.par3 = 'Venom'; item.min3 = 11; item.max3 = 13;
+      item.prop3 = 'charged'; item.par3 = 'Venom'; item.min3 = 11; item.max3 = 8;
       item.prop4 = 'allskills'; item.min4 = 1; item.max4 = 1;
       item.prop5 = 'slow'; item.min5 = 10; item.max5 = 10;
-      item.prop6 = 'mana%'; item.min6 = 5; item.max6 = 5;
+      item.prop6 = 'mana%'; item.min6 = 5; item.max6 = 10;
     }
     else if (item.index === "Griffon's Eye") {
       //Griffon's Eye	336	100	1		1		84	76	ci3	diadem		5	5000
       // ac		100	200	cast2		25	25	allskills		1	1	extra-ltng		10	15	pierce-ltng		15	20
-      item.prop1 = 'ac'; item.min1 = 150; item.max1 = 250;
-      item.prop2 = 'cast2'; item.min2 = 25; item.max2 = 25;
+      item.prop1 = 'ac'; item.min1 = 200; item.max1 = 300;
+      item.prop2 = 'cast2'; item.min2 = 25; item.max2 = 35;
       item.prop3 = 'allskills'; item.min3 = 1; item.max3 = 1;
       item.prop4 = 'extra-ltng'; item.min4 = 20; item.max4 = 30;
       item.prop5 = 'pierce-ltng'; item.min5 = 20; item.max5 = 30;
     }
-    // else if (item.index === 'Alma Negra') {
-    //   // Alma Negra	329	100	1		1		85	77	pac	sacred rondache		5	5000	blac	blac				
-    //   // ac%		180	210	block2		30	30	pal		1	2	block		20	20	red-mag		5	9	att%		40	75	dmg%		40	75
-    // }
+    else if (item.index === 'Alma Negra') {
+      // Alma Negra	329	100	1		1		85	77	pac	sacred rondache		5	5000	blac	blac				
+      // ac%		180	210	block2		30	30	pal		1	2	block		20	20	red-mag		5	9	att%		40	75	dmg%		40	75
+      item.prop1 = 'ac%'; item.min1 = 180; item.max1 = 210;
+      item.prop2 = 'block2'; item.min2 = 30; item.max2 = 30;
+      item.prop3 = 'pal'; item.min3 = 1; item.max3 = 2;
+      item.prop4 = 'block'; item.min4 = 30; item.max4 = 30;
+      item.prop5 = 'red-mag'; item.min5 = 5; item.max5 = 9;
+      item.prop6 = 'att%'; item.min6 = 40; item.max6 = 75;
+      item.prop7 = 'dmg'; item.min7 = 40; item.max7 = 75;
+    }
     else if (item.index === "Deaths's Web") {
       //Deaths's Web	299	100	1		1		74	66	7gw	unearthed wand		5	5000
       //allskills		2	2	pierce-pois		40	50	heal-kill		7	12	mana-kill		7	12	skilltab	7	1	2
@@ -186,20 +193,62 @@ uniqueItems.rows.forEach((item) => {
       item.prop3 = 'att'; item.min3 = 75; item.max3 = 75;
       item.prop4 = 'mag%'; item.min4 = 30; item.max4 = 45;
     }
-    // Dwarf Star	274	100	1		2	1	53	45	rin	Ring		5	5000	dgry	dgry						gold%		100	100	stam		40	40	regen-stam		15	15	hp		40	40	red-mag		12	15	abs-fire%		15	15																										0
-    // Raven Frost	275	100	1		2	1	53	45	rin	Ring		5	5000	cblu	cblu						nofreeze		1	1	dmg-cold	100	15	45	abs-cold%		20	20	mana		40	40	dex		15	20	att		150	250																										0
-    // Nature's Peace	300	100	1		2	1	77	69	rin	ring		5	5000	dgrn	dgrn						noheal		1	1	rip		1	1	red-dmg		7	11	res-pois		20	30	charged	Oak Sage	27	5																														0
-    // Manald Heal	121	0	1		2	1	20	15	rin	Ring		5	5000	oran							manasteal		4	7	regen		5	8	hp		20	20	regen-mana		20	20																																		0
-    // Wisp	319	100	1		1	1	84	76	rin	ring		5	5000	bwht	bwht						abs-ltng%		10	20	hit-skill	Lightning	10	16	mag%		10	20	charged	Oak Sage	15	2	charged	Heart of Wolverine	13	5	charged	Spirit of Barbs	11	7																										0
-    // Carrion Wind	378	100	1		2	1	68	60	rin	ring		3	5000								ac-miss		100	160	lifesteal		6	9	res-pois		55	55	gethit-skill	Poison Nova	10	10	charged	Plague Poppy	15	21	hit-skill	Twister	8	13	dmg-to-mana		10	10																						0
-    // Atma's Scarab	273	100	1		2	1	60	60	amu	Amulet		5	5000	cgrn	cgrn						dmg-pois	100	102	102	res-pois		75	75	light		3	3	thorns		5	5	hit-skill	66	5	2	att%		20	20																										0
-    // Amulet of the Viper	123	0	1		1	1	0	0	vip	Amulet		5	5000	lgry							mana		10	10	res-pois		25	25	hp		10	10			0	0			0	0			0	0			0	0																						0
-    // Highlord's Wrath	276	100	1		2	1	73	65	amu	Amulet		5	5000	bwht	bwht						res-ltng		35	35	dmg-ltng		1	30	swing2		20	20	allskills		1	1	deadly/lvl	3			light-thorns		15	15																										0
-    // Saracen's Chance	277	100	1		2	1	55	47	amu	Amulet		5	5000	dpur	dpur						res-all		15	25	gethit-skill	76	10	2	str		12	12	dex		12	12	enr		12	12	vit		12	12																										0
-    // Metalgrid	375	100	1		2	1	85	81	amu	amulet		5	5000								ac		300	350	res-all		25	35	att		400	450	charged	IronGolem	11	22	charged	Iron Maiden	20	12																														0
-    // Nokozan Relic	117	0	1		2	1	14	10	amu	Amulet		5	5000	lgld							dmg-fire		3	6	res-fire-max		10	10	res-fire		50	50	light		3	3	balance2		20	20																														0
-    // The Eye of Etlich	118	0	1		2	1	20	15	amu	Amulet		5	5000	dgld							ac-miss		10	40	light		1	5	allskills		1	1	lifesteal		3	7	cold-min		1	2	cold-max		3	5	cold-len		50	250																						0
-    // The Mahim-Oak Curio	119	0	1		2	1	34	25	amu	Amulet		5	5000	lpur							dex		10	10	str		10	10	enr		10	10	vit		10	10	ac		10	10	att%		10	10	res-all		10	10	ac%		10	10																		0
+    // Manald Heal	121	0	1		2	1	20	15	rin	Ring		5	5000	oran							
+    // manasteal		4	7	regen		5	8	hp		20	20	regen-mana		20	20									
+    else if (item.index === "Manald Heal") {
+      item.prop1 = 'manasteal'; item.min1 = 6; item.max1 = 8;
+      item.prop2 = 'regen'; item.min2 = 10; item.max2 = 15;
+      item.prop3 = 'hp'; item.min3 = 30; item.max3 = 40;
+      item.prop4 = 'regen-mana'; item.min4 = 30; item.max4 = 40;
+    }
+    else if (item.index === "Dwarf Star") {
+      // Dwarf Star	274	100	1		2	1	53	45	rin	Ring		5	5000	dgry	dgry						
+      // gold%		100	100	stam		40	40	regen-stam		15	15	hp		40	40	red-mag		12	15	abs-fire%		15	15
+      item.prop1 = 'gold%'; item.min1 = 150; item.max1 = 150;
+      item.prop2 = 'stam'; item.min2 = 50; item.max2 = 50;
+      item.prop3 = 'cast2'; item.min3 = 10; item.max3 = 10;
+      item.prop4 = 'hp'; item.min4 = 60; item.max4 = 80;
+      item.prop5 = 'red-mag'; item.min5 = 12; item.max5 = 15;
+      item.prop6 = 'abs-fire%'; item.min6 = 15; item.max6 = 15;
+    }
+    // Raven Frost	275	100	1		2	1	53	45	rin	Ring		5	5000	cblu	cblu						
+    // nofreeze		1	1	dmg-cold	100	15	45	abs-cold%		20	20	mana		40	40	dex		15	20	att		150	250	
+    else if (item.index === "Raven Frost") {
+      item.prop1 = 'nofreeze'; item.min1 = 1; item.max1 = 1;
+      item.prop2 = 'dmg-cold'; item.min2 = 100; item.max2 = 150;
+      item.prop3 = 'abs-cold%'; item.min3 = 20; item.max3 = 20;
+      item.prop4 = 'mana'; item.min4 = 40; item.max4 = 40;
+      item.prop5 = 'dex'; item.min5 = 15; item.max5 = 20;
+      item.prop6 = 'att'; item.min6 = 250; item.max6 = 300;
+    }
+    // Wisp	319	100	1		1	1	84	76	rin	ring		5	5000	bwht	bwht						
+    // abs-ltng%		10	20	hit-skill	Lightning	10	16	mag%		10	20	charged	Oak Sage	15	2	charged	Heart of Wolverine	13	5	charged	Spirit of Barbs	11	7	
+    else if (item.index === "Wisp") {
+      item.prop1 = 'abs-ltng%'; item.min1 = 10; item.max1 = 20;
+      item.prop2 = 'hit-skill'; item.min2 = 10; item.max2 = 16;
+      item.prop3 = 'mag%'; item.min3 = 10; item.max3 = 20;
+      item.prop4 = 'charged'; item.min4 = 15; item.max4 = 2;
+      item.prop5 = 'charged'; item.min5 = 13; item.max5 = 5;
+      item.prop6 = 'charged'; item.min6 = 11; item.max6 = 7;
+    }
+    // Nature's Peace	300	100	1		2	1	77	69	rin	ring		5	5000	dgrn	dgrn						
+    // noheal		1	1	rip		1	1	red-dmg		7	11	res-pois		20	30	charged	Oak Sage	27	5					
+    else if (item.index === "Nature's Peace") {
+      item.prop1 = 'noheal'; item.min1 = 1; item.max1 = 1;
+      item.prop2 = 'rip'; item.min2 = 1; item.max2 = 1;
+      item.prop3 = 'red-dmg'; item.min3 = 7; item.max3 = 11;
+      item.prop4 = 'res-pois'; item.min4 = 20; item.max4 = 30;
+      item.prop5 = 'charged'; item.min5 = 27; item.max5 = 5;
+    }
+    // Carrion Wind	378	100	1		2	1	68	60	rin	ring		3	5000								ac-miss		100	160	lifesteal		6	9	res-pois		55	55	gethit-skill	Poison Nova	10	10	charged	Plague Poppy	15	21	hit-skill	Twister	8	13	dmg-to-mana		10	10	
+    // Atma's Scarab	273	100	1		2	1	60	60	amu	Amulet		5	5000	cgrn	cgrn						dmg-pois	100	102	102	res-pois		75	75	light		3	3	thorns		5	5	hit-skill	66	5	2	att%		20	20	
+    // Amulet of the Viper	123	0	1		1	1	0	0	vip	Amulet		5	5000	lgry							mana		10	10	res-pois		25	25	hp		10	10			0	0			0	0			0	0			0	0	
+    // Highlord's Wrath	276	100	1		2	1	73	65	amu	Amulet		5	5000	bwht	bwht						res-ltng		35	35	dmg-ltng		1	30	swing2		20	20	allskills		1	1	deadly/lvl	3			light-thorns		15	15	
+    // Saracen's Chance	277	100	1		2	1	55	47	amu	Amulet		5	5000	dpur	dpur						res-all		15	25	gethit-skill	76	10	2	str		12	12	dex		12	12	enr		12	12	vit		12	12	
+    // Metalgrid	375	100	1		2	1	85	81	amu	amulet		5	5000								ac		300	350	res-all		25	35	att		400	450	charged	IronGolem	11	22	charged	Iron Maiden	20	12					
+    // Nokozan Relic	117	0	1		2	1	14	10	amu	Amulet		5	5000	lgld							dmg-fire		3	6	res-fire-max		10	10	res-fire		50	50	light		3	3	balance2		20	20					
+    // The Eye of Etlich	118	0	1		2	1	20	15	amu	Amulet		5	5000	dgld							ac-miss		10	40	light		1	5	allskills		1	1	lifesteal		3	7	cold-min		1	2	cold-max		3	5	cold-len		50	250	
+    // The Mahim-Oak Curio	119	0	1		2	1	34	25	amu	Amulet		5	5000	lpur							dex		10	10	str		10	10	enr		10	10	vit		10	10	ac		10	10	att%		10	10	res-all		10	10	ac%		10	10
 
     else if (item.index === "Rainbow Facet" && item.code === 'jew') {
       // Rainbow Facet		pierce-ltng		3	5	extra-ltng		3	5	death-skill	Chain Lightning	100	47
@@ -214,12 +263,12 @@ uniqueItems.rows.forEach((item) => {
     }
   }
 });
-// Rainbow Facet	393	100	1		1	1	85	49	jew	jewel		3	5000								dmg-cold	3	24	38	pierce-cold		3	5	extra-cold		3	5	death-skill	Blizzard	100	37																																		0
-// Rainbow Facet	394	100	1		1	1	85	49	jew	jewel		3	5000								dmg-fire		17	45	pierce-fire		3	5	extra-fire		3	5	death-skill	Meteor	100	31																																		0
-// Rainbow Facet	395	100	1		1	1	85	49	jew	jewel		3	5000								dmg-pois	50	187	187	pierce-pois		3	5	extra-pois		3	5	death-skill	Poison Nova	100	51																																		0
-// Rainbow Facet	396	100	1		1	1	85	49	jew	jewel		3	5000								dmg-ltng		1	74	pierce-ltng		3	5	extra-ltng		3	5	levelup-skill	Nova	100	41																																		0
-// Rainbow Facet	397	100	1		1	1	85	49	jew	jewel		3	5000								dmg-cold	3	24	38	pierce-cold		3	5	extra-cold		3	5	levelup-skill	Frost Nova	100	43																																		0
-// Rainbow Facet	398	100	1		1	1	85	49	jew	jewel		3	5000								dmg-fire		17	45	pierce-fire		3	5	extra-fire		3	5	levelup-skill	Blaze	100	29																																		0
+// Rainbow Facet	393	100	1		1	1	85	49	jew	jewel		3	5000								dmg-cold	3	24	38	pierce-cold		3	5	extra-cold		3	5	death-skill	Blizzard	100	37									
+// Rainbow Facet	394	100	1		1	1	85	49	jew	jewel		3	5000								dmg-fire		17	45	pierce-fire		3	5	extra-fire		3	5	death-skill	Meteor	100	31									
+// Rainbow Facet	395	100	1		1	1	85	49	jew	jewel		3	5000								dmg-pois	50	187	187	pierce-pois		3	5	extra-pois		3	5	death-skill	Poison Nova	100	51									
+// Rainbow Facet	396	100	1		1	1	85	49	jew	jewel		3	5000								dmg-ltng		1	74	pierce-ltng		3	5	extra-ltng		3	5	levelup-skill	Nova	100	41									
+// Rainbow Facet	397	100	1		1	1	85	49	jew	jewel		3	5000								dmg-cold	3	24	38	pierce-cold		3	5	extra-cold		3	5	levelup-skill	Frost Nova	100	43									
+// Rainbow Facet	398	100	1		1	1	85	49	jew	jewel		3	5000								dmg-fire		17	45	pierce-fire		3	5	extra-fire		3	5	levelup-skill	Blaze	100	29									
 // Rainbow Facet	399	100	1		1	1	85	49	jew	jewel		3	5000								dmg-pois	50	187	187	pierce-pois		3	5	extra-pois		3	5	levelup-skill	Venom	100	23		
 
 //Annihilus	381	100	1		1	1	110	70	cm1	charm	1	3	5000			flpmss	invmss	item_gem	12	item_gem	allskills		1	1	all-stats		10	20	res-all		10	20	addxp		5	10
