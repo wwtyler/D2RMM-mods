@@ -52,13 +52,13 @@ itemtypes.rows.forEach((itemtype) => {
 });
 D2RMM.writeTsv(itemtypesFilename, itemtypes);
 
-const treasureclassexFilename = 'global\\excel\\treasureclassex.txt';
-const treasureclassex = D2RMM.readTsv(treasureclassexFilename);
-treasureclassex.rows.forEach((treasureclass) => {
-  treasureclass.Item1 = converItemTypeToStackItemType(treasureclass.Item1);
-  treasureclass.Item2 = converItemTypeToStackItemType(treasureclass.Item2);
-});
-D2RMM.writeTsv(treasureclassexFilename, treasureclassex);
+// const treasureclassexFilename = 'global\\excel\\treasureclassex.txt';
+// const treasureclassex = D2RMM.readTsv(treasureclassexFilename);
+// treasureclassex.rows.forEach((treasureclass) => {
+//   treasureclass.Item1 = converItemTypeToStackItemType(treasureclass.Item1);
+//   treasureclass.Item2 = converItemTypeToStackItemType(treasureclass.Item2);
+// });
+// D2RMM.writeTsv(treasureclassexFilename, treasureclassex);
 
 const miscFilename = 'global\\excel\\misc.txt';
 const misc = D2RMM.readTsv(miscFilename);

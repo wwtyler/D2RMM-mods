@@ -36,55 +36,31 @@ ams.rows.forEach((row) => {
   });
 });
 
-ams.rows.push({
-  Name: "Weapon Boost #1",
-  version: 100,
-  spawnable: 1,
-  rare: 1,
-  level: 85,
-  levelreq: 65,
-  frequency: 1,
-  group: 310,
-  mod1code: "dmg%",
-  mod1min: 150,
-  mod1max: 250,
-  itype1: "weap",
-  multiply: 0,
-  add: 0
-});
-ams.rows.push({
-  Name: "Weapon Boost #2",
-  version: 100,
-  spawnable: 1,
-  rare: 1,
-  level: 65,
-  levelreq: 35,
-  frequency: 2,
-  group: 310,
-  mod1code: "dmg%",
-  mod1min: 100,
-  mod1max: 200,
-  itype1: "weap",
-  multiply: 0,
-  add: 0
-});
+// ams.rows.push({
+//   Name: "Weapon Boost #1",
+//   version: 100, spawnable: 1,
+//   rare: 1, level: 85, levelreq: 65, frequency: 1, group: 310,
+//   mod1code: "dmg%", mod1min: 150, mod1max: 250,
+//   itype1: "weap",
+//   multiply: 0, add: 0
+// });
+// ams.rows.push({
+//   Name: "Weapon Boost #2",
+//   version: 100, spawnable: 1,
+//   rare: 1, level: 65, levelreq: 35, frequency: 2, group: 310,
+//   mod1code: "dmg%", mod1min: 100, mod1max: 200,
+//   itype1: "weap",
+//   multiply: 0, add: 0
+// });
 
-ams.rows.push({
-  Name: "Weapon Boost #3",
-  version: 100,
-  spawnable: 1,
-  rare: 1,
-  level: 35,
-  levelreq: 15,
-  frequency: 3,
-  group: 310,
-  mod1code: "dmg%",
-  mod1min: 50,
-  mod1max: 100,
-  itype1: "weap",
-  multiply: 0,
-  add: 0
-});
+// ams.rows.push({
+//   Name: "Weapon Boost #3",
+//   version: 100, spawnable: 1,
+//   rare: 1, level: 35, levelreq: 15, frequency: 3, group: 310,
+//   mod1code: "dmg%", mod1min: 50, mod1max: 100,
+//   itype1: "weap",
+//   multiply: 0, add: 0
+// });
 
 const weaponFilename = 'global\\excel\\weapons.txt';
 const weapons = D2RMM.readTsv(weaponFilename);
@@ -107,19 +83,19 @@ qualityitems.rows.forEach((item) => {
   // att      	        0 	     15 	     50 	         	        0 	        	        	    0 	     1 	     0 	      1 	   1 	    1 	  1 	    0 	     0 	   0
   // dmg%     	        0 	     15 	     50 	         	        0 	        	        	    0 	     1 	     0 	      1 	   1 	    1 	  1 	    0 	     0 	   0
   // ac%      	        0 	      5 	     15 	         	        0 	        	        	    1 	     0 	     1 	      0 	   0 	    0 	  0 	    1 	     1 	   1
-  // att      	        0 	     15 	     50 	dmg%     	        0 	      5 	     15 	    0 	     1 	     0 	      1 	   1 	    1 	  1 	    0 	     0 	   0
   // dur%     	        0 	     10 	     15 	         	          	        	        	    1 	     1 	     1 	      1 	   1 	    1 	  1 	    1 	     1 	   1
-  // att      	        0 	     1 	     3 	dur%     	        0 	     10 	     15 	    0 	     1 	     0 	      1 	   1 	    1 	  1 	    0 	     0 	   0
+  // att      	        0 	     15 	     50 	dmg%     	        0 	      5 	     15 	    0 	     1 	     0 	      1 	   1 	    1 	  1 	    0 	     0 	   0
+  // att      	        0 	     1 	       3 	  dur%     	        0 	     10 	     15 	    0 	     1 	     0 	      1 	   1 	    1 	  1 	    0 	     0 	   0
   // dmg%     	        0 	     15 	     50 	dur%     	        0 	     10 	     15 	    0 	     1 	     0 	      1 	   1 	    1 	  1 	    0 	     0 	   0
   // ac%      	        0 	      5 	     15 	dur%     	        0 	     10 	     15 	    1 	     0 	     1 	      0 	   0 	    0 	  0 	    1 	     1 	   1
-  // dmg      	          	     15 	     50 	att      	          	     10 	     50 	    0 	     1 	     1 	      0 	   0 	    0 	  1 	    0 	     0 	    
-  if (item.mod1code === 'att' && item.mod2code === null) { item.mod1min = 30; item.mod1max = 50; }
-  if (item.mod1code === 'dmg%' && item.mod2code === null) { item.mod1min = 30; item.mod1max = 50; }
-  if (item.mod1code === 'ac%' && item.mod2code === null) { item.mod1min = 30; item.mod1max = 50; }
-  if (item.mod1code === 'att' && item.mod2code === 'dmg%') { item.mod1min = 20; item.mod1max = 30; item.mod2min = 20; item.mod2max = 30; }
-  if (item.mod1code === 'dur% ' && item.mod2code === null) { item.mod1min = 30; item.mod1max = 50; }
-  if (item.mod1code === 'att ' && item.mod2code === 'dur%') { item.mod1min = 20; item.mod1max = 30; item.mod2min = 20; item.mod2max = 30; }
-  if (item.mod1code === 'dmg% ' && item.mod2code === 'dur%') { item.mod1min = 20; item.mod1max = 30; item.mod2min = 20; item.mod2max = 30; }
+  if (item.mod1code == 'att' && item.mod2code == '') { item.mod1min = 30; item.mod1max = 50; }
+  if (item.mod1code == 'dmg%' && item.mod2code == '') { item.mod1min = 30; item.mod1max = 50; }
+  if (item.mod1code == 'ac%' && item.mod2code == '') { item.mod1min = 30; item.mod1max = 50; }
+  if (item.mod1code == 'dur%' && item.mod2code == '') { item.mod1min = 30; item.mod1max = 50; }
+  if (item.mod1code == 'att' && item.mod2code == 'dmg%') { item.mod1min = 15; item.mod1max = 30; item.mod2min = 15; item.mod2max = 30; }
+  if (item.mod1code == 'att' && item.mod2code == 'dur%') { item.mod1min = 15; item.mod1max = 30; item.mod2min = 15; item.mod2max = 30; }
+  if (item.mod1code == 'dmg%' && item.mod2code == 'dur%') { item.mod1min = 15; item.mod1max = 30; item.mod2min = 15; item.mod2max = 30; }
+  if (item.mod1code == 'ac%' && item.mod2code == 'dur%') { item.mod1min = 15; item.mod1max = 30; item.mod2min = 15; item.mod2max = 30; }
 });
 // qualityitems.rows.push({
 //   mod1code: 'dmg',
@@ -229,14 +205,14 @@ const DISABLED_SUFFIX_CODES = [
 
 const DISABLED_ITYPES_ARRAY = ['jewl', 'scha', 'mcha', 'lcha', 'amul', 'ring', 'circ'];
 const DISABLED_CODES_WITH_ITYPES = {
-  jewl: ['dex', 'str', 'enr', 'vit', 'att', 'stam', 'ac', 'dmg-min', 'dmg-max',  'cold-len', 'fire-min', 'pois-min', 'ltng-min',
+  jewl: ['dex', 'str', 'enr', 'vit', 'att', 'stam', 'ac', 'dmg-min', 'dmg-max', 'cold-len', 'fire-min', 'pois-min', 'ltng-min',
     'regen-stam', 'light', 'att-demon', 'att-undead', 'thorns'],
-  scha: ['dex', 'str', 'enr', 'vit', 'att', 'stam', 'ac', 'dmg-min', 'dmg-max',  'cold-len', 'fire-min', 'pois-min', 'ltng-min','dmg-pois'],
-  mcha: ['dex', 'str', 'enr', 'vit', 'att', 'stam', 'ac', 'dmg-min', 'dmg-max',  'cold-len', 'fire-min', 'pois-min', 'ltng-min','dmg-pois'],
-  lcha: ['dex', 'str', 'enr', 'vit', 'att', 'stam', 'ac', 'dmg-min', 'dmg-max',  'cold-len', 'fire-min', 'pois-min', 'ltng-min','dmg-pois'],
-  amul: ['dex', 'str', 'enr', 'vit', 'att', 'stam', 'ac', 'dmg-min', 'dmg-max',  'cold-len', 'fire-min', 'pois-min', 'ltng-min','dmg-pois'],
-  ring: ['dex', 'str', 'enr', 'vit', 'att', 'stam', 'ac', 'dmg-min', 'dmg-max',  'cold-len', 'fire-min', 'pois-min', 'ltng-min','dmg-pois'],
-  circ: ['dex', 'str', 'enr', 'vit', 'att', 'stam', 'ac', 'dmg-min', 'dmg-max',  'cold-len', 'fire-min', 'pois-min', 'ltng-min','dmg-pois'],
+  scha: ['dex', 'str', 'enr', 'vit', 'att', 'stam', 'ac', 'dmg-min', 'dmg-max', 'cold-len', 'fire-min', 'pois-min', 'ltng-min', 'dmg-pois'],
+  mcha: ['dex', 'str', 'enr', 'vit', 'att', 'stam', 'ac', 'dmg-min', 'dmg-max', 'cold-len', 'fire-min', 'pois-min', 'ltng-min', 'dmg-pois'],
+  lcha: ['dex', 'str', 'enr', 'vit', 'att', 'stam', 'ac', 'dmg-min', 'dmg-max', 'cold-len', 'fire-min', 'pois-min', 'ltng-min', 'dmg-pois'],
+  amul: ['dex', 'str', 'enr', 'vit', 'att', 'stam', 'ac', 'dmg-min', 'dmg-max', 'cold-len', 'fire-min', 'pois-min', 'ltng-min', 'dmg-pois'],
+  ring: ['dex', 'str', 'enr', 'vit', 'att', 'stam', 'ac', 'dmg-min', 'dmg-max', 'cold-len', 'fire-min', 'pois-min', 'ltng-min', 'dmg-pois'],
+  circ: ['dex', 'str', 'enr', 'vit', 'att', 'stam', 'ac', 'dmg-min', 'dmg-max', 'cold-len', 'fire-min', 'pois-min', 'ltng-min', 'dmg-pois'],
 };
 
 mps.rows.forEach((row) => {

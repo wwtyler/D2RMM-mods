@@ -33,7 +33,7 @@ treasureclassex.rows.forEach((row) => {
 
     //act Good两倍掉落, act Junk减半。
     if (ACT_GOODS.includes(itemValue)) {
-      row[`Prob${i}`] = Math.floor(probValue * 2)
+      row[`Prob${i}`] = Math.floor(probValue * 1.5)
     }
     if (ACT_JUNKS.includes(itemValue)) {
       row[`Prob${i}`] = Math.max(Math.floor(probValue / 2), 1);
@@ -112,7 +112,7 @@ treasureclassex.rows.forEach((row) => {
       const bossQuestCell = `${bossName}${difficultyQuestAffix}`;
       if (treasureClass === bossQuestCell) {
         if (row['Prob2'] > 0)
-          row['Prob2'] = Math.floor(row['Prob2'] * 2);
+          row['Prob2'] = Math.floor(row['Prob2'] * 1.5);
       }
     })
   });

@@ -1,6 +1,6 @@
 /////////提高魔法物品的染色率/////////////////////////////
-const equipmentChance = 5;
-const equipmentMin = 5;
+const equipmentChance = 3;
+const equipmentMin = 3;
 const itemratioFilename = 'global\\excel\\itemratio.txt';
 const itemratio = D2RMM.readTsv(itemratioFilename);
 itemratio.rows.forEach((row) => {

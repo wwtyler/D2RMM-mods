@@ -15,7 +15,8 @@ const TRI_FORGE_RARITY = {
 };
 const JEW_FORGE_TYPES = [
   ['rin', '戒指'],
-  ['amu', '项链']
+  ['amu', '项链'],
+  ['jew', '珠宝'],
 ];
 const REROLL_RARITY = [
   ['nor', '普通'],
@@ -26,6 +27,7 @@ const REROLL_RARITY = [
   ['set', '套装']
 ];
 const REROLL_TYPES = [
+  //type,label,cost
   ['rin', '戒指', 'gem4'],
   ['amu', '项链', 'gem4'],
   ['char', '护符', 'runz'],
@@ -157,39 +159,6 @@ cubemain.rows.push({
   '*eol\r': 0,
 });
 
-// cubemain.rows.push({
-//   description: `test CCC`,
-//   enabled: 1,
-//   version: 100,
-//   numinputs: 2,
-//   op: 16, // less than or no more than
-//   param: 183, // item_allskills (itemstatcost.txt)
-//   value: 2, // start from 0. ALLSKILLs +1=0， +2=1
-//   'input 1': '"armo"',
-//   'input 2': `r03`,
-//   lvl: 99,
-//   output: 'useitem',
-//   'mod 1': 'addxp',
-//   'mod 1 min': 10,
-//   'mod 1 max': 10,
-//   'mod 2': 'innernum',
-//   'mod 2 min': 1,
-//   'mod 2 max': 1,
-//   '*eol\r': 0,
-// });
-
-// cubemain.rows.push({
-//   description: `test FFF`,
-//   enabled: 1,
-//   version: 100,
-//   numinputs: 2,
-//   'input 1': '"weap"',
-//   'input 2': `r06`,
-//   lvl: 99,
-//   output: 'usetype,mag,suf=748',
-//   '*eol\r': 0,
-// });
-
 cubemain.rows.push({
   description: `test GGG`,
   enabled: 1,
@@ -200,11 +169,11 @@ cubemain.rows.push({
   output: `gem4,qty=1`,
   '*eol\r': 0,
 });
-// 三蓝色戒指合成蓝色项链	1			100					3	"rin,mag,qty=3"							"amu,mag"	99	0
-// 三蓝色项链合成蓝色戒指	1			100					3	"amu,mag,qty=3"							"rin,mag"	99	0
 
-//disable部分原始合成公示。
+//disable部分原始合成公式。
 const DISABLED_DESCRIPTION = [
+  // 三蓝色戒指合成蓝色项链	1			100					3	"rin,mag,qty=3"							"amu,mag"	99	0
+  // 三蓝色项链合成蓝色戒指	1			100					3	"amu,mag,qty=3"							"rin,mag"	99	0
   '3 Magic Rings -> Magic Amulet',
   '3 Magic Amulets -> Magic Ring',
   '3 Perfect Gems (Any) + 1 Magic Item -> Re-rolled Magic Item',
@@ -220,7 +189,7 @@ cubemain.rows.forEach((row) => {
   }
 });
 
-//三个项链、戒指REROLL。
+
 [
   ['mag', 'rar'],
   ['rar', 'rar'],
@@ -249,25 +218,17 @@ cubemain.rows.forEach((row) => {
 //项链戒指merge公式。
 cubemain.rows.push({
   description: `亮金项链戒指合成亮金珠宝`,
-  enabled: 1,
-  version: 100,
   numinputs: 2,
-  'input 1': 'amu,rar',
-  'input 2': 'rin,rar',
-  output: 'jew,rar',
-  ilvl: 100, // 
-  '*eol\r': '0',
+  'input 1': 'amu,rar', 'input 2': 'rin,rar',
+  output: 'jew,rar', ilvl: 100, // 
+  '*eol\r': '0', enabled: 1, version: 100,
 });
 cubemain.rows.push({
   description: `魔法项链戒指合成魔法珠宝`,
-  enabled: 1,
-  version: 100,
   numinputs: 2,
-  'input 1': 'amu,mag',
-  'input 2': 'rin,mag',
-  output: 'jew,mag',
-  ilvl: 100, // 
-  '*eol\r': '0',
+  'input 1': 'amu,mag', 'input 2': 'rin,mag',
+  output: 'jew,mag', ilvl: 100, // 
+  '*eol\r': '0', enabled: 1, version: 100,
 });
 
 //各种装备REROLL
@@ -278,16 +239,13 @@ REROLL_TYPES.forEach(([type, typeLabel, cost]) => {
     const inputCost = 'gem4,qty=1';
     const recipe = {
       description: `洗（REROLL）${rarityLabel}${typeLabel}`,
-      enabled: 1,
-      version: 100,
-      numinputs: 2,
+      numinputs: 3,
       ilvl: 100, // preserve item level
-      'input 1': `${type},${rarity}`,
-      'input 2': `${cost},qty=1`,
+      'input 1': `${type},${rarity}`, 'input 2': `${cost},qty=2`,
       output: `${outputString}`,
-      'output b': `${cost},qty=1`,//免费洗装备用来调试。
-      'b lvl': 99,
-      '*eol\r': 0,
+      // 'output b': `${cost},qty=1`,//免费洗装备用来调试。
+      // 'b lvl': 99,
+      '*eol\r': '0', enabled: 1, version: 100,
     };
     cubemain.rows.push(recipe);
   });

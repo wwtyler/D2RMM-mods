@@ -197,7 +197,7 @@ uniqueItems.rows.forEach((item) => {
     // manasteal		4	7	regen		5	8	hp		20	20	regen-mana		20	20									
     else if (item.index === "Manald Heal") {
       item.prop1 = 'manasteal'; item.min1 = 6; item.max1 = 8;
-      item.prop2 = 'regen'; item.min2 = 10; item.max2 = 15;
+      item.prop2 = 'mana'; item.min2 = 30; item.max2 = 40;
       item.prop3 = 'hp'; item.min3 = 30; item.max3 = 40;
       item.prop4 = 'regen-mana'; item.min4 = 30; item.max4 = 40;
     }
@@ -205,9 +205,9 @@ uniqueItems.rows.forEach((item) => {
       // Dwarf Star	274	100	1		2	1	53	45	rin	Ring		5	5000	dgry	dgry						
       // gold%		100	100	stam		40	40	regen-stam		15	15	hp		40	40	red-mag		12	15	abs-fire%		15	15
       item.prop1 = 'gold%'; item.min1 = 150; item.max1 = 150;
-      item.prop2 = 'stam'; item.min2 = 50; item.max2 = 50;
+      item.prop2 = 'abs-fire/lvl'; item.min2 = 6; item.max2 = 6;
       item.prop3 = 'cast2'; item.min3 = 10; item.max3 = 10;
-      item.prop4 = 'hp'; item.min4 = 60; item.max4 = 80;
+      item.prop4 = 'hp'; item.min4 = 40; item.max4 = 60;
       item.prop5 = 'red-mag'; item.min5 = 12; item.max5 = 15;
       item.prop6 = 'abs-fire%'; item.min6 = 15; item.max6 = 15;
     }
@@ -215,9 +215,9 @@ uniqueItems.rows.forEach((item) => {
     // nofreeze		1	1	dmg-cold	100	15	45	abs-cold%		20	20	mana		40	40	dex		15	20	att		150	250	
     else if (item.index === "Raven Frost") {
       item.prop1 = 'nofreeze'; item.min1 = 1; item.max1 = 1;
-      item.prop2 = 'dmg-cold'; item.min2 = 100; item.max2 = 150;
+      item.prop2 = 'abs-cold/lvl'; item.min2 = 6; item.max2 = 6;
       item.prop3 = 'abs-cold%'; item.min3 = 20; item.max3 = 20;
-      item.prop4 = 'mana'; item.min4 = 40; item.max4 = 40;
+      item.prop4 = 'mana'; item.min4 = 40; item.max4 = 60;
       item.prop5 = 'dex'; item.min5 = 15; item.max5 = 20;
       item.prop6 = 'att'; item.min6 = 250; item.max6 = 300;
     }
@@ -227,8 +227,8 @@ uniqueItems.rows.forEach((item) => {
       item.prop1 = 'abs-ltng%'; item.min1 = 10; item.max1 = 20;
       item.prop2 = 'hit-skill'; item.min2 = 10; item.max2 = 16;
       item.prop3 = 'mag%'; item.min3 = 10; item.max3 = 20;
-      item.prop4 = 'charged'; item.min4 = 15; item.max4 = 2;
-      item.prop5 = 'charged'; item.min5 = 13; item.max5 = 5;
+      item.prop4 = 'abs-ltng/lvl'; item.min4 = 6; item.max4 = 6;
+      item.prop5 = 'str'; item.min5 = 20; item.max5 = 25;
       item.prop6 = 'charged'; item.min6 = 11; item.max6 = 7;
     }
     // Nature's Peace	300	100	1		2	1	77	69	rin	ring		5	5000	dgrn	dgrn						

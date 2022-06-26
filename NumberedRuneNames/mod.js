@@ -104,11 +104,11 @@ const runeTypeBase = {
   StorePage: 'misc',
   '*eol\r': '0',
 }
-itemTypes.rows.push({ ...runeTypeBase, Code: 'run1', });
-itemTypes.rows.push({ ...runeTypeBase, Code: 'run2', });
-itemTypes.rows.push({ ...runeTypeBase, Code: 'run3', });
-itemTypes.rows.push({ ...runeTypeBase, Code: 'run4', });
-itemTypes.rows.push({ ...runeTypeBase, Code: 'run5', });
+itemTypes.rows.push({ ...runeTypeBase, Code: 'run1', Rarity: 1 });
+itemTypes.rows.push({ ...runeTypeBase, Code: 'run2', Rarity: 2 });
+itemTypes.rows.push({ ...runeTypeBase, Code: 'run3', Rarity: 3 });
+itemTypes.rows.push({ ...runeTypeBase, Code: 'run4', Rarity: 4 });
+itemTypes.rows.push({ ...runeTypeBase, Code: 'run5', Rarity: 5 });
 itemTypes.rows.push({ ...runeTypeBase, ItemType: 'Rune x', Code: 'runx', 'Equiv1': 'rune', 'Equiv2': 'misc', });
 
 // Perfect Gem	gem4	gem		0	0					0	0	0	0			1	0	0	25	0	40	0	0	3			0							misc	0

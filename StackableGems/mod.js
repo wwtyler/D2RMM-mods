@@ -60,18 +60,18 @@ itemtypes.rows.forEach((itemtype) => {
 });
 D2RMM.writeTsv(itemtypesFilename, itemtypes);
 
-const treasureclassexFilename = 'global\\excel\\treasureclassex.txt';
-const treasureclassex = D2RMM.readTsv(treasureclassexFilename);
-treasureclassex.rows.forEach((treasureclass) => {
-  treasureclass.Item1 = converItemTypeToStackItemType(treasureclass.Item1);
-  treasureclass.Item2 = converItemTypeToStackItemType(treasureclass.Item2);
-  treasureclass.Item3 = converItemTypeToStackItemType(treasureclass.Item3);
-  treasureclass.Item4 = converItemTypeToStackItemType(treasureclass.Item4);
-  treasureclass.Item5 = converItemTypeToStackItemType(treasureclass.Item5);
-  treasureclass.Item6 = converItemTypeToStackItemType(treasureclass.Item6);
-  treasureclass.Item7 = converItemTypeToStackItemType(treasureclass.Item7);
-});
-D2RMM.writeTsv(treasureclassexFilename, treasureclassex);
+// const treasureclassexFilename = 'global\\excel\\treasureclassex.txt';
+// const treasureclassex = D2RMM.readTsv(treasureclassexFilename);
+// treasureclassex.rows.forEach((treasureclass) => {
+//   treasureclass.Item1 = converItemTypeToStackItemType(treasureclass.Item1);
+//   treasureclass.Item2 = converItemTypeToStackItemType(treasureclass.Item2);
+//   treasureclass.Item3 = converItemTypeToStackItemType(treasureclass.Item3);
+//   treasureclass.Item4 = converItemTypeToStackItemType(treasureclass.Item4);
+//   treasureclass.Item5 = converItemTypeToStackItemType(treasureclass.Item5);
+//   treasureclass.Item6 = converItemTypeToStackItemType(treasureclass.Item6);
+//   treasureclass.Item7 = converItemTypeToStackItemType(treasureclass.Item7);
+// });
+// D2RMM.writeTsv(treasureclassexFilename, treasureclassex);
 
 const miscFilename = 'global\\excel\\misc.txt';
 const misc = D2RMM.readTsv(miscFilename);
