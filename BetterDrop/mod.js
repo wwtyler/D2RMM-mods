@@ -47,7 +47,9 @@ treasureclassex.rows.forEach((row) => {
       row[`Prob${i}`] = Math.floor(probValue * 5);
     }
     if (UBER_KEYS_ITEMS.includes(itemValue)) {
-      if (!PANDEMONIUSMS.includes(treasureClass)) { row[`Prob${i}`] = Math.floor(probValue * 10); }
+      if (!PANDEMONIUSMS.includes(treasureClass)) { 
+        row[`Prob${i}`] = Math.floor(probValue * 10); 
+      }
     }
     if (GOOD_ITEMS.includes(itemValue)) {
       row[`Prob${i}`] = Math.floor(probValue * 2);

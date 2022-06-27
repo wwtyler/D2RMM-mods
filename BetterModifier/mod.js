@@ -97,24 +97,18 @@ qualityitems.rows.forEach((item) => {
   if (item.mod1code == 'dmg%' && item.mod2code == 'dur%') { item.mod1min = 15; item.mod1max = 30; item.mod2min = 15; item.mod2max = 30; }
   if (item.mod1code == 'ac%' && item.mod2code == 'dur%') { item.mod1min = 15; item.mod1max = 30; item.mod2min = 15; item.mod2max = 30; }
 });
-// qualityitems.rows.push({
-//   mod1code: 'dmg',
-//   mod1min: 15,
-//   mod1max: 50,
-//   mod2code: 'att',
-//   mod2min: 10,
-//   mod2max: 50,
-//   armor: 0,
-//   weapon: 1,
-//   shield: 1,
-//   scepter: 0,
-//   wand: 0,
-//   staff: 0,
-//   bow: 1,
-//   boots: 0,
-//   gloves: 0,
-//   'belt\r': 0,
-// });
+qualityitems.rows.push({
+  mod1code: 'dmg/lvl', mod1min: 8, mod1max: 20,
+  armor: 0, weapon: 1, shield: 1, scepter: 0, wand: 0, staff: 0, bow: 1, boots: 0, gloves: 0, 'belt\r': 0,
+});
+qualityitems.rows.push({
+  mod1code: 'att/lvl', mod1min: 8, mod1max: 20,
+  armor: 0, weapon: 1, shield: 1, scepter: 0, wand: 0, staff: 0, bow: 1, boots: 0, gloves: 0, 'belt\r': 0,
+});
+qualityitems.rows.push({
+  mod1code: 'hp/lvl', mod1min: 8, mod1max: 16,
+  armor: 1, weapon: 0, shield: 1, scepter: 0, wand: 0, staff: 0, bow: 0, boots: 1, gloves: 1, 'belt\r': 1,
+});
 
 
 const PREFIX_SKILL_CODES = ['skilltab', 'ama', 'sor', 'pal', 'nec', 'bar', 'dru', 'ass'];
@@ -257,17 +251,11 @@ mps.rows.forEach((row) => {
       row['spawnable'] = 0;
     }
 
-    //屏蔽珠宝和护符的部分词缀
-    // if (DISABLED_ITYPES_ARRAY.includes(itype1)) {
-    //   if (DISABLED_CODES_WITH_ITYPES[itype1].includes(mod1code)) {
-    //     row['frequency'] = 0;
-    //     row['spawnable'] = 0;
-    //   }
-    // }
-
     for (let i = 1; i <= 4; i++) {
       const itypeN = row[`itype` + i];
-      if (itypeN != null && DISABLED_ITYPES_ARRAY.includes(itypeN) && DISABLED_CODES_WITH_ITYPES[itypeN].includes(mod1code)) {
+      if (itypeN != null
+        && DISABLED_ITYPES_ARRAY.includes(itypeN)
+        && DISABLED_CODES_WITH_ITYPES[itypeN].includes(mod1code)) {
         row[`itype` + i] = null;
       }
     }
