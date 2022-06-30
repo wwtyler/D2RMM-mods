@@ -240,6 +240,7 @@ const UNIQUE_GEMS = {
   "Thudergod's Vigor": { ...gemTemp, hcode: 'gethit-skill', hparam: 121, hmin: 5, hmax: 7, hcode2: 'abs-ltng', hmin2: 20, hmax2: 20 },
   // Verdugo's Hearty Cord	376	ac%		90	140	vit		30	40	stam		100	120	balance2		10	10	red-dmg%		10	15
   "Verdugo's Hearty Cord": { ...gemTemp, hcode: 'red-dmg%', hmin: 15, hmax: 15, hcode2: 'vit', hmin2: 30, hmax2: 30 },
+
   //**********************************************************||GLOVES||****************************************************************************/
   // Dracul's Grasp	364	ac%		90	120	lifesteal		7	10	openwounds		25	25	hit-skill	Life Tap	5	10	heal-kill		5	10
   "Dracul's Grasp": { ...gemTemp, wcode: 'lifesteal', wmin: 10, wmax: 10, wcode2: 'hit-skill', wparam2: 'Life Tap', wmin2: 10, wmax2: 10 },
@@ -317,7 +318,8 @@ const DUPLICATE_INDEX = ['Rainbow Facet', 'Rainbow Stone', "Gheed's Lucky", 'Rin
 const VALID_SETS = ["Immortal King", "Tal Rasha's Wrappings", "Bul-Kathos' Children", "M'avina's Battle Hymn", "Trang-Oul's Avatar", "Orphan's Call",
   "The Disciple", "Tancred's Battlegear", "Sazabi's Grand Tribute", "Naj's Ancient Set", "Natalya's Odium", "Griswold's Legacy", "Milabrega's Regalia",
   "Hwanin's Majesty", "Heaven's Brethren", "Civerb's Vestments", "Cleglaw's Brace", "Berserker's Garb", "Death's Disguise", 
-  "Arctic Gear", "Angelical Raiment", "Cathan's Traps", "Isenhart's Armory", "Vidala's Rig", "Arcanna's Tricks", "Sigon's Complete Steel"
+  "Arctic Gear", "Angelical Raiment", "Cathan's Traps", "Isenhart's Armory", "Vidala's Rig", "Arcanna's Tricks", "Sigon's Complete Steel",
+  "Hsarus' Defense",
 ];
 const ALL_SETS = [
   "Aldur's Watchtower", "Angelical Raiment", "Arcanna's Tricks", "Arctic Gear", "Berserker's Garb", "Bul-Kathos' Children",
@@ -460,12 +462,12 @@ function addEssenceRunes(essenceCode, item) {
     cubemain.rows.push({
       description: `转换装备为精华符文：item->${essenceCode}`,
       enabled: 1, version: 100,
-      numinputs: 2,
+      numinputs: 1,
       'input 1': item.index,
-      'input 2': 'wms',
+      // 'input 2': 'wms',
       output: `${essenceCode}`,
       lvl: 99,
-      'output b': `wms`,
+      // 'output b': `wms`,
       // 'b lvl': 99,
       '*eol\r': 0,
     });

@@ -10,7 +10,7 @@ misc.rows.forEach((row) => {
   if (row.type === "rune") {
     row.spawnable = 1;
   }
-  if (row.type === "rune" && row.rarity < 10 || row.code === "r18") {
+  if (row.type === "rune" && row.rarity < 10 || row.code === "r18" || row.code === "r15") {
     row.PermStoreItem = 1;
 
     // 如果rarity<3,会导致魔盒公式问题。因为runx的rarity=3。

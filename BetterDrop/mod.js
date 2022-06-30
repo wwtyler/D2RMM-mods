@@ -47,8 +47,8 @@ treasureclassex.rows.forEach((row) => {
       row[`Prob${i}`] = Math.floor(probValue * 5);
     }
     if (UBER_KEYS_ITEMS.includes(itemValue)) {
-      if (!PANDEMONIUSMS.includes(treasureClass)) { 
-        row[`Prob${i}`] = Math.floor(probValue * 10); 
+      if (!PANDEMONIUSMS.includes(treasureClass)) {
+        row[`Prob${i}`] = Math.floor(probValue * 10);
       }
     }
     if (GOOD_ITEMS.includes(itemValue)) {
@@ -77,22 +77,22 @@ treasureclassex.rows.forEach((row) => {
 
   //暗金的掉率修正
   if (row[unique] >= 512 && row[unique] < 800) {
-    row[unique] = Math.max(799, row[unique]);
+    row[unique] = Math.max(850, Math.floor(row[unique]));
   }
-  if (row[unique] >= 800 && row[unique] < 900) {
-    row[unique] = Math.min(920, Math.floor(row[unique]) + 40);
+  else if (row[unique] >= 800 && row[unique] < 900) {
+    row[unique] = Math.min(950, Math.floor(row[unique]) + 80);
   }
   if (row[set] >= 512 && row[set] < 800) {
-    row[set] = Math.max(799, row[set]);
+    row[set] = Math.max(799, Math.floor(row[set]));
   }
-  if (row[set] >= 800 && row[set] < 900) {
-    row[set] = Math.min(920, Math.floor(row[set]) + 40);
+  else if (row[set] >= 800 && row[set] < 900) {
+    row[set] = Math.min(950, Math.floor(row[set]) + 60);
   }
   if (row[rare] >= 512 && row[rare] < 850) {
-    row[rare] = Math.max(850, row[rare]);
+    row[rare] = Math.max(850, Math.floor(row[rare]) + 100);
   }
-  if (row[rare] >= 850 && row[rare] < 999) {
-    row[rare] = Math.min(999, Math.floor(row[rare]) + 50);
+  else if (row[rare] >= 850 && row[rare] < 999) {
+    row[rare] = Math.min(999, Math.floor(row[rare]) + 100);
   }
 
   // 关卡Boss掉落调整
@@ -102,7 +102,7 @@ treasureclassex.rows.forEach((row) => {
       if (treasureClass === bossCell) {
         row['Unique'] = 983;
         row['Set'] = 983
-        row['Rare'] = 999;
+        row['Rare'] = 1020;
         row['Magic'] = 1024;
       }
     });
@@ -128,7 +128,7 @@ treasureclassex.rows.forEach((row) => {
     if (groupNumber > 1) {
       const restGroupColumn = groupNumber < 17 ? 'Prob3' : 'Prob2';
       row[restGroupColumn] = Math.floor(
-        Math.max(row[restGroupColumn] / 4, 2 * Math.sqrt(4))
+        Math.max(row[restGroupColumn] / 3, 2 * Math.sqrt(25))
       );
     }
   }
