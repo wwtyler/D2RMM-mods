@@ -2,6 +2,11 @@ const inventoryFilename = 'global\\excel\\inventory.txt';
 const inventory = D2RMM.readTsv(inventoryFilename);
 inventory.rows.forEach((row) => {
   if (
+    //gridX 	gridY 	gridLeft 	gridRight 	gridTop 	gridBottom 	gridBoxWidth 	gridBoxHeight 
+    //6	          4	       118	      205	      139	          253	          29	           29
+    //6	          4	       198	      285	      199	          313	          29	           29
+    //3	          4	        118	      205     	139	          253	          29	            29
+    //3	          4	        198	      285	      199	          313	          29	            29
     row.class === 'Transmogrify Box Page 1' ||
     row.class === 'Transmogrify Box2'
   ) {

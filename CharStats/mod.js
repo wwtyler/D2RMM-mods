@@ -1,4 +1,3 @@
-const CLASS_NAMES = ['Amazon', 'Sorceress', 'Necromancer', 'Paladin', 'Barbarian', 'Druid', 'Assassin'];
 const charstatsFilename = 'global\\excel\\charstats.txt';
 const charstats = D2RMM.readTsv(charstatsFilename);
 
@@ -11,7 +10,7 @@ charstats.rows.forEach((row) => {
     row.item7 = 'toa'; row.item7count = 1;
     
     //角色出生初始耐力x3。
-    row.stamina = Math.floor(row.stamina * 3);
+    row.stamina = Math.floor(row.stamina * 2);
 
     //角色升级每级的技能点数。
     // row.SkillsPerLevel = 1;

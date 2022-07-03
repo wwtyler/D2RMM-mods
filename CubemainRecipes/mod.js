@@ -17,6 +17,23 @@ const JEW_FORGE_TYPES = [
   ['rin', '戒指'],
   ['amu', '项链'],
   ['jew', '珠宝'],
+  ['cm1', '小护符'],
+  ['cm2', '小护符'],
+  ['cm3', '小护符'],
+];
+
+const ENCHANT_TYPES = [
+  //weap
+  ['axe'], ['wand'], ['club'], ['scep'], ['mace'], ['hamm'], ['swor'], ['knif'], ['tkni'], ['taxe'], ['jave'], ['spea'],
+  ['pole'], ['staf'], ['bow'], ['xbow'], ['tpot'], ['h2h'], ['h2h2'], ['orb'], ['abow'], ['aspe'], ['ajav'],
+  //armo
+  ['helm'], ['tors'], ['shie'], ['glov'], ['boot'], ['belt'], ['pelt'], ['phlm'], ['ashd'], ['head'], ['circ'],
+];
+const ENCHANT_RARITY = [
+  ['nor', '普通'],
+  ['hiq', '超强'],
+  // ['low', '低劣'],
+  // ['tmp', '手工']
 ];
 const REROLL_RARITY = [
   ['nor', '普通'],
@@ -181,11 +198,20 @@ const DISABLED_DESCRIPTION = [
   '1 Ort Rune + 1 Weapon -> Fully Repaired Weapon',
   '1 Ral Rune + 1 Armor -> Fully Repaired Armor'
 ];
+const ENABLED_DESCRIPTION = [
+  '1 Ral Rune + 1 Jewel + 1 Superior Armor -> Tempered Armor',
+  '1 Ral Rune + 1 Jewel + 1 Superior Weapon -> Tempered Weapon',
+  '1 Ral Rune + 1 Jewel + Magic Ring -> Tempered Ring',
+  '1 Ral Rune + 1 Jewel + 1 Magic Amulet -> Tempered Amulet'
+];
 
 cubemain.rows.forEach((row) => {
   const desc = row.description;
   if (DISABLED_DESCRIPTION.includes(desc)) {
     row.enabled = 0;
+  }
+  if (ENABLED_DESCRIPTION.includes(desc)) {
+    row.enabled = 1;
   }
 });
 
@@ -200,7 +226,8 @@ cubemain.rows.forEach((row) => {
 
   JEW_FORGE_TYPES.forEach(([type, typeLabel]) => {
     //'reg' = If the function has “usetype” and if the item is a Unique, then regenerate/reroll the Unique
-    const outputString = fromRarity === 'uni' ? 'useitem,reg' : `${type},${toRarity}`;
+    // const outputString = fromRarity === 'uni' ? 'useitem,reg' : `${type},${toRarity}`;
+    const outputString = `usetype,${toRarity}`;
     const recipe = {
       description: `${fromRarityLabel}${typeLabel} 合成(FORGE) ${toRarityLabel}${typeLabel}`,
       enabled: 1,
@@ -220,14 +247,14 @@ cubemain.rows.push({
   description: `亮金项链戒指合成亮金珠宝`,
   numinputs: 2,
   'input 1': 'amu,rar', 'input 2': 'rin,rar',
-  output: 'jew,rar', ilvl: 100, // 
+  output: 'jew,rar', ilvl: 100, 
   '*eol\r': '0', enabled: 1, version: 100,
 });
 cubemain.rows.push({
   description: `魔法项链戒指合成魔法珠宝`,
   numinputs: 2,
   'input 1': 'amu,mag', 'input 2': 'rin,mag',
-  output: 'jew,mag', ilvl: 100, // 
+  output: 'jew,mag', ilvl: 100, 
   '*eol\r': '0', enabled: 1, version: 100,
 });
 
@@ -251,6 +278,30 @@ REROLL_TYPES.forEach(([type, typeLabel, cost]) => {
   });
 });
 
+//白色装备ENCHANT
+ENCHANT_TYPES.forEach((enchantType) => {
+  ENCHANT_RARITY.forEach(([lootRarity, rarityLabel]) => {
+    [
+      ['mag'],
+      ['rar']
+    ].forEach(([jewRarity]) => {
+      const recipe = {
+        description: `白装附魔-ENCHANT-${rarityLabel}`,
+        enabled: 1, version: 100,
+        numinputs: 3,
+        ilvl: 100, 
+        'input 1': `${enchantType},${lootRarity}`,
+        'input 2': `jew,${jewRarity},qty=2`,
+        output: `usetype,${jewRarity}`,
+        // output: `${enchantType},${jewRarity}`,
+        // 'output b': `${cost},qty=1`,//免费洗装备用来调试。
+        // 'b lvl': 99,
+        '*eol\r': '0'
+      };
+      cubemain.rows.push(recipe);
+    });
+  });
+});
 
 [
   ['uni', '暗金'],
@@ -286,7 +337,7 @@ EQUIP_TYPES.forEach((equipType) => {
       'input 1': `${equipType},${magicType}`,
       'input 2': "r25",
       'input 3': "isc",
-      ilvl: 100, // preserve item level
+      ilvl: 100,
       output: 'useitem',
       'mod 1': 'ethereal',
       'mod 1 min': 1,
@@ -300,6 +351,7 @@ EQUIP_TYPES.forEach((equipType) => {
 EQUIP_TYPES.forEach((equipType) => {
   ALL_RARITY.forEach((magicType) => {
     const description = "底材萃取" + `${equipType}-${magicType}`;
+    const hiqStr = magicType === 'hiq' ? 'hiq' : 'nor';
     cubemain.rows.push({
       description: description,
       enabled: 1,
@@ -308,8 +360,8 @@ EQUIP_TYPES.forEach((equipType) => {
       'input 1': `${equipType},${magicType}`,
       'input 2': "r18",
       'input 3': "tsc",
-      lvl: 95,
-      output: 'usetype,nor',
+      ilvl: 100,
+      output: `usetype,${hiqStr}`,
       '*eol\r': '0',
     });
   });

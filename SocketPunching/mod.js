@@ -27,12 +27,12 @@ armor.rows.forEach((armor) => {
 //打孔公式
 if (config.unsocket) {
   const unsocketRecipe = {
-    description: 'Empty Sockets',
+    description: 'SOCKETING Empty Sockets',
     enabled: 1,
     version: 100,
     numinputs: 2,
     // input 1 defined below
-    'input 2': 'jew',
+    'input 2': 'runz,qty=1',
     output: '"useitem,rem"',
     '*eol\r': 0,
   };
@@ -52,12 +52,13 @@ if (config.unsocket) {
 for (let sockets = 1; sockets <= 6; sockets = sockets + 1) {
   if (config.socket) {
     const socketRecipe = {
-      description: `Add ${sockets} Sockets`,
+      description: `SOCKETING Add ${sockets} Sockets`,
       enabled: 1,
       version: 100,
-      numinputs: sockets + 1,
+      numinputs: sockets + 2,
       // input 1 defined below
-      'input 2': `"jew,qty=${sockets}"`,
+      'input 2': `"runx,qty=${sockets}"`,
+      'input 3': `runz,qty=1`,
       output: 'useitem',
       'mod 1': 'sock',
       'mod 1 min': sockets,

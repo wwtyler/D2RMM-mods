@@ -214,10 +214,6 @@ mps.rows.forEach((row) => {
   const frequency = row['frequency'];
   const mod1code = row['mod1code'];
   const itype1 = row['itype1'];
-  const itype2 = row['itype2'];
-  const itype3 = row['itype3'];
-  const itype4 = row['itype4'];
-  const level = row['level'];
 
   //降低部分词缀的频率(frequency)
   //frequency不等于0和null
@@ -304,6 +300,20 @@ mss.rows.forEach((row) => {
         row['spawnable'] = 0;
       }
     }
+  }
+
+  if (['hit-skill', 'gethit-skill', 'att-skill'].includes(mod1code)) {
+    //add chance
+    const mod1code = row['mod1min']
+    row['mod1min'] = Math.floor(row['mod1min'] * 1.0 + 10.0);
+    //add level
+    row['mod1max'] = Math.floor(row['mod1max'] * 1.0 + 10.0);
+  }
+  else if (['charged'].includes(mod1code)) {
+    //add charges
+    row['mod1min'] = Math.floor(row['mod1min'] * 1.0 - 10.0);
+    //add level
+    row['mod1max'] = Math.floor(row['mod1max'] * 1.0 - 10.0);
   }
 });
 

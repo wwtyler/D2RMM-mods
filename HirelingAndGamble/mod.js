@@ -58,7 +58,7 @@ const CHARM_NAMES = ['Small Charm', 'Medium Charm', 'Large Charm'];
 itemtypes.rows.forEach((row) => {
   if (CHARM_NAMES.includes(row.ItemType)) {
     //是否开启亮金（rare）咒符
-    row['Rare'] = 1;
+    // row['Rare'] = 1;
   }
 });
 D2RMM.writeTsv(itemtypesFilename, itemtypes);

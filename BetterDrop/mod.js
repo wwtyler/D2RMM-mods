@@ -124,12 +124,18 @@ treasureclassex.rows.forEach((row) => {
 treasureclassex.rows.forEach((row) => {
   const treasureClass = row['Treasure Class'];
   if (treasureClass.match(/^Runes [1-9][0-9]?$/) != null) {
-    const groupNumber = +treasureClass.replace(/^Runes ([1-9][0-9]?)$/, '$1');
-    if (groupNumber > 1) {
-      const restGroupColumn = groupNumber < 17 ? 'Prob3' : 'Prob2';
-      row[restGroupColumn] = Math.floor(
-        Math.max(row[restGroupColumn] / 3, 2 * Math.sqrt(25))
-      );
+    let groupNumber = +treasureClass.replace(/^Runes ([1-9][0-9]?)$/, '$1');
+    if (groupNumber > 1 && groupNumber < 6) {
+      // row['Prob3'] = Math.floor( Math.max(row['Prob3'] / 3, 2 * Math.sqrt(36)));
+    }
+    else if (groupNumber >= 6 && groupNumber < 12) {
+      row['Prob3'] = Math.floor(row['Prob3'] / groupNumber * 5.8);
+    }
+    else if (groupNumber >= 12 && groupNumber < 17) {
+      row['Prob3'] = Math.floor(row['Prob3'] / groupNumber * 5.3);
+    }
+    else if (groupNumber == 17) {
+      row['Prob2'] = Math.floor(row['Prob2'] / groupNumber *  4.8);
     }
   }
 

@@ -35,51 +35,77 @@ uniqueItems.rows.forEach((item) => {
     item[`min` + i] = Math.floor(minN) + m;
     item[`max` + i] = Math.floor(maxN) + m;
   }
+  function addMin(i, m) {
+    const minN = item[`min` + i];
+    item[`min` + i] = Math.floor(minN) + m;
+  }
+  function addMax(i, m) {
+    const maxN = item[`max` + i];
+    item[`max` + i] = Math.floor(maxN) + m;
+  }
   // 对所有的属性进行强化。
   for (let i = 1; i <= 12; i++) {
     const propN = item[`prop` + i];
-
     if (propN != null) {
-      switch (propN) {
-        case 'mana-kill', 'heal-kill':
-          add(i, 3);
-          break;
-        case 'hp', 'mana':
-          add(i, 15);
-          break;
-        case 'hp%', 'mana%':
-          multiply(i, 1.5);
-          break;
-        case 'res-ltng', 'res-fire', 'res-cold', 'res-pois':
-          add(i, 10);
-          break;
-        case 'res-all':
-          add(i, 5);
-          break;
-        case 'str', 'enr', 'vit', 'dex':
-          add(i, 5);
-          break;
-        case 'ac', 'ac%', 'ac-miss', 'ac-hth':
-          multiply(i, 2);
-          break;
-        case 'att':
-          multiply(i, 2);
-          break;
-        case 'dmg%':
-          multiply(i, 1.5);
-          break;
-        default:
-          break;
+      if (['mana-kill', 'heal-kill'].includes(propN)) {
+        add(i, 2);
+      }
+      else if (['hp', 'mana'].includes(propN)) {
+        add(i, 15);
+      }
+      else if (['hp%', 'mana%'].includes(propN)) {
+        multiply(i, 1.3);
+      }
+      else if (['res-ltng', 'res-fire', 'res-cold', 'res-pois'].includes(propN)) {
+        add(i, 10);
+      }
+      else if (['res-all'].includes(propN)) {
+        add(i, 5);
+      }
+      else if (['str', 'enr', 'vit', 'dex'].includes(propN)) {
+        add(i, 5);
+      }
+      else if (['ac%', 'ac-miss', 'ac-hth', 'ac'].includes(propN)) {
+        multiply(i, 1.3);
+      }
+      else if (['att'].includes(propN)) {
+        multiply(i, 1.5);
+      }
+      else if (['dmg%'].includes(propN)) {
+        multiply(i, 1.5);
+      }
+      else if (['dmg-norm', 'dmg-mag', 'dmg-cold', 'dmg-ltng', 'dmg-fire', 'dmg-pois', 'dmg-undead', 'dmg-demon'].includes(propN)) {
+        multiply(i, 1.5);
+      }
+      else if (['dmg-min', 'dmg-max', 'dmg'].includes(propN)) {
+        add(i, 15);
+      }
+      else if (['gold%', 'mag%'].includes(propN)) {
+        multiply(i, 1.5);
+      }
+      else if (['light'].includes(propN)) {
+        add(i, 3.0);
+      }
+      else if (['regen', 'regen-mana'].includes(propN)) {
+        multiply(i, 2.0);
+      }
+      else if (['hit-skill', 'gethit-skill', 'att-skill'].includes(propN)) {
+        addMin(i, 10.0);//add chance
+        addMax(i, 10.0);//add level
+      }
+      else if (['charged'].includes(propN)) {
+        addMax(i, 20.0);//add level
       }
     };
   }
+
+  //对特定的暗金物品进行配置。
   if (item.index != null) {
     if (item.index === "Gheed's Fortune") {
       gheedsFortune = item;
       item.prop1 = 'mag%'; item.min1 = 40; item.max1 = 80;
       item.prop2 = 'gold%'; item.min2 = 120; item.max2 = 200;
       item.prop3 = 'cheap'; item.min3 = 10; item.max3 = 20;
-      item['cost add'] = 5001;
     }
     else if (item.index === "Ormus' Robes") {
       //ac		10	20	cast2		20	20	extra-fire		10	15	extra-cold		10	15	extra-ltng		10	15	regen-mana		10	15	skill-rand	3	36	60		
@@ -108,7 +134,6 @@ uniqueItems.rows.forEach((item) => {
       item.prop8 = 'allskills'; item.min8 = 1; item.max8 = 2;
     }
     else if (item.index === "Mang Song's Lesson") {
-      item['cost add'] = 5001;
       // Mang Song's Lesson	322	100	1		1	1	 86	82	6ws	archon staff		5	5000	dgld	dgld		inv8wsu				
       // allskills		5	5	pierce-fire		7	15	pierce-ltng		7	15	pierce-cold		7	15	regen-mana		10	10	cast2		30	30
       item.min1 = 5; item.max1 = 6;
@@ -346,7 +371,7 @@ uniqueItems.rows.push({
   ...hellfireTorch, index: "Hellfire's Bless", '*ID': (itemID = itemID + 1),
   carry1: 0, lvl: 70, 'lvl req': 50, '*eol\r': '0',
   prop1: 'addxp', min1: 5, max1: 10, prop2: 'cheap', min2: 5, max2: 10, prop3: 'move2', min3: 10, max3: 20,
-  prop4: 'light', min4: 5, max4: 5, prop5: 'mag%', min5: 5, max5: 15, prop6: 'gold%', min6: 25, max6: 50,
+  prop4: 'light', min4: 5, max4: 5, prop5: 'mag%', min5: 5, max5: 15, prop6: 'gold%', par6: '', min6: 25, max6: 50,
 });
 uniqueItems.rows.push({
   ...gheedsFortune, index: "Gheed's Lucky", '*ID': (itemID = itemID + 1),

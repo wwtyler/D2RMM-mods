@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/D2RMM-mods.iml" filepath="$PROJECT_DIR$/.idea/D2RMM-mods.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../mods/D2RMM/D2RMM.mpq/.idea/D2RMM.mpq.iml" filepath="$PROJECT_DIR$/../../mods/D2RMM/D2RMM.mpq/.idea/D2RMM.mpq.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../d2rmm-master/d2rmm-master/.idea/d2rmm-master.iml" filepath="$PROJECT_DIR$/../../d2rmm-master/d2rmm-master/.idea/d2rmm-master.iml" />
     </modules>
   </component>
 </project>

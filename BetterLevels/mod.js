@@ -12,16 +12,16 @@ levels.rows.forEach((row) => {
 
   // multiply minimum number of unique/champion monsters
   if (row.MonUMin !== '') {
-    row.MonUMin = Math.floor(row.MonUMin * config.monDensityMultiplier);
-    row['MonUMin(N)'] = Math.floor(row['MonUMin(N)'] * config.monDensityMultiplier + 1);
-    row['MonUMin(H)'] = Math.floor(row['MonUMin(H)'] * config.monDensityMultiplier + 1);
+    row.MonUMin = Math.floor(row.MonUMin * config.monDensityMultiplier + 1);
+    row['MonUMin(N)'] = Math.floor(row['MonUMin(N)'] * config.monDensityMultiplier + 2);
+    row['MonUMin(H)'] = Math.floor(row['MonUMin(H)'] * config.monDensityMultiplier + 3);
   }
 
   // multiply maximum number of unique/champion monsters
   if (row.MonUMax !== '') {
-    row.MonUMax = Math.floor(row.MonUMax * config.monDensityMultiplier) + 1;
-    row['MonUMax(N)'] = Math.floor(row['MonUMax(N)'] * config.monDensityMultiplier) + 1;
-    row['MonUMax(H)'] = Math.floor(row['MonUMax(H)'] * config.monDensityMultiplier) + 1;
+    row.MonUMax = Math.floor(row.MonUMax * config.monDensityMultiplier) + 3;
+    row['MonUMax(N)'] = Math.floor(row['MonUMax(N)'] * config.monDensityMultiplier) + 4;
+    row['MonUMax(H)'] = Math.floor(row['MonUMax(H)'] * config.monDensityMultiplier) + 5;
   }
 });
 

@@ -317,9 +317,9 @@ const INVALID_ITEM_CODE = [
 const DUPLICATE_INDEX = ['Rainbow Facet', 'Rainbow Stone', "Gheed's Lucky", 'Rings'];
 const VALID_SETS = ["Immortal King", "Tal Rasha's Wrappings", "Bul-Kathos' Children", "M'avina's Battle Hymn", "Trang-Oul's Avatar", "Orphan's Call",
   "The Disciple", "Tancred's Battlegear", "Sazabi's Grand Tribute", "Naj's Ancient Set", "Natalya's Odium", "Griswold's Legacy", "Milabrega's Regalia",
-  "Hwanin's Majesty", "Heaven's Brethren", "Civerb's Vestments", "Cleglaw's Brace", "Berserker's Garb", "Death's Disguise", 
+  "Hwanin's Majesty", "Heaven's Brethren", "Civerb's Vestments", "Cleglaw's Brace", "Berserker's Garb", "Death's Disguise",
   "Arctic Gear", "Angelical Raiment", "Cathan's Traps", "Isenhart's Armory", "Vidala's Rig", "Arcanna's Tricks", "Sigon's Complete Steel",
-  "Hsarus' Defense",
+  "Hsarus' Defense",, "Infernal Tools"
 ];
 const ALL_SETS = [
   "Aldur's Watchtower", "Angelical Raiment", "Arcanna's Tricks", "Arctic Gear", "Berserker's Garb", "Bul-Kathos' Children",
@@ -395,7 +395,7 @@ itemtypes.rows.forEach((itemtype) => {
     itemtypes.rows.push({
       ...itemtype,
       ItemType: `ESSENCE Rune`,
-      Code: 'runz', 
+      Code: 'runz',
       Equiv1: 'rune',
       Equiv2: 'misc',
     });
@@ -466,7 +466,7 @@ function addEssenceRunes(essenceCode, item) {
       'input 1': item.index,
       // 'input 2': 'wms',
       output: `${essenceCode}`,
-      lvl: 99,
+      ilvl: 100,
       // 'output b': `wms`,
       // 'b lvl': 99,
       '*eol\r': 0,
@@ -476,9 +476,13 @@ function addEssenceRunes(essenceCode, item) {
       enabled: 1,
       version: 100,
       numinputs: 1,
-      lvl: 99,
+      ilvl: 100,
       'input 1': `${essenceCode}`,
       output: `${item.index}`,
+      'mod 1 chance': 5,
+      'mod 1': 'ethereal',
+      'mod 1 min': 1,
+      'mod 1 max': 1,
       '*eol\r': 0,
     });
   }
