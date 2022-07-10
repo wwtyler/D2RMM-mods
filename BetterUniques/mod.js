@@ -1,105 +1,121 @@
 const uniqueItemsFilename = 'global\\excel\\UniqueItems.txt';
+const setItemsFilename = 'global\\excel\\SetItems.txt';
 const itemNamesFilename = 'local\\lng\\strings\\item-names.json';
 const itemNameaffixesFilename = 'local\\lng\\strings\\item-nameaffixes.json';
 const itemNameaffixes = D2RMM.readJson(itemNameaffixesFilename);
 const itemNames = D2RMM.readJson(itemNamesFilename);
 const uniqueItems = D2RMM.readTsv(uniqueItemsFilename);
+const setItems = D2RMM.readTsv(setItemsFilename);
 
 let gheedsFortune;
 let rainbowFacet;
 let hellfireTorch;
 let itemNeedRemove;
-// const BOOST_PROP_ARRAY = [
-//   'light',
-//   'ac', 'ac%', 'ac-miss', 'ac-hth',
-//   'dmg', 'dmg%',
-//   'hp', 'hp%',
-//   'mana', 'mana%',
-//   'str', 'enr', 'vit', 'dex',
-//   'red-dmg', 'red-mag',
-// ];
+
+setItems.rows.forEach((item) => {
+  // 对所有的属性进行强化。
+  enhanceProp(item);
+
+  // 对所有的套装加成属性(add func = 1 or 2)进行强化。
+  for (let i = 1; i <= 5; i++) {
+    // aprop1a   	apar1a 	amin1a 	amax1a 	aprop1b 	apar1b 	amin1b 	amax1b 	
+    // aprop2a    apar2a 	amin2a 	amax2a 	aprop2b 	apar2b 	amin2b 	amax2b 	
+    // aprop3a    apar3a 	amin3a 	amax3a 	aprop3b 	apar3b 	amin3b 	amax3b 	
+    // aprop4a    apar4a 	amin4a 	amax4a 	aprop4b 	apar4b 	amin4b 	amax4b 	
+    // aprop5a  	apar5a 	amin5a 	amax5a 	aprop5b 	apar5b 	amin5b 	amax5b
+    const apropNa = item[`aprop` + i + 'a'];
+    const apropNb = item[`aprop` + i + 'b'];
+    if (apropNa != null && apropNb != null) {
+      if (['mag%', 'mana', 'ac'].includes(apropNa) || ['mag%', 'mana', 'ac'].includes(apropNb)) {
+
+      }
+    }
+  }
+});
 
 uniqueItems.rows.forEach((item) => {
-
-  function multiply(i, m) {
-    const parN = item[`par` + i];
-    const minN = item[`min` + i];
-    const maxN = item[`max` + i];
-    item[`min` + i] = Math.floor(minN * m);
-    item[`max` + i] = Math.floor(maxN * m);
-  }
-  function add(i, m) {
-    const parN = item[`par` + i];
-    const minN = item[`min` + i];
-    const maxN = item[`max` + i];
-    item[`min` + i] = Math.floor(minN) + m;
-    item[`max` + i] = Math.floor(maxN) + m;
-  }
-  function addMin(i, m) {
-    const minN = item[`min` + i];
-    item[`min` + i] = Math.floor(minN) + m;
-  }
-  function addMax(i, m) {
-    const maxN = item[`max` + i];
-    item[`max` + i] = Math.floor(maxN) + m;
-  }
   // 对所有的属性进行强化。
-  for (let i = 1; i <= 12; i++) {
-    const propN = item[`prop` + i];
-    if (propN != null) {
-      if (['mana-kill', 'heal-kill'].includes(propN)) {
-        add(i, 2);
-      }
-      else if (['hp', 'mana'].includes(propN)) {
-        add(i, 15);
-      }
-      else if (['hp%', 'mana%'].includes(propN)) {
-        multiply(i, 1.3);
-      }
-      else if (['res-ltng', 'res-fire', 'res-cold', 'res-pois'].includes(propN)) {
-        add(i, 10);
-      }
-      else if (['res-all'].includes(propN)) {
-        add(i, 5);
-      }
-      else if (['str', 'enr', 'vit', 'dex'].includes(propN)) {
-        add(i, 5);
-      }
-      else if (['ac%', 'ac-miss', 'ac-hth', 'ac'].includes(propN)) {
-        multiply(i, 1.3);
-      }
-      else if (['att'].includes(propN)) {
-        multiply(i, 1.5);
-      }
-      else if (['dmg%'].includes(propN)) {
-        multiply(i, 1.5);
-      }
-      else if (['dmg-norm', 'dmg-mag', 'dmg-cold', 'dmg-ltng', 'dmg-fire', 'dmg-pois', 'dmg-undead', 'dmg-demon'].includes(propN)) {
-        multiply(i, 1.5);
-      }
-      else if (['dmg-min', 'dmg-max', 'dmg'].includes(propN)) {
-        add(i, 15);
-      }
-      else if (['gold%', 'mag%'].includes(propN)) {
-        multiply(i, 1.5);
-      }
-      else if (['light'].includes(propN)) {
-        add(i, 3.0);
-      }
-      else if (['regen', 'regen-mana'].includes(propN)) {
-        multiply(i, 2.0);
-      }
-      else if (['hit-skill', 'gethit-skill', 'att-skill'].includes(propN)) {
-        addMin(i, 10.0);//add chance
-        addMax(i, 10.0);//add level
-      }
-      else if (['charged'].includes(propN)) {
-        addMax(i, 20.0);//add level
-      }
-    };
-  }
+  enhanceProp(item);
 
   //对特定的暗金物品进行配置。
+  enhanceUniques(item);
+
+});
+// Rainbow Facet	393	100	1		1	1	85	49	jew	jewel		3	5000								dmg-cold	3	24	38	pierce-cold		3	5	extra-cold		3	5	death-skill	Blizzard	100	37									
+// Rainbow Facet	394	100	1		1	1	85	49	jew	jewel		3	5000								dmg-fire		17	45	pierce-fire		3	5	extra-fire		3	5	death-skill	Meteor	100	31									
+// Rainbow Facet	395	100	1		1	1	85	49	jew	jewel		3	5000								dmg-pois	50	187	187	pierce-pois		3	5	extra-pois		3	5	death-skill	Poison Nova	100	51									
+// Rainbow Facet	396	100	1		1	1	85	49	jew	jewel		3	5000								dmg-ltng		1	74	pierce-ltng		3	5	extra-ltng		3	5	levelup-skill	Nova	100	41									
+// Rainbow Facet	397	100	1		1	1	85	49	jew	jewel		3	5000								dmg-cold	3	24	38	pierce-cold		3	5	extra-cold		3	5	levelup-skill	Frost Nova	100	43									
+// Rainbow Facet	398	100	1		1	1	85	49	jew	jewel		3	5000								dmg-fire		17	45	pierce-fire		3	5	extra-fire		3	5	levelup-skill	Blaze	100	29									
+// Rainbow Facet	399	100	1		1	1	85	49	jew	jewel		3	5000								dmg-pois	50	187	187	pierce-pois		3	5	extra-pois		3	5	levelup-skill	Venom	100	23		
+
+//Annihilus	381	100	1		1	1	110	70	cm1	charm	1	3	5000			flpmss	invmss	item_gem	12	item_gem	allskills		1	1	all-stats		10	20	res-all		10	20	addxp		5	10
+// '*ID': Math.max(...uniqueItems.rows.map((row) => row['*ID'])) + 1,
+// '*ID': (itemID = itemID + 1),
+
+let itemID = Math.max(...uniqueItems.rows.map((row) => row['*ID']));
+uniqueItems.rows.push({
+  ...hellfireTorch, index: "Hellfire's Bless", '*ID': (itemID = itemID + 1),
+  carry1: 0, lvl: 70, 'lvl req': 50, '*eol\r': '0',
+  prop1: 'addxp', min1: 5, max1: 10, prop2: 'cheap', min2: 5, max2: 10, prop3: 'move2', min3: 10, max3: 20,
+  prop4: 'light', min4: 5, max4: 5, prop5: 'mag%', min5: 5, max5: 15, prop6: 'gold%', par6: '', min6: 25, max6: 50,
+});
+uniqueItems.rows.push({
+  ...gheedsFortune, index: "Gheed's Lucky", '*ID': (itemID = itemID + 1),
+  carry1: 0, lvl: 70, 'lvl req': 50, '*eol\r': '0',
+  prop1: 'addxp', min1: 5, max1: 10, prop2: 'cheap', min2: 5, max2: 10, prop3: 'move2', min3: 10, max3: 20,
+});
+uniqueItems.rows.push({
+  ...gheedsFortune, index: "Gheed's Lucky", '*ID': (itemID = itemID + 1),
+  carry1: 0, lvl: 70, 'lvl req': 50, '*eol\r': '0',
+  prop1: 'addxp', min1: 5, max1: 10, prop2: 'res-all', min2: 5, max2: 15, prop3: 'all-stats', min3: 10, max3: 20,
+});
+uniqueItems.rows.push({
+  ...rainbowFacet, index: "Rainbow Stone", '*ID': (itemID = itemID + 1),
+  carry1: 0, lvl: 70, 'lvl req': 50, '*eol\r': '0',
+  prop1: 'dmg%', min1: 20, max1: 40, prop2: 'reduce-ac', min2: 10, max2: 20,
+  prop3: 'crush', min3: 10, max3: 15, prop4: 'ease', par4: '', min4: 20, max4: 20,
+});
+
+uniqueItems.rows.push({
+  ...rainbowFacet, index: "Rainbow Stone", '*ID': (itemID = itemID + 1),
+  carry1: 0, lvl: 70, 'lvl req': 50, '*eol\r': '0',
+  prop1: 'dmg', min1: 15, max1: 30, prop2: 'noheal', min2: 1, max2: 1,
+  prop3: 'swing2', min3: 20, max3: 30, prop4: 'ease', par4: '', min4: -20, max4: -20, par4: null,
+});
+uniqueItems.rows.push({
+  ...rainbowFacet, index: "Rainbow Stone", '*ID': (itemID = itemID + 1),
+  carry1: 0, lvl: 70, 'lvl req': 50, '*eol\r': '0',
+  prop1: 'res-all', min1: 10, max1: 20, prop2: 'red-mag', min2: 6, max2: 12,
+  prop3: 'mana-kill', min3: 4, max3: 8, prop4: 'ease', par4: '', min4: -20, max4: -20,
+});
+
+itemNames.push({
+  id: D2RMM.getNextStringID(),
+  Key: `Rainbow Stone`, enUS: `Rainbow Stone`, zhTW: `ÿcDRainbow StoneÿcD`
+});
+
+itemNames.push({
+  id: D2RMM.getNextStringID(),
+  Key: `Hellfire's Bless`, enUS: `Hellfire's Bless`, zhTW: `ÿcDHellfire's BlessÿcD`
+});
+itemNames.push({
+  id: D2RMM.getNextStringID(),
+  Key: `Gheed's Lucky`, enUS: `Gheed's Lucky`, zhTW: `ÿcDGheed's LuckyÿcD`
+});
+
+itemNames.push({
+  id: D2RMM.getNextStringID(),
+  Key: `Azurewrath1`, enUS: `Azurewrath1`, zhTW: `ÿcDAzurewrath1ÿcD`
+});
+
+D2RMM.writeTsv(uniqueItemsFilename, uniqueItems);
+D2RMM.writeTsv(setItemsFilename, setItems);
+
+D2RMM.writeJson(itemNamesFilename, itemNames);
+D2RMM.writeJson(itemNameaffixesFilename, itemNameaffixes);
+
+function enhanceUniques(item) {
   if (item.index != null) {
     if (item.index === "Gheed's Fortune") {
       gheedsFortune = item;
@@ -283,6 +299,8 @@ uniqueItems.rows.forEach((item) => {
       item.prop3 = 'att'; item.min3 = 75; item.max3 = 75;
       item.prop4 = 'mag%'; item.min4 = 30; item.max4 = 45;
     }
+
+
     // Manald Heal	121	0	1		2	1	20	15	rin	Ring		5	5000	oran							
     // manasteal		4	7	regen		5	8	hp		20	20	regen-mana		20	20									
     else if (item.index === "Manald Heal") {
@@ -295,32 +313,38 @@ uniqueItems.rows.forEach((item) => {
       // Dwarf Star	274	100	1		2	1	53	45	rin	Ring		5	5000	dgry	dgry						
       // gold%		100	100	stam		40	40	regen-stam		15	15	hp		40	40	red-mag		12	15	abs-fire%		15	15
       item.prop1 = 'gold%'; item.min1 = 150; item.max1 = 150;
-      item.prop2 = 'abs-fire/lvl'; item.min2 = 6; item.max2 = 6;
+      item.prop2 = 'abs-fire/lvl'; item.par2 = ''; item.min2 = 4; item.max2 = 4;
       item.prop3 = 'cast2'; item.min3 = 10; item.max3 = 10;
       item.prop4 = 'hp'; item.min4 = 40; item.max4 = 60;
       item.prop5 = 'red-mag'; item.min5 = 12; item.max5 = 15;
       item.prop6 = 'abs-fire%'; item.min6 = 15; item.max6 = 15;
     }
+
+
     // Raven Frost	275	100	1		2	1	53	45	rin	Ring		5	5000	cblu	cblu						
     // nofreeze		1	1	dmg-cold	100	15	45	abs-cold%		20	20	mana		40	40	dex		15	20	att		150	250	
     else if (item.index === "Raven Frost") {
       item.prop1 = 'nofreeze'; item.min1 = 1; item.max1 = 1;
-      item.prop2 = 'abs-cold/lvl'; item.min2 = 6; item.max2 = 6;
+      item.prop2 = 'abs-cold/lvl'; item.par2 = ''; item.min2 = 4; item.max2 = 4;
       item.prop3 = 'abs-cold%'; item.min3 = 20; item.max3 = 20;
       item.prop4 = 'mana'; item.min4 = 40; item.max4 = 60;
       item.prop5 = 'dex'; item.min5 = 15; item.max5 = 20;
       item.prop6 = 'att'; item.min6 = 250; item.max6 = 300;
     }
+
+
     // Wisp	319	100	1		1	1	84	76	rin	ring		5	5000	bwht	bwht						
     // abs-ltng%		10	20	hit-skill	Lightning	10	16	mag%		10	20	charged	Oak Sage	15	2	charged	Heart of Wolverine	13	5	charged	Spirit of Barbs	11	7	
     else if (item.index === "Wisp") {
       item.prop1 = 'abs-ltng%'; item.min1 = 10; item.max1 = 20;
       item.prop2 = 'hit-skill'; item.min2 = 10; item.max2 = 16;
       item.prop3 = 'mag%'; item.min3 = 10; item.max3 = 20;
-      item.prop4 = 'abs-ltng/lvl'; item.min4 = 6; item.max4 = 6;
+      item.prop4 = 'abs-ltng/lvl'; item.par4 = ''; item.min4 = 4; item.max4 = 4;
       item.prop5 = 'str'; item.min5 = 20; item.max5 = 25;
       item.prop6 = 'charged'; item.min6 = 11; item.max6 = 7;
     }
+
+
     // Nature's Peace	300	100	1		2	1	77	69	rin	ring		5	5000	dgrn	dgrn						
     // noheal		1	1	rip		1	1	red-dmg		7	11	res-pois		20	30	charged	Oak Sage	27	5					
     else if (item.index === "Nature's Peace") {
@@ -330,6 +354,7 @@ uniqueItems.rows.forEach((item) => {
       item.prop4 = 'res-pois'; item.min4 = 20; item.max4 = 30;
       item.prop5 = 'charged'; item.min5 = 27; item.max5 = 5;
     }
+
     // Carrion Wind	378	100	1		2	1	68	60	rin	ring		3	5000								ac-miss		100	160	lifesteal		6	9	res-pois		55	55	gethit-skill	Poison Nova	10	10	charged	Plague Poppy	15	21	hit-skill	Twister	8	13	dmg-to-mana		10	10	
     // Atma's Scarab	273	100	1		2	1	60	60	amu	Amulet		5	5000	cgrn	cgrn						dmg-pois	100	102	102	res-pois		75	75	light		3	3	thorns		5	5	hit-skill	66	5	2	att%		20	20	
     // Amulet of the Viper	123	0	1		1	1	0	0	vip	Amulet		5	5000	lgry							mana		10	10	res-pois		25	25	hp		10	10			0	0			0	0			0	0			0	0	
@@ -339,7 +364,6 @@ uniqueItems.rows.forEach((item) => {
     // Nokozan Relic	117	0	1		2	1	14	10	amu	Amulet		5	5000	lgld							dmg-fire		3	6	res-fire-max		10	10	res-fire		50	50	light		3	3	balance2		20	20					
     // The Eye of Etlich	118	0	1		2	1	20	15	amu	Amulet		5	5000	dgld							ac-miss		10	40	light		1	5	allskills		1	1	lifesteal		3	7	cold-min		1	2	cold-max		3	5	cold-len		50	250	
     // The Mahim-Oak Curio	119	0	1		2	1	34	25	amu	Amulet		5	5000	lpur							dex		10	10	str		10	10	enr		10	10	vit		10	10	ac		10	10	att%		10	10	res-all		10	10	ac%		10	10
-
     else if (item.index === "Rainbow Facet" && item.code === 'jew') {
       // Rainbow Facet		pierce-ltng		3	5	extra-ltng		3	5	death-skill	Chain Lightning	100	47
       if (item.par4 === "Chain Lightning") {
@@ -352,76 +376,86 @@ uniqueItems.rows.forEach((item) => {
       hellfireTorch = item;
     }
   }
+}
 
+function enhanceProp(item) {
+  for (let i = 1; i <= 12; i++) {
+    const propN = item[`prop` + i];
+    if (propN != null) {
+      if (['mana-kill', 'heal-kill'].includes(propN)) {
+        add(item, i, 2);
+      }
+      else if (['hp', 'mana'].includes(propN)) {
+        add(item, i, 15);
+      }
+      else if (['hp%', 'mana%'].includes(propN)) {
+        multiply(item, i, 1.3);
+      }
+      else if (['res-ltng', 'res-fire', 'res-cold', 'res-pois'].includes(propN)) {
+        add(item, i, 10);
+      }
+      else if (['res-all'].includes(propN)) {
+        add(item, i, 5);
+      }
+      else if (['str', 'enr', 'vit', 'dex'].includes(propN)) {
+        add(item, i, 5);
+      }
+      else if (['ac%', 'ac-miss', 'ac-hth', 'ac'].includes(propN)) {
+        multiply(item, i, 1.3);
+      }
+      else if (['att'].includes(propN)) {
+        multiply(item, i, 1.5);
+      }
+      else if (['dmg%'].includes(propN)) {
+        multiply(item, i, 1.5);
+      }
+      else if (['dmg-norm', 'dmg-mag', 'dmg-cold', 'dmg-ltng', 'dmg-fire', 'dmg-pois', 'dmg-undead', 'dmg-demon'].includes(propN)) {
+        multiply(item, i, 1.5);
+      }
+      else if (['dmg-min', 'dmg-max', 'dmg'].includes(propN)) {
+        add(item, i, 15);
+      }
+      else if (['gold%', 'mag%'].includes(propN)) {
+        multiply(item, i, 1.5);
+      }
+      else if (['light'].includes(propN)) {
+        add(item, i, 3.0);
+      }
+      else if (['regen', 'regen-mana'].includes(propN)) {
+        multiply(item, i, 2.0);
+      }
+      else if (['hit-skill', 'gethit-skill', 'att-skill'].includes(propN)) {
+        if (Math.floor(item[`min` + i]) < 25) {
+          addMin(item, i, 10.0); //add chance
+        }
+        addMax(item, i, 10.0); //add level
+      }
+      else if (['charged'].includes(propN)) {
+        addMax(item, i, 20.0); //add level
+      }
+    };
+  }
+}
 
-});
-// Rainbow Facet	393	100	1		1	1	85	49	jew	jewel		3	5000								dmg-cold	3	24	38	pierce-cold		3	5	extra-cold		3	5	death-skill	Blizzard	100	37									
-// Rainbow Facet	394	100	1		1	1	85	49	jew	jewel		3	5000								dmg-fire		17	45	pierce-fire		3	5	extra-fire		3	5	death-skill	Meteor	100	31									
-// Rainbow Facet	395	100	1		1	1	85	49	jew	jewel		3	5000								dmg-pois	50	187	187	pierce-pois		3	5	extra-pois		3	5	death-skill	Poison Nova	100	51									
-// Rainbow Facet	396	100	1		1	1	85	49	jew	jewel		3	5000								dmg-ltng		1	74	pierce-ltng		3	5	extra-ltng		3	5	levelup-skill	Nova	100	41									
-// Rainbow Facet	397	100	1		1	1	85	49	jew	jewel		3	5000								dmg-cold	3	24	38	pierce-cold		3	5	extra-cold		3	5	levelup-skill	Frost Nova	100	43									
-// Rainbow Facet	398	100	1		1	1	85	49	jew	jewel		3	5000								dmg-fire		17	45	pierce-fire		3	5	extra-fire		3	5	levelup-skill	Blaze	100	29									
-// Rainbow Facet	399	100	1		1	1	85	49	jew	jewel		3	5000								dmg-pois	50	187	187	pierce-pois		3	5	extra-pois		3	5	levelup-skill	Venom	100	23		
-
-//Annihilus	381	100	1		1	1	110	70	cm1	charm	1	3	5000			flpmss	invmss	item_gem	12	item_gem	allskills		1	1	all-stats		10	20	res-all		10	20	addxp		5	10
-// '*ID': Math.max(...uniqueItems.rows.map((row) => row['*ID'])) + 1,
-// '*ID': (itemID = itemID + 1),
-let itemID = Math.max(...uniqueItems.rows.map((row) => row['*ID']));
-uniqueItems.rows.push({
-  ...hellfireTorch, index: "Hellfire's Bless", '*ID': (itemID = itemID + 1),
-  carry1: 0, lvl: 70, 'lvl req': 50, '*eol\r': '0',
-  prop1: 'addxp', min1: 5, max1: 10, prop2: 'cheap', min2: 5, max2: 10, prop3: 'move2', min3: 10, max3: 20,
-  prop4: 'light', min4: 5, max4: 5, prop5: 'mag%', min5: 5, max5: 15, prop6: 'gold%', par6: '', min6: 25, max6: 50,
-});
-uniqueItems.rows.push({
-  ...gheedsFortune, index: "Gheed's Lucky", '*ID': (itemID = itemID + 1),
-  carry1: 0, lvl: 70, 'lvl req': 50, '*eol\r': '0',
-  prop1: 'addxp', min1: 5, max1: 10, prop2: 'cheap', min2: 5, max2: 10, prop3: 'move2', min3: 10, max3: 20,
-});
-uniqueItems.rows.push({
-  ...gheedsFortune, index: "Gheed's Lucky", '*ID': (itemID = itemID + 1),
-  carry1: 0, lvl: 70, 'lvl req': 50, '*eol\r': '0',
-  prop1: 'addxp', min1: 5, max1: 10, prop2: 'res-all', min2: 5, max2: 15, prop3: 'all-stats', min3: 10, max3: 20,
-});
-uniqueItems.rows.push({
-  ...rainbowFacet, index: "Rainbow Stone", '*ID': (itemID = itemID + 1),
-  carry1: 0, lvl: 70, 'lvl req': 50, '*eol\r': '0',
-  prop1: 'dmg%', min1: 20, max1: 40, prop2: 'reduce-ac', min2: 10, max2: 20,
-  prop3: 'crush', min3: 10, max3: 15, prop4: 'ease', par4: '', min4: 20, max4: 20,
-});
-
-uniqueItems.rows.push({
-  ...rainbowFacet, index: "Rainbow Stone", '*ID': (itemID = itemID + 1),
-  carry1: 0, lvl: 70, 'lvl req': 50, '*eol\r': '0',
-  prop1: 'dmg', min1: 15, max1: 30, prop2: 'noheal', min2: 1, max2: 1,
-  prop3: 'swing2', min3: 20, max3: 30, prop4: 'ease', par4: '', min4: -20, max4: -20, par4: null,
-});
-uniqueItems.rows.push({
-  ...rainbowFacet, index: "Rainbow Stone", '*ID': (itemID = itemID + 1),
-  carry1: 0, lvl: 70, 'lvl req': 50, '*eol\r': '0',
-  prop1: 'res-all', min1: 10, max1: 20, prop2: 'red-mag', min2: 6, max2: 12,
-  prop3: 'mana-kill', min3: 4, max3: 8, prop4: 'ease', par4: '', min4: -20, max4: -20,
-});
-
-itemNames.push({
-  id: D2RMM.getNextStringID(),
-  Key: `Rainbow Stone`, enUS: `Rainbow Stone`, zhTW: `ÿcDRainbow StoneÿcD`
-});
-
-itemNames.push({
-  id: D2RMM.getNextStringID(),
-  Key: `Hellfire's Bless`, enUS: `Hellfire's Bless`, zhTW: `ÿcDHellfire's BlessÿcD`
-});
-itemNames.push({
-  id: D2RMM.getNextStringID(),
-  Key: `Gheed's Lucky`, enUS: `Gheed's Lucky`, zhTW: `ÿcDGheed's LuckyÿcD`
-});
-
-itemNames.push({
-  id: D2RMM.getNextStringID(),
-  Key: `Azurewrath1`, enUS: `Azurewrath1`, zhTW: `ÿcDAzurewrath1ÿcD`
-});
-
-D2RMM.writeTsv(uniqueItemsFilename, uniqueItems);
-D2RMM.writeJson(itemNamesFilename, itemNames);
-D2RMM.writeJson(itemNameaffixesFilename, itemNameaffixes);
+function multiply(item, i, m) {
+  const parN = item[`par` + i];
+  const minN = item[`min` + i];
+  const maxN = item[`max` + i];
+  item[`min` + i] = Math.floor(minN * m);
+  item[`max` + i] = Math.floor(maxN * m);
+}
+function add(item, i, m) {
+  const parN = item[`par` + i];
+  const minN = item[`min` + i];
+  const maxN = item[`max` + i];
+  item[`min` + i] = Math.floor(minN) + m;
+  item[`max` + i] = Math.floor(maxN) + m;
+}
+function addMin(item, i, m) {
+  const minN = item[`min` + i];
+  item[`min` + i] = Math.floor(minN) + m;
+}
+function addMax(item, i, m) {
+  const maxN = item[`max` + i];
+  item[`max` + i] = Math.floor(maxN) + m;
+}

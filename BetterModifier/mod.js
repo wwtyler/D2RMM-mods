@@ -197,7 +197,12 @@ const DISABLED_SUFFIX_CODES = [
   'red-mag', 'manasteal', 'hp', 'mana'
 ];
 
-const DISABLED_ITYPES_ARRAY = ['jewl', 'scha', 'mcha', 'lcha', 'amul', 'ring', 'circ'];
+const DISABLED_ITYPES_ARRAY = [
+  'jewl',
+  // 'scha', 'mcha', 'lcha', 
+  'amul', 'ring',
+  'circ'
+];
 const DISABLED_CODES_WITH_ITYPES = {
   jewl: ['dex', 'str', 'enr', 'vit', 'att', 'stam', 'ac', 'dmg-min', 'dmg-max', 'cold-len', 'fire-min', 'pois-min', 'ltng-min',
     'regen-stam', 'light', 'att-demon', 'att-undead', 'thorns'],
@@ -307,13 +312,13 @@ mss.rows.forEach((row) => {
     const mod1code = row['mod1min']
     row['mod1min'] = Math.floor(row['mod1min'] * 1.0 + 10.0);
     //add level
-    row['mod1max'] = Math.floor(row['mod1max'] * 1.0 + 10.0);
+    row['mod1max'] = Math.floor(row['mod1max'] * 1.0 + 25.0);
   }
   else if (['charged'].includes(mod1code)) {
     //add charges
     row['mod1min'] = Math.floor(row['mod1min'] * 1.0 - 10.0);
     //add level
-    row['mod1max'] = Math.floor(row['mod1max'] * 1.0 - 10.0);
+    row['mod1max'] = Math.floor(row['mod1max'] * 1.0 - 20.0);
   }
 });
 

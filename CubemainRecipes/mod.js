@@ -18,11 +18,11 @@ const JEW_FORGE_TYPES = [
   ['amu', '项链'],
   ['jew', '珠宝'],
   ['cm1', '小护符'],
-  ['cm2', '小护符'],
-  ['cm3', '小护符'],
+  ['cm2', '中护符'],
+  ['cm3', '大护符'],
 ];
 
-const ENCHANT_TYPES = [
+const ALL_EQUIP_TYPES = [
   //weap
   ['axe'], ['wand'], ['club'], ['scep'], ['mace'], ['hamm'], ['swor'], ['knif'], ['tkni'], ['taxe'], ['jave'], ['spea'],
   ['pole'], ['staf'], ['bow'], ['xbow'], ['tpot'], ['h2h'], ['h2h2'], ['orb'], ['abow'], ['aspe'], ['ajav'],
@@ -45,12 +45,12 @@ const REROLL_RARITY = [
 ];
 const REROLL_TYPES = [
   //type,label,cost
-  ['rin', '戒指', 'gem4'],
-  ['amu', '项链', 'gem4'],
+  ['rin', '戒指', 'runz'],
+  ['amu', '项链', 'runz'],
   ['char', '护符', 'runz'],
   ['jew', '珠宝', 'runz'],
-  ['weap', '武器', 'runx'],
-  ['armo', '防具', 'runx']
+  ['weap', '武器', 'runz'],
+  ['armo', '防具', 'runz']
 ];
 const EXTRACT_TYPES = [
   ['rin', '戒指'],
@@ -176,16 +176,7 @@ cubemain.rows.push({
   '*eol\r': 0,
 });
 
-cubemain.rows.push({
-  description: `test GGG`,
-  enabled: 1,
-  version: 100,
-  numinputs: 3,
-  'input 1': '"gem3,qty=3"',
-  lvl: 99,
-  output: `gem4,qty=1`,
-  '*eol\r': 0,
-});
+
 
 //disable部分原始合成公式。
 const DISABLED_DESCRIPTION = [
@@ -195,8 +186,8 @@ const DISABLED_DESCRIPTION = [
   '3 Magic Amulets -> Magic Ring',
   '3 Perfect Gems (Any) + 1 Magic Item -> Re-rolled Magic Item',
   '6 Perfect Skulls + 1 Rare Item -> 1 Low Quality Rare Item',
-  '1 Ort Rune + 1 Weapon -> Fully Repaired Weapon',
-  '1 Ral Rune + 1 Armor -> Fully Repaired Armor'
+  // '1 Ort Rune + 1 Weapon -> Fully Repaired Weapon',
+  // '1 Ral Rune + 1 Armor -> Fully Repaired Armor'
 ];
 const ENABLED_DESCRIPTION = [
   '1 Ral Rune + 1 Jewel + 1 Superior Armor -> Tempered Armor',
@@ -216,6 +207,7 @@ cubemain.rows.forEach((row) => {
 });
 
 
+///FORGE
 [
   ['mag', 'rar'],
   ['rar', 'rar'],
@@ -244,19 +236,32 @@ cubemain.rows.forEach((row) => {
 
 //项链戒指merge公式。
 cubemain.rows.push({
-  description: `亮金项链戒指合成亮金珠宝`,
+  description: `亮金项链戒指合成亮金珠宝MERGE`,
   numinputs: 2,
   'input 1': 'amu,rar', 'input 2': 'rin,rar',
-  output: 'jew,rar', ilvl: 100, 
+  output: 'jew,rar', ilvl: 100,
   '*eol\r': '0', enabled: 1, version: 100,
 });
 cubemain.rows.push({
-  description: `魔法项链戒指合成魔法珠宝`,
+  description: `魔法项链戒指合成魔法珠宝MERGE`,
   numinputs: 2,
   'input 1': 'amu,mag', 'input 2': 'rin,mag',
-  output: 'jew,mag', ilvl: 100, 
+  output: 'jew,mag', ilvl: 100,
   '*eol\r': '0', enabled: 1, version: 100,
 });
+
+//宝石简易合成公式
+for (let gemLvl = 0; gemLvl <= 3; gemLvl = gemLvl + 1) {
+  let nextLvl = gemLvl + 1;
+  cubemain.rows.push({
+    description: `宝石合成 MERGE#${gemLvl}`,
+    enabled: 1, version: 100, ilvl: 100,
+    numinputs: 3,
+    'input 1': `gem${gemLvl},qty=3`,
+    output: `"gem${nextLvl}"`,
+    '*eol\r': 0,
+  });
+}
 
 //各种装备REROLL
 REROLL_TYPES.forEach(([type, typeLabel, cost]) => {
@@ -265,7 +270,7 @@ REROLL_TYPES.forEach(([type, typeLabel, cost]) => {
     const outputString = rarity === 'uni' ? 'useitem,reg' : `usetype,${rarity}`;
     const inputCost = 'gem4,qty=1';
     const recipe = {
-      description: `洗（REROLL）${rarityLabel}${typeLabel}`,
+      description: `洗装备-REROLL-${rarityLabel}${typeLabel}`,
       numinputs: 3,
       ilvl: 100, // preserve item level
       'input 1': `${type},${rarity}`, 'input 2': `${cost},qty=2`,
@@ -279,7 +284,7 @@ REROLL_TYPES.forEach(([type, typeLabel, cost]) => {
 });
 
 //白色装备ENCHANT
-ENCHANT_TYPES.forEach((enchantType) => {
+ALL_EQUIP_TYPES.forEach((enchantType) => {
   ENCHANT_RARITY.forEach(([lootRarity, rarityLabel]) => {
     [
       ['mag'],
@@ -289,7 +294,7 @@ ENCHANT_TYPES.forEach((enchantType) => {
         description: `白装附魔-ENCHANT-${rarityLabel}`,
         enabled: 1, version: 100,
         numinputs: 3,
-        ilvl: 100, 
+        ilvl: 100,
         'input 1': `${enchantType},${lootRarity}`,
         'input 2': `jew,${jewRarity},qty=2`,
         output: `usetype,${jewRarity}`,
@@ -303,32 +308,32 @@ ENCHANT_TYPES.forEach((enchantType) => {
   });
 });
 
-[
-  ['uni', '暗金'],
-  ['set', '套装']
-].forEach(([rarity, rarityLabel]) => {
-  EXTRACT_TYPES.forEach(([uniqueType, typeLabel]) => {
-    const uniqueIndex = ALL_UNIQUE_TYPES.indexOf(uniqueType);
-    const pgSCode = ALL_PG_S_CODES[uniqueIndex];
-    cubemain.rows.push({
-      description: `${rarityLabel}${typeLabel}萃取（EXTRACT）`,
-      enabled: 1,
-      version: 100,
-      numinputs: 2,
-      'input 1': `${uniqueType},${rarity}`,
-      'input 2': 'rvs',
-      ilvl: 100,
-      // output: `${pgSCode}`,
-      output: `gem4,qty=1`,
-      'output b': `rvs`,
-      '*eol\r': '0',
-    });
-  });
-});
+// [
+//   ['uni', '暗金'],
+//   ['set', '套装']
+// ].forEach(([rarity, rarityLabel]) => {
+//   EXTRACT_TYPES.forEach(([uniqueType, typeLabel]) => {
+//     const uniqueIndex = ALL_UNIQUE_TYPES.indexOf(uniqueType);
+//     const pgSCode = ALL_PG_S_CODES[uniqueIndex];
+//     cubemain.rows.push({
+//       description: `${rarityLabel}${typeLabel}萃取（EXTRACT）`,
+//       enabled: 1,
+//       version: 100,
+//       numinputs: 2,
+//       'input 1': `${uniqueType},${rarity}`,
+//       'input 2': 'rvs',
+//       ilvl: 100,
+//       // output: `${pgSCode}`,
+//       output: `gem4,qty=1`,
+//       'output b': `rvs`,
+//       '*eol\r': '0',
+//     });
+//   });
+// });
 
 EQUIP_TYPES.forEach((equipType) => {
   ALL_RARITY.forEach((magicType) => {
-    const description = "制作无形" + `${equipType}-${magicType}`;
+    const description = "制作无形-ETHEREAL-" + `${equipType}-${magicType}`;
     cubemain.rows.push({
       description: description,
       enabled: 1,
@@ -350,7 +355,7 @@ EQUIP_TYPES.forEach((equipType) => {
 //底材萃取
 EQUIP_TYPES.forEach((equipType) => {
   ALL_RARITY.forEach((magicType) => {
-    const description = "底材萃取" + `${equipType}-${magicType}`;
+    const description = "底材萃取-EXTRACTION-" + `${equipType}-${magicType}`;
     const hiqStr = magicType === 'hiq' ? 'hiq' : 'nor';
     cubemain.rows.push({
       description: description,
@@ -361,7 +366,7 @@ EQUIP_TYPES.forEach((equipType) => {
       'input 2': "r18",
       'input 3': "tsc",
       ilvl: 100,
-      output: `usetype,${hiqStr}`,
+      output: `usetype,mod,hiq`,
       '*eol\r': '0',
     });
   });

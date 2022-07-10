@@ -1,4 +1,6 @@
 const treasureclassexFilename = 'global\\excel\\treasureclassex.txt';
+const itemratioFilename = 'global\\excel\\itemratio.txt';
+const itemratio = D2RMM.readTsv(itemratioFilename);
 const treasureclassex = D2RMM.readTsv(treasureclassexFilename);
 
 const DIFFICULTY_AFFIXES = ['', ' (N)', ' (H)'];
@@ -23,6 +25,32 @@ const GOOD_ITEMS = ['jew', 'rvs'];
 
 const GOOD_LOOT_ITEMS = ['weap81', 'weap78', 'weap75', 'weap72', 'armo81', 'armo78', 'armo75', 'armo72', 'bow81', 'bow78', 'bow75', 'bow72'];
 const GREAT_LOOT_ITEMS = ['weap87', 'weap84', 'armo87', 'armo84', 'bow87', 'bow84'];
+
+/////////提高魔法物品的染色率/////////////////////////////
+const equipmentChance = 3;
+const equipmentMin = 3;
+
+itemratio.rows.forEach((row) => {
+
+  row.Unique = Math.floor(row.Unique / 2.2);
+  row.UniqueMin = Math.floor(row.UniqueMin / 2);
+
+  row.Set = Math.floor(row.Set / 1.8);
+  row.SetMin = Math.floor(row.SetMin / 2);
+
+  row.Rare = Math.floor(row.Rare / 2);
+  row.RareMin = Math.floor(row.RareMin / 2);
+
+  row.Magic = Math.floor(row.Magic / 2);
+  row.MagicMin = Math.floor(row.MagicMin / 2);
+
+  // row.HiQuality = Math.max(
+  //   Math.min(4, row.HiQuality),
+  //   Math.floor(row.HiQuality / 2)
+  // );
+});
+/////////提高魔法物品的染色率/////////////////////////////
+
 
 treasureclassex.rows.forEach((row) => {
   const treasureClass = row['Treasure Class'];
@@ -80,19 +108,19 @@ treasureclassex.rows.forEach((row) => {
     row[unique] = Math.max(850, Math.floor(row[unique]));
   }
   else if (row[unique] >= 800 && row[unique] < 900) {
-    row[unique] = Math.min(950, Math.floor(row[unique]) + 80);
+    row[unique] = Math.min(950, Math.floor(row[unique]) + 60);
   }
   if (row[set] >= 512 && row[set] < 800) {
     row[set] = Math.max(799, Math.floor(row[set]));
   }
   else if (row[set] >= 800 && row[set] < 900) {
-    row[set] = Math.min(950, Math.floor(row[set]) + 60);
+    row[set] = Math.min(950, Math.floor(row[set]) + 50);
   }
   if (row[rare] >= 512 && row[rare] < 850) {
-    row[rare] = Math.max(850, Math.floor(row[rare]) + 100);
+    row[rare] = Math.max(850, Math.floor(row[rare]) + 80);
   }
   else if (row[rare] >= 850 && row[rare] < 999) {
-    row[rare] = Math.min(999, Math.floor(row[rare]) + 100);
+    row[rare] = Math.min(999, Math.floor(row[rare]) + 80);
   }
 
   // 关卡Boss掉落调整
@@ -135,7 +163,7 @@ treasureclassex.rows.forEach((row) => {
       row['Prob3'] = Math.floor(row['Prob3'] / groupNumber * 5.3);
     }
     else if (groupNumber == 17) {
-      row['Prob2'] = Math.floor(row['Prob2'] / groupNumber *  4.8);
+      row['Prob2'] = Math.floor(row['Prob2'] / groupNumber * 4.8);
     }
   }
 
@@ -185,7 +213,6 @@ treasureclassex.rows.forEach((row) => {
     if (treasureClass === 'Countess Rune (H)') row.Item1 = 'Runes 17';//vanilla=12
   }
 });
-D2RMM.writeTsv(treasureclassexFilename, treasureclassex);
 
 
 //降低部分物品的稀有度（rarity）
@@ -195,14 +222,17 @@ const uniqueitems = D2RMM.readTsv(uniqueitemsFilename);
 uniqueitems.rows.forEach((row) => {
   row.nolimit = 1;
   if (row.rarity != null && row.rarity > 2)
-    row.rarity = 2;
+    row.rarity = Math.max(Math.floor(row.rarity / 3.0), 2);
 });
-D2RMM.writeTsv(uniqueitemsFilename, uniqueitems);
 
 const setItemsFilename = 'global\\excel\\SetItems.txt';
 const setItems = D2RMM.readTsv(setItemsFilename);
 setItems.rows.forEach((row) => {
   if (row.rarity != null && row.rarity > 2)
-    row.rarity = 2;
+    row.rarity = Math.max(Math.floor(row.rarity / 3.0), 2);
 });
+
+D2RMM.writeTsv(uniqueitemsFilename, uniqueitems);
 D2RMM.writeTsv(setItemsFilename, setItems);
+D2RMM.writeTsv(itemratioFilename, itemratio);
+D2RMM.writeTsv(treasureclassexFilename, treasureclassex);

@@ -319,7 +319,7 @@ const VALID_SETS = ["Immortal King", "Tal Rasha's Wrappings", "Bul-Kathos' Child
   "The Disciple", "Tancred's Battlegear", "Sazabi's Grand Tribute", "Naj's Ancient Set", "Natalya's Odium", "Griswold's Legacy", "Milabrega's Regalia",
   "Hwanin's Majesty", "Heaven's Brethren", "Civerb's Vestments", "Cleglaw's Brace", "Berserker's Garb", "Death's Disguise",
   "Arctic Gear", "Angelical Raiment", "Cathan's Traps", "Isenhart's Armory", "Vidala's Rig", "Arcanna's Tricks", "Sigon's Complete Steel",
-  "Hsarus' Defense",, "Infernal Tools"
+  "Hsarus' Defense", "Infernal Tools", "Iratha's Finery","McAuley's Folly"
 ];
 const ALL_SETS = [
   "Aldur's Watchtower", "Angelical Raiment", "Arcanna's Tricks", "Arctic Gear", "Berserker's Garb", "Bul-Kathos' Children",
@@ -354,41 +354,45 @@ uniqueItems.rows.forEach((uniqueItem) => {
     //移除暗金珠宝\护符\戒指\项链。
     if (!INVALID_ITEM_CODE.includes(uniqueItem.code)) {
       const essenceCode = getEssenceRuneCode('unique', uniqueItem['*ID']);
-      newItems.push({ [`${essenceCode}`]: { asset: `rune/${essenceCode}_rune` } });
+      // newItems.push({ [`${essenceCode}`]: { asset: `rune/${essenceCode}_rune` } });
+      newItems.push({ [`${essenceCode}`]: { asset: `rune/runzu_rune` } });
 
-      const essenceFileName = `${miscDirFilename}${essenceCode}_rune.json`;
+      const essenceFileName = `${miscDirFilename}runzu_rune.json`;
       D2RMM.writeJson(essenceFileName, zodRuneJsonTemplate1);
       addEssenceRunes(essenceCode, uniqueItem);
 
-      //复制一份图标文件。可以考虑不同的装备类型使用不同的宝石或者珠宝图标。TODO
-      D2RMM.copyFile(
-        'texture/perfect_dark_blue.sprite',
-        `hd/global/ui/items/misc/rune/${essenceCode}_rune.sprite`,
-        true // overwrite any conflicts
-      );
     }
   }
 });
 
+//传奇精华使用蓝色珠宝
+D2RMM.copyFile(
+  'texture/perfect_dark_blue.sprite',
+  `hd/global/ui/items/misc/rune/runzu_rune.sprite`,
+  true // overwrite any conflicts
+);
 
 setItems.rows.forEach((setItem) => {
   if (setItem.index != null && !INVALID_INDEX.includes(setItem.index)) {
     if (VALID_SETS.includes(setItem.set)) {
       const essenceCode = getEssenceRuneCode('set', setItem['*ID']);
-      newItems.push({ [`${essenceCode}`]: { asset: `rune/${essenceCode}_rune` } });
-      const essenceFileName = `${miscDirFilename}${essenceCode}_rune.json`;
+      // newItems.push({ [`${essenceCode}`]: { asset: `rune/${essenceCode}_rune` } });
+      newItems.push({ [`${essenceCode}`]: { asset: `rune/runzs_rune` } });
+
+      const essenceFileName = `${miscDirFilename}runzs_rune.json`;
       D2RMM.writeJson(essenceFileName, zodRuneJsonTemplate2);
       addEssenceRunes(essenceCode, setItem);
 
-      //复制一份图标文件。可以考虑不同的装备类型使用不同的宝石或者珠宝图标。TODO
-      D2RMM.copyFile(
-        'texture/perfect_dark_green.sprite',//绿色珠宝
-        `hd/global/ui/items/misc/rune/${essenceCode}_rune.sprite`,
-        true // overwrite any conflicts
-      );
     }
   }
 });
+
+//套装精华使用绿色珠宝
+D2RMM.copyFile(
+  'texture/perfect_dark_green.sprite',//绿色珠宝
+  `hd/global/ui/items/misc/rune/runzs_rune.sprite`,
+  true // overwrite any conflicts
+);
 
 itemtypes.rows.forEach((itemtype) => {
   if (itemtype.Code === 'rune') {
