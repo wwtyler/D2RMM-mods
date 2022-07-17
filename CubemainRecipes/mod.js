@@ -45,12 +45,12 @@ const REROLL_RARITY = [
 ];
 const REROLL_TYPES = [
   //type,label,cost
-  ['rin', '戒指', 'runz'],
-  ['amu', '项链', 'runz'],
-  ['char', '护符', 'runz'],
-  ['jew', '珠宝', 'runz'],
-  ['weap', '武器', 'runz'],
-  ['armo', '防具', 'runz']
+  ['rin', '戒指', 'cst'],
+  ['amu', '项链', 'cst'],
+  ['char', '护符', 'cst'],
+  ['jew', '珠宝', 'cst'],
+  ['weap', '武器', 'cst'],
+  ['armo', '防具', 'cst']
 ];
 const EXTRACT_TYPES = [
   ['rin', '戒指'],
@@ -126,9 +126,9 @@ cubemain.rows.push({
   enabled: 1,
   version: 100,
   numinputs: 3,
-  'input 1': 'runz,qty=3',
+  'input 1': 'runx,qty=3',
   lvl: 99,
-  output: "jew,rar",
+  output: "jew,uni",
   '*eol\r': 0,
 });
 cubemain.rows.push({
@@ -203,6 +203,9 @@ cubemain.rows.forEach((row) => {
   }
   if (ENABLED_DESCRIPTION.includes(desc)) {
     row.enabled = 1;
+  }
+  if (row.ladder == 1) {
+    row.ladder = 0;
   }
 });
 
@@ -284,11 +287,12 @@ REROLL_TYPES.forEach(([type, typeLabel, cost]) => {
 });
 
 //白色装备ENCHANT
-ALL_EQUIP_TYPES.forEach((enchantType) => {
+EQUIP_TYPES.forEach((enchantType) => {
   ENCHANT_RARITY.forEach(([lootRarity, rarityLabel]) => {
     [
       ['mag'],
-      ['rar']
+      ['rar'],
+      ['uni']
     ].forEach(([jewRarity]) => {
       const recipe = {
         description: `白装附魔-ENCHANT-${rarityLabel}`,
@@ -298,9 +302,6 @@ ALL_EQUIP_TYPES.forEach((enchantType) => {
         'input 1': `${enchantType},${lootRarity}`,
         'input 2': `jew,${jewRarity},qty=2`,
         output: `usetype,${jewRarity}`,
-        // output: `${enchantType},${jewRarity}`,
-        // 'output b': `${cost},qty=1`,//免费洗装备用来调试。
-        // 'b lvl': 99,
         '*eol\r': '0'
       };
       cubemain.rows.push(recipe);
@@ -366,7 +367,7 @@ EQUIP_TYPES.forEach((equipType) => {
       'input 2': "r18",
       'input 3': "tsc",
       ilvl: 100,
-      output: `usetype,mod,hiq`,
+      output: `usetype,hiq`,
       '*eol\r': '0',
     });
   });

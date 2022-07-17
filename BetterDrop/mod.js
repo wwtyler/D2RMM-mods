@@ -32,11 +32,11 @@ const equipmentMin = 3;
 
 itemratio.rows.forEach((row) => {
 
-  row.Unique = Math.floor(row.Unique / 2.2);
+  row.Unique = Math.floor(row.Unique / 3);
   row.UniqueMin = Math.floor(row.UniqueMin / 2);
 
   row.Set = Math.floor(row.Set / 1.8);
-  row.SetMin = Math.floor(row.SetMin / 2);
+  row.SetMin = Math.floor(row.SetMin / 3);
 
   row.Rare = Math.floor(row.Rare / 2);
   row.RareMin = Math.floor(row.RareMin / 2);
@@ -108,13 +108,13 @@ treasureclassex.rows.forEach((row) => {
     row[unique] = Math.max(850, Math.floor(row[unique]));
   }
   else if (row[unique] >= 800 && row[unique] < 900) {
-    row[unique] = Math.min(950, Math.floor(row[unique]) + 60);
+    row[unique] = Math.min(950, Math.floor(row[unique]) + 80);
   }
   if (row[set] >= 512 && row[set] < 800) {
     row[set] = Math.max(799, Math.floor(row[set]));
   }
   else if (row[set] >= 800 && row[set] < 900) {
-    row[set] = Math.min(950, Math.floor(row[set]) + 50);
+    row[set] = Math.min(950, Math.floor(row[set]) + 60);
   }
   if (row[rare] >= 512 && row[rare] < 850) {
     row[rare] = Math.max(850, Math.floor(row[rare]) + 80);

@@ -36,7 +36,7 @@ skills.rows.forEach((row) => {
   if (row.skill === 'Nova') {
     row.Param8 = 6;// 原始值 5
     //(skill('Static Field'.blvl))*par8
-    row.EDmgSymPerCalc = "(skill('Charged Bolt'.blvl)+skill('Lightning'.blvl))*par8";
+    row.EDmgSymPerCalc = "(skill('Charged Bolt'.blvl)+skill('Lightning'.blvl)+skill('Chain Lightning'.blvl))*par8";
   }
   if (row.skill === 'Fire Wall') {
     row.Param8 = 6;// 原始值 4
@@ -83,6 +83,7 @@ skilldescs.rows.forEach((row) => {
     // 76	Ltngdplev	skillname42	par8
     row.dsc3line2 = 76; row.dsc3texta2 = 'Ltngdplev'; row.dsc3textb2 = 'skillname38'; row.dsc3calca2 = 'par8';
     row.dsc3line3 = 76; row.dsc3texta3 = 'Ltngdplev'; row.dsc3textb3 = 'skillname49'; row.dsc3calca3 = 'par8';
+    row.dsc3line4 = 76; row.dsc3texta4 = 'Ltngdplev'; row.dsc3textb4 = 'skillname53'; row.dsc3calca4 = 'par8';
   }
   if (row.skilldesc == 'conviction') {
     row.desccalca2 = `-min(ln34,${convictionMax})`;

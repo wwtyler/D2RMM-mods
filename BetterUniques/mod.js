@@ -16,21 +16,6 @@ setItems.rows.forEach((item) => {
   // 对所有的属性进行强化。
   enhanceProp(item);
 
-  // 对所有的套装加成属性(add func = 1 or 2)进行强化。
-  for (let i = 1; i <= 5; i++) {
-    // aprop1a   	apar1a 	amin1a 	amax1a 	aprop1b 	apar1b 	amin1b 	amax1b 	
-    // aprop2a    apar2a 	amin2a 	amax2a 	aprop2b 	apar2b 	amin2b 	amax2b 	
-    // aprop3a    apar3a 	amin3a 	amax3a 	aprop3b 	apar3b 	amin3b 	amax3b 	
-    // aprop4a    apar4a 	amin4a 	amax4a 	aprop4b 	apar4b 	amin4b 	amax4b 	
-    // aprop5a  	apar5a 	amin5a 	amax5a 	aprop5b 	apar5b 	amin5b 	amax5b
-    const apropNa = item[`aprop` + i + 'a'];
-    const apropNb = item[`aprop` + i + 'b'];
-    if (apropNa != null && apropNb != null) {
-      if (['mag%', 'mana', 'ac'].includes(apropNa) || ['mag%', 'mana', 'ac'].includes(apropNb)) {
-
-      }
-    }
-  }
 });
 
 uniqueItems.rows.forEach((item) => {
@@ -56,18 +41,18 @@ uniqueItems.rows.forEach((item) => {
 let itemID = Math.max(...uniqueItems.rows.map((row) => row['*ID']));
 uniqueItems.rows.push({
   ...hellfireTorch, index: "Hellfire's Bless", '*ID': (itemID = itemID + 1),
-  carry1: 0, lvl: 70, 'lvl req': 50, '*eol\r': '0',
+  carry1: 1, lvl: 70, 'lvl req': 50, '*eol\r': '0',
   prop1: 'addxp', min1: 5, max1: 10, prop2: 'cheap', min2: 5, max2: 10, prop3: 'move2', min3: 10, max3: 20,
   prop4: 'light', min4: 5, max4: 5, prop5: 'mag%', min5: 5, max5: 15, prop6: 'gold%', par6: '', min6: 25, max6: 50,
 });
 uniqueItems.rows.push({
   ...gheedsFortune, index: "Gheed's Lucky", '*ID': (itemID = itemID + 1),
-  carry1: 0, lvl: 70, 'lvl req': 50, '*eol\r': '0',
+  carry1: 1, lvl: 70, 'lvl req': 50, '*eol\r': '0',
   prop1: 'addxp', min1: 5, max1: 10, prop2: 'cheap', min2: 5, max2: 10, prop3: 'move2', min3: 10, max3: 20,
 });
 uniqueItems.rows.push({
   ...gheedsFortune, index: "Gheed's Lucky", '*ID': (itemID = itemID + 1),
-  carry1: 0, lvl: 70, 'lvl req': 50, '*eol\r': '0',
+  carry1: 1, lvl: 70, 'lvl req': 50, '*eol\r': '0',
   prop1: 'addxp', min1: 5, max1: 10, prop2: 'res-all', min2: 5, max2: 15, prop3: 'all-stats', min3: 10, max3: 20,
 });
 uniqueItems.rows.push({
@@ -229,16 +214,16 @@ function enhanceUniques(item) {
     else if (item.index === "The Stone of Jordan") {
       //The Stone of Jordan	122	0	1		1	1	39	29	rin	Ring		5	5000	whit						
       //mana		20	20	mana%		25	25	ltng-min		1	1	allskills		1	1	ltng-max		12	12
-      item.prop1 = 'mana'; item.min1 = 40; item.max1 = 80;
+      item.prop1 = 'mana'; item.min1 = 30; item.max1 = 60;
       item.prop2 = 'mana%'; item.min2 = 25; item.max2 = 30;
       item.prop3 = 'ltng-min'; item.min3 = 1; item.max3 = 1;
       item.prop4 = 'allskills'; item.min4 = 1; item.max4 = 1;
-      item.prop5 = 'ltng-max'; item.min5 = 200; item.max5 = 200;
+      item.prop5 = 'ltng-max'; item.min5 = 100; item.max5 = 200;
     }
     else if (item.index === "Bul Katho's Wedding Band") {
       // Bul Katho's Wedding Band	268	100	1		1	1	66	58	rin	Ring		5	5000	dpur	dpur						
       // hp/lvl	4			allskills		1	1	lifesteal		3	5	stam		50	50	
-      item.prop1 = 'hp/lvl'; item.min1 = 6; item.max1 = 6;
+      item.prop1 = 'hp/lvl'; item.min1 = 5; item.max1 = 6;
       item.prop2 = 'allskills'; item.min2 = 1; item.max2 = 1;
       item.prop3 = 'lifesteal'; item.min3 = 4; item.max3 = 8;
       item.prop4 = 'stam'; item.min4 = 60; item.max4 = 60;
@@ -385,6 +370,9 @@ function enhanceProp(item) {
       if (['mana-kill', 'heal-kill'].includes(propN)) {
         add(item, i, 2);
       }
+      else if (['red-mag', 'red-dmg'].includes(propN)) {
+        add(item, i, 3);
+      }
       else if (['hp', 'mana'].includes(propN)) {
         add(item, i, 15);
       }
@@ -402,6 +390,8 @@ function enhanceProp(item) {
       }
       else if (['ac%', 'ac-miss', 'ac-hth', 'ac'].includes(propN)) {
         multiply(item, i, 1.3);
+
+
       }
       else if (['att'].includes(propN)) {
         multiply(item, i, 1.5);
@@ -428,7 +418,11 @@ function enhanceProp(item) {
         if (Math.floor(item[`min` + i]) < 25) {
           addMin(item, i, 10.0); //add chance
         }
-        addMax(item, i, 10.0); //add level
+        if (Math.floor(item[`max` + i]) == 0) {
+          addMax(item, i, 30.0); //add chance
+        }
+        else
+          addMax(item, i, 15.0); //add level
       }
       else if (['charged'].includes(propN)) {
         addMax(item, i, 20.0); //add level

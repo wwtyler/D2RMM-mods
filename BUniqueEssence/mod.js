@@ -401,7 +401,7 @@ itemtypes.rows.forEach((itemtype) => {
       ItemType: `ESSENCE Rune`,
       Code: 'runz',
       Equiv1: 'rune',
-      Equiv2: 'misc',
+      Equiv2: 'cst',
     });
   }
 });
