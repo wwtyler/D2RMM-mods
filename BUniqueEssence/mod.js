@@ -382,7 +382,6 @@ setItems.rows.forEach((setItem) => {
       const essenceFileName = `${miscDirFilename}runzs_rune.json`;
       D2RMM.writeJson(essenceFileName, zodRuneJsonTemplate2);
       addEssenceRunes(essenceCode, setItem);
-
     }
   }
 });
@@ -411,8 +410,8 @@ itemModifiers.push({
   id: D2RMM.getNextStringID(),
   Key: 'EssenceRune',
   enUS: 'Rune Extract From Unique Items',
-  zhTW: '暗金物品提取的精华符文',
-  zhCN: '暗金物品提取的精华符文',
+  zhTW: '暗金物品提取的精华符文zhTW',
+  zhCN: '暗金物品提取的精华符文zhCN',
 });
 
 D2RMM.writeJson(itemsFilename, newItems);
@@ -500,20 +499,22 @@ function addEssenceRunes(essenceCode, item) {
       itemName.zhTW = `${itemName.zhTW}\n${itemName.enUS}#${essenceCode}`;
     }
   });
-
+ 
   //符文名称
   itemNames.push({
     id: D2RMM.getNextStringID(),
     Key: `${essenceCode}`,
     enUS: `Essence Rune#${essenceCode}`,
-    zhTW: `ÿcD精符ÿcQ#${essenceCode}ÿcD:${nameStringZHTW}\n${item.index}`
+    zhTW: `ÿcD精符ÿcQ#${essenceCode}ÿcD:${nameStringZHTW}\n${item.index}`,
+    zhCN: `ÿcD精符ÿcQ#${essenceCode}ÿcD:${nameStringZHTW}\n${item.index}`
   });
   //符文说明
   itemRunes.push({
     id: D2RMM.getNextStringID(),
     Key: `${essenceCode}L`,
     enUS: `#${essenceCode}`,
-    zhTW: `ÿcD精符ÿcQ#${essenceCode}ÿcD`
+    zhTW: `ÿcD精符ÿcQ#${essenceCode}ÿcD`,
+    zhCN: `ÿcD精符ÿcQ#${essenceCode}ÿcD`
   });
 
   function getMinusLvlReq() {

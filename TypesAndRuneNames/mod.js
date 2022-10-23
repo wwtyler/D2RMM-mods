@@ -63,12 +63,33 @@ const ALL_GEM_CODES = [
   'skc', 'skf', 'sku', 'skl', 'skz'];
 const ALL_PG_CODES = ['gpv', 'gpy', 'gpb', 'gpg', 'gpr', 'gpw', 'skz'];
 
-//给所有的暗金和套装物品增加enUS和code说明。
 itemNames.forEach((itemName) => {
+
+  //给所有的暗金和套装物品增加enUS和code说明。
   if (ALL_GEM_CODES.includes(itemName.Key)) {
-    itemName.zhTW = `${itemName.zhTW}(${itemName.Key})-${itemName.enUS}`;
+    // itemName.zhTW = `${itemName.zhTW}(${itemName.Key})-${itemName.enUS}`;
+    itemName.zhTW = `${itemName.zhTW}(${itemName.Key})`;
   }
+
+  // if (itemName.Key === 'tbk') {
+  //   // "id": 2199,
+  //   // "Key": "tbk",
+  //   itemName.zhTW = `${itemName.zhTW}` + '\n 公式：\n 打孔：A+B+C';
+  // }
+
+  // if (itemName.Key === 'box') {
+  //   // "id": 2231,
+  //   // "Key": "box",
+  //   itemName.zhTW = 'ÿc4'
+  //     + '\n ÿcN 打孔 runx,qty=n + runz,qty=1'
+  //     + '\n ÿc; 最大孔数：白装6，亮金4，暗金&套装2，手套鞋子3'
+  //     + '\n ÿc< run1~5（数字符文） = runx， run3~5 = cst'
+  //     + '\n ÿc1 runz（精华符文） = cst（Reroll Cost）'
+  //     + '\n ÿc4 ' + `${itemName.zhTW}ÿc4`;
+  // }
+
 });
+
 D2RMM.writeJson(itemNamesFilename, itemNames);
 
 //对所有的符文进行run1-run5的分级。

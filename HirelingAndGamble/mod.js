@@ -34,9 +34,9 @@ npcs.rows.forEach((npc) => {
   const maxBuy = 'max buy';
   const maxBuyNm = 'max buy (N)'
   const maxBuyHell = 'max buy (H)\r'
-  npc[maxBuy] = 50000;
-  npc[maxBuyNm] = 75000;
-  npc[maxBuyHell] = 100000;
+  npc[maxBuy] = 40000;
+  npc[maxBuyNm] = 60000;
+  npc[maxBuyHell] = 80000;
 
 });
 D2RMM.writeTsv(npcFilename, npcs);
@@ -46,8 +46,8 @@ D2RMM.writeTsv(npcFilename, npcs);
 const hirelingFilename = 'global\\excel\\hireling.txt';
 const hirelings = D2RMM.readTsv(hirelingFilename);
 hirelings.rows.forEach((hireling) => {
-  if (hireling.resurrectcostmax != null && hireling.resurrectcostmax > 30000)
-    hireling.resurrectcostmax = 30001;
+  if (hireling.resurrectcostmax != null && hireling.resurrectcostmax > 35000)
+    hireling.resurrectcostmax = 35000;
 
 });
 D2RMM.writeTsv(hirelingFilename, hirelings);
@@ -80,6 +80,9 @@ D2RMM.writeTsv(itemtypesFilename, itemtypes);
 //     row['gamble cost'] = 42000;
 //   }
 // });
+
+// const gambleFilename = 'global\\excel\\gamble.txt';
+// const gambles = D2RMM.readTsv(gambleFilename);
 // gambles.rows.push({
 //   name: `Charm Small`,
 //   'code\r': 'cm1'
@@ -93,8 +96,6 @@ D2RMM.writeTsv(itemtypesFilename, itemtypes);
 //   'code\r': 'cm3'
 // });
 
-// D2RMM.writeTsv(miscFilename, miscs);
-// D2RMM.writeTsv(armorFilename, armors);
-// D2RMM.writeTsv(weaponsFilename, weapons);
+
 // D2RMM.writeTsv(gambleFilename, gambles);
 

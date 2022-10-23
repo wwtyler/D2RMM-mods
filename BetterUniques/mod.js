@@ -77,21 +77,21 @@ uniqueItems.rows.push({
 
 itemNames.push({
   id: D2RMM.getNextStringID(),
-  Key: `Rainbow Stone`, enUS: `Rainbow Stone`, zhTW: `ÿcDRainbow StoneÿcD`
+  Key: `Rainbow Stone`, enUS: `Rainbow Stone`, zhTW: `ÿcDRainbow StoneÿcD`, zhCN: `ÿcDRainbow StoneÿcD`
 });
 
 itemNames.push({
   id: D2RMM.getNextStringID(),
-  Key: `Hellfire's Bless`, enUS: `Hellfire's Bless`, zhTW: `ÿcDHellfire's BlessÿcD`
+  Key: `Hellfire's Bless`, enUS: `Hellfire's Bless`, zhTW: `ÿcDHellfire's BlessÿcD`, zhCN: `ÿcDHellfire's BlessÿcD`
 });
 itemNames.push({
   id: D2RMM.getNextStringID(),
-  Key: `Gheed's Lucky`, enUS: `Gheed's Lucky`, zhTW: `ÿcDGheed's LuckyÿcD`
+  Key: `Gheed's Lucky`, enUS: `Gheed's Lucky`, zhTW: `ÿcDGheed's LuckyÿcD`, zhCN: `ÿcDGheed's LuckyÿcD`
 });
 
 itemNames.push({
   id: D2RMM.getNextStringID(),
-  Key: `Azurewrath1`, enUS: `Azurewrath1`, zhTW: `ÿcDAzurewrath1ÿcD`
+  Key: `Azurewrath1`, enUS: `Azurewrath1`, zhTW: `ÿcDAzurewrath1ÿcD`, zhCN: `ÿcDAzurewrath1ÿcD`
 });
 
 D2RMM.writeTsv(uniqueItemsFilename, uniqueItems);
@@ -235,6 +235,9 @@ function enhanceUniques(item) {
       item.prop1 = 'allskills'; item.min1 = 2; item.max1 = 2;
       item.prop2 = 'res-all'; item.min2 = 25; item.max2 = 35;
       item.prop3 = 'all-stats'; item.min3 = 10; item.max3 = 15;
+      item.prop4 = ''; item.min4 = 0; item.max4 = 0;
+      item.prop5 = ''; item.min5 = 0; item.max5 = 0;
+      item.prop6 = ''; item.min6 = 0; item.max6 = 0;
     }
     else if (item.index === "Crescent Moon") {
       // Crescent Moon	271	100	1		2	1	58	50	amu	Amulet		5	5000	lblu	lblu						

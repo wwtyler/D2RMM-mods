@@ -221,15 +221,15 @@ const MOD_PROP = {
     ['全抗性', { code: 'res-all', min: 12, max: 15 }, { lvl: 35, lvlreq: 23, freq: 1 }, M_ITS.NORMAL.concat(M_ITS.CM3_JEW)],
     ['全抗性', { code: 'res-all', min: 15, max: 18 }, { lvl: 55, lvlreq: 43, freq: 1 }, M_ITS.NORMAL.concat(M_ITS.CM3_JEW)],
 
-    ['全属性', { code: 'all-stats', min: 2, max: 4 }, { lvl: 5, lvlreq: 3, freq: 1 }, M_ITS.NORMAL.concat(M_ITS.CM32_JEW)],
-    ['全属性', { code: 'all-stats', min: 3, max: 6 }, { lvl: 15, lvlreq: 8, freq: 1 }, M_ITS.NORMAL.concat(M_ITS.CM32_JEW)],
-    ['全属性', { code: 'all-stats', min: 5, max: 8 }, { lvl: 35, lvlreq: 23, freq: 1 }, M_ITS.NORMAL.concat(M_ITS.CM3_JEW)],
-    ['全属性', { code: 'all-stats', min: 6, max: 10 }, { lvl: 45, lvlreq: 30, freq: 1 }, M_ITS.NORMAL.concat(M_ITS.CM3_JEW)],
+    ['全属性', { code: 'all-stats', min: 2, max: 3 }, { lvl: 5, lvlreq: 3, freq: 1 }, M_ITS.NORMAL.concat(M_ITS.CM32_JEW)],
+    ['全属性', { code: 'all-stats', min: 3, max: 5 }, { lvl: 15, lvlreq: 8, freq: 1 }, M_ITS.NORMAL.concat(M_ITS.CM32_JEW)],
+    ['全属性', { code: 'all-stats', min: 4, max: 6 }, { lvl: 35, lvlreq: 23, freq: 1 }, M_ITS.NORMAL.concat(M_ITS.CM3_JEW)],
+    ['全属性', { code: 'all-stats', min: 5, max: 8 }, { lvl: 45, lvlreq: 30, freq: 1 }, M_ITS.NORMAL.concat(M_ITS.CM3_JEW)],
 
     ['击杀回蓝', { code: 'mana-kill', min: 2, max: 3 }, { lvl: 5, lvlreq: 3, freq: 1 }, M_ITS.M_EK.concat(M_ITS.CM32_JEW)],
     ['击杀回蓝', { code: 'mana-kill', min: 3, max: 5 }, { lvl: 15, lvlreq: 13, freq: 1 }, M_ITS.M_EK.concat(M_ITS.CM32_JEW)],
-    ['击杀回蓝', { code: 'mana-kill', min: 5, max: 7 }, { lvl: 35, lvlreq: 23, freq: 1 }, M_ITS.M_EK.concat(M_ITS.CM32_JEW)],
-    ['击杀回蓝', { code: 'mana-kill', min: 7, max: 10 }, { lvl: 45, lvlreq: 30, freq: 1 }, M_ITS.M_EK.concat(M_ITS.CM3_JEW)],
+    ['击杀回蓝', { code: 'mana-kill', min: 4, max: 6 }, { lvl: 35, lvlreq: 23, freq: 1 }, M_ITS.M_EK.concat(M_ITS.CM32_JEW)],
+    ['击杀回蓝', { code: 'mana-kill', min: 5, max: 8 }, { lvl: 45, lvlreq: 30, freq: 1 }, M_ITS.M_EK.concat(M_ITS.CM3_JEW)],
 
     ['击杀回红', { code: 'heal-kill', min: 2, max: 3 }, { lvl: 5, lvlreq: 3, freq: 1 }, M_ITS.H_EK.concat(M_ITS.CM321_JEW)],
     ['击杀回红', { code: 'heal-kill', min: 3, max: 5 }, { lvl: 15, lvlreq: 13, freq: 1 }, M_ITS.H_EK.concat(M_ITS.CM32_JEW)],
@@ -1400,7 +1400,8 @@ BOOST_MODIFIERS.forEach(([modName, modeType, modLable]) => {
         id: D2RMM.getNextStringID(),
         Key: `${modClassPrefix}${modName.toUpperCase()}-${modRank}`,
         enUS: `${modClassPrefix}${modName.toUpperCase()}-${modRank}`,
-        zhTW: `${modClassPrefix}${modLable}${modRank}`
+        zhTW: `${modClassPrefix}${modLable}${modRank}`,
+        zhCN: `${modClassPrefix}${modLable}${modRank}`
       });
 
       //ITYPE的缺省值

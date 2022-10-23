@@ -98,11 +98,11 @@ qualityitems.rows.forEach((item) => {
   if (item.mod1code == 'ac%' && item.mod2code == 'dur%') { item.mod1min = 15; item.mod1max = 30; item.mod2min = 15; item.mod2max = 30; }
 });
 qualityitems.rows.push({
-  mod1code: 'dmg/lvl', mod1min: 8, mod1max: 20,
+  mod1code: 'dmg/lvl', mod1min: 6, mod1max: 12,
   armor: 0, weapon: 1, shield: 1, scepter: 0, wand: 0, staff: 0, bow: 1, boots: 0, gloves: 0, 'belt\r': 0,
 });
 qualityitems.rows.push({
-  mod1code: 'att/lvl', mod1min: 8, mod1max: 20,
+  mod1code: 'att/lvl', mod1min: 4, mod1max: 10,
   armor: 0, weapon: 1, shield: 1, scepter: 0, wand: 0, staff: 0, bow: 1, boots: 0, gloves: 0, 'belt\r': 0,
 });
 qualityitems.rows.push({

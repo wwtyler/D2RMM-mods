@@ -70,8 +70,8 @@ EQUIP_TYPES.forEach((equipType) => {
           enabled: 1, version: 100,
           numinputs: sockets + 2,
           'input 1': `${equipType},${rarity},nos`,
-          'input 2': `runx,qty=${sockets}`,
-          'input 3': `runz,qty=1`,
+          'input 2': `runx,qty=${sockets}`,//標準符文
+          'input 3': `runz,qty=1`,//精華符文
           'mod 1': 'sock',
           'mod 1 min': Math.min(sockets, socketMaxNum + bonus),
           'mod 1 max': Math.min(sockets, socketMaxNum + bonus),

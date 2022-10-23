@@ -34,13 +34,3 @@
 // ÿcB - blue1
 // ÿcG - lightpink
 // ÿcO - pink
-
-
-// D2RMM.copyFile(
-//     '../../../mods/D2RMM/D2RMM.mpq/', // <mod folder>\Local
-//     '../../../../D2RMM 1.3/mods/Package/D2RMM.mpq/', // <diablo 2 folder>\mods\<modname>\<modname>.mpq\data\local
-//     true // overwrite any conflicts
-// );
-
-
-// const CLASS_NAMES = ['Amazon', 'Sorceress', 'Necromancer', 'Paladin', 'Barbarian', 'Druid', 'Assassin'];

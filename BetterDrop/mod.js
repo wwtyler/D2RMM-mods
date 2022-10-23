@@ -4,10 +4,14 @@ const itemratio = D2RMM.readTsv(itemratioFilename);
 const treasureclassex = D2RMM.readTsv(treasureclassexFilename);
 
 const DIFFICULTY_AFFIXES = ['', ' (N)', ' (H)'];
+
 const DIFFICULTY_QUEST_AFFIXES = ['q', 'q (N)', 'q (H)'];
 const PANDEMONIUSMS = ['Pandemonium Key A', 'Pandemonium Key B', 'Pandemonium Key C'];
 // 特别注意：都瑞尔的treasure class =  Duriel (H) - Base。
 const BOSS_NAMES = ['Andariel', 'Duriel', 'Mephisto', 'Diablo', 'Baal', 'Radament', 'Summoner', 'Council', 'Haphesto', 'Nihlathak', 'Blood Raven', 'Izual', 'Cow King', 'Countess'];
+
+const BOSS_NAMES_RUNE_DROP = ['Andarielq (H)', 'Duriel (H) - Base', 'Mephisto (H)', 'Diablo (H)', 'Nihlathak (H)', 'Baal (H)', 'Izual (H)', 'Haphesto (H)', 'Cow (H)', 'Council (H)', 'Summoner (H)', 'Radament (H)'];
+
 const ACT_GOODS = [
   'Act 5 (H) Good', 'Act 4 (H) Good', 'Act 3 (H) Good', 'Act 2 (H) Good', 'Act 1 (H) Good',
   'Act 5 (N) Good', 'Act 4 (N) Good', 'Act 3 (N) Good', 'Act 2 (N) Good', 'Act 1 (N) Good',
@@ -32,16 +36,16 @@ const equipmentMin = 3;
 
 itemratio.rows.forEach((row) => {
 
-  row.Unique = Math.floor(row.Unique / 3);
+  row.Unique = Math.floor(row.Unique / 3.5);
   row.UniqueMin = Math.floor(row.UniqueMin / 2);
 
-  row.Set = Math.floor(row.Set / 1.8);
+  row.Set = Math.floor(row.Set / 2);
   row.SetMin = Math.floor(row.SetMin / 3);
 
-  row.Rare = Math.floor(row.Rare / 2);
+  row.Rare = Math.floor(row.Rare / 2.5);
   row.RareMin = Math.floor(row.RareMin / 2);
 
-  row.Magic = Math.floor(row.Magic / 2);
+  row.Magic = Math.floor(row.Magic / 2.5);
   row.MagicMin = Math.floor(row.MagicMin / 2);
 
   // row.HiQuality = Math.max(
@@ -93,11 +97,14 @@ treasureclassex.rows.forEach((row) => {
 
 treasureclassex.rows.forEach((row) => {
   const treasureClass = row['Treasure Class'];
+  const item3 = row['Item3'];
+  const prob3 = row['Prob3'];
 
   const prob9 = 'Prob9';
   const unique = 'Unique';
   const set = 'Set';
   const rare = 'Rare';
+  const magic = 'Magic';
   // 高级别装备掉落概率
   if (row[prob9] > 0) {
     row[prob9] = Math.floor(800 * row[prob9] / 1800);
@@ -123,15 +130,35 @@ treasureclassex.rows.forEach((row) => {
     row[rare] = Math.min(999, Math.floor(row[rare]) + 80);
   }
 
+
+  // if (BOSS_NAMES_RUNE_DROP.includes(treasureClass)) {
+  //   row[unique] = 981;
+  //   row[set] = 980
+  //   row[rare] = 1014;
+  //   row[magic] = 1024;
+  //   row['Item3'] = 'Runes 17';
+  //   row['Prob3'] = Math.max(Math.floor(prob3 * 1.5), 1);
+  // }
+
+
   // 关卡Boss掉落调整
   BOSS_NAMES.forEach((bossName) => {
-    DIFFICULTY_AFFIXES.forEach((difficultyAffix) => {
+    ['', ' (N)', ' (H)'].forEach((difficultyAffix) => {
       const bossCell = `${bossName}${difficultyAffix}`;
+      let drops;
+      if (difficultyAffix === '') drops = 'Runes 12';
+      if (difficultyAffix === ' (N)') drops = 'Runes 15';
+      if (difficultyAffix === ' (H)') drops = 'Runes 17';
+
       if (treasureClass === bossCell) {
-        row['Unique'] = 983;
-        row['Set'] = 983
-        row['Rare'] = 1020;
-        row['Magic'] = 1024;
+        row[unique] = 985;
+        row[set] = 980
+        row[rare] = 1012;
+        row[magic] = 1020;
+        if (row['Prob3'] > 0) {
+          row['Item3'] = `${drops}`;
+          row['Prob3'] = Math.max(Math.floor(prob3 * 2.5), 1);
+        }
       }
     });
   });
@@ -142,7 +169,7 @@ treasureclassex.rows.forEach((row) => {
       const bossQuestCell = `${bossName}${difficultyQuestAffix}`;
       if (treasureClass === bossQuestCell) {
         if (row['Prob2'] > 0)
-          row['Prob2'] = Math.floor(row['Prob2'] * 1.5);
+          row['Prob2'] = Math.floor(row['Prob2'] * 2.5);
       }
     })
   });
@@ -174,7 +201,7 @@ treasureclassex.rows.forEach((row) => {
     const prob6 = row['Prob6'];
     const level = row['level'];
     if (item6 != null && item6.substring(0, 5) == "Runes") {
-      row['Prob6'] = Math.floor(prob6 * 2);
+      row['Prob6'] = Math.floor(prob6 * 3);
     }
     //增加完美宝石的掉落。
     if (level != null && level >= 66) {//hell Good begin at level 66

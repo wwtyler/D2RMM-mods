@@ -1,0 +1,50 @@
+{
+  "name": "Singleplayer Sundering Charms",
+  "description": "Allows the Sundering Charms to drop in singleplayer/offline games.",
+  "author": "Jobus",
+  "version": "1.1",
+  "config": [
+    {
+      "id": "coldrupture",
+      "type": "checkbox",
+      "name": "Cold Rupture (Cold)",
+      "description": "Enable drop for this charm. Each enabled charm makes all other unique charms rarer.",
+      "defaultValue": true
+    },
+    {
+      "id": "flamerift",
+      "type": "checkbox",
+      "name": "Flame Rift (Fire)",
+      "description": "Enable drop for this charm. Each enabled charm makes all other unique charms rarer.",
+      "defaultValue": true
+    },
+    {
+      "id": "crackoftheheavens",
+      "type": "checkbox",
+      "name": "Crack of the Heavens (Lightning)",
+      "description": "Enable drop for this charm. Each enabled charm makes all other unique charms rarer.",
+      "defaultValue": true
+    },
+    {
+      "id": "rottingfissure",
+      "type": "checkbox",
+      "name": "Rotting Fissure (Poison)",
+      "description": "Enable drop for this charm. Each enabled charm makes all other unique charms rarer.",
+      "defaultValue": true
+    },
+    {
+      "id": "bonebreak",
+      "type": "checkbox",
+      "name": "Bone Break (Physical)",
+      "description": "Enable drop for this charm. Each enabled charm makes all other unique charms rarer.",
+      "defaultValue": true
+    },
+    {
+      "id": "blackcleft",
+      "type": "checkbox",
+      "name": "Black Cleft (Magic)",
+      "description": "Enable drop for this charm. Each enabled charm makes all other unique charms rarer.",
+      "defaultValue": true
+    }
+  ]
+}

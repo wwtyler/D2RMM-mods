@@ -157,7 +157,8 @@ itemModifiers.push({
     id: D2RMM.getNextStringID(),
     Key: 'innernumdesc',
     enUS: '%+d innernum',
-    zhTW: '%+d innernum'
+    zhTW: '%+d innernum',
+    zhCN: '%+d innernum'
 });
 
 D2RMM.writeJson(itemModifiersFilename, itemModifiers);

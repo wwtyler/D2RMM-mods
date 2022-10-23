@@ -11,7 +11,11 @@ misc.rows.forEach((row) => {
   if (row.type === "rune") {
     row.spawnable = 1;
   }
-  if (row.type === "rune" && row.rarity < 10 || row.code === "r18" || row.code === "r25") {
+  if (
+    row.type === "rune" && row.rarity < 10
+    // || row.code === "r18"
+    // || row.code === "r25"
+  ) {
     row.PermStoreItem = 1;
 
     // 如果rarity<3,会导致魔盒公式问题。因为runx的rarity=3。
@@ -51,8 +55,8 @@ misc.rows.forEach((row) => {
 
   if (
     row.code === "jew"
-    || row.code === "cm1" || row.code === "cm2" || row.code === "cm3"
-    // || row.code === "rvs" || row.code === "rvl" 
+    // || row.code === "cm1" || row.code === "cm2" || row.code === "cm3"
+    || row.code === "rvs" || row.code === "rvl"
   ) {
     // row.PermStoreItem = 1;
     row.spawnable = 1;

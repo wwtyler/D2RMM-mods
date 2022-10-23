@@ -43,10 +43,26 @@ const NIHLATHAK_TEMPLE_NAMES = [
   ["Act 5 - Temple Boss", "Halls of Vaught", "沃特之廳[36/64/85]"]
 ];
 
+const MOO_MOO_FARM_NAMES = [
+  ["Act 1 - Moo Moo Farm", "Moo Moo Farm", "神秘的奶牛关[28/64/85]"]
+];
+
 levels.rows.forEach((row) => {
+  //尼拉塞克
   NIHLATHAK_TEMPLE_NAMES.forEach(([nName, levelKey, levelLabel]) => {
     if (row.Name == nName) {
       row['MonLvlEx(H)'] = 85;
+    }
+  });
+
+  //神秘的奶牛关
+  MOO_MOO_FARM_NAMES.forEach(([nName, levelKey, levelLabel]) => {
+    if (row.Name == nName) {
+      row['MonLvlEx(H)'] = 88;
+      // SizeX	SizeY	SizeX(N)	SizeY(N)	SizeX(H)	SizeY(H)
+      row['SizeX(H)'] = 120;
+      row['SizeY(H)'] = 120;
+      row['MonDen(H)'] = 1500;
     }
   });
 });
@@ -57,7 +73,16 @@ const levelNamesFilename = 'local\\lng\\strings\\levels.json';
 const levelNames = D2RMM.readJson(levelNamesFilename);
 
 levelNames.forEach((levelName) => {
+  //尼拉塞克
   NIHLATHAK_TEMPLE_NAMES.forEach(([nName, levelKey, levelLabel]) => {
+    const itemKey = levelName.Key;
+    if (itemKey == levelKey) {
+      levelName.zhTW = levelLabel;
+    }
+  });
+
+  //神秘的奶牛关
+  MOO_MOO_FARM_NAMES.forEach(([nName, levelKey, levelLabel]) => {
     const itemKey = levelName.Key;
     if (itemKey == levelKey) {
       levelName.zhTW = levelLabel;
